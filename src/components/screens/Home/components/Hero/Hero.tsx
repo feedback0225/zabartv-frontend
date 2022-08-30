@@ -64,6 +64,7 @@ export const Hero = () => {
                             <Link href={el.href}>
                                 <a className={styles.item}>
                                     <Image
+                                        priority
                                         quality={100}
                                         src={el.source}
                                         alt={el.alt}

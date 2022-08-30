@@ -6,19 +6,19 @@
 .next {
     position: absolute;
     z-index: 2;
-    top: 38%;
+    top: 36%;
 }
 
 .prev {
     left: 0;
     right: auto;
-    transform: translate(-50%, 0);
+    transform: translateX(-50%);
 }
 
 .next {
     left: auto;
     right: 0;
-    transform: translate(50%, 0);
+    transform: translateX(50%);
 }
 
 .slider {
