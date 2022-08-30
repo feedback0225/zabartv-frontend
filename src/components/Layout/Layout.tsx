@@ -1,5 +1,6 @@
-import {FC, PropsWithChildren} from "react"
-import {Header} from "@/components/Header/Header"
+import { FC, PropsWithChildren } from "react"
+import { Header } from "@/components/Header/Header"
+import { Footer } from "../Footer/Footer"
 
 export const Layout: FC<PropsWithChildren<{}>> = ({children}) => {
     return (
@@ -8,6 +9,7 @@ export const Layout: FC<PropsWithChildren<{}>> = ({children}) => {
             <main className='main'>
                 {children}
             </main>
+            <Footer />
         </>
     )
 }

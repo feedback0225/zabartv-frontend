@@ -5,7 +5,7 @@ import classNames from "classnames";
 interface TitleProps {
   className?: string;
   level?: Levels;
-  size?: 'large' | 'medium';
+  size?: 'small' | 'large' | 'medium';
 }
 
 type Levels = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
@@ -19,6 +19,7 @@ export const Title: FC<PropsWithChildren<TitleProps>> = (({className, size, leve
         styles.title,
         size === 'medium' && styles.medium,
         size === 'large' && styles.large,
+        size === 'small' && styles.small,
         className
     )}
       {...props}

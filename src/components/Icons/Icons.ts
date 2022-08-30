@@ -8,6 +8,9 @@ import MoonIcon from './svg/moon.svg'
 import SunIcon from './svg/sun.svg'
 import MenuIcon from './svg/menu.svg'
 import PlayIcon from './svg/play.svg'
+import TelegramIcon from './svg/telegram.svg'
+import YoutubeIcon from './svg/youtube.svg'
+import InstagramIcon from './svg/instagram.svg'
 
 export {
     ProfileIcon,
@@ -19,5 +22,8 @@ export {
     MoonIcon,
     SunIcon,
     MenuIcon,
-    PlayIcon
+    PlayIcon,
+    TelegramIcon,
+    YoutubeIcon,
+    InstagramIcon
 }
