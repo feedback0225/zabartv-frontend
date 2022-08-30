@@ -7,17 +7,17 @@ import styles from './Humor.module.scss'
 export const Humor = () => {
 
     const data = [
-        {image: '/movie.jpg', id: 1, name: 'RRR', rating: 7.2, genre: 'Комедия', type: 'Фильм', time: '1 час 33 минуты', year: 2022, age: '6+', status: 'Подписка'},
-        {image: '/movie.jpg', id: 2, name: 'Молодой человек', rating: 7.2, genre: 'Комедия', type: 'Фильм', time: '1 час 33 минуты', year: 2022, age: '6+', status: 'Подписка'},
-        {image: '/movie.jpg', id: 3, name: 'RRR', rating: 7.2, genre: 'Комедия', type: 'Фильм', time: '1 час 33 минуты', year: 2022, age: '6+', status: 'Подписка'},
-        {image: '/movie.jpg', id: 4, name: 'Молодой человек', rating: 7.2, genre: 'Комедия', type: 'Фильм', time: '1 час 33 минуты', year: 2022, age: '6+', status: 'Подписка'},
-        {image: '/movie.jpg', id: 5, name: 'RRR', rating: 7.2, genre: 'Комедия', type: 'Фильм', time: '1 час 33 минуты', year: 2022, age: '6+', status: 'Подписка'},
-        {image: '/movie.jpg', id: 6, name: 'Молодой человек', rating: 7.2, genre: 'Комедия', type: 'Фильм', time: '1 час 33 минуты', year: 2022, age: '6+', status: 'Подписка'},
-        {image: '/movie.jpg', id: 7, name: 'RRR', rating: 7.2, genre: 'Комедия', type: 'Фильм', time: '1 час 33 минуты', year: 2022, age: '6+', status: 'Подписка'},
-        {image: '/movie.jpg', id: 8, name: 'Молодой человек', rating: 7.2, genre: 'Комедия', type: 'Фильм', time: '1 час 33 минуты', year: 2022, age: '6+', status: 'Подписка'},
-        {image: '/movie.jpg', id: 9, name: 'RRR', rating: 7.2, genre: 'Комедия', type: 'Фильм', time: '1 час 33 минуты', year: 2022, age: '6+', status: 'Подписка'},
-        {image: '/movie.jpg', id: 10, name: 'Молодой человек', rating: 7.2, genre: 'Комедия', type: 'Фильм', time: '1 час 33 минуты', year: 2022, age: '6+', status: 'Подписка'},
-        {image: '/movie.jpg', id: 11, name: 'RRR', rating: 7.2, genre: 'Комедия', type: 'Фильм', time: '1 час 33 минуты', year: 2022, age: '6+', status: 'Подписка'},
+        {image: '/movie.jpg', id: 1, title: 'RRR', rating: 7.2, genre: 'Комедия', type: 'Фильм', time: '1 час 33 минуты', year: 2022, age: '6+', status: 'Подписка'},
+        {image: '/movie.jpg', id: 2, title: 'Молодой человек', rating: 7.2, genre: 'Комедия', type: 'Фильм', time: '1 час 33 минуты', year: 2022, age: '6+', status: 'Подписка'},
+        {image: '/movie.jpg', id: 3, title: 'RRR', rating: 7.2, genre: 'Комедия', type: 'Фильм', time: '1 час 33 минуты', year: 2022, age: '6+', status: 'Подписка'},
+        {image: '/movie.jpg', id: 4, title: 'Молодой человек', rating: 7.2, genre: 'Комедия', type: 'Фильм', time: '1 час 33 минуты', year: 2022, age: '6+', status: 'Подписка'},
+        {image: '/movie.jpg', id: 5, title: 'RRR', rating: 7.2, genre: 'Комедия', type: 'Фильм', time: '1 час 33 минуты', year: 2022, age: '6+', status: 'Подписка'},
+        {image: '/movie.jpg', id: 6, title: 'Молодой человек', rating: 7.2, genre: 'Комедия', type: 'Фильм', time: '1 час 33 минуты', year: 2022, age: '6+', status: 'Подписка'},
+        {image: '/movie.jpg', id: 7, title: 'RRR', rating: 7.2, genre: 'Комедия', type: 'Фильм', time: '1 час 33 минуты', year: 2022, age: '6+', status: 'Подписка'},
+        {image: '/movie.jpg', id: 8, title: 'Молодой человек', rating: 7.2, genre: 'Комедия', type: 'Фильм', time: '1 час 33 минуты', year: 2022, age: '6+', status: 'Подписка'},
+        {image: '/movie.jpg', id: 9, title: 'RRR', rating: 7.2, genre: 'Комедия', type: 'Фильм', time: '1 час 33 минуты', year: 2022, age: '6+', status: 'Подписка'},
+        {image: '/movie.jpg', id: 10, title: 'Молодой человек', rating: 7.2, genre: 'Комедия', type: 'Фильм', time: '1 час 33 минуты', year: 2022, age: '6+', status: 'Подписка'},
+        {image: '/movie.jpg', id: 11, title: 'RRR', rating: 7.2, genre: 'Комедия', type: 'Фильм', time: '1 час 33 минуты', year: 2022, age: '6+', status: 'Подписка'},
     ]
 
     const tabs = [

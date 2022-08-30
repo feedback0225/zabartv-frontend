@@ -10,7 +10,7 @@ interface MusicItemProps {
 
 export const MusicItem: FC<MusicItemProps> = ({item}) => {
 
-    const {poster, id, name, status} = item
+    const {poster, id, title, status} = item
 
     return (
         <Link href='/music'>
@@ -22,13 +22,13 @@ export const MusicItem: FC<MusicItemProps> = ({item}) => {
                         unoptimized
                         layout="fill"
                         src={poster}
-                        alt={name}
+                        alt={title}
                     />
                     <span className={styles.play}>
                         <PlayIcon />
                     </span>
                 </div>
-                <h3 className={styles.name}>{name}</h3>
+                <h3 className={styles.title}>{title}</h3>
                 <span className={styles.status}>{status}</span>
             </a>
         </Link>

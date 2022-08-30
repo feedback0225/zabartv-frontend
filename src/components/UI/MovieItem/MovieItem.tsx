@@ -10,7 +10,7 @@ interface MovieItemProps {
 
 export const MovieItem: FC<MovieItemProps> = ({item}) => {
 
-    const {image, id, name, rating, genre, type, time, year, age, status} = item;
+    const {image, id, title, rating, genre, type, time, year, age, status} = item;
 
     return (
         <Link href='/movie'>
@@ -22,7 +22,7 @@ export const MovieItem: FC<MovieItemProps> = ({item}) => {
                         unoptimized
                         layout="fill"
                         src={image}
-                        alt={name}
+                        alt={title}
                     />
                     <span className={styles.rating}>{rating}</span>
                     <div className={styles.content}>
@@ -43,7 +43,7 @@ export const MovieItem: FC<MovieItemProps> = ({item}) => {
                         </div>
                     </div>
                 </div>
-                <h3 className={styles.name}>{name}</h3>
+                <h3 className={styles.title}>{title}</h3>
                 <span className={styles.status}>{status}</span>
             </a>
         </Link>

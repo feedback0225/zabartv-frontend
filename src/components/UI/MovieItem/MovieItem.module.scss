@@ -30,7 +30,6 @@
 }
 
 .rating {
-    display: none;
     position: absolute;
     z-index: 3;
     top: 0;
@@ -94,7 +93,7 @@
     display: block;
     font-size: 20px;
     line-height: 36px;
-    color: var(--color-light);
+    color: #ccd5e8;
 
     &:not(:last-child) {
         position: relative;
@@ -129,12 +128,13 @@
     }
 }
 
-.name {
+.title {
     margin: 0;
     font-weight: 700;
     font-size: 28px;
     line-height: 34px;
     color: var(--color-white);
+    transition: color 0.3s;
 }
 
 .status {
@@ -142,4 +142,5 @@
     line-height: 25.2px;
     font-weight: 400;
     color: var(--color-light);
+    transition: color 0.3s;
 }

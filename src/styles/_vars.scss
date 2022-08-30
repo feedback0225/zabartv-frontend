@@ -15,3 +15,9 @@
   --color-primary: #fca11a;
   --color-primary-active: #ffaf37;
 }
+
+[data-theme="light"] {
+  --color-dark: #fff;
+  --color-white: #463F33;
+  --color-light: #6d6453;
+}

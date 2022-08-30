@@ -7,16 +7,16 @@ import styles from './Music.module.scss'
 export const Music = () => {
 
     const data = [
-        {poster: '/poster.jpg', id: 1, name: 'Концерт Billie', status: 'Подписка'},
-        {poster: '/poster.jpg', id: 2, name: 'Концерт Billie', status: 'Подписка'},
-        {poster: '/poster.jpg', id: 3, name: 'Концерт Billie', status: 'Подписка'},
-        {poster: '/poster.jpg', id: 4, name: 'Концерт Billie', status: 'Подписка'},
-        {poster: '/poster.jpg', id: 5, name: 'Концерт Billie', status: 'Подписка'},
-        {poster: '/poster.jpg', id: 6, name: 'Концерт Billie', status: 'Подписка'},
-        {poster: '/poster.jpg', id: 7, name: 'Концерт Billie', status: 'Подписка'},
-        {poster: '/poster.jpg', id: 8, name: 'Концерт Billie', status: 'Подписка'},
-        {poster: '/poster.jpg', id: 9, name: 'Концерт Billie', status: 'Подписка'},
-        {poster: '/poster.jpg', id: 10, name: 'Концерт Billie', status: 'Подписка'},
+        {poster: '/poster.jpg', id: 1, title: 'Концерт Billie', status: 'Подписка'},
+        {poster: '/poster.jpg', id: 2, title: 'Концерт Billie', status: 'Бесплатно'},
+        {poster: '/poster.jpg', id: 3, title: 'Концерт Billie', status: 'Бесплатно'},
+        {poster: '/poster.jpg', id: 4, title: 'Концерт Billie', status: 'Бесплатно'},
+        {poster: '/poster.jpg', id: 5, title: 'Концерт Billie', status: 'Бесплатно'},
+        {poster: '/poster.jpg', id: 6, title: 'Концерт Billie', status: 'Бесплатно'},
+        {poster: '/poster.jpg', id: 7, title: 'Концерт Billie', status: 'Бесплатно'},
+        {poster: '/poster.jpg', id: 8, title: 'Концерт Billie', status: 'Бесплатно'},
+        {poster: '/poster.jpg', id: 9, title: 'Концерт Billie', status: 'Бесплатно'},
+        {poster: '/poster.jpg', id: 10, title: 'Концерт Billie', status: 'Бесплатно'},
     ]
 
     const tabs = [

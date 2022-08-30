@@ -31,15 +31,28 @@
     }
 }
 
+[data-theme="light"] {
+    .link {
+        border: 1px solid #e2E0dd;
+
+        &:hover {
+            border-color: var(--color-light);
+            background-color: var(--color-light);
+            color: #fff;
+        }
+    }
+}
+
 .link {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 57px;
     height: 57px;
+    color: var(--color-light);
     border: 1px solid #273551;
     border-radius: 100%;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 
     @media (max-width: 576px) {
         width: 40px;
@@ -54,6 +67,7 @@
         display: block;
         width: 23px;
         height: 23px;
+        fill: currentColor;
 
         @media (max-width: 576px) {
             width: 16px;
