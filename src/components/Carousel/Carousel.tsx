@@ -8,15 +8,9 @@ import 'swiper/css';
 const breakpoints = {
     769: {
         slidesPerView: 3,
-        spaceBetween: 24
     },
     1025: {
         slidesPerView: 4,
-        spaceBetween: 26
-    },
-    1200: {
-        slidesPerView: 4,
-        spaceBetween: 26
     },
 }
 

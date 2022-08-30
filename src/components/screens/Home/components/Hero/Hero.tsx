@@ -27,12 +27,6 @@ export const Hero = () => {
         nextEl: navigationNextRef.current,
     }
 
-    const breakpoints = {
-        577: {
-            spaceBetween: 25,
-        },
-    }
-
     const onSwiper = (swiper: SwiperClass) => {
         setTimeout(() => {
             // @ts-ignore
@@ -55,9 +49,7 @@ export const Hero = () => {
                     slidesPerView='auto'
                     onSwiper={onSwiper}
                     className={styles.slider}
-                    spaceBetween={15}
                     navigation={navigation}
-                    breakpoints={breakpoints}
                     loop={true}
                     centeredSlides={true}
                     autoplay={{

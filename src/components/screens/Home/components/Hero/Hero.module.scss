@@ -60,9 +60,11 @@
     overflow: hidden;
     transition: opacity 0.3s;
     background-color: #0f1b44;
+    margin-right: 25px;
 
     @media (max-width: 576px) {
         width: 80%;
+        margin-right: 15px;
         opacity: 1;
     }
 }
