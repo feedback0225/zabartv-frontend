@@ -4,6 +4,7 @@ import {SliderButton} from '@/UI/SliderButton/SliderButton';
 import SwiperClass, {Navigation} from 'swiper';
 import styles from './Carousel.module.scss'
 import 'swiper/css';
+import classNames from "classnames";
 
 const breakpoints = {
     769: {
@@ -14,7 +15,11 @@ const breakpoints = {
     },
 }
 
-export const Carousel: FC<PropsWithChildren<{}>> = ({children}) => {
+interface CarouselProps {
+    className?: string;
+}
+
+export const Carousel: FC<PropsWithChildren<CarouselProps>> = ({className, children}) => {
 
     const navigationPrevRef = useRef<HTMLButtonElement>(null)
     const navigationNextRef = useRef<HTMLButtonElement>(null)
@@ -39,7 +44,7 @@ export const Carousel: FC<PropsWithChildren<{}>> = ({children}) => {
     }
 
     return (
-        <div className={styles.wrapper}>
+        <div className={classNames(styles.wrapper, className)}>
             <SliderButton className={styles.prev} dir='left' ref={navigationPrevRef}/>
             <SliderButton className={styles.next} dir='right' ref={navigationNextRef}/>
             <Swiper

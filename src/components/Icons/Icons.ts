@@ -7,6 +7,7 @@ import ArrowIcon from './svg/arrow.svg'
 import MoonIcon from './svg/moon.svg'
 import SunIcon from './svg/sun.svg'
 import MenuIcon from './svg/menu.svg'
+import PlayIcon from './svg/play.svg'
 
 export {
     ProfileIcon,
@@ -17,5 +18,6 @@ export {
     ArrowIcon,
     MoonIcon,
     SunIcon,
-    MenuIcon
+    MenuIcon,
+    PlayIcon
 }

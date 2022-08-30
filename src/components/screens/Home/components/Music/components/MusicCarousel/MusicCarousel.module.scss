@@ -1,0 +1,15 @@
+.slider {
+    button {
+        top: 25%;
+    }
+}
+
+.item {
+    @media (max-width: 768px) {
+        width: 65%;
+    }
+
+    @media (max-width: 576px) {
+        width: 80%;
+    }
+}

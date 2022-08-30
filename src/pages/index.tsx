@@ -1,11 +1,13 @@
 import { Layout } from '@/components/Layout/Layout';
-import { Home } from '@/screens/Home/Home';
+import { Hero, Humor, Music } from '@/screens/Home/index';
 import type { NextPage } from 'next';
 
 const Index: NextPage = () => {
   return (
     <Layout>
-      <Home />
+      <Hero />
+      <Humor />
+      <Music />
     </Layout>
   )
 }
