@@ -1,0 +1,28 @@
+.container {
+    padding-bottom: 93px;
+
+    @media (max-width: 1500px) {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+    @media (max-width: 1024px) {
+        padding-bottom: 70px;
+    }
+
+    @media (max-width: 768px) {
+        padding: 0 var(--container-offset) 50px;
+    }
+
+    @media (max-width: 576px) {
+        padding-bottom: 31px;
+    }
+}
+
+.title {
+    margin-bottom: 10px;
+
+    @media (max-width: 576px) {
+        margin-bottom: 0;
+    }
+}
