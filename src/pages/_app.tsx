@@ -6,9 +6,15 @@ import { ThemeProvider } from 'next-themes'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider enableSystem={false} >
+    <ThemeProvider >
       <Head>
         <title>ZabarTV</title>
+        <meta name="theme-color" content="#0c101f" />
+        <link rel="alternate" hrefLang="ru-RU" href="https://zabartv.vercel.app/" />
+        <link rel="alternate" hrefLang="be-BE" href="https://zabartv.vercel.app/be" />
+        <meta name="description" content="ZabarTV - фильмы и сериалы" />
+        <meta name="keywords" content="фильмы сериалы мультфильмы" />
+        <meta property="og:description" content="ZabarTV - фильмы и сериалы" />
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>

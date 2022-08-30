@@ -12,11 +12,11 @@ export const Hero = () => {
 
     const items = [
         {href: '/movie', source: '/main-bg.jpg', alt: 'Подпись к картинке1'},
-        {href: '/movie', source: '/main-bg.jpg', alt: 'Подпись к картинке2'},
+        {href: '/movie', source: '/main-bg2.jpg', alt: 'Подпись к картинке2'},
         {href: '/movie', source: '/main-bg.jpg', alt: 'Подпись к картинке3'},
-        {href: '/movie', source: '/main-bg.jpg', alt: 'Подпись к картинке4'},
+        {href: '/movie', source: '/main-bg2.jpg', alt: 'Подпись к картинке4'},
         {href: '/movie', source: '/main-bg.jpg', alt: 'Подпись к картинке5'},
-        {href: '/movie', source: '/main-bg.jpg', alt: 'Подпись к картинке6'}
+        {href: '/movie', source: '/main-bg2.jpg', alt: 'Подпись к картинке6'}
     ]
 
     const navigationPrevRef = useRef<HTMLButtonElement>(null)
@@ -58,6 +58,8 @@ export const Hero = () => {
                     spaceBetween={15}
                     navigation={navigation}
                     breakpoints={breakpoints}
+                    loop={true}
+                    centeredSlides={true}
                     autoplay={{
                         delay: 2000,
                         disableOnInteraction: false
