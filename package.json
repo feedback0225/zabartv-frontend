@@ -2,15 +2,19 @@
   "name": "zabartv",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "npm run build && next export -o dist/"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
     "classnames": "^2.3.1",
+    "dotenv": "^16.0.2",
+    "ftp-deploy": "^2.4.3",
     "next": "12.2.5",
     "next-compose-plugins": "^2.2.1",
     "next-i18next": "^12.0.0",

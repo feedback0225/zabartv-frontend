@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <Provider store={store}>
-      <ThemeProvider >
+      <ThemeProvider defaultTheme='dark'>
         <Head>
           <title>ZabarTV</title>
           <meta name="theme-color" content="#0c101f" />
