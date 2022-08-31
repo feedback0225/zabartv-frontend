@@ -48,7 +48,7 @@ export const Menu = () => {
     }, [])
 
     return (
-        <div className={classNames(styles.menu, isOpened && styles.opened)}>
+        <div style={{height: `${height}px`}} className={classNames(styles.menu, isOpened && styles.opened)}>
             <div className={styles.container}>
                 <div className={styles.top}>
                     <ThemeToggle className={styles.toggle} />
