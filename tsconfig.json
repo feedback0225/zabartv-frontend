@@ -22,6 +22,7 @@
       "@/constants/*": ["src/constants/*"],
       "@/icons": ["src/components/Icons/Icons"],
       "@/screens/*": ["src/components/screens/*"],
+      "@/store/*": ["src/store/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

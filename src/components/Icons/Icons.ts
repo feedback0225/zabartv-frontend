@@ -11,6 +11,7 @@ import PlayIcon from './svg/play.svg'
 import TelegramIcon from './svg/telegram.svg'
 import YoutubeIcon from './svg/youtube.svg'
 import InstagramIcon from './svg/instagram.svg'
+import CloseIcon from './svg/close.svg'
 
 export {
     ProfileIcon,
@@ -25,5 +26,6 @@ export {
     PlayIcon,
     TelegramIcon,
     YoutubeIcon,
-    InstagramIcon
+    InstagramIcon,
+    CloseIcon
 }

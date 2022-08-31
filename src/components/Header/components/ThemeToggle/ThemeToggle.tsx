@@ -2,8 +2,14 @@ import { ButtonBase } from '@/components/ButtonBase/ButtonBase';
 import { useTheme } from 'next-themes'
 import { MoonIcon, SunIcon } from '@/icons'
 import styles from './ThemeToggle.module.scss'
+import { FC } from 'react';
+import classNames from 'classnames';
 
-export const ThemeToggle = () => {
+interface ThemeToggleProps {
+    className?: string;
+}
+
+export const ThemeToggle: FC<ThemeToggleProps> = ({className}) => {
     const { theme, setTheme } = useTheme()
   
     const toggleTheme = () => {
@@ -11,7 +17,7 @@ export const ThemeToggle = () => {
     }
 
     return (
-        <ButtonBase onClick={toggleTheme} className={styles.btn}>
+        <ButtonBase onClick={toggleTheme} className={classNames(styles.btn, className)}>
             <span className={styles.icon}>
                 <MoonIcon />
             </span>

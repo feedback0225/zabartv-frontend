@@ -1,13 +1,8 @@
-import { FC } from 'react';
 import { RoutesEnum } from '@/constants/routes';
 import classNames from 'classnames';
 import styles from './Nav.module.scss';
 
-interface NavProps {
-    className?: string;
-}
-
-export const Nav: FC<NavProps> = ({className}) => {
+export const Nav = () => {
 
     const items = [
         {href: RoutesEnum.Humor, text: 'Юмор'},
@@ -20,7 +15,7 @@ export const Nav: FC<NavProps> = ({className}) => {
     ]
 
     return (
-        <nav className={classNames(styles.nav, className)}>
+        <nav className={styles.nav}>
             <ul className={classNames('list-reset', styles.list)}>
                 {items.map(el => {
 

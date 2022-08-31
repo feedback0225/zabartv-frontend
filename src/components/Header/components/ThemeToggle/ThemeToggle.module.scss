@@ -7,10 +7,6 @@
     background-color: #456eff;
     grid-area: toggle;
 
-    @media (max-width: 1024px) {
-        display: none;
-    }
-
     &:before,
     &:after {
         content: "";
