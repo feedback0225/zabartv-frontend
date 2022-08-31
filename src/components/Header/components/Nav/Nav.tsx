@@ -1,5 +1,6 @@
 import { RoutesEnum } from '@/constants/routes';
 import classNames from 'classnames';
+import Link from 'next/link';
 import styles from './Nav.module.scss';
 
 export const Nav = () => {
@@ -23,7 +24,9 @@ export const Nav = () => {
 
                     return (
                         <li key={text} className={styles.item}>
-                            <a href={href} className={styles.link}>{text}</a>
+                            <Link href={href}>
+                                <a className={styles.link}>{text}</a>
+                            </Link>
                         </li>
                     )
                 })}

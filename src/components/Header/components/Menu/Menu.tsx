@@ -5,20 +5,23 @@ import { ThemeToggle } from '../index'
 import { useActions } from 'src/hooks/useActions'
 import { useLockedBody } from 'usehooks-ts'
 import { MenuLang } from './components/MenuLang/MenuLang'
+import { RoutesEnum } from '@/constants/routes'
+import { SubscriptionButton } from '@/UI/SubscriptionButton/SubscriptionButton'
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
 import classNames from 'classnames'
 import styles from './Menu.module.scss'
-import { RoutesEnum } from '@/constants/routes'
-import { SubscriptionButton } from '@/components/UI/SubscriptionButton/SubscriptionButton'
+import Link from 'next/link'
 
 export const Menu = () => {
 
-    const {isOpenMenu} = useTypedSelector(state => state.menuReducer)
+    const {locale} = useRouter()
+    const {isOpened} = useTypedSelector(state => state.menuReducer)
+    const {showMenu} = useActions()
 
-    const {toggleMenu} = useActions()
+    const handleClose = () => showMenu(false)
 
-    const handleClose = () => toggleMenu(false)
-
-    useLockedBody(isOpenMenu)
+    useLockedBody(isOpened)
 
     const items = [
         {href: RoutesEnum.Humor, text: 'Юмор'},
@@ -30,8 +33,18 @@ export const Menu = () => {
         {href: RoutesEnum.New, text: 'New'},
     ]
 
+    useEffect(() => {
+        showMenu(true)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [locale])
+
+    useEffect(() => {
+        showMenu(false)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
     return (
-        <div className={classNames(styles.menu, isOpenMenu && styles.opened)}>
+        <div className={classNames(styles.menu, isOpened && styles.opened)}>
             <div className={styles.container}>
                 <div className={styles.top}>
                     <ThemeToggle className={styles.toggle} />
@@ -48,7 +61,9 @@ export const Menu = () => {
 
                             return (
                                 <li key={text} className={styles.item}>
-                                    <a href={href} className={styles.link}>{text}</a>
+                                    <Link href={href}>
+                                        <a className={styles.link}>{text}</a>
+                                    </Link>
                                 </li>
                             )
                         })}

@@ -50,10 +50,8 @@ export const Hero = () => {
                     onSwiper={onSwiper}
                     className={styles.slider}
                     navigation={navigation}
-                    loop={true}
-                    centeredSlides={true}
                     autoplay={{
-                        delay: 2000,
+                        delay: 4000,
                         disableOnInteraction: false
                     }}
                 >
