@@ -57,6 +57,10 @@
     .link {
         color: #404040;
     }
+
+    .arrow {
+        color: #828ca4;
+    }
 }
 
 .link {
@@ -81,13 +85,13 @@
 .arrow {
     display: block;
     position: absolute;
-    top: 14px;
+    top: 16px;
     right: 15px;
     width: 16px;
     height: 16px;
     flex-shrink: 0;
     color: #ccd5e8;
-    transition: transform 0.3s;
+    transition: transform 0.3s, color 0.3s;
 
     svg {
         display: block;
