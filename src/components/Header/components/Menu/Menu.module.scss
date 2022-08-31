@@ -23,8 +23,10 @@
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
     padding: 9px 22px 47px;
-    height: inherit;
+    min-height: inherit;
 }
 
 .top {
