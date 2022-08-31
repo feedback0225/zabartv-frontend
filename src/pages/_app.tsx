@@ -15,7 +15,8 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ThemeProvider defaultTheme='dark'>
         <Head>
           <title>ZabarTV</title>
-          <meta name="theme-color" content="#0c101f" />
+          <meta key="theme-color-light" name="theme-color" media="(prefers-color-scheme: light)" content="#ccd5e8"/>
+          <meta key="theme-color-dark" name="theme-color" media="(prefers-color-scheme: dark)" content="#0c101f"/>
           <meta name="description" content="ZabarTV - фильмы и сериалы" />
           <meta name="keywords" content="фильмы сериалы мультфильмы" />
           <meta property="og:description" content="ZabarTV - фильмы и сериалы" />

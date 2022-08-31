@@ -24,7 +24,7 @@ export const Menu = () => {
 
     const { height } = useWindowDimensions();
     
-    useLockedBody(isOpened)
+    const [_, setLocked] = useLockedBody(isOpened)
 
     const items = [
         {href: RoutesEnum.Humor, text: 'Юмор'},
@@ -38,6 +38,7 @@ export const Menu = () => {
 
     useEffect(() => {
         showMenu(true)
+        setLocked(true)
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [locale])
 
