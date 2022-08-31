@@ -2,6 +2,7 @@ import { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useActions } from '@/hooks/useActions';
 import { ButtonBase } from '@/components/ButtonBase/ButtonBase';
+import { useOnClickOutside } from 'usehooks-ts';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { CloseIcon, SearchIcon } from '@/icons';
 import { TextField } from '@/components/UI/TextField/TextField';
@@ -33,6 +34,8 @@ export const Search = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [router])
 
+    useOnClickOutside(formRef, () => setVisible(false))
+    
     useEffect(() => {
         if(visible) {
             inputRef?.current?.focus()

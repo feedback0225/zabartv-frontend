@@ -27,6 +27,7 @@
         padding-right: 50px;
 
         @media (max-width: 576px) {
+            padding-top: 5px;
             border-radius: 0;
         }
     }
@@ -42,7 +43,7 @@
     height: 20px;
 
     @media (max-width: 576px) {
-        top: 19px;
+        top: 22px;
     }
 
     svg {

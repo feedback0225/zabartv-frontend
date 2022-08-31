@@ -53,6 +53,12 @@
     }
 }
 
+[data-theme="light"] {
+    .link {
+        color: #404040;
+    }
+}
+
 .link {
     display: flex;
     align-items: center;
@@ -60,6 +66,7 @@
     font-size: 16px;
     line-height: 22px;
     color: #fff;
+    transition: color 0.3s;
 
     svg {
         display: block;
