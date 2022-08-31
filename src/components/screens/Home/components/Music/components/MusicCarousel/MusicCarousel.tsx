@@ -10,13 +10,31 @@ interface MusicCarouselProps {
 }
 
 export const MusicCarousel: FC<MusicCarouselProps> = ({data}) => {
+
+    const breakpoints = {
+        769: {
+            slidesPerView: 3,
+        },
+        1025: {
+            slidesPerView: 4,
+        },
+    }
+    
     return (
-        <Carousel className={styles.slider}>
-            {data.map(item => (
-                <SwiperSlide className={styles.item} key={item.id}>
-                    <MusicItem item={item} />
-                </SwiperSlide>
-            ))}
-        </Carousel>
+        <div className={styles.container}>
+            <Carousel
+                className={styles.slider}
+                prevBtnClass={styles.btn}
+                nextBtnClass={styles.btn}
+                breakpoints={breakpoints}
+                spaceBetween={24}
+            >
+                {data.map(item => (
+                    <SwiperSlide className={styles.item} key={item.id}>
+                        <MusicItem item={item} />
+                    </SwiperSlide>
+                ))}
+            </Carousel>
+        </div>
     )
 }

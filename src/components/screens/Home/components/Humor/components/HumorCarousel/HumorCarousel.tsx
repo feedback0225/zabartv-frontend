@@ -2,6 +2,7 @@ import { FC } from "react"
 import { Carousel } from "@/components/Carousel/Carousel"
 import { MovieItem } from "@/components/UI/MovieItem/MovieItem"
 import { SwiperSlide } from "swiper/react"
+import { Navigation } from 'swiper'
 import styles from './HumorCarousel.module.scss'
 
 interface HumorCarouselProps {
@@ -10,13 +11,30 @@ interface HumorCarouselProps {
 }
 
 export const HumorCarousel: FC<HumorCarouselProps> = ({data}) => {
+
+    const breakpoints = {
+        769: {
+            slidesPerView: 3,
+        },
+        1025: {
+            slidesPerView: 4,
+        },
+    }
+
     return (
-        <Carousel>
-            {data.map(item => (
-                <SwiperSlide className={styles.item} key={item.id}>
-                    <MovieItem item={item} />
-                </SwiperSlide>
-            ))}
-        </Carousel>
+        <div className={styles.container}>
+            <Carousel
+                className={styles.slider}
+                breakpoints={breakpoints}
+                modules={[Navigation]}
+                spaceBetween={24}    
+            >
+                {data.map(item => (
+                    <SwiperSlide className={styles.item} key={item.id}>
+                        <MovieItem item={item} />
+                    </SwiperSlide>
+                ))}
+            </Carousel>
+        </div>
     )
 }

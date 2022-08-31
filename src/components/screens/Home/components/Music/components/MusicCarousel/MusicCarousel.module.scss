@@ -1,7 +1,13 @@
+.container {
+    position: relative;
+}
+
 .slider {
-    button {
-        top: 25%;
-    }
+    overflow: visible;
+}
+
+.btn {
+    top: 25%;
 }
 
 .item {

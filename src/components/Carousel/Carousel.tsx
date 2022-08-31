@@ -1,25 +1,31 @@
-import {FC, PropsWithChildren, useRef} from "react";
-import {Swiper} from 'swiper/react';
-import {SliderButton} from '@/UI/SliderButton/SliderButton';
-import SwiperClass, {Navigation} from 'swiper';
-import styles from './Carousel.module.scss'
 import 'swiper/css';
-import classNames from "classnames";
+import { FC, PropsWithChildren, useRef } from "react";
+import { Swiper } from 'swiper/react';
+import { SliderButton } from '@/UI/SliderButton/SliderButton';
+import { SwiperOptions } from "swiper/types";
+import SwiperClass, { Autoplay, Navigation } from 'swiper';
+import styles from './Carousel.module.scss'
+import classNames from 'classnames';
 
-const breakpoints = {
-    769: {
-        slidesPerView: 3,
-    },
-    1025: {
-        slidesPerView: 4,
-    },
-}
-
-interface CarouselProps {
+interface CarouselProps extends SwiperOptions {
     className?: string;
+    prevBtnClass?: string;
+    nextBtnClass?: string;
+    props?: SwiperOptions;
 }
 
-export const Carousel: FC<PropsWithChildren<CarouselProps>> = ({className, children}) => {
+export const Carousel: FC<PropsWithChildren<CarouselProps>> = ({
+    prevBtnClass,
+    nextBtnClass,
+    spaceBetween,
+    slidesPerView = 'auto',
+    breakpoints,
+    autoplay,
+    modules,
+    className,
+    children,
+    ...props
+  }) => {
 
     const navigationPrevRef = useRef<HTMLButtonElement>(null)
     const navigationNextRef = useRef<HTMLButtonElement>(null)
@@ -37,27 +43,27 @@ export const Carousel: FC<PropsWithChildren<CarouselProps>> = ({className, child
             swiper.params.navigation.nextEl = navigationNextRef.current;
 
             // Re-init navigation
-            swiper.navigation.destroy()
-            swiper.navigation.init()
-            swiper.navigation.update()
+            swiper.navigation?.destroy()
+            swiper.navigation?.init()
+            swiper.navigation?.update()
         })
     }
 
     return (
-        <div className={classNames(styles.wrapper, className)}>
-            <SliderButton className={styles.prev} dir='left' ref={navigationPrevRef}/>
-            <SliderButton className={styles.next} dir='right' ref={navigationNextRef}/>
-            <Swiper
-                modules={[Navigation]}
-                slidesPerView='auto'
-                spaceBetween={24}
-                navigation={navigation}
-                onSwiper={onSwiper}
-                breakpoints={breakpoints}
-                className={styles.slider}
-            >
-                {children}
-            </Swiper>
-        </div>
+        <Swiper
+            modules={[Navigation, Autoplay]}
+            slidesPerView={slidesPerView}
+            spaceBetween={spaceBetween}
+            navigation={navigation}
+            onSwiper={onSwiper}
+            breakpoints={breakpoints}
+            autoplay={autoplay}
+            className={classNames(styles.slider, className)}
+            {...props}
+        >
+            <SliderButton className={classNames(styles.prev, prevBtnClass)} dir='left' ref={navigationPrevRef}/>
+            <SliderButton className={classNames(styles.next, nextBtnClass)} dir='right' ref={navigationNextRef}/>
+            {children}
+        </Swiper>
     )
 }

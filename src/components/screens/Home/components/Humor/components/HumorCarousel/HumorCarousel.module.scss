@@ -1,3 +1,11 @@
+.container {
+    position: relative;
+}
+
+.slider {
+    overflow: visible;
+}
+
 .item {
     @media (max-width: 768px) {
         width: 45%;

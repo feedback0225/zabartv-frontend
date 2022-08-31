@@ -41,6 +41,7 @@ export const Menu = () => {
 
     useEffect(() => {
         showMenu(false)
+        setLocked(false)
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
