@@ -4,6 +4,7 @@ import { Nav } from './Nav/Nav';
 import { Lang } from './Lang/Lang';
 import { Menu } from './Menu/Menu';
 import { Burger } from './Burger/Burger';
+import { Search } from './Search/Search';
 
 export {
     Actions,
@@ -11,5 +12,6 @@ export {
     Nav,
     Lang,
     Menu,
-    Burger
+    Burger,
+    Search
 }

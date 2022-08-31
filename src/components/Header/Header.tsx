@@ -1,4 +1,4 @@
-import { Nav, ThemeToggle, Lang, Actions, Menu, Burger } from './components/index'
+import { Nav, ThemeToggle, Lang, Actions, Search, Menu, Burger } from './components/index'
 import { SubscriptionButton } from '@/UI/SubscriptionButton/SubscriptionButton';
 import classNames from 'classnames';
 import Image from 'next/image';
@@ -25,6 +25,7 @@ export const Header = () => {
                 <Nav />
                 <div className={styles.right}>
                     <Actions />
+                    <Search />
                     <SubscriptionButton className={styles.btn} />
                     <Burger />
                 </div>

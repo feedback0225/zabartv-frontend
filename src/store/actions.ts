@@ -1,7 +1,8 @@
 import {toggleMenu} from './reducers/menuSlice';
-import {toggleSearch} from './reducers/searchSlice';
+import {setVisible, setSearch} from './reducers/searchSlice';
 
 export {
     toggleMenu,
-    toggleSearch
+    setVisible,
+    setSearch
 }

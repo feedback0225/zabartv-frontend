@@ -2,6 +2,7 @@ import 'normalize.css'
 import '@/styles/main.scss'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
+import useVH from "react-vh";
 import { ThemeProvider } from 'next-themes'
 import { Provider } from 'react-redux'
 import { setupStore } from '@/store/store'
@@ -9,6 +10,8 @@ import { setupStore } from '@/store/store'
 function MyApp({ Component, pageProps }: AppProps) {
 
   const store = setupStore();
+
+  useVH()
 
   return (
     <Provider store={store}>

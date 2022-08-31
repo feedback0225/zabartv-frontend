@@ -1,0 +1,47 @@
+.textField {
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    background-color: var(--color-white);
+    border-radius: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border: none;
+    height: 57px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 28.8px;
+    border-radius: 50px;
+    color: #d2d6e2;
+    transition: background-color 0.3s, color 0.3s;
+
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+        display: none;
+    }
+
+    &::placeholder {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 36px;
+        color: #a5a5ad;
+        opacity: 1;
+    }
+}
+
+[data-theme="light"] {
+    .dark {
+        background-color: #F5F6F7;
+        color: #0B1527;
+    }
+}
+
+.dark {
+    background-color: #232c3c;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 28.8px;
+    color: #fff;
+}

@@ -23,6 +23,7 @@
       "@/icons": ["src/components/Icons/Icons"],
       "@/screens/*": ["src/components/screens/*"],
       "@/store/*": ["src/store/*"],
+      "@/hooks/*": ["src/hooks/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
