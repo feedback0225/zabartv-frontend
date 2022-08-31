@@ -12,11 +12,12 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <Provider store={store}>
-      <ThemeProvider defaultTheme='dark'>
+    <ThemeProvider defaultTheme='dark'>
         <Head>
           <title>ZabarTV</title>
-          <meta key="theme-color-light" name="theme-color" media="(prefers-color-scheme: light)" content="#ccd5e8"/>
-          <meta key="theme-color-dark" name="theme-color" media="(prefers-color-scheme: dark)" content="#0c101f"/>
+          <meta name="theme-color" content="#0c101f" />
+          <link rel="alternate" hrefLang="ru-RU" href="https://zabartv.vercel.app/" />
+          <link rel="alternate" hrefLang="be-BE" href="https://zabartv.vercel.app/be" />
           <meta name="description" content="ZabarTV - фильмы и сериалы" />
           <meta name="keywords" content="фильмы сериалы мультфильмы" />
           <meta property="og:description" content="ZabarTV - фильмы и сериалы" />
