@@ -20,6 +20,7 @@
         font-size: 28px;
         line-height: 50px;
         font-weight: 400;
+        color: #ccd5E8;
         padding-bottom: 13px;
         outline: none;
         cursor: pointer;
@@ -72,6 +73,19 @@
 
             @media (max-width: 1024px) {
                 margin-right: 32px;
+            }
+        }
+    }
+}
+
+[data-theme="light"] {
+    .react-tabs__tab {
+        &:not(.react-tabs__tab--selected) {
+            color: #818ca4;
+
+            &:hover,
+            &:active {
+                color: var(--color-primary);
             }
         }
     }

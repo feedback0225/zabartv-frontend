@@ -16,8 +16,10 @@
     }
 }
 
-.title {
-    color: #fff;
+[data-theme="light"] {
+    .title {
+        color: #fff;
+    }
 }
 
 .desc {
