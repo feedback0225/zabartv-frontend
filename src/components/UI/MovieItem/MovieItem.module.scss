@@ -41,6 +41,12 @@
     font-size: 18px;
     color: var(--color-text);
     line-height: 26px;
+
+    @media (max-width: 576px) {
+        font-size: 14px;
+        line-height: 22px;
+        padding: 10px 16px;
+    }
 }
 
 .content {
