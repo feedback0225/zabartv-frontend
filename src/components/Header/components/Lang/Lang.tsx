@@ -1,5 +1,5 @@
 
-import { RuIcon, RbIcon, ArrowIcon } from '@/icons'
+import { RuIcon, CeIcon, ArrowIcon } from '@/icons'
 import { useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import { useOnClickOutside } from 'usehooks-ts'
@@ -21,7 +21,7 @@ export const Lang = () => {
     
     const items = [
         {icon: <RuIcon />, locale: 'ru'},
-        {icon: <RbIcon />, locale: 'be'},
+        {icon: <CeIcon />, locale: 'ce'},
     ]
 
     return (

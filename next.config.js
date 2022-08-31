@@ -4,7 +4,7 @@ const i18n = require('next-i18next');
 
 const nextConfig = {
   i18n: {
-    locales: ["ru", "be"],
+    locales: ["ru", "ce"],
     defaultLocale: "ru",
   },
 };

@@ -1,5 +1,5 @@
 
-import { RuIcon, RbIcon, ArrowIcon } from '@/icons'
+import { RuIcon, CeIcon, ArrowIcon } from '@/icons'
 import { useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import { useOnClickOutside } from 'usehooks-ts'
@@ -21,7 +21,7 @@ export const MenuLang = () => {
 
     const items = [
         {icon: <RuIcon />, txt: 'Русский язык', locale: 'ru'},
-        {icon: <RbIcon />, txt: 'Чеченский язык', locale: 'be'},
+        {icon: <CeIcon />, txt: 'Чеченский язык', locale: 'ce'},
     ]
 
     return (

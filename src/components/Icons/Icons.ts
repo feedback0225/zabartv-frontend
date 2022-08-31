@@ -2,7 +2,7 @@ import ProfileIcon from './svg/profile.svg'
 import SearchIcon from './svg/search.svg'
 import SubscriptionIcon from './svg/subscription.svg'
 import RuIcon from './svg/ru.svg'
-import RbIcon from './svg/rb.svg'
+import CeIcon from './svg/ce.svg'
 import ArrowIcon from './svg/arrow.svg'
 import MoonIcon from './svg/moon.svg'
 import SunIcon from './svg/sun.svg'
@@ -18,7 +18,7 @@ export {
     SearchIcon,
     SubscriptionIcon,
     RuIcon,
-    RbIcon,
+    CeIcon,
     ArrowIcon,
     MoonIcon,
     SunIcon,
