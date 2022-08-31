@@ -59,6 +59,11 @@
         height: 40px;
     }
 
+    @media (max-width: 360px) {
+        width: 35px;
+        height: 35px;
+    }
+
     &:hover {
         background-color: #273551;
     }
@@ -72,6 +77,11 @@
         @media (max-width: 576px) {
             width: 16px;
             height: 16px;
+        }
+
+        @media (max-width: 360px) {
+            width: 14px;
+            height: 14px;
         }
     }
 }

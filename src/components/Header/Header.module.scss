@@ -40,6 +40,11 @@
         width: 155px;
         height: 34px;
     }
+
+    @media (max-width: 360px) {
+        width: 140px;
+        height: 30px;
+    }
 }
 
 .right {

@@ -8,7 +8,6 @@ import { MenuLang } from './components/MenuLang/MenuLang'
 import { RoutesEnum } from '@/constants/routes'
 import { SubscriptionButton } from '@/UI/SubscriptionButton/SubscriptionButton'
 import { useEffect } from 'react'
-import { useWindowDimensions } from '@/hooks/useWindowDimensions'
 import { useRouter } from 'next/router'
 import classNames from 'classnames'
 import styles from './Menu.module.scss'
@@ -21,8 +20,6 @@ export const Menu = () => {
     const {showMenu} = useActions()
 
     const handleClose = () => showMenu(false)
-
-    const { height } = useWindowDimensions();
     
     const [_, setLocked] = useLockedBody(isOpened)
 
@@ -48,7 +45,7 @@ export const Menu = () => {
     }, [])
 
     return (
-        <div style={{height: `${height}px`}} className={classNames(styles.menu, isOpened && styles.opened)}>
+        <div className={classNames(styles.menu, isOpened && styles.opened)}>
             <div className={styles.container}>
                 <div className={styles.top}>
                     <ThemeToggle className={styles.toggle} />
