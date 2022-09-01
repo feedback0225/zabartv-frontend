@@ -32,38 +32,38 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 66px;
+
+    .toggle {
+        width: 34px;
+        height: 34px;
+    
+        span {
+            width: 17px;
+            height: 17px;
+        }
+    }
+    
+    .close {
+        display: block;
+        width: 30px;
+        height: 30px;
+        color: #fff;
+        transition: color 0.3s;
+    
+        svg {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            fill: currentColor;
+        }
+    }
 }
 
 
 [data-theme="light"] {
     .close {
         color: #0b1527;
-    }
-}
-
-.close {
-    display: block;
-    width: 30px;
-    height: 30px;
-    color: #fff;
-    transition: color 0.3s;
-
-    svg {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        fill: currentColor;
-    }
-}
-
-.toggle {
-    width: 34px;
-    height: 34px;
-
-    span {
-        width: 17px;
-        height: 17px;
     }
 }
 

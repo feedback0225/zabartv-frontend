@@ -2,11 +2,13 @@ import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import {menuReducer} from "./reducers/menuSlice";
 import {searchReducer} from "./reducers/searchSlice";
 import {langReducer} from "./reducers/langSlice";
+import {modalReducer} from "./reducers/modalSlice";
 
 const rootReducer = combineReducers({
     menuReducer,
     searchReducer,
-    langReducer
+    langReducer,
+    modalReducer
 })
 
 export const setupStore = () => {

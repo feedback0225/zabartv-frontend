@@ -32,7 +32,7 @@
 }
 
 [data-theme="light"] {
-    .link {
+    .btn {
         border: 1px solid #e2E0dd;
 
         &:hover {
@@ -43,7 +43,7 @@
     }
 }
 
-.link {
+.btn {
     display: flex;
     align-items: center;
     justify-content: center;

@@ -1,28 +1,26 @@
 import { ButtonBase } from '@/components/ButtonBase/ButtonBase'
 import { ProfileIcon, SearchIcon } from '@/components/Icons/Icons'
-import { RoutesEnum } from '@/constants/routes'
-import classNames from 'classnames'
-import Link from 'next/link'
 import { useActions } from 'src/hooks/useActions'
+import classNames from 'classnames'
 import styles from './Actions.module.scss'
 
 export const Actions = () => {
 
-    const {setVisible} = useActions()
+    const {setVisible, setShowRegisterModal} = useActions()
 
-    const handleOpen = () => setVisible(true)
+    const handleOpenModal = () => setShowRegisterModal(true)
+
+    const handleOpenSearch = () => setVisible(true)
 
     return (
         <ul className={classNames('list-reset', styles.list)}>
             <li className={styles.item}>
-                <Link href={RoutesEnum.Cabinet}>
-                    <a className={styles.link}>
-                        <ProfileIcon />
-                    </a>
-                </Link>
+                <ButtonBase onClick={handleOpenModal} className={styles.btn}>
+                    <ProfileIcon />
+                </ButtonBase>
             </li>
             <li className={styles.item}>
-                <ButtonBase onClick={handleOpen} className={styles.link}>
+                <ButtonBase onClick={handleOpenSearch} className={styles.btn}>
                     <SearchIcon />
                 </ButtonBase>
             </li>

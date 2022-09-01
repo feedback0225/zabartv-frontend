@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import styles from './Button.module.scss'
 
 export interface ButtonProps {
-    gradient: boolean;
+    gradient?: boolean;
     icon?: ReactNode;
     size?: 'large' | 'medium' | 'small';
     as?: 'link' | 'button';

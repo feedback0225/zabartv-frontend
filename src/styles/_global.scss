@@ -59,3 +59,19 @@ a {
 .swiper-slide.swiper-slide-active {
     opacity: 1;
 }
+
+.modal-enter {
+    opacity: 0;
+}
+
+.modal-enter-active {
+    opacity: 1;
+}
+
+.modal-exit {
+    opacity: 1;
+}
+
+.modal-exit-active {
+    opacity: 0;
+}

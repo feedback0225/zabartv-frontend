@@ -3,7 +3,7 @@ import NextLink from 'next/link'
 import styles from './Link.module.scss'
 import classNames from 'classnames';
 
-interface LinkProps extends LinkHTMLAttributes<HTMLAnchorElement> {
+export interface LinkProps extends LinkHTMLAttributes<HTMLAnchorElement> {
     href: string;
     className?: string;
 }

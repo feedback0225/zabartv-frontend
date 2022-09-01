@@ -2,7 +2,7 @@
     -webkit-appearance: none;
     appearance: none;
     outline: none;
-    background-color: var(--color-white);
+    background-color: #fff;
     border-radius: 5px;
     padding-left: 30px;
     padding-right: 30px;
@@ -10,6 +10,7 @@
     height: 57px;
     font-weight: 700;
     font-size: 16px;
+    padding-top: 4px;
     line-height: 28.8px;
     border-radius: 50px;
     color: #d2d6e2;
@@ -26,7 +27,7 @@
         font-weight: 500;
         font-size: 20px;
         line-height: 36px;
-        color: #a5a5ad;
+        color: #d2d6e2;
         opacity: 1;
     }
 }
@@ -44,4 +45,8 @@
     font-size: 16px;
     line-height: 28.8px;
     color: #fff;
+
+    &::placeholder {
+        color: #a5a5ad;
+    }
 }
