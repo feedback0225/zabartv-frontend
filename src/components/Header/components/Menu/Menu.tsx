@@ -7,21 +7,18 @@ import { useLockedBody } from 'usehooks-ts'
 import { MenuLang } from './components/MenuLang/MenuLang'
 import { RoutesEnum } from '@/constants/routes'
 import { SubscriptionButton } from '@/UI/SubscriptionButton/SubscriptionButton'
-import { useEffect } from 'react'
-import { useRouter } from 'next/router'
 import classNames from 'classnames'
 import styles from './Menu.module.scss'
 import Link from 'next/link'
 
 export const Menu = () => {
 
-    const {locale} = useRouter()
     const {isOpened} = useTypedSelector(state => state.menuReducer)
     const {showMenu} = useActions()
 
     const handleClose = () => showMenu(false)
     
-    const [_, setLocked] = useLockedBody(isOpened)
+    useLockedBody(isOpened)
 
     const items = [
         {href: RoutesEnum.Humor, text: 'Юмор'},
@@ -32,18 +29,6 @@ export const Menu = () => {
         {href: RoutesEnum.Series, text: 'Сериалы'},
         {href: RoutesEnum.New, text: 'New'},
     ]
-
-    useEffect(() => {
-        showMenu(true)
-        setLocked(true)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [locale])
-
-    useEffect(() => {
-        showMenu(false)
-        setLocked(false)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
 
     return (
         <div className={classNames(styles.menu, isOpened && styles.opened)}>
