@@ -1,8 +1,8 @@
-import { FC, PropsWithChildren } from "react"
-import { Header } from "@/components/Header/Header"
-import { Footer } from "../Footer/Footer"
+import { FC, PropsWithChildren } from 'react'
+import { Header } from '@/components/Header/Header'
+import { Footer } from "@/components/Footer/Footer"
 import styles from './Layout.module.scss'
-import classNames from "classnames";
+import classNames from 'classnames';
 
 interface LayoutProps {
     absoluteHeader?: boolean;
