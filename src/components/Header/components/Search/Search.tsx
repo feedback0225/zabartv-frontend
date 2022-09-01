@@ -5,7 +5,7 @@ import { ButtonBase } from '@/components/ButtonBase/ButtonBase';
 import { useOnClickOutside } from 'usehooks-ts';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { CloseIcon, SearchIcon } from '@/icons';
-import { TextField } from '@/components/UI/TextField/TextField';
+import { TextField } from '@/UI/TextField/TextField';
 import styles from './Search.module.scss';
 import classNames from 'classnames';
 

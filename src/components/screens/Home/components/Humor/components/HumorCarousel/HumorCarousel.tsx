@@ -1,6 +1,6 @@
 import { FC } from "react"
 import { Carousel } from "@/components/Carousel/Carousel"
-import { MovieItem } from "@/components/UI/MovieItem/MovieItem"
+import { MovieItem } from "@/UI/MovieItem/MovieItem"
 import { SwiperSlide } from "swiper/react"
 import { Navigation } from 'swiper'
 import styles from './HumorCarousel.module.scss'

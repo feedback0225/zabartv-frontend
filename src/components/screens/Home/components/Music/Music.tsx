@@ -1,5 +1,5 @@
-import { Tabs } from '@/components/UI/Tabs/Tabs'
-import { Title } from '@/components/UI/Title/Title'
+import { Tabs } from '@/UI/Tabs/Tabs'
+import { Title } from '@/UI/Title/Title'
 import { MusicCarousel } from './components/MusicCarousel/MusicCarousel'
 import classNames from 'classnames'
 import styles from './Music.module.scss'

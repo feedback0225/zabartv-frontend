@@ -1,6 +1,6 @@
 import { FC } from "react"
 import { Carousel } from "@/components/Carousel/Carousel"
-import { MusicItem } from "@/components/UI/MusicItem/MusicItem"
+import { MusicItem } from "@/UI/MusicItem/MusicItem"
 import { SwiperSlide } from "swiper/react"
 import styles from './MusicCarousel.module.scss'
 

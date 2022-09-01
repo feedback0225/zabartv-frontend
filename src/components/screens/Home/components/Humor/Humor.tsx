@@ -1,5 +1,5 @@
-import { Tabs } from '@/components/UI/Tabs/Tabs'
-import { Title } from '@/components/UI/Title/Title'
+import { Tabs } from '@/UI/Tabs/Tabs'
+import { Title } from '@/UI/Title/Title'
 import { HumorCarousel } from './components/HumorCarousel/HumorCarousel'
 import classNames from 'classnames'
 import styles from './Humor.module.scss'
