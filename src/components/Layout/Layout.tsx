@@ -6,16 +6,17 @@ import classNames from "classnames";
 
 interface LayoutProps {
     absoluteHeader?: boolean;
+    withoutFooter?: boolean;
 }
 
-export const Layout: FC<PropsWithChildren<LayoutProps>> = ({children, absoluteHeader}) => {
+export const Layout: FC<PropsWithChildren<LayoutProps>> = ({children, withoutFooter, absoluteHeader}) => {
     return (
         <div className={classNames(absoluteHeader ? styles.absolute : styles.container)}>
             <Header absoluteHeader={absoluteHeader} />
             <main className='main'>
                 {children}
             </main>
-            <Footer />
+            {!withoutFooter ? <Footer /> : null}
         </div>
     )
 }
