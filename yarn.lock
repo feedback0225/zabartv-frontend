@@ -953,7 +953,7 @@
     core-js-pure "^3.20.2"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.10.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.14.5", "@babel/runtime@^7.17.2", "@babel/runtime@^7.18.9", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.10.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.18.9", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
   version "7.18.9"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.18.9.tgz#b4fcfce55db3d2e5e080d2490f608a3b9f407f4a"
   integrity sha512-lkqXDcvlFT5rvEjiu6+QYO+1GXrEHRo2LOtS7E4GtX5ESIZOgepqsZBVIj6Pv+a6zqsya9VCgiK1KAK4BvJDAw==
@@ -1775,11 +1775,6 @@ core-js-pure@^3.20.2:
   resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.25.0.tgz#f8d1f176ff29abbfeb610110de891d5ae5a361d4"
   integrity sha512-IeHpLwk3uoci37yoI2Laty59+YqH9x5uR65/yiA0ARAJrTrN4YU0rmauLWfvqOuk77SlNJXj2rM6oT/dBD87+A==
 
-core-js@^3:
-  version "3.25.0"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.25.0.tgz#be71d9e0dd648ffd70c44a7ec2319d039357eceb"
-  integrity sha512-CVU1xvJEfJGhyCpBrzzzU1kjCfgsGUxhEvwUV2e/cOedYWHdmluamx+knDnmhqALddMG16fZvIqvs9aijsHHaA==
-
 core-util-is@~1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.3.tgz#a6042d3634c2b27e9328f837b965fac83808db85"
@@ -2520,25 +2515,6 @@ hoist-non-react-statics@^3.3.0, hoist-non-react-statics@^3.3.2:
   dependencies:
     react-is "^16.7.0"
 
-html-parse-stringify@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/html-parse-stringify/-/html-parse-stringify-3.0.1.tgz#dfc1017347ce9f77c8141a507f233040c59c55d2"
-  integrity sha512-KknJ50kTInJ7qIScF3jeaFRpMpE8/lfiTdzf/twXyPBLAGrLRTmkz3AdTnKeh40X8k9L2fdYwEp/42WGXIRGcg==
-  dependencies:
-    void-elements "3.1.0"
-
-i18next-fs-backend@^1.1.5:
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/i18next-fs-backend/-/i18next-fs-backend-1.1.5.tgz#dcbd8227b1c1e4323b3c40e269d4762e8313d9e5"
-  integrity sha512-raTel3EfshiUXxR0gvmIoqp75jhkj8+7R1LjB006VZKPTFBbXyx6TlUVhb8Z9+7ahgpFbcQg1QWVOdf/iNzI5A==
-
-i18next@^21.9.1:
-  version "21.9.1"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-21.9.1.tgz#9e3428990f5b2cc9ac1b98dd025f3e411c368249"
-  integrity sha512-ITbDrAjbRR73spZAiu6+ex5WNlHRr1mY+acDi2ioTHuUiviJqSz269Le1xHAf0QaQ6GgIHResUhQNcxGwa/PhA==
-  dependencies:
-    "@babel/runtime" "^7.17.2"
-
 ignore@^5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.2.0.tgz#6d3bac8fa7fe0d45d9f9be7bac2fc279577e345a"
@@ -2909,19 +2885,6 @@ next-compose-plugins@^2.2.1:
   resolved "https://registry.yarnpkg.com/next-compose-plugins/-/next-compose-plugins-2.2.1.tgz#020fc53f275a7e719d62521bef4300fbb6fde5ab"
   integrity sha512-OjJ+fV15FXO2uQXQagLD4C0abYErBjyjE0I0FHpOEIB8upw0hg1ldFP6cqHTJBH1cZqy96OeR3u1dJ+Ez2D4Bg==
 
-next-i18next@^12.0.0:
-  version "12.0.0"
-  resolved "https://registry.yarnpkg.com/next-i18next/-/next-i18next-12.0.0.tgz#328aa48efcc9af76d82e4fa0972b50eee6be6ebf"
-  integrity sha512-8tDySpERz+x3GNxJQUxJfR01GO77tH4wdjrZrRWXywsQCeY+660tLTomITqRocqBm2j7FY6YUI9IUFCeeNg8wA==
-  dependencies:
-    "@babel/runtime" "^7.18.9"
-    "@types/hoist-non-react-statics" "^3.3.1"
-    core-js "^3"
-    hoist-non-react-statics "^3.3.2"
-    i18next "^21.9.1"
-    i18next-fs-backend "^1.1.5"
-    react-i18next "^11.18.4"
-
 next-plugin-svgr@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/next-plugin-svgr/-/next-plugin-svgr-1.1.2.tgz#993d02b2f365ad7191188ead78b54964986402fe"
@@ -3190,14 +3153,6 @@ react-dom@18.2.0:
   dependencies:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
-
-react-i18next@^11.18.4:
-  version "11.18.5"
-  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-11.18.5.tgz#985e87bc66ed1316381b464a4ecfd35a2c951357"
-  integrity sha512-cKcyuuzIv0YUZ4l9WORflVNuhISPAqQShOAsxwFyYuJoCA7HlLmHm7XnvO6hfAGmGpDNRhJHoBX8hG49Cb2xZQ==
-  dependencies:
-    "@babel/runtime" "^7.14.5"
-    html-parse-stringify "^3.0.1"
 
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
@@ -3772,11 +3727,6 @@ util-deprecate@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==
-
-void-elements@3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-3.1.0.tgz#614f7fbf8d801f0bb5f0661f5b2f5785750e4f09"
-  integrity sha512-Dhxzh5HZuiHQhbvTW9AMetFfBHDMYpo23Uo9btPXgdYP+3T5S+p+jgNy7spra+veYhBP2dCSgxR/i2Y02h5/6w==
 
 which-boxed-primitive@^1.0.2:
   version "1.0.2"

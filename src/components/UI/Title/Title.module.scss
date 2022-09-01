@@ -9,6 +9,21 @@
     font-weight: 700;
     font-size: 74px;
     line-height: 84px;
+
+    @media (max-width: 1024px) {
+        font-size: 64px;
+        line-height: 74px;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 54px;
+        line-height: 64px;
+    }
+
+    @media (max-width: 576px) {
+        font-size: 34px;
+        line-height: 44px;
+    }
 }
 
 .medium {

@@ -2,7 +2,7 @@ import { Layout } from '@/components/Layout/Layout';
 import { Hero, Humor, Music } from '@/screens/Home/index';
 import type { NextPage } from 'next';
 
-const Index: NextPage = () => {
+const HomePage: NextPage = () => {
   return (
     <Layout>
       <Hero />
@@ -12,4 +12,4 @@ const Index: NextPage = () => {
   )
 }
 
-export default Index
+export default HomePage
