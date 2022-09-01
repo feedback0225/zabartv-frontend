@@ -3,7 +3,7 @@ import { FC, PropsWithChildren, useRef } from "react";
 import { Swiper } from 'swiper/react';
 import { SliderButton } from '@/UI/SliderButton/SliderButton';
 import { SwiperOptions } from "swiper/types";
-import SwiperClass, { Autoplay, Navigation } from 'swiper';
+import SwiperClass from 'swiper';
 import styles from './Carousel.module.scss'
 import classNames from 'classnames';
 
@@ -17,11 +17,7 @@ interface CarouselProps extends SwiperOptions {
 export const Carousel: FC<PropsWithChildren<CarouselProps>> = ({
     prevBtnClass,
     nextBtnClass,
-    spaceBetween,
     slidesPerView = 'auto',
-    breakpoints,
-    autoplay,
-    modules,
     className,
     children,
     ...props
@@ -51,13 +47,9 @@ export const Carousel: FC<PropsWithChildren<CarouselProps>> = ({
 
     return (
         <Swiper
-            modules={[Navigation, Autoplay]}
             slidesPerView={slidesPerView}
-            spaceBetween={spaceBetween}
             navigation={navigation}
             onSwiper={onSwiper}
-            breakpoints={breakpoints}
-            autoplay={autoplay}
             className={classNames(styles.slider, className)}
             {...props}
         >

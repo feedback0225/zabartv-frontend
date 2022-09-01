@@ -3,6 +3,7 @@ import { CloseIcon } from '@/icons'
 import { useTypedSelector } from 'src/hooks/useTypedSelector'
 import { ThemeToggle } from '../index'
 import { useActions } from 'src/hooks/useActions'
+import { useWindowDimensions } from '@/hooks/useWindowDimensions'
 import { useLockedBody } from 'usehooks-ts'
 import { MenuLang } from './components/MenuLang/MenuLang'
 import { RoutesEnum } from '@/constants/routes'
@@ -18,6 +19,8 @@ export const Menu = () => {
 
     const handleClose = () => showMenu(false)
     
+    const { height } = useWindowDimensions();
+
     useLockedBody(isOpened)
 
     const items = [
@@ -31,7 +34,7 @@ export const Menu = () => {
     ]
 
     return (
-        <div className={classNames(styles.menu, isOpened && styles.opened)}>
+        <div style={{height: `${height}px`}} className={classNames(styles.menu, isOpened && styles.opened)}>
             <div className={styles.container}>
                 <div className={styles.top}>
                     <ThemeToggle className={styles.toggle} />
