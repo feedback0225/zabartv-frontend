@@ -19,7 +19,7 @@
         height: 100%;
         background-size: cover;
         background-repeat: no-repeat;
-        transition: opacity 0.3s, visibility 0.3s;
+        transition: opacity 0.3s;
     }
 
     &:before {
@@ -28,14 +28,12 @@
 
     &:after {
         opacity: 0;
-        visibility: hidden;
         background-image: url("data:image/svg+xml,%3Csvg width='56' height='56' viewBox='0 0 56 56' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle opacity='0.3' cx='35.0004' cy='13.2216' r='0.777778' fill='%23E3E0C2'/%3E%3Ccircle opacity='0.3' cx='35.0004' cy='22.5561' r='0.777778' fill='%23E3E0C2'/%3E%3Ccircle opacity='0.3' cx='13.2231' cy='28.7778' r='0.777778' fill='%23E3E0C2'/%3E%3Ccircle opacity='0.3' cx='30.3325' cy='44.3339' r='0.777778' fill='%23E3E0C2'/%3E%3Ccircle opacity='0.3' cx='41.2231' cy='42.7778' r='0.777778' fill='%23E3E0C2'/%3E%3Ccircle opacity='0.3' cx='44.3325' cy='30.3339' r='0.777778' fill='%23E3E0C2'/%3E%3Ccircle opacity='0.3' cx='47.4438' cy='14.7778' r='0.777778' fill='%23E3E0C2'/%3E%3Ccircle opacity='0.3' cx='31.8891' cy='5.44477' r='0.777778' fill='%23E3E0C2'/%3E%3Ccircle opacity='0.3' cx='14.7778' cy='44.3339' r='0.777778' fill='%23E3E0C2'/%3E%3Ccircle opacity='0.3' cx='36.5551' cy='48.9995' r='0.777778' fill='%23E3E0C2'/%3E%3Ccircle opacity='0.3' cx='24.1118' cy='8.5561' r='0.777778' fill='%23E3E0C2'/%3E%3Ccircle opacity='0.3' cx='17.8891' cy='16.3339' r='0.777778' fill='%23E3E0C2'/%3E%3Ccircle opacity='0.3' cx='10.1118' cy='20.9995' r='0.777778' fill='%23E3E0C2'/%3E%3Ccircle opacity='0.3' cx='8.55512' cy='36.5561' r='0.777778' fill='%23E3E0C2'/%3E%3Ccircle opacity='0.3' cx='25.6665' cy='50.5561' r='0.777778' fill='%23E3E0C2'/%3E%3Ccircle opacity='0.3' cx='14.7778' cy='10.1108' r='0.777778' fill='%23E3E0C2'/%3E%3Ccircle opacity='0.3' cx='47.4438' cy='38.1108' r='0.777778' fill='%23E3E0C2'/%3E%3Ccircle opacity='0.3' cx='47.4438' cy='22.5561' r='0.777778' fill='%23E3E0C2'/%3E%3C/svg%3E%0A");
     }
 
     .icon {
         &:first-child {
             opacity: 0;
-            visibility: hidden;
         }
     }
 
@@ -71,23 +69,19 @@
 
     &:before {
         opacity: 0;
-        visibility: hidden;
     }
 
     &:after {
         opacity: 1;
-        visibility: visible;
     }
 
     .icon {
         &:first-child {
             opacity: 1;
-            visibility: visible;
         }
     
         &:last-child {
             opacity: 0;
-            visibility: hidden;
         }
     }
 }

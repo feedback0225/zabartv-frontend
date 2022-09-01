@@ -28,7 +28,7 @@ export const Cartoons = () => {
     ]
 
     return (
-        <section className={styles.cartoons}>
+        <section className={styles.section}>
             <div className={classNames('container', styles.container)}>
                 <Title level='h1' size='large' className={styles.title}>Мультфильмы</Title>
                 <Tabs tabs={tabs} />

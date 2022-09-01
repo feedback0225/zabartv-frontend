@@ -1,0 +1,17 @@
+.link {
+    display: inline-block;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 36px;
+    color: var(--color-primary);
+    transition: color 0.3s;
+
+    @media (max-width: 576px) {
+        font-size: 16px;
+        line-height: 29px;
+    }
+
+    &:hover {
+        color: var(--color-primary-active);
+    }
+}

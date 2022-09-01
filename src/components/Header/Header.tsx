@@ -4,11 +4,16 @@ import classNames from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './Header.module.scss';
+import { FC } from 'react';
 
-export const Header = () => {
+interface HeaderProps {
+    absoluteHeader?: boolean;
+}
+
+export const Header: FC<HeaderProps> = ({absoluteHeader}) => {
     
     return (
-        <header className={styles.header}>
+        <header className={classNames(styles.header, absoluteHeader && styles.absolute)}>
             <div className={classNames('container', styles.container)}>
                 <Link href='/'>
                     <a className={styles.logo}>

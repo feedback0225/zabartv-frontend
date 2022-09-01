@@ -12,6 +12,7 @@ import TelegramIcon from './svg/telegram.svg'
 import YoutubeIcon from './svg/youtube.svg'
 import InstagramIcon from './svg/instagram.svg'
 import CloseIcon from './svg/close.svg'
+import NotFoundIcon from './svg/404.svg'
 
 export {
     ProfileIcon,
@@ -27,5 +28,6 @@ export {
     TelegramIcon,
     YoutubeIcon,
     InstagramIcon,
-    CloseIcon
+    CloseIcon,
+    NotFoundIcon
 }
