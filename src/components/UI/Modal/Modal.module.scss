@@ -77,6 +77,13 @@
     right: 15px;
     width: 30px;
     height: 30px;
+    transition: transform 0.3s;
+    outline: none;
+
+    &:hover,
+    &:focus {
+        transform: rotate(90deg);
+    }
 
     svg {
         display: block;

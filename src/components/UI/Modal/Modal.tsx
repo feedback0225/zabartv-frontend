@@ -1,14 +1,15 @@
-import { ButtonHTMLAttributes, DOMAttributes, PropsWithChildren } from 'react';
-import { Title } from '@/UI/Title/Title';
-import { TextField, TextFieldProps } from '@/UI/TextField/TextField';
-import { Button, ButtonProps } from '@/UI/Button/Button';
-import { Link, LinkProps } from '@/UI/Link/Link';
-import { ButtonBase } from '@/components/ButtonBase/ButtonBase';
-import { CloseIcon } from '@/components/Icons/Icons';
-import styles from './Modal.module.scss';
-import { Portal } from '@/components/Portal/Portal';
-import { CSSTransition } from 'react-transition-group';
-import { useLockedBody } from 'usehooks-ts';
+import { ButtonHTMLAttributes, PropsWithChildren, useEffect } from 'react'
+import { Title } from '@/UI/Title/Title'
+import { TextField, TextFieldProps } from '@/UI/TextField/TextField'
+import { Button, ButtonProps } from '@/UI/Button/Button'
+import { Link, LinkProps } from '@/UI/Link/Link'
+import { ButtonBase } from '@/components/ButtonBase/ButtonBase'
+import { CloseIcon } from '@/components/Icons/Icons'
+import { Portal } from '@/components/Portal/Portal'
+import { CSSTransition } from 'react-transition-group'
+import { useLockedBody } from 'usehooks-ts'
+import FocusTrap from 'focus-trap-react'
+import styles from './Modal.module.scss'
 
 interface ModalProps {
     open: boolean;
@@ -17,9 +18,18 @@ interface ModalProps {
 
 function Modal({children, open, onClose}: PropsWithChildren<ModalProps>) {
 
-    const {ModalContent, ModalClose} = Modal
+    const {ModalClose} = Modal
 
     useLockedBody(open)
+
+    useEffect(() => {
+        const handleEscapeKey = (event: KeyboardEvent) => event.code === 'Escape' && onClose()
+      
+        document.addEventListener('keydown', handleEscapeKey)
+        
+        return () => document.removeEventListener('keydown', handleEscapeKey)
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      }, [])
 
     return (
         <CSSTransition
@@ -29,12 +39,14 @@ function Modal({children, open, onClose}: PropsWithChildren<ModalProps>) {
         >
             <Portal id='modal'>
                 {open && (
-                    <div onClick={onClose} className={styles.modal}>
-                        <ModalContent onClick={e => e.stopPropagation()}>
-                            {children}
-                            <ModalClose onClick={onClose}  />
-                        </ModalContent>
-                    </div>
+                    <FocusTrap active={open}>
+                        <div onClick={onClose} className={styles.modal}>
+                            <div className={styles.content} onClick={e => e.stopPropagation()}>
+                                {children}
+                                <ModalClose onClick={onClose}  />
+                            </div>
+                        </div>
+                    </FocusTrap>
                 )}
             </Portal>
         </CSSTransition>
@@ -42,10 +54,6 @@ function Modal({children, open, onClose}: PropsWithChildren<ModalProps>) {
 }
 
 module Modal {
-
-    export const ModalContent = ({children, ...props}: PropsWithChildren<DOMAttributes<HTMLDivElement>>) => {
-        return <div className={styles.content} {...props}>{children}</div>
-    }
 
     export const ModalTitle = ({children}: PropsWithChildren<{}>) => {
         return <Title className={styles.title} level='h2' size='medium'>{children}</Title>
