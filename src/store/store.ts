@@ -1,10 +1,12 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import {menuReducer} from "./reducers/menuSlice";
 import {searchReducer} from "./reducers/searchSlice";
+import {langReducer} from "./reducers/langSlice";
 
 const rootReducer = combineReducers({
     menuReducer,
     searchReducer,
+    langReducer
 })
 
 export const setupStore = () => {
