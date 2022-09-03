@@ -10,7 +10,7 @@ export interface TitleProps {
 
 type Levels = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
-export const Title: FC<PropsWithChildren<TitleProps>> = (({className, size, level = 'h1', children, ...props}) => {
+export const Title: FC<PropsWithChildren<TitleProps>> = (({className, size = 'large', level = 'h1', children, ...props}) => {
   const Tag = `${level}` as keyof JSX.IntrinsicElements;
 
   return (

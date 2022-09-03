@@ -17,7 +17,7 @@ export const SubscribeModal = () => {
 
     return (
         <Modal gradient open={isVisibleSubscribeModal} onClose={handleClose}>
-            <ModalTitle size='large'>Подиска ZabarTV</ModalTitle>
+            <ModalTitle>Подиска ZabarTV</ModalTitle>
             <ModalDesc>Покажем уникальные сериалы и фильмы. Подберем кино по интересам и настроению. Для вас и вашей семьи.</ModalDesc>
             <Link href={RoutesEnum.Subscribe} passHref>
                 <ModalButton

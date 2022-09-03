@@ -3,6 +3,10 @@
     font-weight: 500;
     color: var(--color-white);
     transition: color 0.3s;
+
+    span {
+        color: var(--color-primary);
+    }
 }
 
 .large {
