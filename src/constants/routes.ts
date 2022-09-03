@@ -8,7 +8,7 @@ export enum RoutesEnum {
     Tv = '/tv',
     New = '/new',
     Cabinet = '/cabinet',
-    Subscription = '/subscription',
+    Subscribe = '/subscribe',
     About = '/about',
     Policy = '/policy',
 }

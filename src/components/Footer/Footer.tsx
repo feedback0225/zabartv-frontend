@@ -31,7 +31,7 @@ export const Footer = () => {
                 {href: RoutesEnum.Films, txt: 'Фильмы'},
                 {href: RoutesEnum.Series, txt: 'Сериалы'},
                 {href: RoutesEnum.New, txt: 'New'},
-                {href: RoutesEnum.Subscription, txt: 'Выбор подписки'}
+                {href: RoutesEnum.Subscribe, txt: 'Выбор подписки'}
             ]
         }
     ]

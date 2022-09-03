@@ -1,6 +1,6 @@
 import styles from './Support.module.scss';
 import { Title } from '@/UI/Title/Title'
-import { TelegramIcon } from '@/components/Icons/Icons';
+import { TelegramIcon } from '@/icons';
 
 export const Support = () => {
     return (

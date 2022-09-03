@@ -8,9 +8,9 @@ export const RegisterModal = () => {
 
     const {isVisibleRegisterModal} = useTypedSelector(state => state.modalReducer)
 
-    const {setShowRegisterModal} = useActions()
+    const {showRegisterModal} = useActions()
 
-    const handleClose = () => setShowRegisterModal(false)
+    const handleClose = () => showRegisterModal(false)
 
     return (
         <Modal open={isVisibleRegisterModal} onClose={handleClose}>

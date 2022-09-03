@@ -1,21 +1,23 @@
-import { ButtonHTMLAttributes, PropsWithChildren, useEffect } from 'react'
-import { Title } from '@/UI/Title/Title'
+import { ButtonHTMLAttributes, forwardRef, PropsWithChildren, useEffect } from 'react'
+import { Title, TitleProps } from '@/UI/Title/Title'
 import { TextField, TextFieldProps } from '@/UI/TextField/TextField'
 import { Button, ButtonProps } from '@/UI/Button/Button'
 import { Link, LinkProps } from '@/UI/Link/Link'
 import { ButtonBase } from '@/components/ButtonBase/ButtonBase'
-import { CloseIcon } from '@/components/Icons/Icons'
+import { CloseIcon } from '@/icons'
 import { Portal } from '@/components/Portal/Portal'
 import { CSSTransition } from 'react-transition-group'
 import { useLockedBody } from 'usehooks-ts'
 import styles from './Modal.module.scss'
+import classNames from 'classnames'
 
 interface ModalProps {
     open: boolean;
+    gradient?: boolean;
     onClose: () => void;
 }
 
-function Modal({children, open, onClose}: PropsWithChildren<ModalProps>) {
+function Modal({children, open, gradient, onClose}: PropsWithChildren<ModalProps>) {
 
     const {ModalClose} = Modal
 
@@ -39,7 +41,7 @@ function Modal({children, open, onClose}: PropsWithChildren<ModalProps>) {
             <Portal id='modal'>
                 {open && (
                     <div onClick={onClose} className={styles.modal}>
-                        <div className={styles.content} onClick={e => e.stopPropagation()}>
+                        <div className={classNames(styles.content, gradient && styles.gradient)} onClick={e => e.stopPropagation()}>
                             {children}
                             <ModalClose onClick={onClose}  />
                         </div>
@@ -52,8 +54,12 @@ function Modal({children, open, onClose}: PropsWithChildren<ModalProps>) {
 
 module Modal {
 
-    export const ModalTitle = ({children}: PropsWithChildren<{}>) => {
-        return <Title className={styles.title} level='h2' size='medium'>{children}</Title>
+    export const ModalTitle = ({children, size = 'medium', ...props}: PropsWithChildren<TitleProps>) => {
+        return <Title className={styles.title} level='h2' size={size} {...props}>{children}</Title>
+    }
+
+    export const ModalDesc = ({children}: PropsWithChildren<{}>) => {
+        return <p className={styles.desc}>{children}</p>
     }
 
     export const ModalInputs = ({children}: PropsWithChildren<{}>) => {
@@ -64,9 +70,9 @@ module Modal {
         return <TextField className={styles.input} {...props} />
     }
 
-    export const ModalButton = ({children, ...props}: PropsWithChildren<ButtonProps>) => {
-        return <Button className={styles.btn}>{children}</Button>
-    }
+    export const ModalButton = forwardRef(({children, ...props}: PropsWithChildren<ButtonProps>, ref) => {
+        return <Button className={styles.btn} {...props}>{children}</Button>
+    })
 
     export const ModalLink = ({children, href}: PropsWithChildren<LinkProps>) => {
         return <Link href={href} className={styles.link}>{children}</Link>
@@ -79,6 +85,8 @@ module Modal {
             </ButtonBase>
         )
     }
+
+    ModalButton.displayName = 'Modal.tsx'
 }
 
 export {Modal}

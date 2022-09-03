@@ -1,6 +1,6 @@
 import ProfileIcon from './svg/profile.svg'
 import SearchIcon from './svg/search.svg'
-import SubscriptionIcon from './svg/subscription.svg'
+import SubscribeIcon from './svg/subscribe.svg'
 import RuIcon from './svg/ru.svg'
 import CeIcon from './svg/ce.svg'
 import ArrowIcon from './svg/arrow.svg'
@@ -17,7 +17,7 @@ import NotFoundIcon from './svg/404.svg'
 export {
     ProfileIcon,
     SearchIcon,
-    SubscriptionIcon,
+    SubscribeIcon,
     RuIcon,
     CeIcon,
     ArrowIcon,

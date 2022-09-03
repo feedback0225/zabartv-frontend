@@ -1,5 +1,5 @@
 import { Nav, ThemeToggle, Lang, Actions, Search, Menu, Burger } from './components/index'
-import { SubscriptionButton } from '@/UI/SubscriptionButton/SubscriptionButton';
+import { SubscribeButton } from '@/UI/SubscribeButton/SubscribeButton';
 import classNames from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -31,7 +31,7 @@ export const Header: FC<HeaderProps> = ({absoluteHeader}) => {
                 <div className={styles.right}>
                     <Actions />
                     <Search />
-                    <SubscriptionButton className={styles.btn} />
+                    <SubscribeButton className={styles.btn} />
                     <Burger />
                 </div>
                 <Lang />

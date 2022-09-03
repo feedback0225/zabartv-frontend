@@ -2,7 +2,7 @@ import {FC, PropsWithChildren} from "react";
 import styles from './Title.module.scss'
 import classNames from "classnames";
 
-interface TitleProps {
+export interface TitleProps {
   className?: string;
   level?: Levels;
   size?: 'small' | 'large' | 'medium';

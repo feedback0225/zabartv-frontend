@@ -1,14 +1,14 @@
 import { ButtonBase } from '@/components/ButtonBase/ButtonBase'
-import { ProfileIcon, SearchIcon } from '@/components/Icons/Icons'
+import { ProfileIcon, SearchIcon } from '@/icons'
 import { useActions } from 'src/hooks/useActions'
 import classNames from 'classnames'
 import styles from './Actions.module.scss'
 
 export const Actions = () => {
 
-    const {setVisible, setShowRegisterModal} = useActions()
+    const {setVisible, showRegisterModal} = useActions()
 
-    const handleOpenModal = () => setShowRegisterModal(true)
+    const handleOpenModal = () => showRegisterModal(true)
 
     const handleOpenSearch = () => setVisible(true)
 

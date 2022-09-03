@@ -3,11 +3,11 @@ import { CloseIcon } from '@/icons'
 import { useTypedSelector } from 'src/hooks/useTypedSelector'
 import { ThemeToggle } from '../index'
 import { useActions } from 'src/hooks/useActions'
-import { useWindowDimensions } from '@/hooks/useWindowDimensions'
+import { useWindowSize } from '@/hooks/useWindowSize'
 import { useLockedBody } from 'usehooks-ts'
 import { MenuLang } from './components/MenuLang/MenuLang'
 import { RoutesEnum } from '@/constants/routes'
-import { SubscriptionButton } from '@/UI/SubscriptionButton/SubscriptionButton'
+import { SubscribeButton } from '@/components/UI/SubscribeButton/SubscribeButton'
 import classNames from 'classnames'
 import styles from './Menu.module.scss'
 import Link from 'next/link'
@@ -19,7 +19,7 @@ export const Menu = () => {
 
     const handleClose = () => showMenu(false)
     
-    const { height } = useWindowDimensions();
+    const { height } = useWindowSize();
 
     useLockedBody(isOpened)
 
@@ -54,7 +54,7 @@ export const Menu = () => {
                         ))}
                     </ul>
                 </nav>
-                <SubscriptionButton className={styles.btn} />
+                <SubscribeButton className={styles.btn} />
             </div>
         </div>
     )
