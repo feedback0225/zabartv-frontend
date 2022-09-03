@@ -8,7 +8,6 @@ import { CloseIcon } from '@/components/Icons/Icons'
 import { Portal } from '@/components/Portal/Portal'
 import { CSSTransition } from 'react-transition-group'
 import { useLockedBody } from 'usehooks-ts'
-import FocusTrap from 'focus-trap-react'
 import styles from './Modal.module.scss'
 
 interface ModalProps {
@@ -39,14 +38,12 @@ function Modal({children, open, onClose}: PropsWithChildren<ModalProps>) {
         >
             <Portal id='modal'>
                 {open && (
-                    <FocusTrap active={open}>
-                        <div onClick={onClose} className={styles.modal}>
-                            <div className={styles.content} onClick={e => e.stopPropagation()}>
-                                {children}
-                                <ModalClose onClick={onClose}  />
-                            </div>
+                    <div onClick={onClose} className={styles.modal}>
+                        <div className={styles.content} onClick={e => e.stopPropagation()}>
+                            {children}
+                            <ModalClose onClick={onClose}  />
                         </div>
-                    </FocusTrap>
+                    </div>
                 )}
             </Portal>
         </CSSTransition>

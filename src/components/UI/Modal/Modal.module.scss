@@ -5,12 +5,12 @@
     left: 0;
     right: 0;
     bottom: 0;
-    transition: opacity 0.3s;
     overflow-y: auto;
     overflow-x: hidden;
     text-align: center;
     cursor: pointer;
     background-color: rgba(#080a12, 0.85);
+    transition: opacity 0.3s;
 
     &:before {
         content: "";

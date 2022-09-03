@@ -16,8 +16,8 @@ export const RegisterModal = () => {
         <Modal open={isVisibleRegisterModal} onClose={handleClose}>
             <ModalTitle>Регистрация</ModalTitle>
             <ModalInputs>
-                <ModalInput placeholder="Придумайте пароль" />
-                <ModalInput placeholder="Повторите пароль" />
+                <ModalInput type='password' placeholder="Придумайте пароль" />
+                <ModalInput type='password' placeholder="Повторите пароль" />
             </ModalInputs>
             <ModalButton>Зарегистрироваться</ModalButton>
         </Modal>
