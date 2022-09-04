@@ -6,10 +6,11 @@ import classNames from 'classnames';
 export interface LinkProps {
     className?: string;
     as?: 'link' | 'button';
+    disabled?: boolean;
     onClick?: () => void;
 }
 
-export const Link: FC<PropsWithChildren<LinkProps>> = forwardRef(({as = 'link', onClick, children, className, ...props}, ref) => {
+export const Link: FC<PropsWithChildren<LinkProps>> = forwardRef(({as = 'link', onClick, disabled, children, className, ...props}, ref) => {
 
     const proxy = {
         'link': 'a',
@@ -22,6 +23,7 @@ export const Link: FC<PropsWithChildren<LinkProps>> = forwardRef(({as = 'link', 
         <Element
             className={classNames(styles.link, className)}
             onClick={onClick}
+            disabled={disabled}
             {...props}
         >
             {children}

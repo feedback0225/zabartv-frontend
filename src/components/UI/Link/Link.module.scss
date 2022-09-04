@@ -4,7 +4,12 @@
     font-size: 20px;
     line-height: 36px;
     color: var(--color-primary);
-    transition: color 0.3s;
+    transition: color 0.3s, opacity 0.3s;
+
+    &[disabled] {
+        opacity: 0.7;
+        pointer-events: none;
+    }
 
     @media (max-width: 576px) {
         font-size: 16px;
