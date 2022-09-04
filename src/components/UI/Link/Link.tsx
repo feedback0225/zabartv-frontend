@@ -1,17 +1,32 @@
-import { FC, LinkHTMLAttributes, PropsWithChildren } from 'react'
-import NextLink from 'next/link'
+import { FC, forwardRef, PropsWithChildren } from 'react'
+import { ButtonBase } from '@/components/ButtonBase/ButtonBase';
 import styles from './Link.module.scss'
 import classNames from 'classnames';
 
-export interface LinkProps extends LinkHTMLAttributes<HTMLAnchorElement> {
-    href: string;
+export interface LinkProps {
     className?: string;
+    as?: 'link' | 'button';
+    onClick?: () => void;
 }
 
-export const Link: FC<PropsWithChildren<LinkProps>> = ({href, children, className, ...props}) => {
+export const Link: FC<PropsWithChildren<LinkProps>> = forwardRef(({as = 'link', onClick, children, className, ...props}, ref) => {
+
+    const proxy = {
+        'link': 'a',
+        'button': ButtonBase
+     }
+
+    const Element = proxy[as]
+
     return (
-        <NextLink href={href}>
-            <a className={classNames(styles.link, className)}>{children}</a>
-        </NextLink>
+        <Element
+            className={classNames(styles.link, className)}
+            onClick={onClick}
+            {...props}
+        >
+            {children}
+        </Element>
     )
-}
+})
+
+Link.displayName = 'Link.tsx'

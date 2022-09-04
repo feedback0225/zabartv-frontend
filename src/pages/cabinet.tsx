@@ -4,7 +4,7 @@ import type { NextPage } from 'next';
 
 const CabinetPage: NextPage = () => {
   return (
-    <Layout withoutFooter>
+    <Layout>
       <Cabinet />
     </Layout>
   )

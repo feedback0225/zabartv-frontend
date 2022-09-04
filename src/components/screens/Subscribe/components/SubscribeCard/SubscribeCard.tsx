@@ -1,14 +1,13 @@
 import { FC } from "react"
 import { Title } from "@/UI/Title/Title"
 import { SubscribeIcon } from "@/icons"
-import { ISubscribeCard } from "./ISubscribeCard"
 import { Button } from "@/UI/Button/Button"
 import { Counter } from "@/UI/Counter/Counter"
 import styles from './SubscribeCard.module.scss'
 import classNames from "classnames"
 
 interface SubscribeCardProps {
-    card: ISubscribeCard;
+    card: any;
 }
 
 export const SubscribeCard: FC<SubscribeCardProps> = ({card}) => {

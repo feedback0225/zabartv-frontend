@@ -5,9 +5,11 @@ import RuIcon from './svg/ru.svg'
 import CeIcon from './svg/ce.svg'
 import ArrowIcon from './svg/arrow.svg'
 import MoonIcon from './svg/moon.svg'
+import MailIcon from './svg/mail.svg'
 import SunIcon from './svg/sun.svg'
 import MenuIcon from './svg/menu.svg'
 import PlayIcon from './svg/play.svg'
+import EditIcon from './svg/edit.svg'
 import TelegramIcon from './svg/telegram.svg'
 import YoutubeIcon from './svg/youtube.svg'
 import InstagramIcon from './svg/instagram.svg'
@@ -29,5 +31,7 @@ export {
     YoutubeIcon,
     InstagramIcon,
     CloseIcon,
-    NotFoundIcon
+    NotFoundIcon,
+    MailIcon,
+    EditIcon
 }

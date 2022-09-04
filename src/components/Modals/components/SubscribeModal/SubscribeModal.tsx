@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export const SubscribeModal = () => {
 
-    const {ModalTitle, ModalDesc, ModalButton} = Modal;
+    const {ModalTitle, ModalDesc, ModalButton, ModalLink} = Modal;
 
     const {isVisibleSubscribeModal} = useTypedSelector(state => state.modalReducer)
 

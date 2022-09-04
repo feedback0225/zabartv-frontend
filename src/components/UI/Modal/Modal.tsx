@@ -80,9 +80,9 @@ module Modal {
         return <Button className={styles.btn} {...props}>{children}</Button>
     })
 
-    export const ModalLink = ({children, href}: PropsWithChildren<LinkProps>) => {
-        return <Link href={href} className={styles.link}>{children}</Link>
-    }
+    export const ModalLink = forwardRef(({children, ...props}: PropsWithChildren<LinkProps>, ref) => {
+        return <Link className={styles.link} {...props}>{children}</Link>
+    })
 
     export const ModalClose = ({...props}: ButtonHTMLAttributes<HTMLButtonElement>) => {
         return (
@@ -92,7 +92,8 @@ module Modal {
         )
     }
 
-    ModalButton.displayName = 'Modal.tsx'
+    ModalButton.displayName = 'ModalButton.tsx'
+    ModalLink.displayName = 'ModalLink.tsx'
 }
 
 export {Modal}
