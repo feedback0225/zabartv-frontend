@@ -13,7 +13,7 @@ export const RegisterModal = () => {
     const handleClose = () => showRegisterModal(false)
 
     return (
-        <Modal open={isVisibleRegisterModal} onClose={handleClose}>
+        <Modal fullscreen open={isVisibleRegisterModal} onClose={handleClose}>
             <ModalTitle>Регистрация</ModalTitle>
             <ModalInputs>
                 <ModalInput type='password' placeholder="Придумайте пароль" />

@@ -13,11 +13,12 @@ import classNames from 'classnames'
 
 interface ModalProps {
     open: boolean;
+    fullscreen?: boolean;
     gradient?: boolean;
     onClose: () => void;
 }
 
-function Modal({children, open, gradient, onClose}: PropsWithChildren<ModalProps>) {
+function Modal({children, open, fullscreen, gradient, onClose}: PropsWithChildren<ModalProps>) {
 
     const {ModalClose} = Modal
 
@@ -40,7 +41,12 @@ function Modal({children, open, gradient, onClose}: PropsWithChildren<ModalProps
         >
             <Portal id='modal'>
                 {open && (
-                    <div onClick={onClose} className={styles.modal}>
+                    <div onClick={onClose} className={
+                        classNames(
+                            styles.modal,
+                            fullscreen && styles.fullscreen
+                        )}
+                    >
                         <div className={classNames(styles.content, gradient && styles.gradient)} onClick={e => e.stopPropagation()}>
                             {children}
                             <ModalClose onClick={onClose}  />
