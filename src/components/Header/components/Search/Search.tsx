@@ -11,8 +11,8 @@ import classNames from 'classnames';
 
 export const Search = () => {
     
-    const {visible} = useTypedSelector(state => state.searchReducer)
-    const {setSearch, setVisible} = useActions()
+    const {isSearchVisible} = useTypedSelector(state => state.searchReducer)
+    const {setSearch, setVisibleSearch} = useActions()
     const [value, setValue] = useState<string>('')
     const formRef = useRef<HTMLFormElement>(null)
     const inputRef = useRef<HTMLInputElement>(null)
@@ -29,26 +29,26 @@ export const Search = () => {
     }
 
     useEffect(() => {
-        setVisible(false)
+        setVisibleSearch(false)
         setValue('')
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [router])
 
-    useOnClickOutside(formRef, () => setVisible(false))
+    useOnClickOutside(formRef, () => setVisibleSearch(false))
     
     useEffect(() => {
-        if(visible) {
+        if(isSearchVisible) {
             inputRef?.current?.focus()
         }
-    }, [visible])
+    }, [isSearchVisible])
 
     const handleClose = () => {
         inputRef?.current?.blur()
-        setVisible(false)
+        setVisibleSearch(false)
     }
 
     return (
-        <form onSubmit={submitForm} ref={formRef} action="#" className={classNames(styles.form, visible && styles.visible)}>
+        <form onSubmit={submitForm} ref={formRef} action="#" className={classNames(styles.form, isSearchVisible && styles.visible)}>
             <TextField
                 variant='dark'
                 className={styles.search}

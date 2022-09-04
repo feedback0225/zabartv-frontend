@@ -5,9 +5,12 @@ import { useActions } from "@/hooks/useActions"
 
 export const SubscribeButton: FC<ButtonProps> = ({className, ...props}) => {
 
-  const {showSubscribeModal} = useActions()
+  const {showSubscribeModal, showMenu} = useActions()
 
-  const handleShowModal = () => showSubscribeModal(true)
+  const handleShowModal = () => {
+    showSubscribeModal(true)
+    showMenu(false)
+  }
 
   return (
     <Button

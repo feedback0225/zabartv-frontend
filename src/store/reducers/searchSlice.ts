@@ -2,7 +2,7 @@ import {createSlice} from '@reduxjs/toolkit';
 
 const initialState = {
     search: '',
-    visible: false
+    isSearchVisible: false
 }
 
 export const searchSlice = createSlice({
@@ -12,15 +12,15 @@ export const searchSlice = createSlice({
         setSearch: (state, action) => {
             state.search = action.payload
         },
-        setVisible: (state, action) => {
-            state.visible = action.payload
+        setVisibleSearch: (state, action) => {
+            state.isSearchVisible = action.payload
         }
     }
 })
 
 export const {
     setSearch,
-    setVisible
+    setVisibleSearch
 } = searchSlice.actions;
 
 export const searchReducer = searchSlice.reducer;

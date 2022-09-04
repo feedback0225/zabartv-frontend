@@ -6,6 +6,9 @@
     flex-direction: column;
     padding: 84px 0 60px;
     overflow: hidden;
+    border: 1px solid rgba(#555C68, 0.2);
+    border-radius: 25px;
+    transition: border-color 0.3s;
 
     @media (max-width: 768px) {
         min-height: 350px;
@@ -27,15 +30,13 @@
         right: 0;
         bottom: 0;
         pointer-events: none;
-        border-radius: 25px;
-        border: 1px solid #555C68;
         opacity: 0.2;
         background: url('/noise.png');
         background-color: var(--color-dark);
         background-blend-mode: soft-light, normal;
         background-size: cover;
         background-repeat: no-repeat;
-        transition: background-color 0.3s, border-color 0.3s, opacity 0.3s;
+        transition: background-color 0.3s, opacity 0.3s;
     }
 
     &:after {
@@ -58,6 +59,7 @@
 
 .year {
     padding-top: 103px;
+    border-color: rgba(#fca11a, 0.2);
 
     @media (max-width: 768px) {
         padding-top: 0;
@@ -68,27 +70,28 @@
         background-blend-mode: soft-light, normal;
         opacity: 0.2;
         border-radius: 25px;
-        border-color: var(--color-primary);
     }
 }
 
 [data-theme='light'] {
     .card {
+        border-color: rgba(#555C68, 0.15);
+        
         &:before {
             opacity: 1;
-            border-color: rgba(#555C68, 0.2);
         }
 
         &:after {
-            opacity: 0.4;
+            opacity: 0.3;
             filter: invert(100%);
         }
     }
 
     .year {
+        border-color: rgba(#fca11a, 0.2);
+
         &:before {
-            border-color: var(--color-primary);
-            opacity: 0.2;
+            opacity: 0.1;
         }
     }
 }

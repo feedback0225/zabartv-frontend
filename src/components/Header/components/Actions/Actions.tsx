@@ -6,11 +6,11 @@ import styles from './Actions.module.scss'
 
 export const Actions = () => {
 
-    const {setVisible, showRegisterModal} = useActions()
+    const {setVisibleSearch, showRegisterModal} = useActions()
 
     const handleOpenModal = () => showRegisterModal(true)
 
-    const handleOpenSearch = () => setVisible(true)
+    const handleOpenSearch = () => setVisibleSearch(true)
 
     return (
         <ul className={classNames('list-reset', styles.list)}>
