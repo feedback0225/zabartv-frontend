@@ -69,6 +69,10 @@
         padding: 77px 0 83px;
     }
 
+    @media (max-width: 360px) {
+        max-width: 90%;
+    }
+
     &:before {
         content: '';
         z-index: -1;
@@ -126,12 +130,23 @@
             margin-bottom: 21px;
             max-width: 308px;
         }
+
+        @media (max-width: 360px) {
+            font-size: 12px;
+            line-height: 20px;
+            max-width: 250px;
+        }
     }
 
     .btn {
         @media (max-width: 576px) {
             font-size: 12px;
             line-height: 22px;
+        }
+
+        @media (max-width: 360px) {
+            font-size: 11px;
+            line-height: 20px;
         }
     }
     
