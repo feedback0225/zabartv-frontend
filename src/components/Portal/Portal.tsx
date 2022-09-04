@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 
 interface PortalProps {
   id?: string;
-};
+}
 
 export const Portal: FC<PropsWithChildren<PortalProps>> = ({id, children}) => {
   const [mounted, setMounted] = useState(false);
@@ -17,4 +17,4 @@ export const Portal: FC<PropsWithChildren<PortalProps>> = ({id, children}) => {
   }, []);
 
   return mounted && !!containerRef.current ? createPortal(children, containerRef.current) : null;
-};
+}

@@ -9,6 +9,12 @@
     }
 }
 
+[data-theme='light'] {
+    .title {
+        color: #404040;
+    }
+}
+
 .large {
     font-weight: 700;
     font-size: 74px;

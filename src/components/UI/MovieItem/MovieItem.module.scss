@@ -63,6 +63,10 @@
     visibility: hidden;
     background-color: rgba(#080a12, 0.8);
     transition: opacity 0.3s, visibility 0.3s;
+
+    @media (max-width: 576px) {
+        display: none;
+    }
 }
 
 .chips {
@@ -141,6 +145,16 @@
     line-height: 34px;
     color: var(--color-white);
     transition: color 0.3s;
+}
+
+[data-theme='light'] {
+    .title {
+        color: #404040;
+    }
+
+    .status {
+        color: #818ca4;
+    }
 }
 
 .status {
