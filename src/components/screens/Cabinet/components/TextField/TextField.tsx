@@ -57,10 +57,10 @@ export const TextField: FC<TextFieldProps> = ({className, onChange, type, value,
                 onChange={handleChange}
                 {...props}
             />
+            {isEdited && <Link disabled={inputValue.length === 0} as='button' onClick={applyChanges} className={styles.apply}>Сохранить изменения</Link>}
             <ButtonBase type='button' onClick={handleEditField} className={styles.btn}>
                 {!isEdited ? <EditIcon /> : <CloseIcon />}
             </ButtonBase>
-            {isEdited && <Link disabled={inputValue.length === 0} as='button' onClick={applyChanges} className={styles.apply}>Сохранить изменения</Link>}
         </div>
     )
 }
