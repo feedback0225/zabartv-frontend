@@ -7,7 +7,7 @@ interface GridProps {
     data: any[]
 }
 
-export const Grid: FC<PropsWithChildren<GridProps>> = ({children, data}) => {
+export const Grid: FC<GridProps> = ({data}) => {
     return (
         <div className={styles.grid}>
             {data.map(item => (

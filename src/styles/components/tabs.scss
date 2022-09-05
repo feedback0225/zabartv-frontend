@@ -5,7 +5,7 @@
         display: flex;
         align-items: center;
         padding: 0;
-        margin-bottom: 49px;
+        margin-bottom: 76px;
         border-bottom: 1px solid rgba(#fff, 0.1);
 
         @media (max-width: 576px) {
@@ -24,6 +24,7 @@
         padding-bottom: 11px;
         outline: none;
         cursor: pointer;
+        white-space: nowrap;
         transition: color 0.3s;
 
         @media (max-width: 1024px) {

@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import {FC, Fragment, ReactNode} from "react"
 import {Tab, TabList, TabPanel, Tabs as ReactTabs} from "react-tabs"
 
@@ -9,11 +10,12 @@ type TabItem = {
 
 interface TabsProps {
     tabs: TabItem[];
+    className?: string;
 }
 
-export const Tabs: FC<TabsProps> = ({tabs}) => {
+export const Tabs: FC<TabsProps> = ({className, tabs}) => {
     return (
-        <ReactTabs className='react-tabs'>
+        <ReactTabs className={classNames('react-tabs', className)}>
             <TabList>
                 {tabs.map((el) => {
 

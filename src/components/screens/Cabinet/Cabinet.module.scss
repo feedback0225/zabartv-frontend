@@ -114,3 +114,32 @@
         margin-right: 6px;
     }
 }
+
+.tabs {
+    ul {
+        margin-bottom: 49px;
+
+        @media (max-width: 576px) {
+            margin-right: calc(var(--container-offset)/ -100 * 100);
+            margin-left: calc(var(--container-offset)/ -100 * 100);
+            padding: 0 var(--container-offset);
+            overflow-y: hidden;
+            overflow-x: auto;
+            margin-bottom: 32px;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    }
+
+    li {
+        &:not(:last-child) {
+            margin-right: 45px;
+
+            @media (max-width: 1024px) {
+                margin-right: 27px;
+            }
+        }
+    }
+}

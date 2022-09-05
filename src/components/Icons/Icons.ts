@@ -15,6 +15,7 @@ import YoutubeIcon from './svg/youtube.svg'
 import InstagramIcon from './svg/instagram.svg'
 import CloseIcon from './svg/close.svg'
 import NotFoundIcon from './svg/404.svg'
+import FavouriteIcon from './svg/favourite.svg'
 
 export {
     ProfileIcon,
@@ -33,5 +34,6 @@ export {
     CloseIcon,
     NotFoundIcon,
     MailIcon,
-    EditIcon
+    EditIcon,
+    FavouriteIcon
 }

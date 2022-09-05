@@ -17,7 +17,9 @@ export const Cabinet = () => {
 
     const tabs = [
         {txt: 'Настройки', content: <Settings />},
-        {txt: 'Избранное', content: <Favourites />}
+        {txt: 'Избранное', content: <Favourites />},
+        {txt: 'История покупок', content: <Favourites />},
+        {txt: 'История просмотров', content: <Favourites />},
     ]
 
     return (
@@ -36,7 +38,7 @@ export const Cabinet = () => {
                     </div>
                     <SubscribeInfo info={info} />
                 </div>
-                <Tabs tabs={tabs} />
+                <Tabs className={styles.tabs} tabs={tabs} />
             </div>
         </section>
     )
