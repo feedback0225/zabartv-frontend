@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     isVisibleRegisterModal: false,
     isVisibleSubscribeModal: false,
+    isVisibleGradeModal: false,
 }
 
 export const modalSlice = createSlice({
@@ -15,8 +16,11 @@ export const modalSlice = createSlice({
         showSubscribeModal: (state, action) => {
             state.isVisibleSubscribeModal = action.payload
         },
+        showGradeModal: (state, action) => {
+            state.isVisibleGradeModal = action.payload
+        }
     }
 })
 
-export const {showRegisterModal, showSubscribeModal} = modalSlice.actions
+export const {showRegisterModal, showSubscribeModal, showGradeModal} = modalSlice.actions
 export const modalReducer = modalSlice.reducer

@@ -1,5 +1,5 @@
 import { FC, PropsWithChildren } from 'react'
-import { MovieItem } from '../MovieItem/MovieItem'
+import { MovieItem } from '@/UI/MovieItem/MovieItem'
 import styles from './Grid.module.scss'
 
 interface GridProps {

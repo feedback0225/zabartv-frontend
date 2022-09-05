@@ -141,6 +141,8 @@
     }
 
     .btn {
+        max-width: initial;
+        
         @media (max-width: 576px) {
             font-size: 12px;
             line-height: 22px;
@@ -217,6 +219,9 @@
 }
 
 .btn {
+    max-width: 347px;
+    margin: 0 auto;
+    
     @media (max-width: 576px) {
         font-size: 16px;
         line-height: 29px;

@@ -6,16 +6,18 @@
 .top {
     position: relative;
     width: 100%;
-    padding-bottom: 129%;
     margin-bottom: 30px;
 
     @media (max-width: 768px) {
         margin-bottom: 20px;
     }
+}
 
-    @media (max-width: 576px) {
-        padding-bottom: 129%;
-    }
+.poster {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding-bottom: 129%;
 }
 
 .image {

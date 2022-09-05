@@ -1,7 +1,7 @@
 import { Grid } from '../Grid/Grid';
 import { MovieItem } from '../index';
 
-export const Favourites = () => {
+export const Views = () => {
 
     const data = [
       {
@@ -37,7 +37,7 @@ export const Favourites = () => {
     return (
         <Grid>
           {data.map(item => (
-              <MovieItem favourite key={item.id} item={item} />
+              <MovieItem key={item.id} item={item} />
           ))}
         </Grid>
     )

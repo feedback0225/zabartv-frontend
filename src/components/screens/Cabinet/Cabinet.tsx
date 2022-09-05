@@ -1,4 +1,4 @@
-import { Avatar, SubscribeInfo, Settings, Favourites, Purchases } from './components/index'
+import { Avatar, SubscribeInfo, Settings, Favourites, Purchases, Views } from './components/index'
 import { MailIcon } from '@/icons'
 import classNames from 'classnames'
 import styles from './Cabinet.module.scss'
@@ -19,6 +19,7 @@ export const Cabinet = () => {
         {txt: 'Настройки', content: <Settings />},
         {txt: 'Избранное', content: <Favourites />},
         {txt: 'История покупок', content: <Purchases />},
+        {txt: 'История просмотров', content: <Views />},
     ]
 
     return (

@@ -7,6 +7,7 @@
         padding: 0;
         margin-bottom: 76px;
         border-bottom: 1px solid rgba(#fff, 0.1);
+        transition: border-color 0.3s;
 
         @media (max-width: 576px) {
             margin-bottom: 37px;
@@ -80,13 +81,20 @@
 }
 
 [data-theme="light"] {
-    .react-tabs__tab {
-        &:not(.react-tabs__tab--selected) {
-            color: #818ca4;
+    .react-tabs {
 
-            &:hover,
-            &:active {
-                color: var(--color-primary);
+        &__tab-list {
+            border-color: #dadee6;
+        }
+
+        &__tab {
+            &:not(.react-tabs__tab--selected) {
+                color: #818ca4;
+    
+                &:hover,
+                &:active {
+                    color: var(--color-primary);
+                }
             }
         }
     }

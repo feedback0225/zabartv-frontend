@@ -2,7 +2,7 @@
 import {setLang} from './reducers/langSlice';
 import {showMenu} from './reducers/menuSlice';
 import {setVisibleSearch, setSearch} from './reducers/searchSlice';
-import {showRegisterModal, showSubscribeModal} from './reducers/modalSlice'
+import {showRegisterModal, showSubscribeModal, showGradeModal} from './reducers/modalSlice'
 import {setSubscribedEmail, setEmail, setPassword, setDate} from './reducers/userSlice'
 
 export {
@@ -12,6 +12,7 @@ export {
     setLang,
     showRegisterModal,
     showSubscribeModal,
+    showGradeModal,
     setSubscribedEmail,
     setEmail,
     setPassword,
