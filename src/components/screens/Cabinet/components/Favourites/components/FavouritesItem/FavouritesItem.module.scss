@@ -1,20 +1,6 @@
 .item {
     display: block;
     overflow: hidden;
-    transition: transform 0.3s;
-    
-    &:hover {
-        transform: translateY(-5px);
-    }
-
-    @media (any-hover: hover) {
-        &:hover {
-            .content {
-                opacity: 1;
-                visibility: visible;
-            }
-        }
-    }
 }
 
 .top {
