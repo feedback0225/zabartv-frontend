@@ -16,6 +16,7 @@ import InstagramIcon from './svg/instagram.svg'
 import CloseIcon from './svg/close.svg'
 import NotFoundIcon from './svg/404.svg'
 import FavouriteIcon from './svg/favourite.svg'
+import StarIcon from './svg/star.svg'
 
 export {
     ProfileIcon,
@@ -35,5 +36,6 @@ export {
     NotFoundIcon,
     MailIcon,
     EditIcon,
-    FavouriteIcon
+    FavouriteIcon,
+    StarIcon
 }

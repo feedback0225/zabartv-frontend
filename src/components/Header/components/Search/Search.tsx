@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react';
+import { ChangeEvent, FC, FormEvent, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useActions } from '@/hooks/useActions';
 import { ButtonBase } from '@/components/ButtonBase/ButtonBase';
@@ -9,7 +9,11 @@ import { TextField } from '@/UI/TextField/TextField';
 import styles from './Search.module.scss';
 import classNames from 'classnames';
 
-export const Search = () => {
+interface SearchProps {
+    className?: string;
+}
+
+export const Search: FC<SearchProps> = ({className}) => {
     
     const {isSearchVisible} = useTypedSelector(state => state.searchReducer)
     const {setSearch, setVisibleSearch} = useActions()
@@ -48,7 +52,7 @@ export const Search = () => {
     }
 
     return (
-        <form onSubmit={submitForm} ref={formRef} action="#" className={classNames(styles.form, isSearchVisible && styles.visible)}>
+        <form onSubmit={submitForm} ref={formRef} action="#" className={classNames(styles.form, isSearchVisible && styles.visible, className)}>
             <TextField
                 variant='dark'
                 className={styles.search}

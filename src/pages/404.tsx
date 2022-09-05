@@ -4,7 +4,7 @@ import type { NextPage } from 'next';
 
 const NotFoundPage: NextPage = () => {
   return (
-    <Layout absoluteHeader>
+    <Layout headerVariant='absolute'>
       <NotFound />
     </Layout>
   )

@@ -1,7 +1,8 @@
-import { FC } from "react";
-import Image from "next/image";
-import styles from './MovieItem.module.scss';
-import Link from "next/link";
+import { FC } from "react"
+import { Chip } from "@/UI/Chip/Chip"
+import Image from "next/image"
+import styles from './MovieItem.module.scss'
+import Link from "next/link"
 
 interface MovieItemProps {
     //временно
@@ -27,8 +28,8 @@ export const MovieItem: FC<MovieItemProps> = ({item}) => {
                     <span className={styles.rating}>{rating}</span>
                     <div className={styles.content}>
                         <div className={styles.chips}>
-                            <span className={styles.chip}>{genre}</span>
-                            <span className={styles.chip}>{type}</span>
+                            <Chip className={styles.chip}>{genre}</Chip>
+                            <Chip className={styles.chip}>{type}</Chip>
                         </div>
                         <div className={styles.info}>
                             <span className={styles.infoItem}>

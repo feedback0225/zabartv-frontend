@@ -1,4 +1,4 @@
-import { Link } from '@/components/UI/Link/Link';
+import { Link } from '@/UI/Link/Link';
 import { Title } from '@/UI/Title/Title';
 import { FC } from 'react'
 import styles from './SubscribeInfo.module.scss'

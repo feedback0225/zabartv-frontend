@@ -57,3 +57,13 @@
         background-color: var(--color-primary);
     }
 }
+
+.dark {
+    background-color: #141f34;
+    color: var(--color-primary);
+
+    &:hover {
+        background-color: #212B3b;
+        color: var(--color-primary-active);
+    }
+}

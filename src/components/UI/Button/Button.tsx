@@ -30,6 +30,7 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = forwardRef(({as = 'but
                 size === 'small' && styles.small,
                 variant === 'gradient' && styles.gradient,
                 variant === 'white' && styles.white,
+                variant === 'dark' && styles.dark,
                 className
             )}
             {...props}

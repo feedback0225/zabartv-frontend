@@ -76,15 +76,6 @@
 }
 
 .chip {
-    display: inline-block;
-    color: var(--color-primary);
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 28.8px;
-    padding: 3px 12px 4px 14px;
-    background: rgba(252, 161, 26, 0.2);
-    backdrop-filter: blur(25px);
-    border-radius: 55px;
     &:not(:last-child) {
         margin-right: 8px;
     }

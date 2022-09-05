@@ -8,12 +8,19 @@ import { FC } from 'react';
 
 interface HeaderProps {
     absoluteHeader?: boolean;
+    blurHeader?: boolean;
+    variant?: 'absolute' | 'blur';
 }
 
-export const Header: FC<HeaderProps> = ({absoluteHeader}) => {
+export const Header: FC<HeaderProps> = ({variant}) => {
     
     return (
-        <header className={classNames(styles.header, absoluteHeader && styles.absolute)}>
+        <header className={
+            classNames(
+                styles.header,
+                variant === 'absolute' && styles.absolute,
+                variant === 'blur' && styles.blur
+            )}>
             <div className={classNames('container', styles.container)}>
                 <Link href='/'>
                     <a className={styles.logo}>
@@ -27,10 +34,10 @@ export const Header: FC<HeaderProps> = ({absoluteHeader}) => {
                         />
                     </a>
                 </Link>
-                <Nav />
+                <Nav className={styles.nav} />
                 <div className={styles.right}>
                     <Actions />
-                    <Search />
+                    <Search className={styles.search} />
                     <SubscribeButton className={styles.btn} />
                     <Burger />
                 </div>

@@ -6,19 +6,19 @@ import classNames from 'classnames'
 import styles from './Layout.module.scss'
 
 interface LayoutProps {
-    absoluteHeader?: boolean;
     withoutFooter?: boolean;
+    headerVariant?: 'absolute' | 'blur'
 }
 
-export const Layout: FC<PropsWithChildren<LayoutProps>> = ({children, withoutFooter, absoluteHeader}) => {
+export const Layout: FC<PropsWithChildren<LayoutProps>> = ({children, headerVariant, withoutFooter,}) => {
     return (
         <>
-            <div className={classNames(absoluteHeader ? styles.absolute : styles.container)}>
-                <Header absoluteHeader={absoluteHeader} />
+            <div className={classNames(headerVariant === 'absolute' ? styles.absolute : styles.container)}>
+                <Header variant={headerVariant} />
                 <main className='main'>
                     {children}
                 </main>
-                {!withoutFooter ? <Footer /> : null}
+                {!withoutFooter && <Footer />}
             </div>
             <Modals />
         </>
