@@ -16,8 +16,8 @@ export const Purchases = () => {
                 <span className={styles.nameCol}>Период активности</span>
                 <span className={styles.nameCol}>Цена</span>
             </div>
-            {data.map(col => {
-                const {date, period, price} = col;
+            {data.map(item => {
+                const {date, period, price} = item
 
                 return (
                     <div key={date} className={styles.rows}>

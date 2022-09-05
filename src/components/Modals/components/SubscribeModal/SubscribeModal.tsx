@@ -16,7 +16,7 @@ export const SubscribeModal = () => {
     const handleClose = () => showSubscribeModal(false)
 
     return (
-        <Modal gradient open={isVisibleSubscribeModal} onClose={handleClose}>
+        <Modal variant='gradient' open={isVisibleSubscribeModal} onClose={handleClose}>
             <ModalTitle>Подиска ZabarTV</ModalTitle>
             <ModalDesc>Покажем уникальные сериалы и фильмы. Подберем кино по интересам и настроению. Для вас и вашей семьи.</ModalDesc>
             <Link href={RoutesEnum.Subscribe} passHref>

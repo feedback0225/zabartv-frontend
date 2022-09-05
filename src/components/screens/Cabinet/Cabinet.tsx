@@ -1,9 +1,9 @@
 import { Avatar, SubscribeInfo, Settings, Favourites, Purchases, Views } from './components/index'
 import { MailIcon } from '@/icons'
-import classNames from 'classnames'
-import styles from './Cabinet.module.scss'
 import { Tabs } from '@/UI/Tabs/Tabs'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
+import classNames from 'classnames'
+import styles from './Cabinet.module.scss'
 
 export const Cabinet = () => {
 
