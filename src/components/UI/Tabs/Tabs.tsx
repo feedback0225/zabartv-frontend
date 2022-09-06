@@ -16,17 +16,19 @@ interface TabsProps {
 export const Tabs: FC<TabsProps> = ({ className, tabs }) => {
 	return (
 		<ReactTabs className={classNames('react-tabs', className)}>
-			<TabList>
-				{tabs.map((el) => {
-					const { txt, condition = true } = el;
+			<div className="react-tabs__tab-wrapper">
+				<TabList>
+					{tabs.map((el) => {
+						const { txt, condition = true } = el;
 
-					return (
-						<Fragment key={txt}>
-							{condition ? <Tab>{txt}</Tab> : null}
-						</Fragment>
-					);
-				})}
-			</TabList>
+						return (
+							<Fragment key={txt}>
+								{condition ? <Tab>{txt}</Tab> : null}
+							</Fragment>
+						);
+					})}
+				</TabList>
+			</div>
 			{tabs.map((el) => {
 				const { txt, content, condition = true } = el;
 
