@@ -3,7 +3,7 @@ import { FC, PropsWithChildren, useRef } from 'react';
 import { Swiper } from 'swiper/react';
 import { SliderButton } from '@/UI/SliderButton/SliderButton';
 import { SwiperOptions } from 'swiper/types';
-import SwiperClass from 'swiper';
+import SwiperClass, { Autoplay, Navigation } from 'swiper';
 import styles from './Carousel.module.scss';
 import classNames from 'classnames';
 
@@ -25,7 +25,7 @@ export const Carousel: FC<PropsWithChildren<CarouselProps>> = ({
 	const navigationPrevRef = useRef<HTMLButtonElement>(null);
 	const navigationNextRef = useRef<HTMLButtonElement>(null);
 
-	const navigation = {
+	const swiperNavigation = {
 		prevEl: navigationPrevRef.current,
 		nextEl: navigationNextRef.current,
 	};
@@ -46,8 +46,9 @@ export const Carousel: FC<PropsWithChildren<CarouselProps>> = ({
 
 	return (
 		<Swiper
+			modules={[Navigation, Autoplay]}
 			slidesPerView={slidesPerView}
-			navigation={navigation}
+			navigation={swiperNavigation}
 			onSwiper={onSwiper}
 			className={classNames(styles.slider, className)}
 			{...props}

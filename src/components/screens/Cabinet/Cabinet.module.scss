@@ -120,16 +120,7 @@
 		margin-bottom: 49px;
 
 		@media (max-width: 576px) {
-			margin-right: calc(var(--container-offset) / -100 * 100);
-			margin-left: calc(var(--container-offset) / -100 * 100);
-			padding: 0 var(--container-offset);
-			overflow-y: hidden;
-			overflow-x: auto;
 			margin-bottom: 32px;
-
-			&::-webkit-scrollbar {
-				display: none;
-			}
 		}
 	}
 

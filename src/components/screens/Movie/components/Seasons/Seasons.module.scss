@@ -1,0 +1,17 @@
+.seasons {
+    background-color: #0C101F;
+}
+
+.container {
+    position: relative;
+    padding-top: 72px;
+    padding-bottom: 121px;
+
+    @media (max-width: 768px) {
+        padding-top: 50px;
+    }
+
+    @media (max-width: 576px) {
+        padding-top: 34px;
+    }
+}

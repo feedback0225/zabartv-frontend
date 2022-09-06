@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Carousel } from '@/components/Carousel/Carousel';
-import { MusicItem } from '@/UI/MusicItem/MusicItem';
+import { VideoItem } from '@/UI/VideoItem/VideoItem';
 import { SwiperSlide } from 'swiper/react';
 import styles from './MusicCarousel.module.scss';
 
@@ -30,7 +30,7 @@ export const MusicCarousel: FC<MusicCarouselProps> = ({ data }) => {
 			>
 				{data.map((item) => (
 					<SwiperSlide className={styles.item} key={item.id}>
-						<MusicItem item={item} />
+						<VideoItem item={item} />
 					</SwiperSlide>
 				))}
 			</Carousel>

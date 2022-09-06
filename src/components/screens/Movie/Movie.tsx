@@ -5,6 +5,7 @@ import { PlayIcon, StarIcon } from '@/icons';
 import { Button } from '@/UI/Button/Button';
 import classNames from 'classnames';
 import styles from './Movie.module.scss';
+import { Seasons } from './components/Seasons/Seasons';
 
 export const Movie = () => {
 	const data = {
@@ -56,6 +57,7 @@ export const Movie = () => {
 					</div>
 				</div>
 			</div>
+			<Seasons />
 		</section>
 	);
 };

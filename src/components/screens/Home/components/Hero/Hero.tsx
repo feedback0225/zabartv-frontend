@@ -1,4 +1,4 @@
-import { Navigation, Autoplay } from 'swiper';
+import { Autoplay } from 'swiper';
 import { Carousel } from '@/components/Carousel/Carousel';
 import { SwiperSlide } from 'swiper/react';
 import styles from './Hero.module.scss';
@@ -20,7 +20,6 @@ export const Hero = () => {
 		<section className={styles.hero}>
 			<div className={classNames('container', styles.container)}>
 				<Carousel
-					modules={[Navigation, Autoplay]}
 					prevBtnClass={styles.prev}
 					nextBtnClass={styles.next}
 					className={styles.slider}

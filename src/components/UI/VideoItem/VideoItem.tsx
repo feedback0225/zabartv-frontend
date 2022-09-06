@@ -2,14 +2,14 @@ import { PlayIcon } from '@/icons';
 import { FC } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from './MusicItem.module.scss';
+import styles from './VideoItem.module.scss';
 
-interface MusicItemProps {
+interface VideoItemProps {
 	item: any;
 }
 
-export const MusicItem: FC<MusicItemProps> = ({ item }) => {
-	const { poster, id, title, status } = item;
+export const VideoItem: FC<VideoItemProps> = ({ item }) => {
+	const { poster, id, title, desc } = item;
 
 	return (
 		<Link href="/music">
@@ -28,7 +28,7 @@ export const MusicItem: FC<MusicItemProps> = ({ item }) => {
 					</span>
 				</div>
 				<h3 className={styles.title}>{title}</h3>
-				<span className={styles.status}>{status}</span>
+				<span className={styles.desc}>{desc}</span>
 			</a>
 		</Link>
 	);
