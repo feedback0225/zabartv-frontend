@@ -1,84 +1,84 @@
 .field {
-    position: relative;
-    border: 1px solid #232C3D;
-    border-radius: 25px;
-    padding: 32px 45px 37px;
-    transition: border-color 0.3s;
+	position: relative;
+	border: 1px solid #232c3d;
+	border-radius: 25px;
+	padding: 32px 45px 37px;
+	transition: border-color 0.3s;
 
-    @media (max-width: 1200px) {
-        padding: 27px 30px;
-    }
+	@media (max-width: 1200px) {
+		padding: 27px 30px;
+	}
 
-    @media (max-width: 768px) {
-        padding: 32px 45px 37px;
-    }
+	@media (max-width: 768px) {
+		padding: 32px 45px 37px;
+	}
 
-    @media (max-width: 360px) {
-        padding: 32px 35px 30px;
-    }
+	@media (max-width: 360px) {
+		padding: 32px 35px 30px;
+	}
 }
 
-[data-theme="light"] {
-    .field {
-        border-color: #e2E0dd;
-    }
+[data-theme='light'] {
+	.field {
+		border-color: #e2e0dd;
+	}
 }
 
 .label {
-    display: block;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 27.8px;
-    color: #52596C;
+	display: block;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 27.8px;
+	color: #52596c;
 }
 
 .input {
-    -webkit-appearance: none;
-    width: 100%;
-    appearance: none;
-    padding: 0;
-    border: none;
-    border-radius: 0;
-    background-color: transparent;
-    outline: none;
-    font-family: inherit;
-    color: var(--color-light);
-    transition: color 0.3s;
-    font-size: 20px;
-    line-height: 33px;
+	-webkit-appearance: none;
+	width: 100%;
+	appearance: none;
+	padding: 0;
+	border: none;
+	border-radius: 0;
+	background-color: transparent;
+	outline: none;
+	font-family: inherit;
+	color: var(--color-light);
+	transition: color 0.3s;
+	font-size: 20px;
+	line-height: 33px;
 
-    &::placeholder {
-        color: #52596C;
-    }
+	&::placeholder {
+		color: #52596c;
+	}
 }
 
 .value {
-    pointer-events: none;
-    cursor: default;
-    margin-top: 0;
+	pointer-events: none;
+	cursor: default;
+	margin-top: 0;
 
-    &[type='password'] {
-        font-family: Verdana;
-        letter-spacing: 2.2px;
-    }
+	&[type='password'] {
+		font-family: Verdana;
+		letter-spacing: 2.2px;
+	}
 }
 
 .apply {
-    margin-top: 5px;
+	margin-top: 5px;
 }
 
 .btn {
-    position: absolute;
-    display: block;
-    right: 20px;
-    top: 20px;
-    width: 22px;
-    height: 22px;
+	position: absolute;
+	display: block;
+	right: 20px;
+	top: 20px;
+	width: 22px;
+	height: 22px;
 
-    svg {
-        display: block;
-        width: 100%;
-        height: 100%;
-        fill: var(--color-light);
-    }
+	svg {
+		display: block;
+		width: 100%;
+		height: 100%;
+		fill: var(--color-light);
+	}
 }

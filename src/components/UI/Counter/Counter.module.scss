@@ -1,61 +1,61 @@
 .counter {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .decrement,
 .increment {
-    display: block;
-    width: 28px;
-    height: 28px;
-    background-color: #303847;
-    backdrop-filter: blur(25px);
-    border-radius: 100%;
-    transition: background-color 0.3s, opacity 0.3s;
+	display: block;
+	width: 28px;
+	height: 28px;
+	background-color: #303847;
+	backdrop-filter: blur(25px);
+	border-radius: 100%;
+	transition: background-color 0.3s, opacity 0.3s;
 
-    &[disabled] {
-        pointer-events: none;
-        opacity: 0.5;
-    }
+	&[disabled] {
+		pointer-events: none;
+		opacity: 0.5;
+	}
 
-    &:hover {
-        background-color: #465165;
-    }
+	&:hover {
+		background-color: #465165;
+	}
 
-    &:before,
-    &:after {
-        content: "";
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        position: absolute;
-        border-radius: 50px;
-        background-color: #fff;
-    }
+	&:before,
+	&:after {
+		content: '';
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		position: absolute;
+		border-radius: 50px;
+		background-color: #fff;
+	}
 
-    &:before {
-        width: 7px;
-        height: 1.5px;
-    }
+	&:before {
+		width: 7px;
+		height: 1.5px;
+	}
 
-    &:after {
-        width: 1.5px;
-        height: 7px;
-    }
+	&:after {
+		width: 1.5px;
+		height: 7px;
+	}
 }
 
 .decrement {
-    &:after {
-        display: none;
-    }
+	&:after {
+		display: none;
+	}
 }
 
 .value {
-    display: block;
-    text-align: center;
-    min-width: 100px;
-    font-size: 20px;
-    line-height: 36px;
-    color: var(--color-white);
-    transition: color 0.3s;
+	display: block;
+	text-align: center;
+	min-width: 100px;
+	font-size: 20px;
+	line-height: 36px;
+	color: var(--color-white);
+	transition: color 0.3s;
 }

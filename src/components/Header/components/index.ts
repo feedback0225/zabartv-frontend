@@ -6,12 +6,4 @@ import { Search } from './Search/Search';
 import { Actions } from './Actions/Actions';
 import { ThemeToggle } from './ThemeToggle/ThemeToggle';
 
-export {
-    Actions,
-    ThemeToggle,
-    Nav,
-    Lang,
-    Menu,
-    Burger,
-    Search
-}
+export { Actions, ThemeToggle, Nav, Lang, Menu, Burger, Search };

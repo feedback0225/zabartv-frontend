@@ -3,11 +3,11 @@ import { Cartoons } from '@/screens/Cartoons/Cartoons';
 import type { NextPage } from 'next';
 
 const CartoonsPage: NextPage = () => {
-  return (
-    <Layout>
-      <Cartoons />
-    </Layout>
-  )
-}
+	return (
+		<Layout>
+			<Cartoons />
+		</Layout>
+	);
+};
 
-export default CartoonsPage
+export default CartoonsPage;

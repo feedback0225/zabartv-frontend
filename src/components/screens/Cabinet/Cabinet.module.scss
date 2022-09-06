@@ -1,145 +1,145 @@
 .container {
-    padding-top: 35px;
-    padding-bottom: 72px;
+	padding-top: 35px;
+	padding-bottom: 72px;
 
-    @media (max-width: 768px) {
-        padding-top: 10px;
-        padding-bottom: 55px;
-    }
+	@media (max-width: 768px) {
+		padding-top: 10px;
+		padding-bottom: 55px;
+	}
 
-    @media (max-width: 576px) {
-        padding-bottom: 47px;
-        padding-top: 0;
-    }
+	@media (max-width: 576px) {
+		padding-bottom: 47px;
+		padding-top: 0;
+	}
 }
 
 .top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 59px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 59px;
 
-    @media (max-width: 1024px) {
-        align-items: flex-start;
-        flex-direction: column;
-    }
+	@media (max-width: 1024px) {
+		align-items: flex-start;
+		flex-direction: column;
+	}
 
-    @media (max-width: 576px) {
-        margin-bottom: 32px;
-    }
+	@media (max-width: 576px) {
+		margin-bottom: 32px;
+	}
 }
 
 .left {
-    display: flex;
-    align-items: center;
-    padding-top: 15px;
+	display: flex;
+	align-items: center;
+	padding-top: 15px;
 
-    @media (max-width: 1200px) {
-        padding-top: 0;
-    }
+	@media (max-width: 1200px) {
+		padding-top: 0;
+	}
 
-    @media (max-width: 1024px) {
-        margin-bottom: 50px;
-    }
+	@media (max-width: 1024px) {
+		margin-bottom: 50px;
+	}
 
-    @media (max-width: 768px) {
-        margin-bottom: 40px;
-    }
+	@media (max-width: 768px) {
+		margin-bottom: 40px;
+	}
 
-    @media (max-width: 576px) {
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
-        margin-bottom: 22px;
-    }
+	@media (max-width: 576px) {
+		flex-direction: column;
+		width: 100%;
+		text-align: center;
+		margin-bottom: 22px;
+	}
 }
 
 .text {
-    display: flex;
-    flex-direction: column;
-    margin-left: 39px;
+	display: flex;
+	flex-direction: column;
+	margin-left: 39px;
 
-    @media (max-width: 1200px) {
-        margin-left: 30px;
-    }
+	@media (max-width: 1200px) {
+		margin-left: 30px;
+	}
 
-    @media (max-width: 576px) {
-        margin-left: 0;
-        margin-top: 8px;
-    }
+	@media (max-width: 576px) {
+		margin-left: 0;
+		margin-top: 8px;
+	}
 }
 
 .name {
-    margin: 0;
-    font-weight: 500;
-    font-size: 45px;
-    line-height: 62px;
-    color: #fff;
-    color: var(--color-white);
-    transition: color 0.3s;
+	margin: 0;
+	font-weight: 500;
+	font-size: 45px;
+	line-height: 62px;
+	color: #fff;
+	color: var(--color-white);
+	transition: color 0.3s;
 
-    @media (max-width: 1200px) {
-        font-size: 40px;
-        line-height: 60px;
-    }
+	@media (max-width: 1200px) {
+		font-size: 40px;
+		line-height: 60px;
+	}
 
-    @media (max-width: 768px) {
-        font-size: 30px;
-        line-height: 50px;
-    }
+	@media (max-width: 768px) {
+		font-size: 30px;
+		line-height: 50px;
+	}
 
-    @media (max-width: 576px) {
-        font-size: 28px;
-        line-height: 44px;
-    }
+	@media (max-width: 576px) {
+		font-size: 28px;
+		line-height: 44px;
+	}
 }
 
 .mail {
-    display: flex;
-    align-items: center;
-    color: var(--color-lightt);
-    font-size: 20px;
-    line-height: 36px;
-    white-space: nowrap;
+	display: flex;
+	align-items: center;
+	color: var(--color-lightt);
+	font-size: 20px;
+	line-height: 36px;
+	white-space: nowrap;
 
-    @media (max-width: 576px) {
-        justify-content: center;
-    }
+	@media (max-width: 576px) {
+		justify-content: center;
+	}
 
-    svg {
-        display: block;
-        width: 20px;
-        height: 20px;
-        object-fit: cover;
-        margin-right: 6px;
-    }
+	svg {
+		display: block;
+		width: 20px;
+		height: 20px;
+		object-fit: cover;
+		margin-right: 6px;
+	}
 }
 
 .tabs {
-    ul {
-        margin-bottom: 49px;
+	ul {
+		margin-bottom: 49px;
 
-        @media (max-width: 576px) {
-            margin-right: calc(var(--container-offset)/ -100 * 100);
-            margin-left: calc(var(--container-offset)/ -100 * 100);
-            padding: 0 var(--container-offset);
-            overflow-y: hidden;
-            overflow-x: auto;
-            margin-bottom: 32px;
+		@media (max-width: 576px) {
+			margin-right: calc(var(--container-offset) / -100 * 100);
+			margin-left: calc(var(--container-offset) / -100 * 100);
+			padding: 0 var(--container-offset);
+			overflow-y: hidden;
+			overflow-x: auto;
+			margin-bottom: 32px;
 
-            &::-webkit-scrollbar {
-                display: none;
-            }
-        }
-    }
+			&::-webkit-scrollbar {
+				display: none;
+			}
+		}
+	}
 
-    li {
-        &:not(:last-child) {
-            margin-right: 45px;
+	li {
+		&:not(:last-child) {
+			margin-right: 45px;
 
-            @media (max-width: 1024px) {
-                margin-right: 27px;
-            }
-        }
-    }
+			@media (max-width: 1024px) {
+				margin-right: 27px;
+			}
+		}
+	}
 }

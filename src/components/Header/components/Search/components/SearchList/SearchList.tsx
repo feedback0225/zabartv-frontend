@@ -1,5 +1,3 @@
 export const SearchList = () => {
-    return (
-        <div>SearchList</div>
-    )
-}
+	return <div>SearchList</div>;
+};

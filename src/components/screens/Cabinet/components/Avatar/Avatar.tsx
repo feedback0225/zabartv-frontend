@@ -1,14 +1,10 @@
-import { FC } from 'react'
-import styles from './Avatar.module.scss'
+import { FC } from 'react';
+import styles from './Avatar.module.scss';
 
 interface AvatarProps {
-    name: string;
+	name: string;
 }
 
-export const Avatar: FC<AvatarProps> = ({name}) => {
-  return (
-    <div className={styles.avatar}>
-      {name[0]}
-    </div>
-  )
-}
+export const Avatar: FC<AvatarProps> = ({ name }) => {
+	return <div className={styles.avatar}>{name[0]}</div>;
+};

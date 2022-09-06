@@ -1,18 +1,18 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    isOpened: false
-}
+	isOpened: false,
+};
 
 export const menuSlice = createSlice({
-    name: 'menu',
-    initialState,
-    reducers: {
-        showMenu: (state, action) => {
-            state.isOpened = action.payload
-        }
-    }
-})
+	name: 'menu',
+	initialState,
+	reducers: {
+		showMenu: (state, action) => {
+			state.isOpened = action.payload;
+		},
+	},
+});
 
-export const {showMenu} = menuSlice.actions
-export const menuReducer = menuSlice.reducer
+export const { showMenu } = menuSlice.actions;
+export const menuReducer = menuSlice.reducer;

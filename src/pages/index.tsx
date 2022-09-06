@@ -3,13 +3,13 @@ import { Hero, Humor, Music } from '@/screens/Home/index';
 import type { NextPage } from 'next';
 
 const HomePage: NextPage = () => {
-  return (
-    <Layout>
-      <Hero />
-      <Humor />
-      <Music />
-    </Layout>
-  )
-}
+	return (
+		<Layout>
+			<Hero />
+			<Humor />
+			<Music />
+		</Layout>
+	);
+};
 
-export default HomePage
+export default HomePage;

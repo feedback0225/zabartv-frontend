@@ -1,21 +1,21 @@
 .container {
-    position: relative;
+	position: relative;
 }
 
 .slider {
-    overflow: visible;
+	overflow: visible;
 }
 
 .btn {
-    top: 73px;
+	top: 73px;
 }
 
 .item {
-    @media (max-width: 768px) {
-        width: 65%;
-    }
+	@media (max-width: 768px) {
+		width: 65%;
+	}
 
-    @media (max-width: 576px) {
-        width: 80%;
-    }
+	@media (max-width: 576px) {
+		width: 80%;
+	}
 }
