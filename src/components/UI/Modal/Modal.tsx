@@ -13,7 +13,7 @@ import classNames from 'classnames'
 
 interface ModalProps {
     open: boolean;
-    variant: 'grade' | 'gradient',
+    variant?: 'grade' | 'gradient',
     fullscreen?: boolean;
     gradient?: boolean;
     onClose: () => void;
