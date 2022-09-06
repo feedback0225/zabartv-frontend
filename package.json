@@ -5,10 +5,10 @@
   "homepage": ".",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && npm run format",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "npm run build && npm run format && next export -o dist/",
+    "deploy": "npm run build && next export -o dist/",
     "format": "prettier ./.prettierrc --write src"
   },
   "dependencies": {
