@@ -4,7 +4,7 @@ import type { NextPage } from 'next';
 
 const AboutPage: NextPage = () => {
   return (
-    <Layout headerVariant='absolute' withoutFooter>
+    <Layout headerVariant='absolute'>
       <About />
     </Layout>
   )

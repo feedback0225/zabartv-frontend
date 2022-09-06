@@ -25,6 +25,8 @@ export const Hero = () => {
                     prevBtnClass={styles.prev}
                     nextBtnClass={styles.next}
                     className={styles.slider}
+                    loop={true}
+                    centeredSlides={true}
                     autoplay={{
                         delay: 4000,
                         disableOnInteraction: false
