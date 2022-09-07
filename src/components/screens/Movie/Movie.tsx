@@ -51,7 +51,11 @@ export const Movie = () => {
 						<Button className={styles.btn} variant="dark">
 							Трейлер
 						</Button>
-						<Button className={styles.star} variant="dark">
+						<Button
+							className={styles.star}
+							variant="dark"
+							aria-label="Добавить в избранное"
+						>
 							<StarIcon />
 						</Button>
 					</div>

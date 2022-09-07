@@ -65,12 +65,12 @@
 
 [data-theme='light'] {
 	.dark {
-		background-color: #545B67;
-		color: #fff;
+		background-color: #ECF1FA;
+		color: #7e8bb4;
 
 		&:hover {
-			background-color: #6f7886;
-			color: #fff;
+			background-color: #DDE7FB;
+			color: #7e8bb4;
 		}
 	}
 }
@@ -78,6 +78,10 @@
 .dark {
 	background-color: #141f34;
 	color: var(--color-primary);
+
+	svg {
+		fill: currentColor;
+	}
 
 	&:hover {
 		background-color: #212b3b;
