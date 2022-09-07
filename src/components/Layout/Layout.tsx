@@ -21,13 +21,12 @@ export const Layout: FC<PropsWithChildren<LayoutProps>> = ({
 				className={classNames(
 					headerVariant === 'absolute'
 						? styles.absolute
-						: styles.container,
-					sticky && styles.sticky
+						: styles.container
 				)}
 			>
 				<Header variant={headerVariant} />
 				<main className="main">{children}</main>
-				<Footer />
+				<Footer sticky={sticky} />
 			</div>
 			<Modals />
 		</>

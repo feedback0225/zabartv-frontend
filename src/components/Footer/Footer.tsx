@@ -4,8 +4,13 @@ import { Support } from './components/Support/Support';
 import classNames from 'classnames';
 import Link from 'next/link';
 import styles from './Footer.module.scss';
+import { FC } from 'react';
 
-export const Footer = () => {
+interface FooterProps {
+	sticky?: boolean;
+}
+
+export const Footer: FC<FooterProps> = ({ sticky }) => {
 	const menu = [
 		{
 			title: 'О нас',
@@ -36,7 +41,7 @@ export const Footer = () => {
 	];
 
 	return (
-		<footer className={styles.footer}>
+		<footer className={classNames(styles.footer, sticky && styles.sticky)}>
 			<div className={styles.top}>
 				<div className={classNames('container', styles.topContainer)}>
 					<div className={styles.left}>
