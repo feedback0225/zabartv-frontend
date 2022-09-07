@@ -26,6 +26,7 @@
 
 	@media (max-width: 576px) {
 		padding-bottom: 129%;
+		margin-bottom: 11px;
 	}
 }
 
@@ -136,6 +137,11 @@
 	line-height: 34px;
 	color: var(--color-white);
 	transition: color 0.3s;
+
+	@media (max-width: 576px) {
+		font-size: 20px;
+		line-height: 30px;
+	}
 }
 
 [data-theme='light'] {

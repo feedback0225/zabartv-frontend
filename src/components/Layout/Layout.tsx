@@ -6,14 +6,12 @@ import classNames from 'classnames';
 import styles from './Layout.module.scss';
 
 interface LayoutProps {
-	withoutFooter?: boolean;
 	headerVariant?: 'absolute' | 'blur';
 }
 
 export const Layout: FC<PropsWithChildren<LayoutProps>> = ({
 	children,
 	headerVariant,
-	withoutFooter,
 }) => {
 	return (
 		<>
@@ -26,7 +24,7 @@ export const Layout: FC<PropsWithChildren<LayoutProps>> = ({
 			>
 				<Header variant={headerVariant} />
 				<main className="main">{children}</main>
-				{!withoutFooter && <Footer />}
+				<Footer />
 			</div>
 			<Modals />
 		</>
