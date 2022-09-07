@@ -1,5 +1,12 @@
+[data-theme='light'] {
+    .seasons {
+        background-color: #fff;
+    }
+}
+
 .seasons {
-    background-color: #0C101F;
+    background-color: #0c101f;
+    transition: background-color 0.3s;
 }
 
 .container {
