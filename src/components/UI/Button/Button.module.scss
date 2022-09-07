@@ -84,3 +84,28 @@
 		color: var(--color-primary-active);
 	}
 }
+
+[data-theme='light'] {
+	.stroke {
+		border: 1px solid #dadee7;
+
+		&:hover {
+			background-color: #dadee7;
+		}
+	}
+}
+
+.stroke {
+	border: 1px solid rgba(#fff, 0.2);
+	background-color: transparent;
+	color: var(--color-white);
+
+	span svg {
+		stroke: none;
+	}
+
+	&:hover {
+		background-color: rgba(#fff, 0.2);
+		color: #fff;
+	}
+}

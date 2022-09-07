@@ -8,7 +8,7 @@ export interface ButtonProps {
 	size?: 'large' | 'medium' | 'small';
 	onClick?: () => void;
 	as?: 'link' | 'button';
-	variant?: 'white' | 'dark' | 'gradient';
+	variant?: 'white' | 'dark' | 'gradient' | 'stroke';
 	disabled?: boolean;
 	className?: string;
 }
@@ -45,6 +45,7 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = forwardRef(
 					variant === 'gradient' && styles.gradient,
 					variant === 'white' && styles.white,
 					variant === 'dark' && styles.dark,
+					variant === 'stroke' && styles.stroke,
 					className
 				)}
 				{...props}
