@@ -4,7 +4,7 @@ import type { NextPage } from 'next';
 
 const MoviePage: NextPage = () => {
 	return (
-		<Layout headerVariant="blur">
+		<Layout sticky headerVariant="blur">
 			<Movie />
 		</Layout>
 	);

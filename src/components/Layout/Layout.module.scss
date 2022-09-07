@@ -13,3 +13,13 @@
 	grid-template-rows: auto 1fr auto;
 	min-height: 100vh;
 }
+
+.sticky {
+	@media (max-width: 576px) {
+		padding-bottom: 96px;
+	}
+
+	@media (max-width: 360px) {
+		padding-bottom: 88px;
+	}
+}

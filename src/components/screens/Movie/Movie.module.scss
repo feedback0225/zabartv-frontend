@@ -28,6 +28,7 @@
 		content: '';
 		display: block;
 		position: absolute;
+		pointer-events: none;
 		top: 0;
 		left: 0;
 		right: 0;
@@ -52,6 +53,7 @@
 		content: '';
 		display: block;
 		position: absolute;
+		pointer-events: none;
 		top: 0;
 		left: 0;
 		right: 0;
@@ -83,7 +85,7 @@
 
 	@media (max-width: 576px) {
 		padding-top: 128px;
-		padding-bottom: 150px;
+		padding-bottom: 87px;
 	}
 }
 
