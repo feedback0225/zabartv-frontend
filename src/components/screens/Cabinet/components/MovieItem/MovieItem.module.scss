@@ -22,6 +22,7 @@
 
 .image {
 	border-radius: 25px;
+	background-color: var(--color-loader);
 }
 
 [data-theme='light'] {
@@ -42,9 +43,10 @@
 	background-color: var(--color-primary);
 
 	@media (max-width: 768px) {
-		padding: 1px 8px 2px 9px;
+		padding: 2px 8px 2px 9px;
+		margin-bottom: 7px;
 		font-size: 14px;
-		line-height: 25.2px;
+		line-height: 25px;
 	}
 }
 

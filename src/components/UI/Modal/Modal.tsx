@@ -50,6 +50,7 @@ function Modal({
 			<Portal id="modal">
 				{open && (
 					<div
+						data-testid="modal"
 						onClick={onClose}
 						className={classNames(
 							styles.modal,

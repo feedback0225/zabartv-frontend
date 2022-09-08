@@ -10,6 +10,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 	({ className, variant, ...props }, ref) => {
 		return (
 			<input
+				data-testid="input"
 				ref={ref}
 				className={classNames(
 					styles.textField,

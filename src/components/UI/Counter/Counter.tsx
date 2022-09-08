@@ -20,17 +20,22 @@ export const Counter: FC<CounterProps> = ({
 	const handleIncrement = () => setValue(value + initialValue);
 
 	return (
-		<div className={classNames(styles.counter, className)}>
+		<div
+			data-testid="counter"
+			className={classNames(styles.counter, className)}
+		>
 			<ButtonBase
+				data-testid="counter-decrement"
 				onClick={handleDecrement}
 				className={styles.decrement}
 				aria-label="Минус"
 				disabled={value === initialValue}
 			/>
-			<span className={styles.value}>
+			<span data-testid="counter-value" className={styles.value}>
 				{value} {caption}
 			</span>
 			<ButtonBase
+				data-testid="counter-increment"
 				onClick={handleIncrement}
 				className={styles.increment}
 				aria-label="Плюс"
