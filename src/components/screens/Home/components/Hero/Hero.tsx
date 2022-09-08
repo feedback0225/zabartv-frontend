@@ -16,6 +16,12 @@ export const Hero = () => {
 		{ href: '/movie', source: '/main-bg2.jpg', alt: 'Подпись к картинке6' },
 	];
 
+	const breakpoints = {
+		769: {
+			spaceBetween: 24,
+		},
+	};
+
 	return (
 		<section className={styles.hero}>
 			<div className={classNames('container', styles.container)}>
@@ -23,7 +29,9 @@ export const Hero = () => {
 					prevBtnClass={styles.prev}
 					nextBtnClass={styles.next}
 					className={styles.slider}
+					spaceBetween={15}
 					loop={true}
+					breakpoints={breakpoints}
 					centeredSlides={true}
 					autoplay={{
 						delay: 4000,

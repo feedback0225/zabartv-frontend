@@ -10,7 +10,7 @@
 	}
 
 	.desc {
-		color: #828CA4;
+		color: #828ca4;
 	}
 }
 
@@ -59,7 +59,11 @@
 		right: 0;
 		bottom: 0;
 		opacity: 0;
-		background: linear-gradient(90deg, #fff 36.38%, rgba(255, 255, 255, 0.42) 65.78%);
+		background: linear-gradient(
+			90deg,
+			#fff 36.38%,
+			rgba(255, 255, 255, 0.42) 65.78%
+		);
 		transition: opacity 0.3s;
 
 		@media (max-width: 576px) {
@@ -125,7 +129,7 @@
 
 [data-theme='light'] {
 	.infoItem {
-		color: #828CA4;
+		color: #828ca4;
 	}
 }
 

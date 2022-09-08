@@ -36,6 +36,7 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = forwardRef(
 
 		return (
 			<Element
+				data-testid="button"
 				disabled={disabled}
 				className={classNames(
 					styles.btn,

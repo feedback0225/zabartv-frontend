@@ -51,15 +51,7 @@
 	border-radius: 45px;
 	overflow: hidden;
 	transition: opacity 0.3s;
-	background-color: #0f1b44;
-
-	&:not(:last-child) {
-		margin-right: 24px;
-
-		@media (max-width: 768px) {
-			margin-right: 15px;
-		}
-	}
+	background-color: var(--color-loader);
 
 	@media (max-width: 768px) {
 		width: 80%;

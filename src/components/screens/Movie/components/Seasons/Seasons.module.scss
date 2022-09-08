@@ -1,36 +1,36 @@
 [data-theme='light'] {
-    .seasons {
-        background-color: #fff;
-    }
+	.seasons {
+		background-color: #fff;
+	}
 }
 
 .seasons {
-    background-color: #0c101f;
-    transition: background-color 0.3s;
+	background-color: #0c101f;
+	transition: background-color 0.3s;
 }
 
 .container {
-    position: relative;
-    padding-top: 72px;
-    padding-bottom: 121px;
+	position: relative;
+	padding-top: 72px;
+	padding-bottom: 121px;
 
 	@media (max-width: 1500px) {
-        padding-left: 45px;
-        padding-right: 45px;
-    }
-
-	@media (max-width: 1024px) {
-        padding-left: 40px;
-        padding-right: 40px;
-    }
-
-	@media (max-width: 768px) {
-        padding-top: 50px;
-        padding-left: var(--container-offset);
-        padding-right: var(--container-offset);
+		padding-left: 45px;
+		padding-right: 45px;
 	}
 
-    @media (max-width: 576px) {
-        padding-top: 34px;
-    }
+	@media (max-width: 1024px) {
+		padding-left: 40px;
+		padding-right: 40px;
+	}
+
+	@media (max-width: 768px) {
+		padding-top: 50px;
+		padding-left: var(--container-offset);
+		padding-right: var(--container-offset);
+	}
+
+	@media (max-width: 576px) {
+		padding-top: 34px;
+	}
 }
