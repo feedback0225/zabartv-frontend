@@ -1,3 +1,4 @@
+import LogoIcon from './svg/logo.svg';
 import ProfileIcon from './svg/profile.svg';
 import SearchIcon from './svg/search.svg';
 import SubscribeIcon from './svg/subscribe.svg';
@@ -20,6 +21,7 @@ import StarIcon from './svg/star.svg';
 import ChevronArrowIcon from './svg/chevron-arrow.svg';
 
 export {
+	LogoIcon,
 	ProfileIcon,
 	SearchIcon,
 	SubscribeIcon,

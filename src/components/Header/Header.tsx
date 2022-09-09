@@ -9,10 +9,10 @@ import {
 } from './components/index';
 import { SubscribeButton } from '@/UI/SubscribeButton/SubscribeButton';
 import classNames from 'classnames';
-import Image from 'next/image';
 import Link from 'next/link';
 import styles from './Header.module.scss';
 import { FC } from 'react';
+import { LogoIcon } from '@/icons';
 
 interface HeaderProps {
 	absoluteHeader?: boolean;
@@ -32,14 +32,7 @@ export const Header: FC<HeaderProps> = ({ variant }) => {
 			<div className={classNames('container', styles.container)}>
 				<Link href="/">
 					<a className={styles.logo}>
-						<Image
-							priority
-							unoptimized
-							layout="fill"
-							quality={100}
-							src="/logo.png"
-							alt="ZabarTV"
-						/>
+						<LogoIcon />
 					</a>
 				</Link>
 				<Nav className={styles.nav} />
