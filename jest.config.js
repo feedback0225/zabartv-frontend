@@ -6,8 +6,13 @@ module.exports = {
     ],
     moduleNameMapper: {
       "^@/components(.*)$": "<rootDir>/src/components/$1",
+      "^@/icons": "<rootDir>/src/components/Icons/Icons",
+      "^@/UI(.*)$": "<rootDir>/src/components/UI/$1",
 
       "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
+      
+      "^.+\\.(jpg|jpeg|png|gif|webp|avif|svg)$":
+        "<rootDir>/__mocks__/fileMock.js",
     },
     testPathIgnorePatterns: [
       "<rootDir>/node_modules/",

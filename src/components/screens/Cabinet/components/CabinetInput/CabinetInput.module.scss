@@ -1,4 +1,4 @@
-.field {
+.item {
 	position: relative;
 	border: 1px solid #232c3d;
 	border-radius: 25px;
@@ -19,8 +19,8 @@
 }
 
 [data-theme='light'] {
-	.field {
-		border-color: #e2e0dd;
+	.item {
+		border-color: #dadee7;
 	}
 }
 

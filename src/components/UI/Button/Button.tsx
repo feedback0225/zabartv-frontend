@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import styles from './Button.module.scss';
 
 export interface ButtonProps {
+	href?: string;
 	icon?: ReactNode;
 	size?: 'large' | 'medium' | 'small';
 	onClick?: () => void;

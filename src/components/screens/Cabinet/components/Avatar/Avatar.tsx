@@ -6,5 +6,11 @@ interface AvatarProps {
 }
 
 export const Avatar: FC<AvatarProps> = ({ name }) => {
-	return <div className={styles.avatar}>{name[0]}</div>;
+	const letter = name[0];
+
+	return (
+		<div data-testid="avatar" className={styles.avatar}>
+			{letter}
+		</div>
+	);
 };

@@ -1,7 +1,7 @@
 import { useActions } from '@/hooks/useActions';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { Checkbox } from '@/UI/Checkbox/Checkbox';
-import { TextField } from '../index';
+import { CabinetInput } from '../index';
 import styles from './Settings.module.scss';
 
 export const Settings = () => {
@@ -15,23 +15,23 @@ export const Settings = () => {
 	return (
 		<div className={styles.settings}>
 			<div className={styles.row}>
-				<TextField
+				<CabinetInput
 					label="Электронная почта"
 					type="email"
 					value={email}
-					onChange={setEmail}
+					applyChanges={setEmail}
 				/>
-				<TextField
+				<CabinetInput
 					label="Пароль"
 					type="password"
 					value={password}
-					onChange={setPassword}
+					applyChanges={setPassword}
 				/>
-				<TextField
+				<CabinetInput
 					label="Дата рождения"
 					type="text"
 					value={date}
-					onChange={setDate}
+					applyChanges={setDate}
 				/>
 			</div>
 			<Checkbox

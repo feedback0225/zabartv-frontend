@@ -1,30 +1,21 @@
-import {
-	ChangeEvent,
-	FC,
-	FormEvent,
-	InputHTMLAttributes,
-	useRef,
-	useState,
-} from 'react';
+import { ChangeEvent, FC, InputHTMLAttributes, useRef, useState } from 'react';
 import { ButtonBase } from '@/components/ButtonBase/ButtonBase';
 import { EditIcon, CloseIcon } from '@/icons';
 import { Link } from '@/UI/Link/Link';
 import classNames from 'classnames';
-import styles from './TextField.module.scss';
+import styles from './CabinetInput.module.scss';
 
-export interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface CabinetInputProps extends InputHTMLAttributes<HTMLInputElement> {
 	label: string;
 	date?: boolean;
-	mask?: string;
-	maskChar?: string;
 	value: string;
 	as?: 'input' | 'mask';
-	onChange: any;
+	applyChanges: (value: string) => void;
 }
 
-export const TextField: FC<TextFieldProps> = ({
+export const CabinetInput: FC<CabinetInputProps> = ({
 	className,
-	onChange,
+	applyChanges,
 	type,
 	value,
 	as = 'input',
@@ -34,14 +25,14 @@ export const TextField: FC<TextFieldProps> = ({
 }) => {
 	const inputRef = useRef<HTMLInputElement>(null);
 	const [isEdited, setIsEdited] = useState<boolean>(false);
-	const [inputValue, setInputValue] = useState(value);
+	const [inputValue, setInputValue] = useState<string>(value);
 
 	const closeField = () => {
 		inputRef.current?.blur();
 		setIsEdited(false);
 	};
 
-	const handleEditField = () => {
+	const handleEditInput = () => {
 		if (!isEdited) {
 			setIsEdited(true);
 			inputRef.current?.focus();
@@ -55,15 +46,16 @@ export const TextField: FC<TextFieldProps> = ({
 		setInputValue(e.target.value);
 	};
 
-	const applyChanges = () => {
-		onChange(inputValue);
+	const handleApplyChanges = () => {
+		applyChanges(inputValue);
 		closeField();
 	};
 
 	return (
-		<div className={styles.field}>
+		<div data-testid="cabinet-input-item" className={styles.item}>
 			<span className={styles.label}>{label}</span>
 			<input
+				data-testid="cabinet-input"
 				ref={inputRef}
 				className={classNames(styles.input, !isEdited && styles.value)}
 				type={isEdited ? 'text' : type}
@@ -76,15 +68,16 @@ export const TextField: FC<TextFieldProps> = ({
 				<Link
 					disabled={inputValue.length === 0}
 					as="button"
-					onClick={applyChanges}
+					onClick={handleApplyChanges}
 					className={styles.apply}
 				>
 					Сохранить изменения
 				</Link>
 			)}
 			<ButtonBase
+				data-testid="cabinet-input-button"
 				type="button"
-				onClick={handleEditField}
+				onClick={handleEditInput}
 				className={styles.btn}
 			>
 				{!isEdited ? <EditIcon /> : <CloseIcon />}

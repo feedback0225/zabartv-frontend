@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { Checkbox } from './Checkbox';
 
