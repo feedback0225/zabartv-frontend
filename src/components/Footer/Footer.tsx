@@ -51,32 +51,14 @@ export const Footer: FC<FooterProps> = ({ sticky }) => {
 							return (
 								<div key={title} className={styles.col}>
 									<h2 className={styles.title}>{title}</h2>
-									<ul
-										className={classNames(
-											'list-reset',
-											styles.list
-										)}
-									>
-										{items.map((el) => {
-											const { txt, href } = el;
-
-											return (
-												<li
-													key={txt}
-													className={styles.item}
-												>
-													<Link href={href}>
-														<a
-															className={
-																styles.link
-															}
-														>
-															{txt}
-														</a>
-													</Link>
-												</li>
-											);
-										})}
+									<ul className={classNames('list-reset', styles.list)}>
+										{items.map((el) => (
+											<li key={el.txt} className={styles.item}>
+												<Link href={el.href}>
+													<a className={styles.link}>{el.txt}</a>
+												</Link>
+											</li>
+										))}
 									</ul>
 								</div>
 							);
@@ -86,17 +68,12 @@ export const Footer: FC<FooterProps> = ({ sticky }) => {
 				</div>
 			</div>
 			<div className={styles.bottom}>
-				<div
-					className={classNames('container', styles.bottomContainer)}
-				>
+				<div className={classNames('container', styles.bottomContainer)}>
 					<span className={styles.copy}>© 2022 ООО «ZabarTV»</span>
 					<Social />
 					<p className={styles.desc}>
 						Дизайн и разработка -&nbsp;
-						<a
-							href="https://rusodot.ru/"
-							className={styles.descLink}
-						>
+						<a href="https://rusodot.ru/" className={styles.descLink}>
 							RUSO
 						</a>
 					</p>

@@ -1,9 +1,4 @@
-import {
-	ButtonHTMLAttributes,
-	forwardRef,
-	PropsWithChildren,
-	useEffect,
-} from 'react';
+import { ButtonHTMLAttributes, forwardRef, PropsWithChildren, useEffect } from 'react';
 import { Title, TitleProps } from '@/UI/Title/Title';
 import { TextField, TextFieldProps } from '@/UI/TextField/TextField';
 import { Button, ButtonProps } from '@/UI/Button/Button';
@@ -24,20 +19,13 @@ interface ModalProps {
 	onClose: () => void;
 }
 
-function Modal({
-	children,
-	variant,
-	open,
-	fullscreen,
-	onClose,
-}: PropsWithChildren<ModalProps>) {
+function Modal({ children, variant, open, fullscreen, onClose }: PropsWithChildren<ModalProps>) {
 	const { ModalClose } = Modal;
 
 	useLockedBody(open);
 
 	useEffect(() => {
-		const handleEscapeKey = (event: KeyboardEvent) =>
-			event.code === 'Escape' && onClose();
+		const handleEscapeKey = (event: KeyboardEvent) => event.code === 'Escape' && onClose();
 
 		document.addEventListener('keydown', handleEscapeKey);
 
@@ -47,15 +35,12 @@ function Modal({
 
 	return (
 		<CSSTransition in={open} timeout={300} classNames="modal">
-			<Portal id="modal">
+			<Portal rootId="#modal">
 				{open && (
 					<div
 						data-testid="modal"
 						onClick={onClose}
-						className={classNames(
-							styles.modal,
-							fullscreen && styles.fullscreen
-						)}
+						className={classNames(styles.modal, fullscreen && styles.fullscreen)}
 					>
 						<div
 							className={classNames(
@@ -120,9 +105,7 @@ module Modal {
 		}
 	);
 
-	export const ModalClose = ({
-		...props
-	}: ButtonHTMLAttributes<HTMLButtonElement>) => {
+	export const ModalClose = ({ ...props }: ButtonHTMLAttributes<HTMLButtonElement>) => {
 		return (
 			<ButtonBase className={styles.close} {...props}>
 				<CloseIcon />
