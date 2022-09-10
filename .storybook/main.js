@@ -15,12 +15,10 @@ module.exports = {
       },
     },
   ],
-  webpackFinal: async (config, { configType }) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '@': path.resolve(__dirname, "../src/"),
-    };
-    return config;
+  "webpackFinal": async (config) => {
+    config.resolve.alias['@/components'] = path.resolve(__dirname, '../src/components')
+    config.resolve.alias['@/UI'] = path.resolve(__dirname, '../src/components/UI')
+    return config
   },
   "framework": "@storybook/react",
   "core": {

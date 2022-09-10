@@ -10,21 +10,13 @@ interface MovieItemProps {
 }
 
 export const MovieItem: FC<MovieItemProps> = ({ item }) => {
-	const { image, id, title, rating, genre, type, time, year, age, status } =
-		item;
+	const { image, id, title, rating, genre, type, time, year, age, status } = item;
 
 	return (
 		<Link href="/movie">
 			<a className={styles.item}>
 				<div className={styles.top}>
-					<Image
-						priority
-						quality={100}
-						unoptimized
-						layout="fill"
-						src={image}
-						alt={title}
-					/>
+					<Image priority quality={100} unoptimized layout="fill" src={image} alt={title} />
 					<span className={styles.rating}>{rating}</span>
 					<div className={styles.content}>
 						<div className={styles.chips}>

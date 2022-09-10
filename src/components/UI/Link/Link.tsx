@@ -12,10 +12,7 @@ export interface LinkProps {
 }
 
 export const Link: FC<PropsWithChildren<LinkProps>> = forwardRef(
-	(
-		{ as = 'link', size, onClick, disabled, children, className, ...props },
-		ref
-	) => {
+	({ as = 'link', size, onClick, disabled, children, className, ...props }, ref) => {
 		const proxy = {
 			link: 'a',
 			button: ButtonBase,
@@ -25,11 +22,7 @@ export const Link: FC<PropsWithChildren<LinkProps>> = forwardRef(
 
 		return (
 			<Element
-				className={classNames(
-					styles.link,
-					size === 'sm' && styles.sm,
-					className
-				)}
+				className={classNames(styles.link, size === 'sm' && styles.sm, className)}
 				onClick={onClick}
 				disabled={disabled}
 				{...props}

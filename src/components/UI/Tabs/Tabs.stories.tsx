@@ -14,9 +14,9 @@ const Template: ComponentStory<typeof Tabs> = () => (
 );
 
 const tabs = [
-	{ txt: 'Таб 1', content: <div>Контент таба 1</div> },
-	{ txt: 'Таб 2', content: <div>Контент таба 2</div> },
-	{ txt: 'Таб 3', content: <div>Контент таба 3</div> },
+	{ txt: 'Tab 1', content: <div>Content 1</div> },
+	{ txt: 'Tab 2', content: <div>Content 2</div> },
+	{ txt: 'Tab 3', content: <div>Content 3</div> },
 ];
 
 export const Example = Template.bind({});
