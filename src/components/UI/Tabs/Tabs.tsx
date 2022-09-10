@@ -1,6 +1,7 @@
-import classNames from 'classnames';
 import { FC, Fragment, ReactNode } from 'react';
 import { Tab, TabList, TabPanel, Tabs as ReactTabs } from 'react-tabs';
+import classNames from 'classnames';
+import styles from './Tabs.module.scss';
 
 type TabItem = {
 	txt: string;
@@ -15,15 +16,18 @@ interface TabsProps {
 
 export const Tabs: FC<TabsProps> = ({ className, tabs }) => {
 	return (
-		<ReactTabs className={classNames('react-tabs', className)}>
-			<div className="react-tabs__tab-wrapper">
-				<TabList>
+		<ReactTabs
+			selectedTabClassName={styles.selected}
+			className={classNames(styles.tabs, className)}
+		>
+			<div className={styles.wrapper}>
+				<TabList className={styles.list}>
 					{tabs.map((el) => {
 						const { txt, condition = true } = el;
 
 						return (
 							<Fragment key={txt}>
-								{condition ? <Tab>{txt}</Tab> : null}
+								{condition ? <Tab className={styles.tab}>{txt}</Tab> : null}
 							</Fragment>
 						);
 					})}

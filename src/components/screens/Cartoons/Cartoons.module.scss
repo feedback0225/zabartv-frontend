@@ -28,6 +28,20 @@
 	}
 
 	@media (max-width: 576px) {
-		margin-bottom: 0;
+		margin-bottom: 16px;
+	}
+}
+
+.tabs {
+	ul {
+		margin-bottom: 72px;
+
+		@media (max-width: 1024px) {
+			margin-bottom: 50px;
+		}
+
+		@media (max-width: 576px) {
+			margin-bottom: 38px;
+		}
 	}
 }

@@ -162,7 +162,7 @@ export const Cartoons = () => {
 		<section className={styles.section}>
 			<div className={classNames('container', styles.container)}>
 				<Title className={styles.title}>Мультфильмы</Title>
-				<Tabs tabs={tabs} />
+				<Tabs className={styles.tabs} tabs={tabs} />
 			</div>
 		</section>
 	);

@@ -1,5 +1,5 @@
 .container {
-	padding-bottom: 93px;
+	padding-bottom: 103px;
 
 	@media (max-width: 1500px) {
 		padding-left: 45px;
@@ -19,4 +19,8 @@
 	@media (max-width: 576px) {
 		padding-bottom: 31px;
 	}
+}
+
+.title {
+	margin-bottom: 16px;
 }
