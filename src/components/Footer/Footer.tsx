@@ -1,10 +1,10 @@
 import { RoutesEnum } from '@/constants/routes';
 import { Social } from '@/components/Footer/components/Social/Social';
 import { Support } from './components/Support/Support';
-import classNames from 'classnames';
-import Link from 'next/link';
-import styles from './Footer.module.scss';
+import { NextLink } from '@/components/NextLink/NextLink';
 import { FC } from 'react';
+import classNames from 'classnames';
+import styles from './Footer.module.scss';
 
 interface FooterProps {
 	sticky?: boolean;
@@ -54,9 +54,9 @@ export const Footer: FC<FooterProps> = ({ sticky }) => {
 									<ul className={classNames('list-reset', styles.list)}>
 										{items.map((el) => (
 											<li key={el.txt} className={styles.item}>
-												<Link href={el.href}>
+												<NextLink href={el.href}>
 													<a className={styles.link}>{el.txt}</a>
-												</Link>
+												</NextLink>
 											</li>
 										))}
 									</ul>

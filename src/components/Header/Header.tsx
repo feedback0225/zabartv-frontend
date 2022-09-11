@@ -1,15 +1,7 @@
-import {
-	Nav,
-	ThemeToggle,
-	Lang,
-	Actions,
-	Search,
-	Menu,
-	Burger,
-} from './components/index';
+import { Nav, ThemeToggle, Lang, Actions, Search, Menu, Burger } from './components/index';
 import { SubscribeButton } from '@/UI/SubscribeButton/SubscribeButton';
+import { NextLink } from '@/components/NextLink/NextLink';
 import classNames from 'classnames';
-import Link from 'next/link';
 import styles from './Header.module.scss';
 import { FC } from 'react';
 import { LogoIcon } from '@/icons';
@@ -30,11 +22,11 @@ export const Header: FC<HeaderProps> = ({ variant }) => {
 			)}
 		>
 			<div className={classNames('container', styles.container)}>
-				<Link href="/">
+				<NextLink href="/">
 					<a className={styles.logo}>
 						<LogoIcon />
 					</a>
-				</Link>
+				</NextLink>
 				<Nav className={styles.nav} />
 				<div className={styles.right}>
 					<Actions />

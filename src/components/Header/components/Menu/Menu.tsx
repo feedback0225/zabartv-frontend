@@ -8,9 +8,10 @@ import { useLockedBody } from 'usehooks-ts';
 import { MenuLang } from './components/MenuLang/MenuLang';
 import { RoutesEnum } from '@/constants/routes';
 import { SubscribeButton } from '@/UI/SubscribeButton/SubscribeButton';
+import { useTranslation } from 'next-i18next';
+import { NextLink } from '@/components/NextLink/NextLink';
 import classNames from 'classnames';
 import styles from './Menu.module.scss';
-import Link from 'next/link';
 
 export const Menu = () => {
 	const { isOpened } = useTypedSelector((state) => state.menuReducer);
@@ -22,14 +23,16 @@ export const Menu = () => {
 
 	useLockedBody(isOpened);
 
+	const { t } = useTranslation('menu');
+
 	const items = [
-		{ href: RoutesEnum.Humor, text: 'Юмор' },
-		{ href: RoutesEnum.Music, text: 'Музыка' },
-		{ href: RoutesEnum.Cartoons, text: 'Мультфильмы' },
-		{ href: RoutesEnum.Tv, text: 'Тв' },
-		{ href: RoutesEnum.Films, text: 'Фильмы' },
-		{ href: RoutesEnum.Series, text: 'Сериалы' },
-		{ href: RoutesEnum.New, text: 'New' },
+		{ href: RoutesEnum.Humor, text: t('humor') },
+		{ href: RoutesEnum.Music, text: t('music') },
+		{ href: RoutesEnum.Cartoons, text: t('cartoons') },
+		{ href: RoutesEnum.Tv, text: t('tv') },
+		{ href: RoutesEnum.Films, text: t('films') },
+		{ href: RoutesEnum.Series, text: t('series') },
+		{ href: RoutesEnum.New, text: t('new') },
 	];
 
 	return (
@@ -49,9 +52,9 @@ export const Menu = () => {
 					<ul className={classNames('list-reset', styles.list)}>
 						{items.map((el) => (
 							<li key={el.text} className={styles.item}>
-								<Link href={el.href}>
+								<NextLink href={el.href}>
 									<a className={styles.link}>{el.text}</a>
-								</Link>
+								</NextLink>
 							</li>
 						))}
 					</ul>

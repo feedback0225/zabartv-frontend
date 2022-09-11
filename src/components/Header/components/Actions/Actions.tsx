@@ -2,9 +2,9 @@ import { ButtonBase } from '@/components/ButtonBase/ButtonBase';
 import { ProfileIcon, SearchIcon } from '@/icons';
 import { useActions } from 'src/hooks/useActions';
 import { RoutesEnum } from '@/constants/routes';
+import { NextLink } from '@/components/NextLink/NextLink';
 import classNames from 'classnames';
 import styles from './Actions.module.scss';
-import Link from 'next/link';
 
 export const Actions = () => {
 	const { setVisibleSearch } = useActions();
@@ -14,11 +14,11 @@ export const Actions = () => {
 	return (
 		<ul className={classNames('list-reset', styles.list)}>
 			<li className={styles.item}>
-				<Link href={RoutesEnum.Cabinet} className={styles.btn}>
+				<NextLink href={RoutesEnum.Cabinet}>
 					<a className={styles.btn}>
 						<ProfileIcon />
 					</a>
-				</Link>
+				</NextLink>
 			</li>
 			<li className={styles.item}>
 				<ButtonBase onClick={handleOpenSearch} className={styles.btn}>

@@ -95,15 +95,13 @@ module Modal {
 		}
 	);
 
-	export const ModalLink = forwardRef(
-		({ children, ...props }: PropsWithChildren<LinkProps>, ref) => {
-			return (
-				<Link className={styles.link} {...props}>
-					{children}
-				</Link>
-			);
-		}
-	);
+	export const ModalLink = forwardRef(({ children, ...props }: PropsWithChildren<LinkProps>, ref) => {
+		return (
+			<Link className={styles.link} {...props}>
+				{children}
+			</Link>
+		);
+	});
 
 	export const ModalClose = ({ ...props }: ButtonHTMLAttributes<HTMLButtonElement>) => {
 		return (

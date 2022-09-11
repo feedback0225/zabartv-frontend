@@ -1,4 +1,3 @@
-import { setLang } from './reducers/langSlice';
 import { showMenu } from './reducers/menuSlice';
 import { setVisibleSearch, setSearch } from './reducers/searchSlice';
 import {
@@ -17,7 +16,6 @@ export {
 	showMenu,
 	setVisibleSearch,
 	setSearch,
-	setLang,
 	showRegisterModal,
 	showSubscribeModal,
 	showGradeModal,

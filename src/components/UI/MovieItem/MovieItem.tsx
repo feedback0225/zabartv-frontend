@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { Chip } from '@/UI/Chip/Chip';
+import { NextLink } from '@/components/NextLink/NextLink';
 import Image from 'next/image';
 import styles from './MovieItem.module.scss';
-import Link from 'next/link';
 
 interface MovieItemProps {
 	//временно
@@ -13,7 +13,7 @@ export const MovieItem: FC<MovieItemProps> = ({ item }) => {
 	const { image, id, title, rating, genre, type, time, year, age, status } = item;
 
 	return (
-		<Link href="/movie">
+		<NextLink href="/movie">
 			<a className={styles.item}>
 				<div className={styles.top}>
 					<Image priority quality={100} unoptimized layout="fill" src={image} alt={title} />
@@ -33,6 +33,6 @@ export const MovieItem: FC<MovieItemProps> = ({ item }) => {
 				<h3 className={styles.title}>{title}</h3>
 				<span className={styles.status}>{status}</span>
 			</a>
-		</Link>
+		</NextLink>
 	);
 };

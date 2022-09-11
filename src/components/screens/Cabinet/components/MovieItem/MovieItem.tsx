@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { ButtonBase } from '@/components/ButtonBase/ButtonBase';
 import { FavouriteIcon } from '@/icons';
+import { NextLink } from '@/components/NextLink/NextLink';
 import Image from 'next/image';
-import Link from 'next/link';
 import styles from './MovieItem.module.scss';
 
 interface MovieItemProps {
@@ -16,7 +16,7 @@ export const MovieItem: FC<MovieItemProps> = ({ item, favourite }) => {
 	return (
 		<div className={styles.item}>
 			<div className={styles.top}>
-				<Link href={href}>
+				<NextLink href={href}>
 					<a className={styles.poster}>
 						<Image
 							priority
@@ -28,7 +28,7 @@ export const MovieItem: FC<MovieItemProps> = ({ item, favourite }) => {
 							alt={title}
 						/>
 					</a>
-				</Link>
+				</NextLink>
 				{favourite && (
 					<ButtonBase className={styles.btn}>
 						<FavouriteIcon />
@@ -36,9 +36,9 @@ export const MovieItem: FC<MovieItemProps> = ({ item, favourite }) => {
 				)}
 			</div>
 			<span className={styles.status}>{type}</span>
-			<Link href={href}>
+			<NextLink href={href}>
 				<a className={styles.title}>{title}</a>
-			</Link>
+			</NextLink>
 		</div>
 	);
 };
