@@ -12,14 +12,10 @@ interface ThemeToggleProps {
 export const ThemeToggle: FC<ThemeToggleProps> = ({ className }) => {
 	const { theme, setTheme } = useTheme();
 
-	const toggleTheme = () =>
-		theme === 'dark' ? setTheme('light') : setTheme('dark');
+	const toggleTheme = () => (theme === 'dark' ? setTheme('light') : setTheme('dark'));
 
 	return (
-		<ButtonBase
-			onClick={toggleTheme}
-			className={classNames(styles.btn, className)}
-		>
+		<ButtonBase onClick={toggleTheme} className={classNames(styles.btn, className)}>
 			<span className={styles.icon}>
 				<MoonIcon />
 			</span>

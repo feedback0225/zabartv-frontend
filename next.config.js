@@ -4,7 +4,7 @@ const nextConfig = {
 			unoptimized: true,
 		},
 	},
-    trailingSlash: true,
+	trailingSlash: true,
 	webpack(config) {
 		config.module.rules.push({
 			test: /\.svg$/,

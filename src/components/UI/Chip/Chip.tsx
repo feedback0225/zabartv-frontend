@@ -6,9 +6,6 @@ interface ChipProps {
 	className?: string;
 }
 
-export const Chip: FC<PropsWithChildren<ChipProps>> = ({
-	children,
-	className,
-}) => {
+export const Chip: FC<PropsWithChildren<ChipProps>> = ({ children, className }) => {
 	return <div className={classNames(styles.chip, className)}>{children}</div>;
 };

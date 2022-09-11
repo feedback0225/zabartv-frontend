@@ -20,9 +20,7 @@ export const Purchases = () => {
 
 				return (
 					<div key={date} className={styles.rows}>
-						<div className={classNames(styles.col, styles.date)}>
-							{date}
-						</div>
+						<div className={classNames(styles.col, styles.date)}>{date}</div>
 						<div className={styles.col}>{period}</div>
 						<div className={styles.col}>{price}</div>
 					</div>

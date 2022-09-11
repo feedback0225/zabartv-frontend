@@ -7,13 +7,4 @@ import { Purchases } from './Purchases/Purchases';
 import { MovieItem } from './MovieItem/MovieItem';
 import { Views } from './Views/Views';
 
-export {
-	Avatar,
-	SubscribeInfo,
-	Settings,
-	Favourites,
-	CabinetInput,
-	Purchases,
-	MovieItem,
-	Views,
-};
+export { Avatar, SubscribeInfo, Settings, Favourites, CabinetInput, Purchases, MovieItem, Views };

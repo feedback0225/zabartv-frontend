@@ -22,6 +22,5 @@ export const modalSlice = createSlice({
 	},
 });
 
-export const { showRegisterModal, showSubscribeModal, showGradeModal } =
-	modalSlice.actions;
+export const { showRegisterModal, showSubscribeModal, showGradeModal } = modalSlice.actions;
 export const modalReducer = modalSlice.reducer;

@@ -4,9 +4,7 @@
 	--min-width: 320px;
 	--content-width: 1440px;
 	--container-offset: 24px;
-	--container-width: calc(
-		var(--content-width) + (var(--container-offset) * 2)
-	);
+	--container-width: calc(var(--content-width) + (var(--container-offset) * 2));
 
 	// colors
 	--color-white: #fff;

@@ -22,10 +22,7 @@ export const Movie = () => {
 
 	return (
 		<section className={styles.section}>
-			<div
-				style={{ backgroundImage: `url(${image})` }}
-				className={styles.top}
-			>
+			<div style={{ backgroundImage: `url(${image})` }} className={styles.top}>
 				<div className={classNames('container', styles.content)}>
 					<Title className={styles.title}>{title}</Title>
 					<div className={styles.chips}>
@@ -51,11 +48,7 @@ export const Movie = () => {
 						<Button className={styles.btn} variant="dark">
 							Трейлер
 						</Button>
-						<Button
-							className={styles.star}
-							variant="dark"
-							aria-label="Добавить в избранное"
-						>
+						<Button className={styles.star} variant="dark" aria-label="Добавить в избранное">
 							<StarIcon />
 						</Button>
 					</div>

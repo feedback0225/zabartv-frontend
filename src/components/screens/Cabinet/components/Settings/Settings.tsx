@@ -5,9 +5,7 @@ import { CabinetInput } from '../index';
 import styles from './Settings.module.scss';
 
 export const Settings = () => {
-	const { isSubscribedEmail, email, password, date } = useTypedSelector(
-		(state) => state.userReducer
-	);
+	const { isSubscribedEmail, email, password, date } = useTypedSelector((state) => state.userReducer);
 	const { setSubscribedEmail, setEmail, setPassword, setDate } = useActions();
 
 	const handleSubscribeEmail = () => setSubscribedEmail();
@@ -27,12 +25,7 @@ export const Settings = () => {
 					value={password}
 					applyChanges={setPassword}
 				/>
-				<CabinetInput
-					label="Дата рождения"
-					type="text"
-					value={date}
-					applyChanges={setDate}
-				/>
+				<CabinetInput label="Дата рождения" type="text" value={date} applyChanges={setDate} />
 			</div>
 			<Checkbox
 				checked={isSubscribedEmail}

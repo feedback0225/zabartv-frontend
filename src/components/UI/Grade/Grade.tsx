@@ -21,10 +21,7 @@ export const Grade: FC<GradeProps> = ({ value, setValue }) => {
 					return (
 						<label
 							key={item}
-							className={classNames(
-								styles.label,
-								isActive && styles.active
-							)}
+							className={classNames(styles.label, isActive && styles.active)}
 							onMouseEnter={() => setHover(ratingValue)}
 							onMouseLeave={() => setHover(null)}
 						>

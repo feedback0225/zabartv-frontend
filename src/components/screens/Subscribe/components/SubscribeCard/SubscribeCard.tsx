@@ -23,18 +23,8 @@ export const SubscribeCard: FC<SubscribeCardProps> = ({ card }) => {
 				{desc}
 				<span>&nbsp;{time}</span>
 			</p>
-			{hasIncrement && (
-				<Counter
-					className={styles.counter}
-					initialValue={30}
-					caption="Дней"
-				/>
-			)}
-			<Button
-				variant="gradient"
-				className={styles.btn}
-				icon={<SubscribeIcon />}
-			>
+			{hasIncrement && <Counter className={styles.counter} initialValue={30} caption="Дней" />}
+			<Button variant="gradient" className={styles.btn} icon={<SubscribeIcon />}>
 				Оформить подписку
 			</Button>
 			{caption && <span className={styles.caption}>{caption}</span>}

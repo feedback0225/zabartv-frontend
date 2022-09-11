@@ -16,10 +16,7 @@ interface TabsProps {
 
 export const Tabs: FC<TabsProps> = ({ className, tabs }) => {
 	return (
-		<ReactTabs
-			selectedTabClassName={styles.selected}
-			className={classNames(styles.tabs, className)}
-		>
+		<ReactTabs selectedTabClassName={styles.selected} className={classNames(styles.tabs, className)}>
 			<div className={styles.wrapper}>
 				<TabList className={styles.list}>
 					{tabs.map((el) => {
@@ -37,9 +34,7 @@ export const Tabs: FC<TabsProps> = ({ className, tabs }) => {
 				const { txt, content, condition = true } = el;
 
 				return (
-					<Fragment key={txt}>
-						{condition ? <TabPanel>{content}</TabPanel> : null}
-					</Fragment>
+					<Fragment key={txt}>{condition ? <TabPanel>{content}</TabPanel> : null}</Fragment>
 				);
 			})}
 		</ReactTabs>

@@ -17,11 +17,7 @@ export const Grid: FC<GridProps> = ({ data }) => {
 					<MovieItem key={item.id} item={item} />
 				))}
 			</div>
-			<Button
-				className={styles.btn}
-				variant="stroke"
-				icon={<ChevronArrowIcon />}
-			>
+			<Button className={styles.btn} variant="stroke" icon={<ChevronArrowIcon />}>
 				Показать еще
 			</Button>
 		</div>

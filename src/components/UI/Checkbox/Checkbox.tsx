@@ -9,12 +9,7 @@ interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
 export const Checkbox: FC<CheckboxProps> = ({ label, className, ...props }) => {
 	return (
 		<label className={classNames(styles.checkbox, className)}>
-			<input
-				data-testid="checkbox-input"
-				className={styles.input}
-				type="checkbox"
-				{...props}
-			/>
+			<input data-testid="checkbox-input" className={styles.input} type="checkbox" {...props} />
 			<span className={styles.switch} />
 			{label && <span className={styles.label}>{label}</span>}
 		</label>

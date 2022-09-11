@@ -12,11 +12,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 			<input
 				data-testid="input"
 				ref={ref}
-				className={classNames(
-					styles.textField,
-					variant === 'dark' && styles.dark,
-					className
-				)}
+				className={classNames(styles.textField, variant === 'dark' && styles.dark, className)}
 				{...props}
 			/>
 		);

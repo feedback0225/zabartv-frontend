@@ -21,11 +21,7 @@ export const HumorCarousel: FC<HumorCarouselProps> = ({ data }) => {
 
 	return (
 		<div className={styles.container}>
-			<Carousel
-				className={styles.slider}
-				breakpoints={breakpoints}
-				spaceBetween={24}
-			>
+			<Carousel className={styles.slider} breakpoints={breakpoints} spaceBetween={24}>
 				{data.map((item) => (
 					<SwiperSlide className={styles.item} key={item.id}>
 						<MovieItem item={item} />

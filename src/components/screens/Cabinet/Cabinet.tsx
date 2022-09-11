@@ -1,11 +1,4 @@
-import {
-	Avatar,
-	SubscribeInfo,
-	Settings,
-	Favourites,
-	Purchases,
-	Views,
-} from './components/index';
+import { Avatar, SubscribeInfo, Settings, Favourites, Purchases, Views } from './components/index';
 import { MailIcon } from '@/icons';
 import { Tabs } from '@/UI/Tabs/Tabs';
 import { useTypedSelector } from '@/hooks/useTypedSelector';

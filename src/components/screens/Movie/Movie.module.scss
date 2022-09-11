@@ -33,19 +33,11 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background: linear-gradient(
-			90deg,
-			#0b1527 36.38%,
-			rgba(11, 21, 39, 0.42) 65.78%
-		);
+		background: linear-gradient(90deg, #0b1527 36.38%, rgba(11, 21, 39, 0.42) 65.78%);
 		transition: opacity 0.3s;
 
 		@media (max-width: 576px) {
-			background: linear-gradient(
-				0deg,
-				rgba(12, 22, 40, 0.7),
-				rgba(12, 22, 40, 0.7)
-			);
+			background: linear-gradient(0deg, rgba(12, 22, 40, 0.7), rgba(12, 22, 40, 0.7));
 		}
 	}
 
@@ -59,19 +51,11 @@
 		right: 0;
 		bottom: 0;
 		opacity: 0;
-		background: linear-gradient(
-			90deg,
-			#fff 36.38%,
-			rgba(255, 255, 255, 0.42) 65.78%
-		);
+		background: linear-gradient(90deg, #fff 36.38%, rgba(255, 255, 255, 0.42) 65.78%);
 		transition: opacity 0.3s;
 
 		@media (max-width: 576px) {
-			background: linear-gradient(
-				0deg,
-				rgba(#fff, 0.85),
-				rgba(#fff, 0.85)
-			);
+			background: linear-gradient(0deg, rgba(#fff, 0.85), rgba(#fff, 0.85));
 		}
 	}
 }

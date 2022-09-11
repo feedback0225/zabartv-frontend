@@ -7,12 +7,7 @@ describe('Checkbox.test.tsx', () => {
 		const [value, setValue] = useState<string>('aassmoilov@gmail.com');
 
 		return (
-			<CabinetInput
-				label="Электронная почта"
-				type="email"
-				value={value}
-				applyChanges={setValue}
-			/>
+			<CabinetInput label="Электронная почта" type="email" value={value} applyChanges={setValue} />
 		);
 	};
 
