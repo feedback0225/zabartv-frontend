@@ -9,9 +9,7 @@ export const GradeModal = () => {
 
 	const { ModalTitle, ModalButton } = Modal;
 
-	const { isVisibleGradeModal } = useTypedSelector(
-		(state) => state.modalReducer
-	);
+	const { isVisibleGradeModal } = useTypedSelector((state) => state.modalReducer);
 
 	const { showGradeModal } = useActions();
 
@@ -23,12 +21,7 @@ export const GradeModal = () => {
 	};
 
 	return (
-		<Modal
-			fullscreen
-			variant="grade"
-			open={isVisibleGradeModal}
-			onClose={handleClose}
-		>
+		<Modal fullscreen variant="grade" open={isVisibleGradeModal} onClose={handleClose}>
 			<ModalTitle>Оцените фильм по 10-ти бальной шкале</ModalTitle>
 			<Grade value={value} setValue={setValue} />
 			<ModalButton onClick={handleGrade} disabled={value === 0}>

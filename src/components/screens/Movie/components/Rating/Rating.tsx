@@ -19,12 +19,7 @@ export const Rating: FC<RatingProps> = ({ className, rating }) => {
 			<span className={styles.rating}>{rating}</span>
 			<div className={styles.text}>
 				<span className={styles.caption}>Рейтинг ZabarTV</span>
-				<Link
-					onClick={handleShowModal}
-					as="button"
-					className={styles.btn}
-					size="sm"
-				>
+				<Link onClick={handleShowModal} as="button" className={styles.btn} size="sm">
 					Оценить
 				</Link>
 			</div>

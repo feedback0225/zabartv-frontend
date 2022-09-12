@@ -6,6 +6,7 @@ import Head from 'next/head';
 import { ThemeProvider } from 'next-themes';
 import { Provider } from 'react-redux';
 import { setupStore } from '@/store/store';
+import { appWithTranslation } from 'next-i18next';
 
 function MyApp({ Component, pageProps }: AppProps) {
 	const store = setupStore();
@@ -28,4 +29,4 @@ function MyApp({ Component, pageProps }: AppProps) {
 	);
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);

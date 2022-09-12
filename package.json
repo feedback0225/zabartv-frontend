@@ -9,7 +9,7 @@
 		"start": "next start",
 		"lint": "next lint",
 		"test": "jest --watch",
-		"deploy": "npm run build && next export",
+		"deploy": "next build && next export",
 		"format": "prettier ./.prettierrc --write .",
 		"storybook": "start-storybook -p 6006 -s public",
 		"build-storybook": "build-storybook -s public"
@@ -24,6 +24,8 @@
 		"dotenv": "^16.0.2",
 		"next": "12.2.5",
 		"next-compose-plugins": "^2.2.1",
+		"next-i18next": "^12.0.1",
+		"next-language-detector": "^1.0.2",
 		"next-plugin-svgr": "^1.1.2",
 		"next-themes": "^0.2.0",
 		"normalize.css": "^8.0.1",

@@ -1,9 +1,8 @@
-import { Autoplay } from 'swiper';
 import { Carousel } from '@/components/Carousel/Carousel';
 import { SwiperSlide } from 'swiper/react';
+import { NextLink } from '@/components/NextLink/NextLink';
 import styles from './Hero.module.scss';
 import Image from 'next/image';
-import Link from 'next/link';
 import classNames from 'classnames';
 
 export const Hero = () => {
@@ -40,8 +39,20 @@ export const Hero = () => {
 				>
 					{items.map((el) => (
 						<SwiperSlide key={el.alt} className={styles.slide}>
-							<Link href={el.href}>
-								<a className={styles.item}>
+							{el.href ? (
+								<NextLink href={el.href}>
+									<a className={styles.item}>
+										<Image
+											priority
+											quality={100}
+											src={el.source}
+											alt={el.alt}
+											layout="fill"
+										/>
+									</a>
+								</NextLink>
+							) : (
+								<div className={styles.item}>
 									<Image
 										priority
 										quality={100}
@@ -49,8 +60,8 @@ export const Hero = () => {
 										alt={el.alt}
 										layout="fill"
 									/>
-								</a>
-							</Link>
+								</div>
+							)}
 						</SwiperSlide>
 					))}
 				</Carousel>

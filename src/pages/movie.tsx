@@ -1,13 +1,2 @@
-import { Layout } from '@/components/Layout/Layout';
-import { Movie } from '@/screens/Movie/Movie';
-import type { NextPage } from 'next';
-
-const MoviePage: NextPage = () => {
-	return (
-		<Layout sticky headerVariant="blur">
-			<Movie />
-		</Layout>
-	);
-};
-
-export default MoviePage;
+import { Redirect } from '@/lib/redirect';
+export default Redirect;

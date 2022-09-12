@@ -10,11 +10,7 @@ interface ButtonBaseProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const ButtonBase = forwardRef<HTMLButtonElement, ButtonBaseProps>(
 	({ children, className, icon, ...props }, ref) => {
 		return (
-			<button
-				ref={ref}
-				className={classNames(styles.btn, className)}
-				{...props}
-			>
+			<button ref={ref} className={classNames(styles.btn, className)} {...props}>
 				{icon && <span className={styles.icon}>{icon}</span>}
 				{children}
 			</button>

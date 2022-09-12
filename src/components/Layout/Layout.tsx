@@ -10,19 +10,11 @@ interface LayoutProps {
 	sticky?: boolean;
 }
 
-export const Layout: FC<PropsWithChildren<LayoutProps>> = ({
-	children,
-	sticky,
-	headerVariant,
-}) => {
+export const Layout: FC<PropsWithChildren<LayoutProps>> = ({ children, sticky, headerVariant }) => {
 	return (
 		<>
 			<div
-				className={classNames(
-					headerVariant === 'absolute'
-						? styles.absolute
-						: styles.container
-				)}
+				className={classNames(headerVariant === 'absolute' ? styles.absolute : styles.container)}
 			>
 				<Header variant={headerVariant} />
 				<main className="main">{children}</main>

@@ -1,7 +1,7 @@
 import { PlayIcon } from '@/icons';
 import { FC } from 'react';
+import { NextLink } from '@/components/NextLink/NextLink';
 import Image from 'next/image';
-import Link from 'next/link';
 import styles from './VideoItem.module.scss';
 
 interface VideoItemProps {
@@ -12,17 +12,10 @@ export const VideoItem: FC<VideoItemProps> = ({ item }) => {
 	const { poster, id, title, desc } = item;
 
 	return (
-		<Link href="/music">
+		<NextLink href="/music">
 			<a className={styles.item}>
 				<div className={styles.top}>
-					<Image
-						priority
-						quality={100}
-						unoptimized
-						layout="fill"
-						src={poster}
-						alt={title}
-					/>
+					<Image priority quality={100} unoptimized layout="fill" src={poster} alt={title} />
 					<span className={styles.play}>
 						<PlayIcon />
 					</span>
@@ -30,6 +23,6 @@ export const VideoItem: FC<VideoItemProps> = ({ item }) => {
 				<h3 className={styles.title}>{title}</h3>
 				<span className={styles.desc}>{desc}</span>
 			</a>
-		</Link>
+		</NextLink>
 	);
 };

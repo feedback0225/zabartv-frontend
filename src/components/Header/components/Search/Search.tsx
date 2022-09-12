@@ -14,9 +14,7 @@ interface SearchProps {
 }
 
 export const Search: FC<SearchProps> = ({ className }) => {
-	const { isSearchVisible } = useTypedSelector(
-		(state) => state.searchReducer
-	);
+	const { isSearchVisible } = useTypedSelector((state) => state.searchReducer);
 	const { setSearch, setVisibleSearch } = useActions();
 	const [value, setValue] = useState<string>('');
 	const formRef = useRef<HTMLFormElement>(null);
@@ -57,11 +55,7 @@ export const Search: FC<SearchProps> = ({ className }) => {
 			onSubmit={submitForm}
 			ref={formRef}
 			action="#"
-			className={classNames(
-				styles.form,
-				isSearchVisible && styles.visible,
-				className
-			)}
+			className={classNames(styles.form, isSearchVisible && styles.visible, className)}
 		>
 			<TextField
 				variant="dark"
@@ -72,11 +66,7 @@ export const Search: FC<SearchProps> = ({ className }) => {
 				onChange={handleChange}
 				placeholder="Поиск..."
 			/>
-			<ButtonBase
-				type="button"
-				className={styles.close}
-				onClick={handleClose}
-			>
+			<ButtonBase type="button" className={styles.close} onClick={handleClose}>
 				<CloseIcon />
 			</ButtonBase>
 			<span className={styles.icon}>

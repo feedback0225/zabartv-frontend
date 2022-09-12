@@ -9,21 +9,14 @@ interface CounterProps {
 	className?: string;
 }
 
-export const Counter: FC<CounterProps> = ({
-	initialValue,
-	caption,
-	className,
-}) => {
+export const Counter: FC<CounterProps> = ({ initialValue, caption, className }) => {
 	const [value, setValue] = useState<number>(initialValue);
 
 	const handleDecrement = () => setValue(value - initialValue);
 	const handleIncrement = () => setValue(value + initialValue);
 
 	return (
-		<div
-			data-testid="counter"
-			className={classNames(styles.counter, className)}
-		>
+		<div data-testid="counter" className={classNames(styles.counter, className)}>
 			<ButtonBase
 				data-testid="counter-decrement"
 				onClick={handleDecrement}
