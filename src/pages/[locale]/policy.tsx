@@ -13,5 +13,5 @@ const PolicyPage: NextPage = () => {
 
 export default PolicyPage;
 
-const getStaticProps = makeStaticProps(['common', 'menu']);
+const getStaticProps = makeStaticProps(['common']);
 export { getStaticPaths, getStaticProps };

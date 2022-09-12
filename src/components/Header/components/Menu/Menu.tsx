@@ -23,16 +23,16 @@ export const Menu = () => {
 
 	useLockedBody(isOpened);
 
-	const { t } = useTranslation('menu');
+	const { t } = useTranslation('common');
 
 	const items = [
-		{ href: RoutesEnum.Humor, text: t('humor') },
-		{ href: RoutesEnum.Music, text: t('music') },
-		{ href: RoutesEnum.Cartoons, text: t('cartoons') },
-		{ href: RoutesEnum.Tv, text: t('tv') },
-		{ href: RoutesEnum.Films, text: t('films') },
-		{ href: RoutesEnum.Series, text: t('series') },
-		{ href: RoutesEnum.New, text: t('new') },
+		{ href: RoutesEnum.Humor, text: t('menu.humor') },
+		{ href: RoutesEnum.Music, text: t('menu.music') },
+		{ href: RoutesEnum.Cartoons, text: t('menu.cartoons') },
+		{ href: RoutesEnum.Tv, text: t('menu.tv') },
+		{ href: RoutesEnum.Films, text: t('menu.films') },
+		{ href: RoutesEnum.Series, text: t('menu.series') },
+		{ href: RoutesEnum.New, text: t('menu.new') },
 	];
 
 	return (

@@ -5,6 +5,7 @@ import { Button } from '@/UI/Button/Button';
 import { Counter } from '@/UI/Counter/Counter';
 import styles from './SubscribeCard.module.scss';
 import classNames from 'classnames';
+import { useTranslation } from 'next-i18next';
 
 interface SubscribeCardProps {
 	card: any;
@@ -12,6 +13,8 @@ interface SubscribeCardProps {
 
 export const SubscribeCard: FC<SubscribeCardProps> = ({ card }) => {
 	const { title, price, desc, time, hasIncrement, caption, year } = card;
+
+	const { t } = useTranslation('common');
 
 	return (
 		<div className={classNames(styles.card, year && styles.year)}>
@@ -25,7 +28,7 @@ export const SubscribeCard: FC<SubscribeCardProps> = ({ card }) => {
 			</p>
 			{hasIncrement && <Counter className={styles.counter} initialValue={30} caption="Дней" />}
 			<Button variant="gradient" className={styles.btn} icon={<SubscribeIcon />}>
-				Оформить подписку
+				{t('subscribe_button')}
 			</Button>
 			{caption && <span className={styles.caption}>{caption}</span>}
 		</div>

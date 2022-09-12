@@ -39,8 +39,20 @@ export const Hero = () => {
 				>
 					{items.map((el) => (
 						<SwiperSlide key={el.alt} className={styles.slide}>
-							<NextLink href={el.href}>
-								<a className={styles.item}>
+							{el.href ? (
+								<NextLink href={el.href}>
+									<a className={styles.item}>
+										<Image
+											priority
+											quality={100}
+											src={el.source}
+											alt={el.alt}
+											layout="fill"
+										/>
+									</a>
+								</NextLink>
+							) : (
+								<div className={styles.item}>
 									<Image
 										priority
 										quality={100}
@@ -48,8 +60,8 @@ export const Hero = () => {
 										alt={el.alt}
 										layout="fill"
 									/>
-								</a>
-							</NextLink>
+								</div>
+							)}
 						</SwiperSlide>
 					))}
 				</Carousel>

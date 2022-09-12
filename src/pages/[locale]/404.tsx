@@ -13,5 +13,5 @@ const NotFoundPage: NextPage = () => {
 
 export default NotFoundPage;
 
-const getStaticProps = makeStaticProps(['common', 'menu']);
+const getStaticProps = makeStaticProps(['common']);
 export { getStaticPaths, getStaticProps };

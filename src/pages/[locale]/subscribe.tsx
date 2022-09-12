@@ -13,5 +13,5 @@ const SubscribePage: NextPage = () => {
 
 export default SubscribePage;
 
-const getStaticProps = makeStaticProps(['common', 'menu']);
+const getStaticProps = makeStaticProps(['common']);
 export { getStaticPaths, getStaticProps };

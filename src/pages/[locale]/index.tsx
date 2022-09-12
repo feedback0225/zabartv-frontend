@@ -15,5 +15,5 @@ const HomePage: NextPage = () => {
 
 export default HomePage;
 
-const getStaticProps = makeStaticProps(['common', 'menu']);
+const getStaticProps = makeStaticProps(['common']);
 export { getStaticPaths, getStaticProps };

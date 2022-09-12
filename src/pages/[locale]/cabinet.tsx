@@ -13,5 +13,5 @@ const CabinetPage: NextPage = () => {
 
 export default CabinetPage;
 
-const getStaticProps = makeStaticProps(['common', 'menu']);
+const getStaticProps = makeStaticProps(['common']);
 export { getStaticPaths, getStaticProps };

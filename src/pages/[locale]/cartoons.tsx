@@ -1,5 +1,4 @@
 import { Layout } from '@/components/Layout/Layout';
-import { Hero, Humor, Music } from '@/screens/Home/index';
 import { getStaticPaths, makeStaticProps } from '@/lib/getStatic';
 import { Cartoons } from '@/screens/Cartoons/Cartoons';
 import type { NextPage } from 'next';

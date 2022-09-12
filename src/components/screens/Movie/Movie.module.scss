@@ -71,6 +71,10 @@
 	padding-top: 134px;
 	padding-bottom: 100px;
 
+	@media (max-width: 1500px) {
+		padding-top: 200px;
+	}
+
 	@media (max-width: 576px) {
 		padding-top: 128px;
 		padding-bottom: 87px;

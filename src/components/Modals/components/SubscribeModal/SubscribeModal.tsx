@@ -4,6 +4,7 @@ import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { RoutesEnum } from '@/constants/routes';
 import { SubscribeIcon } from '@/icons';
 import { NextLink } from '@/components/NextLink/NextLink';
+import { useTranslation } from 'next-i18next';
 
 export const SubscribeModal = () => {
 	const { ModalTitle, ModalDesc, ModalButton, ModalLink } = Modal;
@@ -11,6 +12,8 @@ export const SubscribeModal = () => {
 	const { isVisibleSubscribeModal } = useTypedSelector((state) => state.modalReducer);
 
 	const { showSubscribeModal } = useActions();
+
+	const { t } = useTranslation('common');
 
 	const handleClose = () => showSubscribeModal(false);
 
@@ -23,7 +26,7 @@ export const SubscribeModal = () => {
 			</ModalDesc>
 			<NextLink href={RoutesEnum.Subscribe} passHref>
 				<ModalButton as="link" variant="white" icon={<SubscribeIcon />}>
-					Оформить подписку за 12€
+					{t('subscribe_button')} за 12€
 				</ModalButton>
 			</NextLink>
 		</Modal>

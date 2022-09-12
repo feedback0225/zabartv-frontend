@@ -13,5 +13,5 @@ const MoviePage: NextPage = () => {
 
 export default MoviePage;
 
-const getStaticProps = makeStaticProps(['common', 'menu']);
+const getStaticProps = makeStaticProps(['common']);
 export { getStaticPaths, getStaticProps };

@@ -13,5 +13,5 @@ const AboutPage: NextPage = () => {
 
 export default AboutPage;
 
-const getStaticProps = makeStaticProps(['common', 'menu']);
+const getStaticProps = makeStaticProps(['common']);
 export { getStaticPaths, getStaticProps };
