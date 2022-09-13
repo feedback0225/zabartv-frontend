@@ -3,9 +3,9 @@ import { Title } from '@/UI/Title/Title';
 import { SubscribeIcon } from '@/icons';
 import { Button } from '@/UI/Button/Button';
 import { Counter } from '@/UI/Counter/Counter';
+import { useTranslation } from 'next-i18next';
 import styles from './SubscribeCard.module.scss';
 import classNames from 'classnames';
-import { useTranslation } from 'next-i18next';
 
 interface SubscribeCardProps {
 	card: any;

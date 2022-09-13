@@ -1,13 +1,12 @@
-import { ReactNode, ButtonHTMLAttributes, forwardRef } from 'react';
+import { ReactNode, ButtonHTMLAttributes, PropsWithChildren, forwardRef } from 'react';
 import classNames from 'classnames';
 import styles from './ButtonBase.module.scss';
 
 interface ButtonBaseProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	icon?: ReactNode;
-	children?: ReactNode;
 }
 
-export const ButtonBase = forwardRef<HTMLButtonElement, ButtonBaseProps>(
+export const ButtonBase = forwardRef<HTMLButtonElement, PropsWithChildren<ButtonBaseProps>>(
 	({ children, className, icon, ...props }, ref) => {
 		return (
 			<button ref={ref} className={classNames(styles.btn, className)} {...props}>

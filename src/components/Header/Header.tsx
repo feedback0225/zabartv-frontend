@@ -1,10 +1,10 @@
+import { FC } from 'react';
 import { Nav, ThemeToggle, Lang, Actions, Search, Menu, Burger } from './components/index';
 import { SubscribeButton } from '@/UI/SubscribeButton/SubscribeButton';
 import { NextLink } from '@/components/NextLink/NextLink';
+import { LogoIcon } from '@/icons';
 import classNames from 'classnames';
 import styles from './Header.module.scss';
-import { FC } from 'react';
-import { LogoIcon } from '@/icons';
 
 interface HeaderProps {
 	absoluteHeader?: boolean;
