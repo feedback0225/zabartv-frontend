@@ -1,6 +1,5 @@
 import { PlayIcon } from '@/icons';
 import { FC } from 'react';
-import { NextLink } from '@/components/NextLink/NextLink';
 import Image from 'next/image';
 import styles from './VideoItem.module.scss';
 
@@ -12,17 +11,15 @@ export const VideoItem: FC<VideoItemProps> = ({ item }) => {
 	const { poster, id, title, desc } = item;
 
 	return (
-		<NextLink href="/music">
-			<a className={styles.item}>
-				<div className={styles.top}>
-					<Image priority quality={100} unoptimized layout="fill" src={poster} alt={title} />
-					<span className={styles.play}>
-						<PlayIcon />
-					</span>
-				</div>
-				<h3 className={styles.title}>{title}</h3>
-				<span className={styles.desc}>{desc}</span>
-			</a>
-		</NextLink>
+		<a className={styles.item}>
+			<div className={styles.top}>
+				<Image priority quality={100} unoptimized layout="fill" src={poster} alt={title} />
+				<span className={styles.play}>
+					<PlayIcon />
+				</span>
+			</div>
+			<h3 className={styles.title}>{title}</h3>
+			<span className={styles.desc}>{desc}</span>
+		</a>
 	);
 };

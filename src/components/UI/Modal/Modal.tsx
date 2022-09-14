@@ -38,7 +38,6 @@ function Modal({ children, variant, open, fullscreen, onClose }: PropsWithChildr
 			<Portal rootId="#modal">
 				{open && (
 					<div
-						data-testid="modal"
 						onClick={onClose}
 						className={classNames(styles.modal, fullscreen && styles.fullscreen)}
 					>

@@ -1,6 +1,11 @@
 .item {
 	display: block;
 	overflow: hidden;
+	/* transition: transform 0.3s;
+
+	&:hover {
+		transform: translateY(-5px);
+	} */
 }
 
 .top {
