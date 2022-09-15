@@ -1,22 +1,29 @@
 import { Layout } from '@/components/Layout/Layout';
 import { Subscribe } from '@/screens/Subscribe/Subscribe';
-import { getI18nProps, getStaticPaths, makeStaticProps } from '@/lib/getStatic';
+import { getI18nProps, getStaticPaths } from '@/lib/getStatic';
+import { API_KEY, API_URL } from '@/constants/api';
+import { IPackage } from '@/types/IPackage';
+import type { NextPage, GetStaticProps } from 'next';
 import axios from 'axios';
-import type { NextPage } from 'next';
 
-export async function getStaticProps(ctx: any) {
-	const { data } = await axios.get('https://jsonplaceholder.typicode.com/users');
-	return { props: { data, ...(await getI18nProps(ctx)) } };
+const getStaticProps: GetStaticProps = async (ctx) => {
+	const { data } = await axios.get<IPackage[]>(
+		`${API_URL}/packages/list?session_id=qweqwe&token=${API_KEY}`
+	);
+
+	return { props: { data, ...(await getI18nProps(ctx, ['common'])) } };
+};
+
+export { getStaticPaths, getStaticProps };
+
+interface SubscribePageProps {
+	data: IPackage[];
 }
 
-export { getStaticPaths };
-
-const SubscribePage: NextPage = ({ data }: any) => {
-	console.log(data);
-
+const SubscribePage: NextPage<SubscribePageProps> = ({ data }) => {
 	return (
 		<Layout>
-			<Subscribe />
+			<Subscribe data={data} />
 		</Layout>
 	);
 };
