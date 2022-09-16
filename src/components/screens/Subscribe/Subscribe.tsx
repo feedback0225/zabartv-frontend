@@ -1,8 +1,8 @@
+import { useEffect } from 'react';
 import { getPackages } from '@/api/getPackages';
 import { useAppDispatch } from '@/hooks/useAppDispatch';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { Title } from '@/UI/Title/Title';
-import { useEffect } from 'react';
 import { SubscribeCard } from './components/SubscribeCard/SubscribeCard';
 import styles from './Subscribe.module.scss';
 import classNames from 'classnames';
@@ -27,7 +27,7 @@ export const Subscribe = () => {
 				</p>
 				<div className={styles.cards}>
 					{data?.map((card) => (
-						<SubscribeCard key={card.id} card={card} />
+						<SubscribeCard key={card.key} card={card} />
 					))}
 				</div>
 			</div>
