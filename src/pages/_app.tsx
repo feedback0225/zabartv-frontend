@@ -2,6 +2,7 @@ import 'normalize.css';
 import '@/styles/main.scss';
 import '@/styles/fonts.scss';
 import type { AppProps } from 'next/app';
+import NextProgress from 'next-progress';
 import Head from 'next/head';
 import { ThemeProvider } from 'next-themes';
 import { wrapper } from '@/store/store';
@@ -23,6 +24,12 @@ function MyApp({ Component, ...rest }: AppProps) {
 					<link rel="icon" href="/favicon.ico" />
 					<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 				</Head>
+				<NextProgress
+					color="var(--color-primary)"
+					height={3}
+					delay={300}
+					options={{ showSpinner: false }}
+				/>
 				<Component {...props} />
 			</ThemeProvider>
 		</Provider>

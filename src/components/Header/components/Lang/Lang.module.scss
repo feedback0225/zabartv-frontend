@@ -85,6 +85,7 @@
 	&.selected {
 		order: -1;
 		margin-bottom: 13px;
+		pointer-events: none;
 	}
 }
 
