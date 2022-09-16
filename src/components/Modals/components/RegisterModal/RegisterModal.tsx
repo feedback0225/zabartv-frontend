@@ -5,7 +5,7 @@ import { useTypedSelector } from '@/hooks/useTypedSelector';
 export const RegisterModal = () => {
 	const { ModalTitle, ModalInputs, ModalInput, ModalButton } = Modal;
 
-	const { isVisibleRegisterModal } = useTypedSelector((state) => state.modalReducer);
+	const { isVisibleRegisterModal } = useTypedSelector((state) => state.modal);
 
 	const { showRegisterModal } = useActions();
 

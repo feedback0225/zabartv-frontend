@@ -9,7 +9,7 @@ export const GradeModal = () => {
 
 	const { ModalTitle, ModalButton } = Modal;
 
-	const { isVisibleGradeModal } = useTypedSelector((state) => state.modalReducer);
+	const { isVisibleGradeModal } = useTypedSelector((state) => state.modal);
 
 	const { showGradeModal } = useActions();
 

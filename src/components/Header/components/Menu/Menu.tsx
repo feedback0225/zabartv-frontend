@@ -14,7 +14,7 @@ import classNames from 'classnames';
 import styles from './Menu.module.scss';
 
 export const Menu = () => {
-	const { isOpened } = useTypedSelector((state) => state.menuReducer);
+	const { isOpened } = useTypedSelector((state) => state.menu);
 	const { showMenu } = useActions();
 
 	const handleClose = () => showMenu(false);

@@ -23,8 +23,6 @@ export const SubscribeCard: FC<SubscribeCardProps> = ({ card }) => {
 
 	const { t } = useTranslation('common');
 
-	console.log(card);
-
 	return (
 		<div className={classNames(styles.card, year && styles.year)}>
 			<Title level="h2" size="medium" className={styles.title}>

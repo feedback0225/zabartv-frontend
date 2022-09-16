@@ -9,7 +9,7 @@ import { useTranslation } from 'next-i18next';
 export const SubscribeModal = () => {
 	const { ModalTitle, ModalDesc, ModalButton, ModalLink } = Modal;
 
-	const { isVisibleSubscribeModal } = useTypedSelector((state) => state.modalReducer);
+	const { isVisibleSubscribeModal } = useTypedSelector((state) => state.modal);
 
 	const { showSubscribeModal } = useActions();
 
