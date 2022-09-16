@@ -12,7 +12,14 @@ interface SubscribeCardProps {
 }
 
 export const SubscribeCard: FC<SubscribeCardProps> = ({ card }) => {
-	const { title, price, desc, time, hasIncrement, caption, year } = card;
+	const {
+		content: { title, description },
+		price,
+		time,
+		hasIncrement,
+		caption,
+		year,
+	} = card;
 
 	const { t } = useTranslation('common');
 
@@ -23,7 +30,7 @@ export const SubscribeCard: FC<SubscribeCardProps> = ({ card }) => {
 				<span>&nbsp;{price}</span>
 			</Title>
 			<p className={styles.desc}>
-				{desc}
+				{description}
 				<span>&nbsp;{time}</span>
 			</p>
 			{hasIncrement && <Counter className={styles.counter} initialValue={30} caption="Дней" />}

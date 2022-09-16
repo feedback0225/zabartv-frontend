@@ -22,7 +22,9 @@
 			"@/components/*": ["src/components/*"],
 			"@/styles/*": ["src/styles/*"],
 			"@/constants/*": ["src/constants/*"],
+			"@/api/*": ["src/api/*"],
 			"@/store/*": ["src/store/*"],
+			"@/types/*": ["src/types/*"],
 			"@/lib/*": ["lib/*"],
 			"@/hooks/*": ["src/hooks/*"]
 		}

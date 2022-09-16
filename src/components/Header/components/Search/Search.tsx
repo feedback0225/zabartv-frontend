@@ -14,7 +14,7 @@ interface SearchProps {
 }
 
 export const Search: FC<SearchProps> = ({ className }) => {
-	const { isSearchVisible } = useTypedSelector((state) => state.searchReducer);
+	const { isSearchVisible } = useTypedSelector((state) => state.search);
 	const { setSearch, setVisibleSearch } = useActions();
 	const [value, setValue] = useState<string>('');
 	const formRef = useRef<HTMLFormElement>(null);
