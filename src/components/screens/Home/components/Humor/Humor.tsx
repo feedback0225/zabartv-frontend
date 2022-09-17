@@ -1,11 +1,16 @@
 import { Tabs } from '@/UI/Tabs/Tabs';
 import { Title } from '@/UI/Title/Title';
 import { HumorCarousel } from './components/HumorCarousel/HumorCarousel';
+import { useTypedSelector } from '@/hooks/useTypedSelector';
 import classNames from 'classnames';
 import styles from './Humor.module.scss';
 
 export const Humor = () => {
-	const data = [
+	const { data } = useTypedSelector((state) => state.home);
+
+	console.log(data);
+
+	const mockData = [
 		{
 			image: '/movie.jpg',
 			id: 1,
@@ -141,9 +146,9 @@ export const Humor = () => {
 	];
 
 	const tabs = [
-		{ txt: 'Сериалы', content: <HumorCarousel data={data} /> },
-		{ txt: 'Скетчи', content: <HumorCarousel data={data} /> },
-		{ txt: 'Шоу', content: <HumorCarousel data={data} /> },
+		{ txt: 'Сериалы', content: <HumorCarousel data={mockData} /> },
+		{ txt: 'Скетчи', content: <HumorCarousel data={mockData} /> },
+		{ txt: 'Шоу', content: <HumorCarousel data={mockData} /> },
 	];
 
 	return (

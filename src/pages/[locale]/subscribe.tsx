@@ -2,7 +2,7 @@ import { Layout } from '@/components/Layout/Layout';
 import { Subscribe } from '@/screens/Subscribe/Subscribe';
 import { getI18nProps, getStaticPaths } from '@/lib/getStatic';
 import { wrapper } from '@/store/store';
-import { getPackages } from '@/api/getPackages';
+import { getPackages } from '@/api/api';
 import type { NextPage } from 'next';
 
 const SubscribePage: NextPage = () => {

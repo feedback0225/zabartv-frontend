@@ -11,13 +11,15 @@ import { searchReducer } from './reducers/searchSlice';
 import { modalReducer } from './reducers/modalSlice';
 import { userReducer } from './reducers/userSlice';
 import { subscribeReducer } from './reducers/subscribeSlice';
+import { homeReducer } from './reducers/homeSlice';
   
 const combinedReducer = combineReducers({
 	menu: menuReducer,
 	search: searchReducer,
 	modal: modalReducer,
 	user: userReducer,
-	subscribe: subscribeReducer
+	subscribe: subscribeReducer,
+	home: homeReducer
 });
   
 const reducer = (state: ReturnType<typeof combinedReducer>, action: AnyAction) => {

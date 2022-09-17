@@ -1,6 +1,6 @@
 import { IPackage } from '@/types/IPackage';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { getPackages } from '@/api/api';
+import { getHomeCategories } from '@/api/api';
 
 interface IState {
   data: IPackage[] | null;
@@ -14,24 +14,24 @@ const initialState: IState = {
   isError: false
 }
 
-export const subscribeSlice = createSlice({
-  name: 'subscribe',
+export const homeSlice = createSlice({
+  name: 'home',
   initialState,
   reducers: {},
   extraReducers: {
-    [getPackages.fulfilled.type]: (state, action: PayloadAction<IPackage[]>) => {
+    [getHomeCategories.fulfilled.type]: (state, action: PayloadAction<IPackage[]>) => {
       state.isLoading = false;
       state.isError = false;
       state.data = action.payload
     },
-    [getPackages.pending.type]: state => {
+    [getHomeCategories.pending.type]: state => {
       state.isLoading = true;
     },
-    [getPackages.rejected.type]: state => {
+    [getHomeCategories.rejected.type]: state => {
       state.isLoading = false
       state.isError = true
     }
   }
 });
 
-export const subscribeReducer = subscribeSlice.reducer;
+export const homeReducer = homeSlice.reducer;

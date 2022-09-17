@@ -1,6 +1,8 @@
 import { Layout } from '@/components/Layout/Layout';
 import { Hero, Humor, Music } from '@/screens/Home/index';
-import { getStaticPaths, makeStaticProps } from '@/lib/getStatic';
+import { getI18nProps, getStaticPaths } from '@/lib/getStatic';
+import { wrapper } from '@/store/store';
+import { getHomeCategories } from '@/api/api';
 import type { NextPage } from 'next';
 
 const HomePage: NextPage = () => {
@@ -13,7 +15,12 @@ const HomePage: NextPage = () => {
 	);
 };
 
-export default HomePage;
+const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async (ctx) => {
+	await dispatch(getHomeCategories());
 
-const getStaticProps = makeStaticProps(['common']);
+	return { props: { ...(await getI18nProps(ctx, ['common'])) } };
+});
+
 export { getStaticPaths, getStaticProps };
+
+export default HomePage;
