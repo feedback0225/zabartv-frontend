@@ -3,7 +3,7 @@ import {createAsyncThunk} from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const getPackages = createAsyncThunk(
-    'subscribe/packages',
+    'subscribe/getPackages',
     async () => {
         const {data} = await axios({
             url: `${API_URL}/packages/list?session_id=qweqwe&token=${API_KEY}`,

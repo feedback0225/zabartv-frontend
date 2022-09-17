@@ -20,14 +20,14 @@ export const Views = () => {
 		{
 			href: '/movie',
 			image: '/movie.jpg',
-			id: 1,
+			id: 3,
 			type: 'Сериал',
 			title: 'RRR',
 		},
 		{
 			href: '/movie',
 			image: '/movie.jpg',
-			id: 2,
+			id: 4,
 			type: 'Фильм',
 			title: 'Молодой человек',
 		},

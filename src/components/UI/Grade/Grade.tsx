@@ -1,5 +1,5 @@
-import classNames from 'classnames';
 import { FC, useState } from 'react';
+import classNames from 'classnames';
 import styles from './Grade.module.scss';
 
 interface GradeProps {
@@ -13,14 +13,14 @@ export const Grade: FC<GradeProps> = ({ value, setValue }) => {
 	return (
 		<div className={styles.container}>
 			<div className={styles.grades}>
-				{[...Array(10)].map((item, index) => {
-					const ratingValue = index + 1;
+				{[...Array(10)].map((_, idx) => {
+					const ratingValue = idx + 1;
 
 					const isActive = ratingValue <= (hover || value);
 
 					return (
 						<label
-							key={item}
+							key={idx}
 							className={classNames(styles.label, isActive && styles.active)}
 							onMouseEnter={() => setHover(ratingValue)}
 							onMouseLeave={() => setHover(null)}
