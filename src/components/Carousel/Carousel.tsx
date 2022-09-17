@@ -46,10 +46,23 @@ export const Carousel: FC<PropsWithChildren<CarouselProps>> = ({
 
 	return (
 		<Swiper
+			modules={[Navigation, Autoplay]}
 			slidesPerView={slidesPerView}
+			navigation={swiperNavigation}
+			onSwiper={onSwiper}
 			className={classNames(styles.slider, className)}
 			{...props}
 		>
+			<SliderButton
+				className={classNames(styles.prev, prevBtnClass)}
+				dir="left"
+				ref={navigationPrevRef}
+			/>
+			<SliderButton
+				className={classNames(styles.next, nextBtnClass)}
+				dir="right"
+				ref={navigationNextRef}
+			/>
 			{children}
 		</Swiper>
 	);
