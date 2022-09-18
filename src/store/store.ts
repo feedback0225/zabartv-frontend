@@ -1,37 +1,9 @@
-import { Action, AnyAction, combineReducers, configureStore, ThunkAction } from '@reduxjs/toolkit';
-import { createWrapper, HYDRATE } from 'next-redux-wrapper';
-import { menuReducer } from './reducers/menuSlice';
-import { searchReducer } from './reducers/searchSlice';
-import { modalReducer } from './reducers/modalSlice';
-import { userReducer } from './reducers/userSlice';
-import { subscribeReducer } from './reducers/subscribeSlice';
-import { homeReducer } from './reducers/homeSlice';
-
-const combinedReducer = combineReducers({
-	menu: menuReducer,
-	search: searchReducer,
-	modal: modalReducer,
-	user: userReducer,
-	subscribe: subscribeReducer,
-	home: homeReducer,
-});
-
-const reducer = (state: ReturnType<typeof combinedReducer>, action: AnyAction) => {
-	if (action.type === HYDRATE) {
-		const nextState = {
-			...state,
-			...action.payload,
-		};
-
-		return nextState;
-	} else {
-		return combinedReducer(state, action);
-	}
-};
+import { Action, configureStore, ThunkAction, AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
+import { createWrapper } from 'next-redux-wrapper';
+import { reducer, RootState } from './reducer'
 
 export const makeStore = () => {
 	return configureStore({
-		/* @ts-ignore */
 		reducer,
 	});
 };
@@ -39,7 +11,7 @@ export const makeStore = () => {
 type Store = ReturnType<typeof makeStore>;
 
 export type AppDispatch = Store['dispatch'];
-export type RootState = ReturnType<Store['getState']>;
 export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, RootState, unknown, Action<string>>;
+export type NextThunkDispatch = ThunkDispatch<AppDispatch, void, AnyAction>
 
 export const wrapper = createWrapper(makeStore, { debug: false });

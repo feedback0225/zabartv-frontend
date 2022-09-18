@@ -1,5 +1,5 @@
 import { Modal } from '@/UI/Modal/Modal';
-import { useActions } from '@/hooks/useActions';
+import { useTypedActions } from '@/hooks/useTypedActions';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { RoutesEnum } from '@/constants/routes';
 import { SubscribeIcon } from '@/icons';
@@ -11,7 +11,7 @@ export const SubscribeModal = () => {
 
 	const { isVisibleSubscribeModal } = useTypedSelector((state) => state.modal);
 
-	const { showSubscribeModal } = useActions();
+	const { showSubscribeModal } = useTypedActions((state) => state.modal);
 
 	const { t } = useTranslation('common');
 

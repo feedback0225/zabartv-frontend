@@ -1,18 +1,11 @@
-import { showMenu } from './reducers/menuSlice';
-import { setVisibleSearch, setSearch } from './reducers/searchSlice';
-import { showRegisterModal, showSubscribeModal, showGradeModal, showAuthModal } from './reducers/modalSlice';
-import { setSubscribedEmail, setEmail, setPassword, setDate } from './reducers/userSlice';
+import { menuActions } from './reducers/menuSlice';
+import { searchActions } from './reducers/searchSlice';
+import { modalActions } from './reducers/modalSlice';
+import { userActions } from './reducers/userSlice';
 
-export {
-	showMenu,
-	setVisibleSearch,
-	setSearch,
-	showRegisterModal,
-	showSubscribeModal,
-	showAuthModal,
-	showGradeModal,
-	setSubscribedEmail,
-	setEmail,
-	setPassword,
-	setDate,
-};
+export const ActionsCreators = {
+    user: userActions,
+    modal: modalActions,
+    search: searchActions,
+    menu: menuActions
+}

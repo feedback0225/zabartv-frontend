@@ -14,5 +14,5 @@ export const menuSlice = createSlice({
 	},
 });
 
-export const { showMenu } = menuSlice.actions;
+export const menuActions = menuSlice.actions;
 export const menuReducer = menuSlice.reducer;

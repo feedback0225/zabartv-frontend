@@ -1,6 +1,6 @@
 import { Modal } from '@/UI/Modal/Modal';
 import { Grade } from '@/UI/Grade/Grade';
-import { useActions } from '@/hooks/useActions';
+import { useTypedActions } from '@/hooks/useTypedActions';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { useState } from 'react';
 
@@ -11,7 +11,7 @@ export const GradeModal = () => {
 
 	const { isVisibleGradeModal } = useTypedSelector((state) => state.modal);
 
-	const { showGradeModal } = useActions();
+	const { showGradeModal } = useTypedActions((state) => state.modal);
 
 	const handleClose = () => showGradeModal(false);
 

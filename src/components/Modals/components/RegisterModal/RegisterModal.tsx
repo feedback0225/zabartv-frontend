@@ -1,5 +1,5 @@
 import { Modal } from '@/UI/Modal/Modal';
-import { useActions } from '@/hooks/useActions';
+import { useTypedActions } from '@/hooks/useTypedActions';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 
 export const RegisterModal = () => {
@@ -7,7 +7,7 @@ export const RegisterModal = () => {
 
 	const { isVisibleRegisterModal } = useTypedSelector((state) => state.modal);
 
-	const { showRegisterModal } = useActions();
+	const { showRegisterModal } = useTypedActions((state) => state.modal);
 
 	const handleClose = () => showRegisterModal(false);
 

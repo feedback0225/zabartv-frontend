@@ -1,11 +1,12 @@
 import { FC } from 'react';
 import { SubscribeIcon } from '@/icons';
 import { Button, ButtonProps } from '@/UI/Button/Button';
-import { useActions } from '@/hooks/useActions';
+import { useTypedActions } from '@/hooks/useTypedActions';
 import { useTranslation } from 'next-i18next';
 
 export const SubscribeButton: FC<ButtonProps> = ({ className, ...props }) => {
-	const { showSubscribeModal, showMenu } = useActions();
+	const { showMenu } = useTypedActions((state) => state.menu);
+	const { showSubscribeModal } = useTypedActions((state) => state.modal);
 
 	const { t } = useTranslation('common');
 
