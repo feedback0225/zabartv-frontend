@@ -216,13 +216,12 @@
 	margin-right: 10px;
 
 	@media (max-width: 576px) {
-		height: 48px;
+		padding: 11.5px 10px 10.5px;
+		height: auto;
 		min-width: auto;
-		padding-left: 10px;
-		padding-right: 10px;
 		width: 100%;
 		font-size: 14px;
-		line-height: 25.2px;
+		line-height: 25px;
 		margin-right: 5px;
 
 		span {
@@ -232,7 +231,7 @@
 	}
 
 	@media (max-width: 360px) {
-		height: 42px;
+		padding: 10px 10px 9px;
 		font-size: 11px;
 		line-height: 20px;
 
