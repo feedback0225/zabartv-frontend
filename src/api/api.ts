@@ -1,25 +1,19 @@
-import {API_KEY, API_URL} from '@/constants/api';
-import {createAsyncThunk} from '@reduxjs/toolkit';
+import { API_KEY, API_URL } from '@/constants/api';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const getPackages = createAsyncThunk(
-    'subscribe/getPackages',
-    async () => {
-        const {data} = await axios({
-            url: `${API_URL}/packages/list?session_id=qweqwe&token=${API_KEY}`,
-            method: 'get',
-        })
-        return data
-    }
-)
+export const getPackages = createAsyncThunk('subscribe/getPackages', async () => {
+	const { data } = await axios({
+		url: `${API_URL}/packages/list?session_id=qweqwe&token=${API_KEY}`,
+		method: 'get',
+	});
+	return data;
+});
 
-export const getHomeCategories = createAsyncThunk(
-    'home/getHomeCategories',
-    async () => {
-        const {data} = await axios({
-            url: `${API_URL}/items/selectcatonhome?session_id=qweqwe&token=${API_KEY}`,
-            method: 'get',
-        })
-        return data
-    }
-)
+export const getHomeCategories = createAsyncThunk('home/getHomeCategories', async () => {
+	const { data } = await axios({
+		url: `${API_URL}/items/selectcatonhome?session_id=qweqwe&token=${API_KEY}`,
+		method: 'get',
+	});
+	return data;
+});

@@ -135,12 +135,12 @@
 .active {
 	overflow: visible;
 	border-color: transparent;
-	
+
 	.arrow {
 		color: rgba(#0b1527, 0.4);
 		transform: rotate(-180deg);
 	}
-	
+
 	.txt {
 		color: #0b1527;
 	}
@@ -172,7 +172,7 @@
 	[data-theme='light'] {
 		.lang {
 			border: 1px solid #dadee7;
-	
+
 			&.active {
 				border-color: transparent;
 
@@ -180,7 +180,7 @@
 					background-color: #e2e0dd;
 				}
 			}
-	
+
 			&:not(.active) {
 				&:hover {
 					border-color: #e2e0dd;
@@ -190,7 +190,7 @@
 			}
 		}
 	}
-	
+
 	.lang {
 		&:not(.active) {
 			&:hover {
