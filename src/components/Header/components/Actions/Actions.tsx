@@ -1,6 +1,6 @@
 import { ButtonBase } from '@/components/ButtonBase/ButtonBase';
 import { ProfileIcon, SearchIcon } from '@/icons';
-import { useActions } from '@/hooks/useActions';
+import { useTypedActions } from '@/hooks/useTypedActions';
 import { RoutesEnum } from '@/constants/routes';
 import { NextLink } from '@/components/NextLink/NextLink';
 import classNames from 'classnames';
@@ -9,7 +9,8 @@ import styles from './Actions.module.scss';
 export const Actions = () => {
 	const isAuth = false;
 
-	const { setVisibleSearch, showAuthModal } = useActions();
+	const { showAuthModal } = useTypedActions((state) => state.modal);
+	const { setVisibleSearch } = useTypedActions((state) => state.search);
 
 	const handleOpenSearch = () => setVisibleSearch(true);
 

@@ -1,5 +1,5 @@
 import { Modal } from '@/UI/Modal/Modal';
-import { useActions } from '@/hooks/useActions';
+import { useTypedActions } from '@/hooks/useTypedActions';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { useState } from 'react';
 import classNames from 'classnames';
@@ -11,7 +11,7 @@ export const AuthModal = () => {
 
 	const [authState, setAuthState] = useState<'login' | 'register'>('login');
 
-	const { showAuthModal, showRegisterModal } = useActions();
+	const { showAuthModal, showRegisterModal } = useTypedActions((state) => state.modal);
 
 	const handleClose = () => showAuthModal(false);
 

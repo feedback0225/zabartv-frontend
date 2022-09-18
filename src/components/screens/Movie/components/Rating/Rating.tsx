@@ -1,4 +1,4 @@
-import { useActions } from '@/hooks/useActions';
+import { useTypedActions } from '@/hooks/useTypedActions';
 import { Link } from '@/UI/Link/Link';
 import { FC } from 'react';
 import classNames from 'classnames';
@@ -10,7 +10,7 @@ interface RatingProps {
 }
 
 export const Rating: FC<RatingProps> = ({ className, rating }) => {
-	const { showGradeModal } = useActions();
+	const { showGradeModal } = useTypedActions((state) => state.modal);
 
 	const handleShowModal = () => showGradeModal(true);
 

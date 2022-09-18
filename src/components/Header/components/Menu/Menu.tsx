@@ -1,7 +1,7 @@
 import { ButtonBase } from '@/components/ButtonBase/ButtonBase';
 import { CloseIcon } from '@/icons';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
-import { useActions } from '@/hooks/useActions';
+import { useTypedActions } from '@/hooks/useTypedActions';
 import { useWindowSize } from '@/hooks/useWindowSize';
 import { useLockedBody } from 'usehooks-ts';
 import { RoutesEnum } from '@/constants/routes';
@@ -14,7 +14,7 @@ import styles from './Menu.module.scss';
 
 export const Menu = () => {
 	const { isOpened } = useTypedSelector((state) => state.menu);
-	const { showMenu } = useActions();
+	const { showMenu } = useTypedActions((state) => state.menu);
 	const { height } = useWindowSize();
 
 	const handleClose = () => showMenu(false);

@@ -39,6 +39,8 @@
 		"react-tabs": "^5.1.0",
 		"react-transition-group": "^4.4.5",
 		"react-viewport-height": "^1.2.1",
+		"redux": "^4.2.0",
+		"redux-thunk": "^2.4.1",
 		"sass": "^1.54.5",
 		"sass-loader": "^13.0.2",
 		"style-loader": "^3.3.1",

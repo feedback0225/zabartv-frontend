@@ -1,4 +1,4 @@
-import { useActions } from '@/hooks/useActions';
+import { useTypedActions } from '@/hooks/useTypedActions';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { Checkbox } from '@/UI/Checkbox/Checkbox';
 import { CabinetInput } from '../index';
@@ -6,7 +6,9 @@ import styles from './Settings.module.scss';
 
 export const Settings = () => {
 	const { isSubscribedEmail, email, password, date } = useTypedSelector((state) => state.user);
-	const { setSubscribedEmail, setEmail, setPassword, setDate } = useActions();
+	const { setSubscribedEmail, setEmail, setPassword, setDate } = useTypedActions(
+		(state) => state.user
+	);
 
 	const handleSubscribeEmail = () => setSubscribedEmail();
 

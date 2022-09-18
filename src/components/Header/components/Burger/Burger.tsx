@@ -1,10 +1,10 @@
 import { ButtonBase } from '@/components/ButtonBase/ButtonBase';
-import { useActions } from '@/hooks/useActions';
+import { useTypedActions } from '@/hooks/useTypedActions';
 import { MenuIcon } from '@/icons';
 import styles from './Burger.module.scss';
 
 export const Burger = () => {
-	const { showMenu } = useActions();
+	const { showMenu } = useTypedActions((state) => state.menu);
 
 	const handleShow = () => showMenu(true);
 

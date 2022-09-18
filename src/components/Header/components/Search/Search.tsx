@@ -1,6 +1,6 @@
 import { ChangeEvent, FC, FormEvent, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
-import { useActions } from '@/hooks/useActions';
+import { useTypedActions } from '@/hooks/useTypedActions';
 import { ButtonBase } from '@/components/ButtonBase/ButtonBase';
 import { useOnClickOutside } from 'usehooks-ts';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
@@ -15,7 +15,7 @@ interface SearchProps {
 
 export const Search: FC<SearchProps> = ({ className }) => {
 	const { isSearchVisible } = useTypedSelector((state) => state.search);
-	const { setSearch, setVisibleSearch } = useActions();
+	const { setSearch, setVisibleSearch } = useTypedActions((state) => state.search);
 	const [value, setValue] = useState<string>('');
 	const formRef = useRef<HTMLFormElement>(null);
 	const inputRef = useRef<HTMLInputElement>(null);
