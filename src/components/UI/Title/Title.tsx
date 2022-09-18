@@ -1,26 +1,22 @@
-import { FC, PropsWithChildren } from 'react';
+import { FC, HTMLProps, PropsWithChildren } from 'react';
 import styles from './Title.module.scss';
 import classNames from 'classnames';
 
-export interface TitleProps {
+export interface TitleProps extends Omit<HTMLProps<HTMLHeadingElement>, 'size'> {
 	className?: string;
-	level?: Levels;
+	level?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 	size?: 'small' | 'large' | 'medium';
 }
-
-type Levels = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 export const Title: FC<PropsWithChildren<TitleProps>> = ({
 	className,
 	size = 'large',
-	level = 'h1',
+	level: Level = 'h1',
 	children,
 	...props
 }) => {
-	const Tag = `${level}` as keyof JSX.IntrinsicElements;
-
 	return (
-		<Tag
+		<Level
 			className={classNames(
 				styles.title,
 				size === 'medium' && styles.medium,
@@ -31,6 +27,6 @@ export const Title: FC<PropsWithChildren<TitleProps>> = ({
 			{...props}
 		>
 			{children}
-		</Tag>
+		</Level>
 	);
 };
