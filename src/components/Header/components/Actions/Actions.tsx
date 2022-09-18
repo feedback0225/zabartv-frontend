@@ -7,18 +7,28 @@ import classNames from 'classnames';
 import styles from './Actions.module.scss';
 
 export const Actions = () => {
-	const { setVisibleSearch } = useActions();
+	const isAuth = false;
+
+	const { setVisibleSearch, showAuthModal } = useActions();
 
 	const handleOpenSearch = () => setVisibleSearch(true);
+
+	const handleShowModal = () => showAuthModal(true);
 
 	return (
 		<ul className={classNames('list-reset', styles.list)}>
 			<li className={styles.item}>
-				<NextLink href={RoutesEnum.Cabinet}>
-					<a className={styles.btn}>
+				{isAuth ? (
+					<NextLink href={RoutesEnum.Cabinet}>
+						<a className={styles.btn}>
+							<ProfileIcon />
+						</a>
+					</NextLink>
+				) : (
+					<ButtonBase onClick={handleShowModal} className={styles.btn}>
 						<ProfileIcon />
-					</a>
-				</NextLink>
+					</ButtonBase>
+				)}
 			</li>
 			<li className={styles.item}>
 				<ButtonBase onClick={handleOpenSearch} className={styles.btn}>

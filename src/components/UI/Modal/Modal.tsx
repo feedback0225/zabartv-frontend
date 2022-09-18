@@ -19,6 +19,10 @@ interface ModalProps {
 	onClose: () => void;
 }
 
+interface ModalTitleProps extends TitleProps {
+	activeClassName?: boolean;
+}
+
 function Modal({ children, variant, open, fullscreen, onClose }: PropsWithChildren<ModalProps>) {
 	const { ModalClose } = Modal;
 
@@ -62,14 +66,25 @@ function Modal({ children, variant, open, fullscreen, onClose }: PropsWithChildr
 module Modal {
 	export const ModalTitle = ({
 		children,
+		activeClassName,
 		size = 'medium',
+		className,
 		...props
-	}: PropsWithChildren<TitleProps>) => {
+	}: PropsWithChildren<ModalTitleProps>) => {
 		return (
-			<Title className={styles.title} level="h2" size={size} {...props}>
+			<Title
+				className={classNames(styles.title, activeClassName && styles.titleActive, className)}
+				level="h2"
+				size={size}
+				{...props}
+			>
 				{children}
 			</Title>
 		);
+	};
+
+	export const ModalTabs = ({ children }: PropsWithChildren<{}>) => {
+		return <div className={styles.tabs}>{children}</div>;
 	};
 
 	export const ModalDesc = ({ children }: PropsWithChildren<{}>) => {
