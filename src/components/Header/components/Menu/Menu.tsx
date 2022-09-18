@@ -1,25 +1,23 @@
 import { ButtonBase } from '@/components/ButtonBase/ButtonBase';
 import { CloseIcon } from '@/icons';
-import { useTypedSelector } from 'src/hooks/useTypedSelector';
-import { ThemeToggle } from '../index';
-import { useActions } from 'src/hooks/useActions';
+import { useTypedSelector } from '@/hooks/useTypedSelector';
+import { useActions } from '@/hooks/useActions';
 import { useWindowSize } from '@/hooks/useWindowSize';
 import { useLockedBody } from 'usehooks-ts';
-import { MenuLang } from './components/MenuLang/MenuLang';
 import { RoutesEnum } from '@/constants/routes';
 import { SubscribeButton } from '@/UI/SubscribeButton/SubscribeButton';
 import { useTranslation } from 'next-i18next';
 import { NextLink } from '@/components/NextLink/NextLink';
+import { ThemeToggle, Lang } from '../index';
 import classNames from 'classnames';
 import styles from './Menu.module.scss';
 
 export const Menu = () => {
 	const { isOpened } = useTypedSelector((state) => state.menu);
 	const { showMenu } = useActions();
+	const { height } = useWindowSize();
 
 	const handleClose = () => showMenu(false);
-
-	const { height } = useWindowSize();
 
 	useLockedBody(isOpened);
 
@@ -43,7 +41,7 @@ export const Menu = () => {
 			<div className={styles.container}>
 				<div className={styles.top}>
 					<ThemeToggle className={styles.toggle} />
-					<MenuLang />
+					<Lang />
 					<ButtonBase onClick={handleClose} className={styles.close}>
 						<CloseIcon />
 					</ButtonBase>

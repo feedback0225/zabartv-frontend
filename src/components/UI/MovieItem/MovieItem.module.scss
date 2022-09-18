@@ -103,7 +103,7 @@
 	&:not(:last-child) {
 		position: relative;
 		padding-right: 12px;
-		margin-right: 12px;
+		margin-right: 8px;
 
 		@media (max-width: 1500px) {
 			padding-bottom: 5px;

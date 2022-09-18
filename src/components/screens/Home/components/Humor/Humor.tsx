@@ -8,8 +8,6 @@ import styles from './Humor.module.scss';
 export const Humor = () => {
 	const { data } = useTypedSelector((state) => state.home);
 
-	console.log(data);
-
 	const mockData = [
 		{
 			image: '/movie.jpg',

@@ -129,13 +129,7 @@
 	}
 }
 
-.btn {
-	@media (max-width: 1024px) {
-		display: none;
-	}
-}
-
-.toggle {
+.mobHidden {
 	@media (max-width: 1024px) {
 		display: none;
 	}

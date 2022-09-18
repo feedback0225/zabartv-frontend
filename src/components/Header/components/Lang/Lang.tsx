@@ -1,12 +1,16 @@
 import { RuIcon, CeIcon, ArrowIcon } from '@/icons';
-import { useRef, useState } from 'react';
+import { FC, useRef, useState } from 'react';
 import { useOnClickOutside } from 'usehooks-ts';
 import { LanguageSwitchLink } from '@/components/LanguageSwitchLink/LanguageSwitchLink';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import styles from './Lang.module.scss';
 
-export const Lang = () => {
+interface LangProps {
+	className?: string;
+}
+
+export const Lang: FC<LangProps> = ({ className }) => {
 	const {
 		query: { locale },
 	} = useRouter();
@@ -20,15 +24,15 @@ export const Lang = () => {
 	useOnClickOutside(langRef, () => setActive(false));
 
 	const items = [
-		{ icon: <RuIcon />, locale: 'ru' },
-		{ icon: <CeIcon />, locale: 'ce' },
+		{ icon: <RuIcon />, txt: 'Русский язык', locale: 'ru' },
+		{ icon: <CeIcon />, txt: 'Чеченский язык', locale: 'ce' },
 	];
 
 	return (
 		<div
 			ref={langRef}
 			onClick={toggleActive}
-			className={classNames(styles.lang, active && styles.active)}
+			className={classNames(styles.lang, active && styles.active, className)}
 		>
 			<ul className={classNames('list-reset', styles.list)}>
 				{items.map((el) => (
@@ -38,6 +42,7 @@ export const Lang = () => {
 					>
 						<LanguageSwitchLink locale={el.locale} className={styles.link}>
 							{el.icon}
+							<span className={styles.txt}>{el.txt}</span>
 						</LanguageSwitchLink>
 					</li>
 				))}

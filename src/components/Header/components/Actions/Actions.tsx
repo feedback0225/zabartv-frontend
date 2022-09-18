@@ -1,6 +1,6 @@
 import { ButtonBase } from '@/components/ButtonBase/ButtonBase';
 import { ProfileIcon, SearchIcon } from '@/icons';
-import { useActions } from 'src/hooks/useActions';
+import { useActions } from '@/hooks/useActions';
 import { RoutesEnum } from '@/constants/routes';
 import { NextLink } from '@/components/NextLink/NextLink';
 import classNames from 'classnames';

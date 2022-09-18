@@ -31,11 +31,11 @@ export const Header: FC<HeaderProps> = ({ variant }) => {
 				<div className={styles.right}>
 					<Actions />
 					<Search className={styles.search} />
-					<SubscribeButton className={styles.btn} />
+					<SubscribeButton className={styles.mobHidden} />
 					<Burger />
 				</div>
-				<Lang />
-				<ThemeToggle className={styles.toggle} />
+				<Lang className={styles.mobHidden} />
+				<ThemeToggle className={styles.mobHidden} />
 			</div>
 			<Menu />
 		</header>
