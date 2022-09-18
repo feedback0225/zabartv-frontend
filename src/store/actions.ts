@@ -4,8 +4,8 @@ import { modalActions } from './reducers/modalSlice';
 import { userActions } from './reducers/userSlice';
 
 export const ActionsCreators = {
-    user: userActions,
-    modal: modalActions,
-    search: searchActions,
-    menu: menuActions
-}
+	user: userActions,
+	modal: modalActions,
+	search: searchActions,
+	menu: menuActions,
+};

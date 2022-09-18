@@ -4,7 +4,7 @@ const initialState = {
 	isVisibleRegisterModal: false,
 	isVisibleSubscribeModal: false,
 	isVisibleGradeModal: false,
-	isVisibleAuthModal: false
+	isVisibleAuthModal: false,
 };
 
 export const modalSlice = createSlice({
@@ -21,11 +21,10 @@ export const modalSlice = createSlice({
 			state.isVisibleGradeModal = action.payload;
 		},
 		showAuthModal: (state, action) => {
-			state.isVisibleAuthModal = action.payload
-		}
+			state.isVisibleAuthModal = action.payload;
+		},
 	},
 });
-
 
 export const modalActions = modalSlice.actions;
 export const modalReducer = modalSlice.reducer;
