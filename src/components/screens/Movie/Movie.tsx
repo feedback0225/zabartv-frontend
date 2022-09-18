@@ -6,7 +6,6 @@ import { Button } from '@/UI/Button/Button';
 import classNames from 'classnames';
 import styles from './Movie.module.scss';
 import { Seasons } from './components/Seasons/Seasons';
-import { useWindowSize } from '@/hooks/useWindowSize';
 
 export const Movie = () => {
 	const data = {
@@ -21,16 +20,9 @@ export const Movie = () => {
 
 	const { image, title, categories, info, description, rating } = data;
 
-	const { height } = useWindowSize();
-
-	const style = {
-		'--height': `${height}px`,
-		backgroundImage: `url(${image})`,
-	};
-
 	return (
 		<section className={styles.section}>
-			<div style={style} className={styles.top}>
+			<div style={{ backgroundImage: `url(${image})` }} className={styles.top}>
 				<div className={classNames('container', styles.content)}>
 					<Title className={styles.title}>{title}</Title>
 					<div className={styles.chips}>

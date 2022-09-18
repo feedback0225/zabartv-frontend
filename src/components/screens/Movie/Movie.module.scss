@@ -18,11 +18,15 @@
 	position: relative;
 	display: block;
 	width: 100%;
-	min-height: var(--vh, 100vh);
+	min-height: 100vh;
 	background-position: 30%;
 	background-repeat: no-repeat;
 	background-size: cover;
 	overflow: hidden;
+
+	@media (max-width: 576px) {
+		min-height: 90vh;
+	}
 
 	&:before {
 		content: '';
@@ -74,7 +78,7 @@
 	@media (max-width: 1500px) {
 		padding-top: 200px;
 	}
-
+	
 	@media (max-width: 576px) {
 		padding-top: 128px;
 		padding-bottom: 87px;
