@@ -18,6 +18,14 @@ module.exports = {
 	webpackFinal: async (config) => {
 		config.resolve.alias['@/components'] = path.resolve(__dirname, '../src/components');
 		config.resolve.alias['@/UI'] = path.resolve(__dirname, '../src/components/UI');
+		config.resolve.alias['@/icons'] = path.resolve(__dirname, '../src/components/Icons/Icons.ts');
+
+		config.module.rules.push({
+            test: /\.svg$/,
+            enforce: "pre",
+            loader: require.resolve("@svgr/webpack")
+        });
+
 		return config;
 	},
 	framework: '@storybook/react',

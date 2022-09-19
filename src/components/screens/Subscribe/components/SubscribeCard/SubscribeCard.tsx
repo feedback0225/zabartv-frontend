@@ -23,16 +23,11 @@ export const SubscribeCard: FC<SubscribeCardProps> = ({ card }) => {
 	const { t } = useTranslation('common');
 
 	const normalPrice = Number(price);
-
 	const isMonthPackage = period <= 30;
+	const priceInYear = normalPrice * 12 + 15;
+	const priceInMonth = normalPrice / 12 - 1;
 
-	const convertPrice = () => {
-		const priceInYear = normalPrice * 12 + 15;
-
-		const priceInMonth = normalPrice / 12 - 1;
-
-		return isMonthPackage ? `${priceInYear}` : `${priceInMonth}`;
-	};
+	const convertPrice = () => (isMonthPackage ? priceInYear : priceInMonth);
 
 	return (
 		<>
