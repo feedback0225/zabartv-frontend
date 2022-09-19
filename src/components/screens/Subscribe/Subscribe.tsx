@@ -3,18 +3,9 @@ import { Title } from '@/UI/Title/Title';
 import { SubscribeCard } from './components/SubscribeCard/SubscribeCard';
 import styles from './Subscribe.module.scss';
 import classNames from 'classnames';
-import { useAppDispatch } from '@/hooks/useAppDispatch';
-import { useEffect } from 'react';
-import { getPackages } from '@/api/api';
 
 export const Subscribe = () => {
 	const { data } = useTypedSelector((state) => state.subscribe);
-
-	const dispatch = useAppDispatch();
-
-	useEffect(() => {
-		dispatch(getPackages());
-	}, []);
 
 	return (
 		<section className={styles.section}>
