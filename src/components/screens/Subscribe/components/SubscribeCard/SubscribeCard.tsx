@@ -6,38 +6,60 @@ import { Counter } from '@/UI/Counter/Counter';
 import { useTranslation } from 'next-i18next';
 import styles from './SubscribeCard.module.scss';
 import classNames from 'classnames';
+import { IPackage } from '@/types/IPackage';
 
 interface SubscribeCardProps {
-	card: any;
+	card: IPackage;
 }
 
 export const SubscribeCard: FC<SubscribeCardProps> = ({ card }) => {
 	const {
-		content: { title, description },
+		content: { title, badge_1 },
 		price,
-		time,
-		hasIncrement,
-		caption,
-		year,
+		period,
+		visible,
 	} = card;
 
 	const { t } = useTranslation('common');
 
+	const normalPrice = Number(price);
+
+	const isMonthPackage = period <= 30;
+
+	const convertPrice = () => {
+		const priceInYear = normalPrice * 12 + 15;
+
+		const priceInMonth = normalPrice / 12 - 1;
+
+		return isMonthPackage ? `${priceInYear}` : `${priceInMonth}`;
+	};
+
 	return (
-		<div className={classNames(styles.card, year && styles.year)}>
-			<Title level="h2" size="medium" className={styles.title}>
-				{title}
-				<span>&nbsp;{price}</span>
-			</Title>
-			<p className={styles.desc}>
-				{description}
-				<span>&nbsp;{time}</span>
-			</p>
-			{hasIncrement && <Counter className={styles.counter} initialValue={30} caption="Дней" />}
-			<Button variant="gradient" className={styles.btn} icon={<SubscribeIcon />}>
-				{t('subscribe_button')}
-			</Button>
-			{caption && <span className={styles.caption}>{caption}</span>}
-		</div>
+		<>
+			{visible ? (
+				<div className={classNames(styles.card, !isMonthPackage && styles.year)}>
+					<Title level="h2" size="medium" className={styles.title}>
+						{title}
+						&nbsp;за
+						<span>&nbsp;{normalPrice}€</span>
+					</Title>
+					<p className={styles.desc}>
+						{isMonthPackage ? 'Или' : 'Единоразово'}
+						&nbsp;{convertPrice()}
+						<span>
+							€&nbsp;
+							{isMonthPackage ? 'за 12 месяцев' : 'в месяц'}
+						</span>
+					</p>
+					{isMonthPackage && (
+						<Counter className={styles.counter} initialValue={30} caption="Дней" />
+					)}
+					<Button variant="gradient" className={styles.btn} icon={<SubscribeIcon />}>
+						{t('subscribe_button')}
+					</Button>
+					{badge_1 && <span className={styles.badge}>{badge_1}</span>}
+				</div>
+			) : null}
+		</>
 	);
 };
