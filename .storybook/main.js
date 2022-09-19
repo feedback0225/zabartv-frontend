@@ -21,10 +21,10 @@ module.exports = {
 		config.resolve.alias['@/icons'] = path.resolve(__dirname, '../src/components/Icons/Icons.ts');
 
 		config.module.rules.push({
-            test: /\.svg$/,
-            enforce: "pre",
-            loader: require.resolve("@svgr/webpack")
-        });
+			test: /\.svg$/,
+			enforce: 'pre',
+			loader: require.resolve('@svgr/webpack'),
+		});
 
 		return config;
 	},
