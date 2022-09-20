@@ -2,7 +2,7 @@ module.exports = {
 	collectCoverageFrom: ['**/*.{js,jsx,ts,tsx}', '!**/*.d.ts', '!**/node_modules/**'],
 	moduleNameMapper: {
 		'^@/components(.*)$': '<rootDir>/src/components/$1',
-		'^@/icons': '<rootDir>/src/components/Icons/Icons',
+		'^@/icons': '<rootDir>/src/components/Icons',
 		'^@/UI(.*)$': '<rootDir>/src/components/UI/$1',
 
 		'^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',

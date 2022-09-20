@@ -12,7 +12,7 @@ const Template: ComponentStory<typeof CabinetInput> = () => {
 
 	return (
 		<div style={{ width: '350px' }}>
-			<CabinetInput label="Электронная почта" type="email" value={value} applyChanges={setValue} />
+			<CabinetInput label="Email" type="email" value={value} applyChanges={setValue} />
 		</div>
 	);
 };

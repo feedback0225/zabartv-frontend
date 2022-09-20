@@ -17,7 +17,7 @@
 		"baseUrl": ".",
 		"paths": {
 			"@/UI/*": ["src/components/UI/*"],
-			"@/icons": ["src/components/Icons/Icons"],
+			"@/icons": ["src/components/Icons"],
 			"@/screens/*": ["src/components/screens/*"],
 			"@/components/*": ["src/components/*"],
 			"@/styles/*": ["src/styles/*"],

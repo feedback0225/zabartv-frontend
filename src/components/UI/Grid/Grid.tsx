@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { MovieItem } from '@/UI/MovieItem/MovieItem';
 import { Button } from '@/UI/Button/Button';
+import { ChevronArrowIcon } from '@/icons';
 import styles from './Grid.module.scss';
-import { ChevronArrowIcon } from '@/components/Icons/Icons';
 
 interface GridProps {
 	//временно
