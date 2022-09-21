@@ -12,7 +12,7 @@ export const getPackages = createAsyncThunk('subscribe/getPackages', async () =>
 
 export const getHomeCategories = createAsyncThunk('home/getHomeCategories', async () => {
 	const { data } = await axios({
-		url: `${API_URL}/items/selectcatonhome?session_id=qweqwe&token=${API_KEY}`,
+		url: `${API_URL}/items/selectdataonhome?session_id=qweqwe&token=${API_KEY}`,
 		method: 'get',
 	});
 	return data;

@@ -1,9 +1,9 @@
-import { IPackage } from '@/types/IPackage';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { getHomeCategories } from '@/api/api';
+import { ICategory } from '@/types/ICategory';
 
 interface IState {
-	data: IPackage[] | null;
+	data: ICategory[] | null;
 	isLoading: boolean;
 	isError: boolean;
 }
@@ -19,7 +19,7 @@ export const homeSlice = createSlice({
 	initialState,
 	reducers: {},
 	extraReducers: {
-		[getHomeCategories.fulfilled.type]: (state, action: PayloadAction<IPackage[]>) => {
+		[getHomeCategories.fulfilled.type]: (state, action: PayloadAction<ICategory[]>) => {
 			state.isLoading = false;
 			state.isError = false;
 			state.data = action.payload;

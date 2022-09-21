@@ -56,6 +56,10 @@ a {
 	max-width: var(--container-width);
 }
 
+.swiper-button-lock[disabled] {
+	display: none;
+}
+
 .swiper-slide.swiper-slide-active {
 	opacity: 1;
 }

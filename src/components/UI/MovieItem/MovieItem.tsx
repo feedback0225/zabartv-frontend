@@ -3,30 +3,49 @@ import { Chip } from '@/UI/Chip/Chip';
 import { NextLink } from '@/components/NextLink/NextLink';
 import Image from 'next/image';
 import styles from './MovieItem.module.scss';
+import { IMovie } from '@/types/IMovie';
 
 interface MovieItemProps {
-	//временно
-	item: any;
+	item: IMovie;
 }
 
 export const MovieItem: FC<MovieItemProps> = ({ item }) => {
-	const { image, id, title, rating, genre, type, time, year, age, status } = item;
+	const {
+		content: { title },
+		options,
+		img_base_url,
+		img_path,
+		rating,
+		hours,
+		minutes,
+	} = item;
+
+	const url = `${img_base_url}/${img_path}`;
+
+	const genre = 'Комедия';
+	const type = 'Фильм';
+	const status = 'Подписка';
 
 	return (
 		<NextLink href="/movie">
 			<a className={styles.item}>
 				<div className={styles.top}>
-					<Image priority quality={100} unoptimized layout="fill" src={image} alt={title} />
-					<span className={styles.rating}>{rating}</span>
+					<Image priority quality={100} unoptimized layout="fill" src={url} alt={title} />
+					<span className={styles.rating}>{Number(rating).toFixed(1)}</span>
 					<div className={styles.content}>
 						<div className={styles.chips}>
 							<Chip className={styles.chip}>{genre}</Chip>
 							<Chip className={styles.chip}>{type}</Chip>
 						</div>
 						<div className={styles.info}>
-							<span className={styles.infoItem}>{time}</span>
-							<span className={styles.infoItem}>{year}</span>
-							<span className={styles.infoItem}>{age}</span>
+							<span className={styles.infoItem}>
+								{hours} час {minutes} минуты
+							</span>
+							{options?.map((el) => (
+								<span key={el.filter_id} className={styles.infoItem}>
+									{el.option_value}
+								</span>
+							))}
 						</div>
 					</div>
 				</div>

@@ -2,14 +2,14 @@ import { FC } from 'react';
 import { Carousel } from '@/components/Carousel/Carousel';
 import { MovieItem } from '@/UI/MovieItem/MovieItem';
 import { SwiperSlide } from 'swiper/react';
-import styles from './HumorCarousel.module.scss';
+import styles from './CategoryCarousel.module.scss';
+import { IMovie } from '@/types/IMovie';
 
-interface HumorCarouselProps {
-	//временно
-	data: any[];
+interface CategoryCarouselProps {
+	data: IMovie[];
 }
 
-export const HumorCarousel: FC<HumorCarouselProps> = ({ data }) => {
+export const CategoryCarousel: FC<CategoryCarouselProps> = ({ data }) => {
 	const breakpoints = {
 		769: {
 			slidesPerView: 3,

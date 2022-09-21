@@ -1,5 +1,5 @@
 import { Layout } from '@/components/Layout/Layout';
-import { Hero, Humor, Music } from '@/screens/Home/index';
+import { Hero, Category, Music } from '@/screens/Home/index';
 import { getI18nProps, getStaticPaths } from '@/lib/getStatic';
 import { wrapper } from '@/store/store';
 import { getHomeCategories } from '@/api/api';
@@ -9,7 +9,7 @@ const HomePage: NextPage = () => {
 	return (
 		<Layout>
 			<Hero />
-			<Humor />
+			<Category />
 			<Music />
 		</Layout>
 	);

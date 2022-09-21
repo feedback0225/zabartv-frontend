@@ -1,0 +1,45 @@
+import { IPageInfo } from "./IPageInfo";
+import { IMovie } from "./IMovie";
+import { IDataInfo } from "./IDataInfo";
+import { IUserData } from "./IUserData";
+
+interface ISubCategory extends IDataInfo {
+    badge: string;
+    class: string;
+    content: {
+        mini_description?: null;
+        seo_description?: string;
+        seo_keywords?: string;
+        seo_title?: string;
+        slogan?: string;
+        text?: string;
+        title: string;
+        title_in_nav: string;
+    }
+    customer_group: number;
+}
+
+export interface ICategory  extends IDataInfo {
+    badge: string;
+    child_items: ISubCategory[];
+    class: string;
+    content: {
+        title_in_nav: string;
+    }
+    customer_group: number;
+    films: {
+        items: IMovie[][];
+        _links: {
+            self: {
+                href: string;
+            };
+        }
+        _meta: IPageInfo;
+    }
+    full_link: string;
+    icon: string;
+    id: number;
+    link: string;
+    old_slug: string;
+    user_data: IUserData;
+}
