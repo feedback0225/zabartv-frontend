@@ -7,8 +7,6 @@ import { NextLink } from '@/components/NextLink/NextLink';
 import { useTranslation } from 'next-i18next';
 
 export const SubscribeModal = () => {
-	const { ModalTitle, ModalDesc, ModalButton, ModalLink } = Modal;
-
 	const { isVisibleSubscribeModal } = useTypedSelector((state) => state.modal);
 
 	const { showSubscribeModal } = useTypedActions((state) => state.modal);
@@ -19,15 +17,15 @@ export const SubscribeModal = () => {
 
 	return (
 		<Modal variant="gradient" open={isVisibleSubscribeModal} onClose={handleClose}>
-			<ModalTitle>Подиска ZabarTV</ModalTitle>
-			<ModalDesc>
+			<Modal.Title>Подиска ZabarTV</Modal.Title>
+			<Modal.Desc>
 				Покажем уникальные сериалы и фильмы. Подберем кино по интересам и настроению. Для вас и
 				вашей семьи.
-			</ModalDesc>
+			</Modal.Desc>
 			<NextLink href={RoutesEnum.Subscribe} passHref>
-				<ModalButton as="link" variant="white" icon={<SubscribeIcon />}>
+				<Modal.Button as="link" variant="white" icon={<SubscribeIcon />}>
 					{t('subscribe_button')} за 12€
-				</ModalButton>
+				</Modal.Button>
 			</NextLink>
 		</Modal>
 	);

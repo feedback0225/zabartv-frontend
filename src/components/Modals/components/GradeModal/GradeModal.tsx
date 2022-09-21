@@ -7,8 +7,6 @@ import { useState } from 'react';
 export const GradeModal = () => {
 	const [value, setValue] = useState<number>(0);
 
-	const { ModalTitle, ModalButton } = Modal;
-
 	const { isVisibleGradeModal } = useTypedSelector((state) => state.modal);
 
 	const { showGradeModal } = useTypedActions((state) => state.modal);
@@ -22,11 +20,11 @@ export const GradeModal = () => {
 
 	return (
 		<Modal fullscreen variant="grade" open={isVisibleGradeModal} onClose={handleClose}>
-			<ModalTitle>Оцените фильм по 10-ти бальной шкале</ModalTitle>
+			<Modal.Title>Оцените фильм по 10-ти бальной шкале</Modal.Title>
 			<Grade value={value} setValue={setValue} />
-			<ModalButton onClick={handleGrade} disabled={value === 0}>
+			<Modal.Button onClick={handleGrade} disabled={value === 0}>
 				Поставить оценку
-			</ModalButton>
+			</Modal.Button>
 		</Modal>
 	);
 };

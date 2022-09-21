@@ -3,7 +3,7 @@ import { Checkbox } from './Checkbox';
 
 describe('Checkbox.test.tsx', () => {
 	test('if checked', () => {
-		render(<Checkbox />);
+		render(<Checkbox data-testid="checkbox-input" />);
 		const element = screen.getByTestId('checkbox-input');
 
 		expect(element).not.toBeChecked();

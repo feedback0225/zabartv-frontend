@@ -1,8 +1,8 @@
 import { ButtonHTMLAttributes, forwardRef, PropsWithChildren, useEffect } from 'react';
-import { Title, TitleProps } from '@/UI/Title/Title';
+import { TitleProps } from '@/UI/Title/Title';
 import { TextField, TextFieldProps } from '@/UI/TextField/TextField';
-import { Button, ButtonProps } from '@/UI/Button/Button';
-import { Link, LinkProps } from '@/UI/Link/Link';
+import { ButtonProps } from '@/UI/Button/Button';
+import { LinkProps } from '@/UI/Link/Link';
 import { ButtonBase } from '@/components/ButtonBase/ButtonBase';
 import { CloseIcon } from '@/icons';
 import { Portal } from '@/components/Portal/Portal';
@@ -24,8 +24,6 @@ interface ModalTitleProps extends TitleProps {
 }
 
 function Modal({ children, variant, open, fullscreen, onClose }: PropsWithChildren<ModalProps>) {
-	const { ModalClose } = Modal;
-
 	useLockedBody(open);
 
 	useEffect(() => {
@@ -54,7 +52,7 @@ function Modal({ children, variant, open, fullscreen, onClose }: PropsWithChildr
 							onClick={(e) => e.stopPropagation()}
 						>
 							{children}
-							<ModalClose onClick={onClose} />
+							<Modal.Close onClick={onClose} />
 						</div>
 					</div>
 				)}
@@ -64,7 +62,7 @@ function Modal({ children, variant, open, fullscreen, onClose }: PropsWithChildr
 }
 
 module Modal {
-	export const ModalTitle = ({
+	export const Title = ({
 		children,
 		activeClassName,
 		size = 'medium',
@@ -83,33 +81,31 @@ module Modal {
 		);
 	};
 
-	export const ModalTabs = ({ children }: PropsWithChildren<{}>) => {
+	export const Tabs = ({ children }: PropsWithChildren<{}>) => {
 		return <div className={styles.tabs}>{children}</div>;
 	};
 
-	export const ModalDesc = ({ children }: PropsWithChildren<{}>) => {
+	export const Desc = ({ children }: PropsWithChildren<{}>) => {
 		return <p className={styles.desc}>{children}</p>;
 	};
 
-	export const ModalInputs = ({ children }: PropsWithChildren<{}>) => {
+	export const Inputs = ({ children }: PropsWithChildren<{}>) => {
 		return <div className={styles.inputs}>{children}</div>;
 	};
 
-	export const ModalInput = ({ ...props }: TextFieldProps) => {
+	export const Input = ({ ...props }: TextFieldProps) => {
 		return <TextField className={styles.input} {...props} />;
 	};
 
-	export const ModalButton = forwardRef(
-		({ children, ...props }: PropsWithChildren<ButtonProps>, ref) => {
-			return (
-				<Button className={styles.btn} {...props}>
-					{children}
-				</Button>
-			);
-		}
-	);
+	export const Button = forwardRef(({ children, ...props }: PropsWithChildren<ButtonProps>, ref) => {
+		return (
+			<Button className={styles.btn} {...props}>
+				{children}
+			</Button>
+		);
+	});
 
-	export const ModalLink = forwardRef(({ children, ...props }: PropsWithChildren<LinkProps>, ref) => {
+	export const Link = forwardRef(({ children, ...props }: PropsWithChildren<LinkProps>, ref) => {
 		return (
 			<Link className={styles.link} {...props}>
 				{children}
@@ -117,7 +113,7 @@ module Modal {
 		);
 	});
 
-	export const ModalClose = ({ ...props }: ButtonHTMLAttributes<HTMLButtonElement>) => {
+	export const Close = ({ ...props }: ButtonHTMLAttributes<HTMLButtonElement>) => {
 		return (
 			<ButtonBase className={styles.close} {...props}>
 				<CloseIcon />
@@ -125,8 +121,8 @@ module Modal {
 		);
 	};
 
-	ModalButton.displayName = 'ModalButton.tsx';
-	ModalLink.displayName = 'ModalLink.tsx';
+	Button.displayName = 'Button.tsx';
+	Link.displayName = 'Link.tsx';
 }
 
 export { Modal };

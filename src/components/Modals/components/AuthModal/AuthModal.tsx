@@ -2,16 +2,13 @@ import { Modal } from '@/UI/Modal/Modal';
 import { useTypedActions } from '@/hooks/useTypedActions';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { useState } from 'react';
-import classNames from 'classnames';
 
 export const AuthModal = () => {
-	const { ModalTitle, ModalTabs, ModalInputs, ModalInput, ModalButton } = Modal;
-
 	const { isVisibleAuthModal } = useTypedSelector((state) => state.modal);
 
-	const [authState, setAuthState] = useState<'login' | 'register'>('login');
-
 	const { showAuthModal, showRegisterModal } = useTypedActions((state) => state.modal);
+
+	const [authState, setAuthState] = useState<'login' | 'register'>('login');
 
 	const handleClose = () => showAuthModal(false);
 
@@ -22,39 +19,39 @@ export const AuthModal = () => {
 
 	const LoginContent = (
 		<>
-			<ModalInputs>
-				<ModalInput type="email" placeholder="Электронная почта" />
-				<ModalInput type="password" placeholder="Пароль" />
-			</ModalInputs>
-			<ModalButton>Войти</ModalButton>
+			<Modal.Inputs>
+				<Modal.Input type="email" placeholder="Электронная почта" />
+				<Modal.Input type="password" placeholder="Пароль" />
+			</Modal.Inputs>
+			<Modal.Button>Войти</Modal.Button>
 		</>
 	);
 
 	const RegisterContent = (
 		<>
-			<ModalInputs>
-				<ModalInput type="email" placeholder="Электронная почта" />
-			</ModalInputs>
-			<ModalButton onClick={handleShowRegisterModal}>Подтвердить почту</ModalButton>
+			<Modal.Inputs>
+				<Modal.Input type="email" placeholder="Электронная почта" />
+			</Modal.Inputs>
+			<Modal.Button onClick={handleShowRegisterModal}>Подтвердить почту</Modal.Button>
 		</>
 	);
 
 	return (
 		<Modal fullscreen open={isVisibleAuthModal} onClose={handleClose}>
-			<ModalTabs>
-				<ModalTitle
+			<Modal.Tabs>
+				<Modal.Title
 					onClick={() => setAuthState('login')}
 					activeClassName={authState === 'login'}
 				>
 					Вход
-				</ModalTitle>
-				<ModalTitle
+				</Modal.Title>
+				<Modal.Title
 					onClick={() => setAuthState('register')}
 					activeClassName={authState === 'register'}
 				>
 					Регистрация
-				</ModalTitle>
-			</ModalTabs>
+				</Modal.Title>
+			</Modal.Tabs>
 			{authState === 'login' ? LoginContent : RegisterContent}
 		</Modal>
 	);
