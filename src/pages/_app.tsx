@@ -6,7 +6,6 @@ import NextProgress from 'next-progress';
 import Head from 'next/head';
 import { ThemeProvider } from 'next-themes';
 import { wrapper } from '@/store/store';
-import { appWithTranslation } from 'next-i18next';
 import { Provider } from 'react-redux';
 
 function MyApp({ Component, ...rest }: AppProps) {
@@ -36,4 +35,4 @@ function MyApp({ Component, ...rest }: AppProps) {
 	);
 }
 
-export default appWithTranslation(MyApp);
+export default MyApp;

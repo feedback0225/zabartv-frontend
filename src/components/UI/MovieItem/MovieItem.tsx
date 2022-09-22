@@ -1,18 +1,19 @@
 import { FC } from 'react';
 import { Chip } from '@/UI/Chip/Chip';
-import { NextLink } from '@/components/NextLink/NextLink';
+import { IMovieItem } from '@/types/IMovieItem';
+import NextLink from 'next/link';
 import Image from 'next/image';
 import styles from './MovieItem.module.scss';
-import { IMovie } from '@/types/IMovie';
 
 interface MovieItemProps {
-	item: IMovie;
+	item: IMovieItem;
 }
 
 export const MovieItem: FC<MovieItemProps> = ({ item }) => {
 	const {
 		content: { title },
 		options,
+		id,
 		img_base_url,
 		img_path,
 		rating,
@@ -27,7 +28,7 @@ export const MovieItem: FC<MovieItemProps> = ({ item }) => {
 	const status = 'Подписка';
 
 	return (
-		<NextLink href="/movie">
+		<NextLink href={`/movie/${id}`}>
 			<a className={styles.item}>
 				<div className={styles.top}>
 					<Image priority quality={100} unoptimized layout="fill" src={url} alt={title} />

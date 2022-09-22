@@ -2,7 +2,7 @@ import { ButtonBase } from '@/components/ButtonBase/ButtonBase';
 import { ProfileIcon, SearchIcon } from '@/icons';
 import { useTypedActions } from '@/hooks/useTypedActions';
 import { RoutesEnum } from '@/constants/routes';
-import { NextLink } from '@/components/NextLink/NextLink';
+import NextLink from 'next/link';
 import classNames from 'classnames';
 import styles from './Actions.module.scss';
 

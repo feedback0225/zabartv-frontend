@@ -3,7 +3,6 @@ import { Title } from '@/UI/Title/Title';
 import { SubscribeIcon } from '@/icons';
 import { Button } from '@/UI/Button/Button';
 import { Counter } from '@/UI/Counter/Counter';
-import { useTranslation } from 'next-i18next';
 import { IPackage } from '@/types/IPackage';
 import styles from './SubscribeCard.module.scss';
 import classNames from 'classnames';
@@ -19,8 +18,6 @@ export const SubscribeCard: FC<SubscribeCardProps> = ({ card }) => {
 		period,
 		visible,
 	} = card;
-
-	const { t } = useTranslation('common');
 
 	const normalPrice = Number(price);
 	const isMonthPackage = period <= 30;
@@ -50,7 +47,7 @@ export const SubscribeCard: FC<SubscribeCardProps> = ({ card }) => {
 						<Counter className={styles.counter} initialValue={30} caption="Дней" />
 					)}
 					<Button variant="gradient" className={styles.btn} icon={<SubscribeIcon />}>
-						{t('subscribe_button')}
+						Оформить подписку
 					</Button>
 					{badge_1 && <span className={styles.badge}>{badge_1}</span>}
 				</div>

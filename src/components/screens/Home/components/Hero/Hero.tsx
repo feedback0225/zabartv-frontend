@@ -1,18 +1,18 @@
 import { Carousel } from '@/components/Carousel/Carousel';
 import { SwiperSlide } from 'swiper/react';
-import { NextLink } from '@/components/NextLink/NextLink';
+import NextLink from 'next/link';
 import styles from './Hero.module.scss';
 import Image from 'next/image';
 import classNames from 'classnames';
 
 export const Hero = () => {
 	const items = [
-		{ href: '/movie', source: '/main-bg.jpg', alt: 'Подпись к картинке1' },
-		{ href: '/movie', source: '/main-bg2.jpg', alt: 'Подпись к картинке2' },
-		{ href: '/movie', source: '/main-bg.jpg', alt: 'Подпись к картинке3' },
-		{ href: '/movie', source: '/main-bg2.jpg', alt: 'Подпись к картинке4' },
-		{ href: '/movie', source: '/main-bg.jpg', alt: 'Подпись к картинке5' },
-		{ href: '/movie', source: '/main-bg2.jpg', alt: 'Подпись к картинке6' },
+		{ id: 1, source: '/main-bg.jpg', alt: 'Подпись к картинке1' },
+		{ id: 1, source: '/main-bg2.jpg', alt: 'Подпись к картинке2' },
+		{ id: 1, source: '/main-bg.jpg', alt: 'Подпись к картинке3' },
+		{ id: 1, source: '/main-bg2.jpg', alt: 'Подпись к картинке4' },
+		{ id: 1, source: '/main-bg.jpg', alt: 'Подпись к картинке5' },
+		{ id: 1, source: '/main-bg2.jpg', alt: 'Подпись к картинке6' },
 	];
 
 	const breakpoints = {
@@ -39,8 +39,8 @@ export const Hero = () => {
 				>
 					{items.map((el) => (
 						<SwiperSlide key={el.alt} className={styles.slide}>
-							{el.href ? (
-								<NextLink href={el.href}>
+							{el.id ? (
+								<NextLink href={`/movie/${el.id}`}>
 									<a className={styles.item}>
 										<Image
 											priority

@@ -3,28 +3,25 @@ import { Title } from '@/UI/Title/Title';
 import { Rating } from './components/Rating/Rating';
 import { PlayIcon, StarIcon } from '@/icons';
 import { Button } from '@/UI/Button/Button';
+import { Seasons } from './components/Seasons/Seasons';
+import { useTypedSelector } from '@/hooks/useTypedSelector';
 import classNames from 'classnames';
 import styles from './Movie.module.scss';
-import { Seasons } from './components/Seasons/Seasons';
 
 export const Movie = () => {
-	const data = {
-		image: '/movie-bg.jpg',
-		title: 'Мой папа – вождь',
-		categories: ['Комедия', 'Фильм'],
-		info: ['1 час 33 минуты', '2022', '6+'],
-		description:
-			'Капитан Петров возвращается из плавания десять лет спустя, но из-за потери памяти он считает себя вождём африканского племени. Теперь ему нужно заново привыкать к цивилизации и завоёвывать доверие близких. Искромётная роль Дмитрия Нагиева в образе неукротимого дикаря с большим сердцем. В звёздную актёрскую команду также вошли Максим Лагашкин, Мария Миронова, Фёдор Добронравов, Роман Мадянов и многие другие.',
-		rating: 7.2,
-	};
+	const categories = ['Комедия', 'Фильм'];
 
-	const { image, title, categories, info, description, rating } = data;
+	const { data } = useTypedSelector((state) => state.movie);
+
+	const { content, hours, minutes, options, rating, img_base_url, img_path } = { ...data[0] };
+
+	const image = `${img_base_url}/${img_path}`;
 
 	return (
 		<section className={styles.section}>
 			<div style={{ backgroundImage: `url(${image})` }} className={styles.top}>
 				<div className={classNames('container', styles.content)}>
-					<Title className={styles.title}>{title}</Title>
+					<Title className={styles.title}>{content?.title}</Title>
 					<div className={styles.chips}>
 						{categories.map((chip) => (
 							<Chip key={chip} className={styles.chip}>
@@ -33,14 +30,20 @@ export const Movie = () => {
 						))}
 					</div>
 					<div className={styles.info}>
-						{info.map((item) => (
-							<span key={item} className={styles.infoItem}>
-								{item}
+						<span className={styles.infoItem}>
+							{hours} час {minutes} минуты
+						</span>
+						{options?.map((el) => (
+							<span key={el.filter_id} className={styles.infoItem}>
+								{el.option_value}
 							</span>
 						))}
 					</div>
-					<p className={styles.desc}>{description}</p>
-					<Rating className={styles.rating} rating={rating} />
+					<div
+						className={styles.desc}
+						dangerouslySetInnerHTML={{ __html: content?.text ? content?.text : '' }}
+					></div>
+					<Rating className={styles.rating} rating={Number(rating).toFixed(1)} />
 					<div className={styles.btns}>
 						<Button className={styles.btn} icon={<PlayIcon />}>
 							Смотреть

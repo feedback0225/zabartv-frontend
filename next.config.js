@@ -4,7 +4,6 @@ const nextConfig = {
 			unoptimized: true,
 		},
 	},
-	trailingSlash: true,
 	env: {
 		API_KEY: process.env.API_KEY,
 		API_URL: process.env.API_URL,

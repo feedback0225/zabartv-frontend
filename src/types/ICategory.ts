@@ -1,5 +1,5 @@
 import { IPageInfo } from "./IPageInfo";
-import { IMovie } from "./IMovie";
+import { IMovieItem } from "./IMovieItem";
 import { IDataInfo } from "./IDataInfo";
 import { IUserData } from "./IUserData";
 
@@ -28,7 +28,7 @@ export interface ICategory  extends IDataInfo {
     }
     customer_group: number;
     films: {
-        items: IMovie[][];
+        items: IMovieItem[][];
         _links: {
             self: {
                 href: string;

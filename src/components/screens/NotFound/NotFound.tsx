@@ -1,6 +1,6 @@
 import { Link } from '@/UI/Link/Link';
 import { NotFoundIcon } from '@/icons';
-import { NextLink } from '@/components/NextLink/NextLink';
+import NextLink from 'next/link';
 import classNames from 'classnames';
 import styles from './NotFound.module.scss';
 import { RoutesEnum } from '@/constants/routes';

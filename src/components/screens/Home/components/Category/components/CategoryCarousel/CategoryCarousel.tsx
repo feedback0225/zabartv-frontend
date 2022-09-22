@@ -3,10 +3,10 @@ import { Carousel } from '@/components/Carousel/Carousel';
 import { MovieItem } from '@/UI/MovieItem/MovieItem';
 import { SwiperSlide } from 'swiper/react';
 import styles from './CategoryCarousel.module.scss';
-import { IMovie } from '@/types/IMovie';
+import { IMovieItem } from '@/types/IMovieItem';
 
 interface CategoryCarouselProps {
-	data: IMovie[];
+	data: IMovieItem[];
 }
 
 export const CategoryCarousel: FC<CategoryCarouselProps> = ({ data }) => {

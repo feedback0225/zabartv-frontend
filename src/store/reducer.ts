@@ -2,8 +2,10 @@ import { searchReducer } from './reducers/searchSlice';
 import { menuReducer } from './reducers/menuSlice';
 import { modalReducer } from './reducers/modalSlice';
 import { userReducer } from './reducers/userSlice';
+import { langReducer } from './reducers/langSlice';
 import { subscribeReducer } from './reducers/subscribeSlice';
 import { homeReducer } from './reducers/homeSlice';
+import { movieReducer } from './reducers/movieSlice';
 import { AnyAction, combineReducers } from 'redux';
 import { HYDRATE } from 'next-redux-wrapper';
 
@@ -14,6 +16,8 @@ export const rootReducer = combineReducers({
 	user: userReducer,
 	subscribe: subscribeReducer,
 	home: homeReducer,
+	lang: langReducer,
+	movie: movieReducer
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

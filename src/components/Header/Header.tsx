@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Nav, ThemeToggle, Lang, Actions, Search, Menu, Burger } from './components/index';
 import { SubscribeButton } from '@/UI/SubscribeButton/SubscribeButton';
-import { NextLink } from '@/components/NextLink/NextLink';
+import NextLink from 'next/link';
 import { LogoIcon } from '@/icons';
 import classNames from 'classnames';
 import styles from './Header.module.scss';

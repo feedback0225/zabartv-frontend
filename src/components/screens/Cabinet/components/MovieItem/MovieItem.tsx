@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { ButtonBase } from '@/components/ButtonBase/ButtonBase';
 import { FavouriteIcon } from '@/icons';
-import { NextLink } from '@/components/NextLink/NextLink';
+import NextLink from 'next/link';
 import Image from 'next/image';
 import styles from './MovieItem.module.scss';
 

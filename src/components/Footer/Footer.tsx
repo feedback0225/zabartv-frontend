@@ -1,7 +1,7 @@
 import { RoutesEnum } from '@/constants/routes';
 import { Social } from '@/components/Footer/components/Social/Social';
 import { Support } from './components/Support/Support';
-import { NextLink } from '@/components/NextLink/NextLink';
+import NextLink from 'next/link';
 import { FC } from 'react';
 import classNames from 'classnames';
 import styles from './Footer.module.scss';

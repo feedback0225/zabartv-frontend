@@ -25,7 +25,6 @@
 			"@/api/*": ["src/api/*"],
 			"@/store/*": ["src/store/*"],
 			"@/types/*": ["src/types/*"],
-			"@/lib/*": ["lib/*"],
 			"@/hooks/*": ["src/hooks/*"]
 		}
 	},

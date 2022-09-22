@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import styles from './Rating.module.scss';
 
 interface RatingProps {
-	rating: number;
+	rating: string;
 	className?: string;
 }
 
