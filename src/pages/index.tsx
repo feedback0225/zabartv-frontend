@@ -1,7 +1,7 @@
 import { Layout } from '@/components/Layout/Layout';
 import { Hero, Category, Music } from '@/screens/Home/index';
 import { wrapper } from '@/store/store';
-import { getHomeCategories } from '@/api/api';
+import { getHomeCategories } from '@/api';
 import type { NextPage } from 'next';
 
 const HomePage: NextPage = () => {

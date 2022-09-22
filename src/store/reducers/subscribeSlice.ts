@@ -1,6 +1,6 @@
 import { IPackage } from '@/types/IPackage';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { getPackages } from '@/api/api';
+import { getPackages } from '@/api';
 
 interface IState {
 	data: IPackage[] | null;

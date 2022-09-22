@@ -1,7 +1,7 @@
 import { Layout } from '@/components/Layout/Layout';
 import { Movie } from '@/screens/Movie/Movie';
 import { wrapper } from '@/store/store';
-import { getMovieById } from '@/api/api';
+import { getMovieById } from '@/api';
 import type { NextPage } from 'next';
 
 const MoviePage: NextPage = () => {

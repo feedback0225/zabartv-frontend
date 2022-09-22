@@ -1,7 +1,7 @@
 import { Layout } from '@/components/Layout/Layout';
 import { Subscribe } from '@/screens/Subscribe/Subscribe';
 import { wrapper } from '@/store/store';
-import { getPackages } from '@/api/api';
+import { getPackages } from '@/api';
 import type { NextPage } from 'next';
 
 const SubscribePage: NextPage = () => {

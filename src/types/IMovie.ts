@@ -1,20 +1,7 @@
+import { IUserData } from "./IUserData";
 import { ICatalog } from "./ICatalog";
 import { IOption } from "./IOption";
-import { IUserData } from "./IUserData";
-
-interface ISeason {
-    film_base_url: string;
-    film_path: string;
-    number: number;
-    preview_base_url: string;
-    preview_path: string;
-    season_id: number;
-    sort: number;
-    stat_frame: string;
-    stat_url: string;
-    stream_film_link: string;
-    visible: number;
-}
+import { IPart } from "./IPart";
 
 interface IContent {
     mini_description: string;
@@ -25,14 +12,6 @@ interface IContent {
     text: string;
     theme: string;
     title: string;
-}
-
-interface IPart {
-    season_data: ISeason[];
-    season_film_id: number;
-    season_number: number;
-    season_sort: number;
-    season_visible: number;
 }
 
 export interface IMovie {

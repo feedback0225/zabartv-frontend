@@ -9,10 +9,9 @@
 		"start": "next start",
 		"lint": "next lint",
 		"test": "jest --watch",
-		"deploy": "next build && next export",
 		"format": "prettier ./.prettierrc --write .",
-		"storybook": "start-storybook -p 6006 -s public",
-		"build-storybook": "build-storybook -s public"
+		"build-storybook": "build-storybook -s public",
+		"storybook": "start-storybook -p 6006 -s public"
 	},
 	"dependencies": {
 		"@reduxjs/toolkit": "^1.8.5",
@@ -31,6 +30,7 @@
 		"next-redux-wrapper": "^8.0.0",
 		"next-themes": "^0.2.0",
 		"normalize.css": "^8.0.1",
+		"player.js": "^0.1.0",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"react-input-mask": "^2.0.4",

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { getMovieById } from '@/api/api';
+import { getMovieById } from '@/api';
 import { IMovie } from '@/types/IMovie';
 
 interface IState {

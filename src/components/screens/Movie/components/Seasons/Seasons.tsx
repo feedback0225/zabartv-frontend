@@ -1,16 +1,23 @@
 import { Tabs } from '@/UI/Tabs/Tabs';
 import { SeasonsCarousel } from './components/SeasonsCarousel/SeasonsCarousel';
+import { FC } from 'react';
+import { IPart } from '@/types/IPart';
 import classNames from 'classnames';
 import styles from './Seasons.module.scss';
 
-export const Seasons = () => {
-	const tabs = [
-		{ txt: '1 сезон', content: <SeasonsCarousel /> },
-		{ txt: '2 сезон', content: <SeasonsCarousel /> },
-		{ txt: '3 сезон', content: <SeasonsCarousel /> },
-		{ txt: '4 сезон', content: <SeasonsCarousel /> },
-		{ txt: '5 сезон', content: <SeasonsCarousel /> },
-	];
+interface SeasonsProps {
+	parts: IPart[] | undefined;
+}
+
+export const Seasons: FC<SeasonsProps> = ({ parts }) => {
+	const tabs =
+		parts?.map((part) => {
+			const txt = `${part.season_number} сезон`;
+
+			// Временно
+
+			return { txt, content: <SeasonsCarousel /> };
+		}) || [];
 
 	return (
 		<div className={styles.seasons}>
