@@ -18,13 +18,15 @@ export const GradeModal = () => {
 		handleClose();
 	};
 
+	const { ModalTitle, ModalButton } = Modal;
+
 	return (
 		<Modal fullscreen variant="grade" open={isVisibleGradeModal} onClose={handleClose}>
-			<Modal.Title>Оцените фильм по 10-ти бальной шкале</Modal.Title>
+			<ModalTitle>Оцените фильм по 10-ти бальной шкале</ModalTitle>
 			<Grade value={value} setValue={setValue} />
-			<Modal.Button onClick={handleGrade} disabled={value === 0}>
+			<ModalButton onClick={handleGrade} disabled={value === 0}>
 				Поставить оценку
-			</Modal.Button>
+			</ModalButton>
 		</Modal>
 	);
 };

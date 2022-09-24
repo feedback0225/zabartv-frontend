@@ -10,6 +10,8 @@ export const AuthModal = () => {
 
 	const [authState, setAuthState] = useState<'login' | 'register'>('login');
 
+	const { ModalInputs, ModalInput, ModalButton, ModalTabs, ModalTitle } = Modal;
+
 	const handleClose = () => showAuthModal(false);
 
 	const handleShowRegisterModal = () => {
@@ -19,39 +21,39 @@ export const AuthModal = () => {
 
 	const LoginContent = (
 		<>
-			<Modal.Inputs>
-				<Modal.Input type="email" placeholder="Электронная почта" />
-				<Modal.Input type="password" placeholder="Пароль" />
-			</Modal.Inputs>
-			<Modal.Button>Войти</Modal.Button>
+			<ModalInputs>
+				<ModalInput type="email" placeholder="Электронная почта" />
+				<ModalInput type="password" placeholder="Пароль" />
+			</ModalInputs>
+			<ModalButton>Войти</ModalButton>
 		</>
 	);
 
 	const RegisterContent = (
 		<>
-			<Modal.Inputs>
-				<Modal.Input type="email" placeholder="Электронная почта" />
-			</Modal.Inputs>
-			<Modal.Button onClick={handleShowRegisterModal}>Подтвердить почту</Modal.Button>
+			<ModalInputs>
+				<ModalInput type="email" placeholder="Электронная почта" />
+			</ModalInputs>
+			<ModalButton onClick={handleShowRegisterModal}>Подтвердить почту</ModalButton>
 		</>
 	);
 
 	return (
 		<Modal fullscreen open={isVisibleAuthModal} onClose={handleClose}>
-			<Modal.Tabs>
-				<Modal.Title
+			<ModalTabs>
+				<ModalTitle
 					onClick={() => setAuthState('login')}
 					activeClassName={authState === 'login'}
 				>
 					Вход
-				</Modal.Title>
-				<Modal.Title
+				</ModalTitle>
+				<ModalTitle
 					onClick={() => setAuthState('register')}
 					activeClassName={authState === 'register'}
 				>
 					Регистрация
-				</Modal.Title>
-			</Modal.Tabs>
+				</ModalTitle>
+			</ModalTabs>
 			{authState === 'login' ? LoginContent : RegisterContent}
 		</Modal>
 	);

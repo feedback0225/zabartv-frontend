@@ -14,8 +14,7 @@ export const Movie = () => {
 
 	const { data } = useTypedSelector((state) => state.movie);
 
-	const { content, hours, minutes, parts, options, rating, img_base_url, img_path, stream_film_link } =
-		{ ...data[0] };
+	const { content, hours, minutes, parts, options, rating, img_base_url, img_path } = { ...data[0] };
 
 	const image = `${img_base_url}/${img_path}`;
 
