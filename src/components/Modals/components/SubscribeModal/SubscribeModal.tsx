@@ -12,17 +12,19 @@ export const SubscribeModal = () => {
 
 	const handleClose = () => showSubscribeModal(false);
 
+	const { ModalTitle, ModalDesc, ModalButton } = Modal;
+
 	return (
 		<Modal variant="gradient" open={isVisibleSubscribeModal} onClose={handleClose}>
-			<Modal.Title>Подиска ZabarTV</Modal.Title>
-			<Modal.Desc>
+			<ModalTitle>Подиска ZabarTV</ModalTitle>
+			<ModalDesc>
 				Покажем уникальные сериалы и фильмы. Подберем кино по интересам и настроению. Для вас и
 				вашей семьи.
-			</Modal.Desc>
+			</ModalDesc>
 			<NextLink href={RoutesEnum.Subscribe} passHref>
-				<Modal.Button as="link" variant="white" icon={<SubscribeIcon />}>
+				<ModalButton as="link" variant="white" icon={<SubscribeIcon />}>
 					Оформить подписку за 12€
-				</Modal.Button>
+				</ModalButton>
 			</NextLink>
 		</Modal>
 	);

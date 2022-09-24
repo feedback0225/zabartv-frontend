@@ -9,14 +9,16 @@ export const RegisterModal = () => {
 
 	const handleClose = () => showRegisterModal(false);
 
+	const { ModalTitle, ModalInputs, ModalInput, ModalButton } = Modal;
+
 	return (
 		<Modal fullscreen open={isVisibleRegisterModal} onClose={handleClose}>
-			<Modal.Title>Регистрация</Modal.Title>
-			<Modal.Inputs>
-				<Modal.Input type="password" placeholder="Придумайте пароль" />
-				<Modal.Input type="password" placeholder="Повторите пароль" />
-			</Modal.Inputs>
-			<Modal.Button>Зарегистрироваться</Modal.Button>
+			<ModalTitle>Регистрация</ModalTitle>
+			<ModalInputs>
+				<ModalInput type="password" placeholder="Придумайте пароль" />
+				<ModalInput type="password" placeholder="Повторите пароль" />
+			</ModalInputs>
+			<ModalButton>Зарегистрироваться</ModalButton>
 		</Modal>
 	);
 };

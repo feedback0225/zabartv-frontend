@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { getHomeCategories } from '@/api/api';
+import { getHomeCategories } from '@/api';
 import { ICategory } from '@/types/ICategory';
 
 interface IState {
