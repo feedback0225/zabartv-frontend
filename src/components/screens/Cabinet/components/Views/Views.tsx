@@ -9,24 +9,6 @@ export const Views = () => {
 			type: 'Сериал',
 			title: 'RRR',
 		},
-		{
-			image: '/movie.jpg',
-			id: 2,
-			type: 'Фильм',
-			title: 'Молодой человек',
-		},
-		{
-			image: '/movie.jpg',
-			id: 3,
-			type: 'Сериал',
-			title: 'RRR',
-		},
-		{
-			image: '/movie.jpg',
-			id: 4,
-			type: 'Фильм',
-			title: 'Молодой человек',
-		},
 	];
 
 	return (

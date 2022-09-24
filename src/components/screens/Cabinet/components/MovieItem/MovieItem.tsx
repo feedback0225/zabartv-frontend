@@ -11,12 +11,12 @@ interface MovieItemProps {
 }
 
 export const MovieItem: FC<MovieItemProps> = ({ item, favourite }) => {
-	const { image, href, title, type } = item;
+	const { image, id, title, type } = item;
 
 	return (
 		<div className={styles.item}>
 			<div className={styles.top}>
-				<NextLink href={href}>
+				<NextLink href={`/movie/${id}`}>
 					<a className={styles.poster}>
 						<Image
 							priority
@@ -36,7 +36,7 @@ export const MovieItem: FC<MovieItemProps> = ({ item, favourite }) => {
 				)}
 			</div>
 			<span className={styles.status}>{type}</span>
-			<NextLink href={href}>
+			<NextLink href={`/movie/${id}`}>
 				<a className={styles.title}>{title}</a>
 			</NextLink>
 		</div>
