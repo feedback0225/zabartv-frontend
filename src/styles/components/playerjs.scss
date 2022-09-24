@@ -11,3 +11,8 @@
 .video-js div.vjs-control-bar {
     display: flex;
 }
+
+.vjs-default-skin.vjs-paused .vjs-control-bar
+{
+    display: flex;
+}

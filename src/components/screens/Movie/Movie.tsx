@@ -1,14 +1,12 @@
 import { Chip } from '@/UI/Chip/Chip';
 import { Title } from '@/UI/Title/Title';
-import { Rating } from './components/Rating/Rating';
 import { PlayIcon, StarIcon } from '@/icons';
 import { Button } from '@/UI/Button/Button';
-import { Seasons } from './components/Seasons/Seasons';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
+import { Player, Seasons, Rating } from './components';
+import { useTypedActions } from '@/hooks/useTypedActions';
 import classNames from 'classnames';
 import styles from './Movie.module.scss';
-import { Player } from '@/UI/Player/Player';
-import { useTypedActions } from '@/hooks/useTypedActions';
 
 export const Movie = () => {
 	const categories = ['Комедия', 'Фильм'];
@@ -20,7 +18,11 @@ export const Movie = () => {
 
 	const image = `${img_base_url}/${img_path}`;
 
-	const handlePlayMovie = () => {
+	const watchMovie = () => {
+		openPlayer(true);
+	};
+
+	const watchTrailer = () => {
 		openPlayer(true);
 	};
 
@@ -53,10 +55,10 @@ export const Movie = () => {
 						></div>
 						<Rating className={styles.rating} rating={Number(rating).toFixed(1)} />
 						<div className={styles.btns}>
-							<Button onClick={handlePlayMovie} className={styles.btn} icon={<PlayIcon />}>
+							<Button onClick={watchMovie} className={styles.btn} icon={<PlayIcon />}>
 								Смотреть
 							</Button>
-							<Button className={styles.btn} variant="dark">
+							<Button onClick={watchTrailer} className={styles.btn} variant="dark">
 								Трейлер
 							</Button>
 							<Button

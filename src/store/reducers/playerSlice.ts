@@ -10,7 +10,7 @@ export const playerSlice = createSlice({
 	reducers: {
 		openPlayer: (state, action) => {
 			state.isVisiblePlayer = action.payload;
-		},
+		}
 	},
 });
 
