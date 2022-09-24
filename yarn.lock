@@ -3229,10 +3229,17 @@
   dependencies:
     "@types/react" "*"
 
-"@types/video.js@^7.3.48":
+"@types/video.js@*", "@types/video.js@^7.3.48":
   version "7.3.48"
   resolved "https://registry.yarnpkg.com/@types/video.js/-/video.js-7.3.48.tgz#9afd4fb839a1735880ce760f38d64416d982130a"
   integrity sha512-/IF1Vq0ex/JYCcEFRVGnfZoQ8uRvX/5zQXg5GZCKYXHTLJLWCljd+lBE604SNgUzfXhW6WRnUPABuiBJKgoS7g==
+
+"@types/videojs-hotkeys@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@types/videojs-hotkeys/-/videojs-hotkeys-0.2.1.tgz#d9be7405468d87024e4525e6421561fd331532a4"
+  integrity sha512-7juvMDNDPNMK79Yd9HU6o2eyMeH7OKKjk3GdXQV+mNrBQ2tJeDcTrBBCi88HkzgfiqW0j0PUuhNeViejj3Ol4w==
+  dependencies:
+    "@types/video.js" "*"
 
 "@types/webpack-env@^1.16.0":
   version "1.18.0"
@@ -12193,6 +12200,11 @@ videojs-font@3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/videojs-font/-/videojs-font-3.2.0.tgz#212c9d3f4e4ec3fa7345167d64316add35e92232"
   integrity sha512-g8vHMKK2/JGorSfqAZQUmYYNnXmfec4MLhwtEFS+mMs2IDY398GLysy6BH6K+aS1KMNu/xWZ8Sue/X/mdQPliA==
+
+videojs-hotkeys@^0.2.28:
+  version "0.2.28"
+  resolved "https://registry.yarnpkg.com/videojs-hotkeys/-/videojs-hotkeys-0.2.28.tgz#73d7d7b43ff62b046e6b93a0ce71c6ed5fcac105"
+  integrity sha512-M8rlD5OSB3EDRdbS4MRNlGKFpA2sSIStmUPvy5zfl/NigzWaN6r4wnb32rEN0v97GiQwmUfXSmqrPNrXhiFQmQ==
 
 videojs-vtt.js@^0.15.4:
   version "0.15.4"

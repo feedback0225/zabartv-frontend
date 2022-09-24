@@ -6,6 +6,7 @@ import { langReducer } from './reducers/langSlice';
 import { subscribeReducer } from './reducers/subscribeSlice';
 import { homeReducer } from './reducers/homeSlice';
 import { movieReducer } from './reducers/movieSlice';
+import { playerReducer } from './reducers/playerSlice';
 import { AnyAction, combineReducers } from 'redux';
 import { HYDRATE } from 'next-redux-wrapper';
 
@@ -17,7 +18,8 @@ export const rootReducer = combineReducers({
 	subscribe: subscribeReducer,
 	home: homeReducer,
 	lang: langReducer,
-	movie: movieReducer
+	movie: movieReducer,
+	player: playerReducer
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

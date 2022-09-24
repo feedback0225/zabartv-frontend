@@ -2,20 +2,38 @@
 import { ButtonBase } from '@/components/ButtonBase/ButtonBase';
 import { CloseIcon } from '@/icons';
 import { useLockedBody } from 'usehooks-ts';
+import { VideoJS } from './components/VideoJS/VideoJS';
+import { useTypedSelector } from '@/hooks/useTypedSelector';
+import { useTypedActions } from '@/hooks/useTypedActions';
 import classNames from 'classnames';
 import styles from './Player.module.scss';
-import 'video.js/dist/video-js.css';
+import { useEffect } from 'react';
 
 export const Player = () => {
-	const open = false;
+	const { isVisiblePlayer } = useTypedSelector((state) => state.player);
+	const { openPlayer } = useTypedActions((state) => state.player);
 
-	useLockedBody(open);
+	useEffect(() => {
+		const handleEscapeKey = (event: KeyboardEvent) => event.code === 'Escape' && openPlayer(false);
+
+		document.addEventListener('keydown', handleEscapeKey);
+
+		return () => document.removeEventListener('keydown', handleEscapeKey);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+
+	useLockedBody(isVisiblePlayer);
+
+	const handleClosePlayer = () => {
+		openPlayer(false);
+	};
 
 	return (
-		<div className={classNames(styles.wrapper, open && styles.show)}>
-			<ButtonBase className={styles.close}>
+		<div className={classNames(styles.wrapper, isVisiblePlayer && styles.show)}>
+			<ButtonBase onClick={handleClosePlayer} className={styles.close}>
 				<CloseIcon />
 			</ButtonBase>
+			<VideoJS />
 		</div>
 	);
 };

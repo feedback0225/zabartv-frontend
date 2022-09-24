@@ -46,7 +46,8 @@
 		"style-loader": "^3.3.1",
 		"swiper": "^8.3.2",
 		"usehooks-ts": "^2.6.0",
-		"video.js": "^7.20.3"
+		"video.js": "^7.20.3",
+		"videojs-hotkeys": "^0.2.28"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.19.0",
@@ -66,6 +67,7 @@
 		"@types/react-transition-group": "^4.4.5",
 		"@types/video-react": "^0.15.1",
 		"@types/video.js": "^7.3.48",
+		"@types/videojs-hotkeys": "^0.2.1",
 		"babel-loader": "^8.2.5",
 		"eslint": "8.23.0",
 		"eslint-config-next": "12.2.5",

@@ -8,15 +8,21 @@ import { useTypedSelector } from '@/hooks/useTypedSelector';
 import classNames from 'classnames';
 import styles from './Movie.module.scss';
 import { Player } from '@/UI/Player/Player';
+import { useTypedActions } from '@/hooks/useTypedActions';
 
 export const Movie = () => {
 	const categories = ['Комедия', 'Фильм'];
 
 	const { data } = useTypedSelector((state) => state.movie);
+	const { openPlayer } = useTypedActions((state) => state.player);
 
 	const { content, hours, minutes, parts, options, rating, img_base_url, img_path } = { ...data[0] };
 
 	const image = `${img_base_url}/${img_path}`;
+
+	const handlePlayMovie = () => {
+		openPlayer(true);
+	};
 
 	return (
 		<>
@@ -47,7 +53,7 @@ export const Movie = () => {
 						></div>
 						<Rating className={styles.rating} rating={Number(rating).toFixed(1)} />
 						<div className={styles.btns}>
-							<Button className={styles.btn} icon={<PlayIcon />}>
+							<Button onClick={handlePlayMovie} className={styles.btn} icon={<PlayIcon />}>
 								Смотреть
 							</Button>
 							<Button className={styles.btn} variant="dark">
