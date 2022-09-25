@@ -30,7 +30,6 @@
 		"next-redux-wrapper": "^8.0.0",
 		"next-themes": "^0.2.0",
 		"normalize.css": "^8.0.1",
-		"player.js": "^0.1.0",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"react-input-mask": "^2.0.4",
@@ -41,13 +40,12 @@
 		"react-viewport-height": "^1.2.1",
 		"redux": "^4.2.0",
 		"redux-thunk": "^2.4.1",
+		"rooks": "^7.4.0",
 		"sass": "^1.54.5",
 		"sass-loader": "^13.0.2",
 		"style-loader": "^3.3.1",
 		"swiper": "^8.3.2",
-		"usehooks-ts": "^2.6.0",
-		"video.js": "^7.20.3",
-		"videojs-hotkeys": "^0.2.28"
+		"usehooks-ts": "^2.6.0"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.19.0",
@@ -65,9 +63,6 @@
 		"@types/react": "18.0.17",
 		"@types/react-dom": "18.0.6",
 		"@types/react-transition-group": "^4.4.5",
-		"@types/video-react": "^0.15.1",
-		"@types/video.js": "^7.3.48",
-		"@types/videojs-hotkeys": "^0.2.1",
 		"babel-loader": "^8.2.5",
 		"eslint": "8.23.0",
 		"eslint-config-next": "12.2.5",

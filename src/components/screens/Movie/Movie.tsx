@@ -10,10 +10,8 @@ import styles from './Movie.module.scss';
 
 export const Movie = () => {
 	const categories = ['Комедия', 'Фильм'];
-
 	const { data } = useTypedSelector((state) => state.movie);
 	const { openPlayer } = useTypedActions((state) => state.player);
-
 	const { content, hours, minutes, parts, options, rating, img_base_url, img_path } = { ...data[0] };
 
 	const image = `${img_base_url}/${img_path}`;

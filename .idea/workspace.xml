@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="31c73cc9-5fcf-420d-b6d6-9c38c26591f7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/getPackages.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/getPackages.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Icons/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Icons/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/screens/Movie/Movie.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/screens/Movie/Movie.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/screens/Movie/components/Player/Player.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/screens/Movie/components/Player/Player.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/screens/Movie/components/Player/Player.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/screens/Movie/components/Player/Player.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/screens/Movie/components/Player/components/VideoJS/VideoJS.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/screens/Movie/components/Player/components/VideoJS/VideoJS.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +49,7 @@
       <updated>1663057137194</updated>
       <workItem from="1663057139046" duration="640000" />
       <workItem from="1663355663083" duration="598000" />
+      <workItem from="1664109066804" duration="95000" />
     </task>
     <servers />
   </component>
@@ -55,6 +63,18 @@
           <url>file://$PROJECT_DIR$/src/components/Portal/Portal.tsx</url>
           <line>11</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/screens/Movie/components/Player/components/Video/Video.tsx</url>
+          <line>31</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/screens/Movie/components/Player/components/Video/Video.tsx</url>
+          <line>42</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
