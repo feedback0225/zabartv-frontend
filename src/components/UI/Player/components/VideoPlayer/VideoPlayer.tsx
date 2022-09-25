@@ -2,9 +2,8 @@ import { useEffect, useRef } from 'react';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 import videojs, { VideoJsPlayer } from 'video.js';
 import hotkeys from 'videojs-hotkeys';
-import 'video.js/dist/video-js.css';
 
-export const VideoJS = () => {
+export const VideoPlayer = () => {
 	const videoRef = useRef(null);
 	const playerRef = useRef<VideoJsPlayer | null>(null);
 
@@ -26,6 +25,16 @@ export const VideoJS = () => {
 				plugins: {
 					hotkeys,
 				},
+
+				controlBar: {
+					volumePanel: {
+						inline: false,
+					},
+					fullscreenToggle: false,
+					playToggle: true,
+				},
+				playbackRates: [0.5, 1, 1.5, 2],
+
 				sources: [
 					{
 						src: 'https://appsignals.coderman.top/stream/index?path=/1/MH4D2psEpK5nt42q5pml-4pxvwe5wjaZ.mp4',
