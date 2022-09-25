@@ -9,11 +9,17 @@
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s, visibility 0.3s;
-}
 
-.show {
-    opacity: 1;
-    visibility: visible;
+    &.playerFullScreen {
+        .close {
+            display: none;
+        }
+    }
+
+    &.show {
+        opacity: 1;
+        visibility: visible;
+    }
 }
 
 .close {
@@ -38,18 +44,6 @@
         width: 100%;
         height: 100%;
         fill: currentColor;
-    }
-}
-
-.player {
-    display: block;
-    width: 100%;
-    height: 100%;
-
-    &.playerFullScreen {
-        .close {
-            display: none;
-        }
     }
 }
 
@@ -110,4 +104,22 @@
         object-fit: cover;
         fill: #fff;
     }
+}
+
+.range {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.input {
+    width: 100%;
+    margin-right: 12px;
+}
+
+.time {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 26px;
+    color: #fff;
 }

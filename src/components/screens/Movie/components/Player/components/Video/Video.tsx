@@ -31,13 +31,14 @@ export type SetPlaybackSpeed = (speed: number) => void;
 
 export interface VideoActions {
 	play: () => void;
+	mute: () => void;
 	pause: () => void;
+	unmute: () => void;
+	toggleMute: () => void;
+	togglePlay: () => void;
 	navigate: NavigateFunction;
 	setVolume: SetVolumeFunction;
 	setPlaybackSpeed: SetPlaybackSpeed;
-	mute: () => void;
-	unmute: () => void;
-	toggleMute: () => void;
 }
 
 export type RenderCallback = (
@@ -164,8 +165,8 @@ export class Video extends Component<VideoProps, VideoComponentState> {
 	};
 
 	private onCanPlay = (event: SyntheticEvent<SourceElement>) => {
-		const { onCanPlay } = this.props;
 		const video = event.target as SourceElement;
+		const { onCanPlay } = this.props;
 		const { volume, isMuted } = getVolumeFromVideo(video);
 
 		this.setState({
@@ -268,8 +269,28 @@ export class Video extends Component<VideoProps, VideoComponentState> {
 		}
 	};
 
+	private togglePlay = () => {
+		const { status } = this.videoState;
+
+		if (status === 'playing') {
+			this.pause();
+		} else {
+			this.play();
+		}
+	};
+
 	private get actions(): VideoActions {
-		const { play, pause, navigate, setVolume, setPlaybackSpeed, mute, unmute, toggleMute } = this;
+		const {
+			play,
+			pause,
+			navigate,
+			setVolume,
+			setPlaybackSpeed,
+			mute,
+			unmute,
+			toggleMute,
+			togglePlay,
+		} = this;
 
 		return {
 			play,
@@ -280,6 +301,7 @@ export class Video extends Component<VideoProps, VideoComponentState> {
 			mute,
 			unmute,
 			toggleMute,
+			togglePlay,
 		};
 	}
 
@@ -369,7 +391,13 @@ export class Video extends Component<VideoProps, VideoComponentState> {
 
 		if (sourceType === 'video') {
 			return children(
-				<video ref={this.videoRef} poster={poster} {...props}>
+				<video
+					playsInline
+					onClick={actions.togglePlay}
+					ref={this.videoRef}
+					poster={poster}
+					{...props}
+				>
 					{this.renderTracks('subtitles')}
 					{this.renderTracks('captions')}
 					{this.renderTracks('descriptions')}
