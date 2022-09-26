@@ -5,9 +5,9 @@ import { useLockedBody } from 'usehooks-ts';
 import { VideoPlayer } from './components/VideoPlayer/VideoPlayer';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { useTypedActions } from '@/hooks/useTypedActions';
+import { useEffect } from 'react';
 import classNames from 'classnames';
 import styles from './Player.module.scss';
-import { useEffect } from 'react';
 
 export const Player = () => {
 	const { isVisiblePlayer } = useTypedSelector((state) => state.player);

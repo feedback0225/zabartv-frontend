@@ -25,15 +25,13 @@ export const VideoPlayer = () => {
 				plugins: {
 					hotkeys,
 				},
-
 				controlBar: {
 					volumePanel: {
 						inline: false,
 					},
-					fullscreenToggle: false,
+					pictureInPictureToggle: false,
 					playToggle: true,
 				},
-				playbackRates: [0.5, 1, 1.5, 2],
 
 				sources: [
 					{

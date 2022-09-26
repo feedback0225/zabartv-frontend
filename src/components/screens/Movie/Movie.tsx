@@ -1,14 +1,12 @@
 import { Chip } from '@/UI/Chip/Chip';
 import { Title } from '@/UI/Title/Title';
-import { Rating } from './components/Rating/Rating';
 import { PlayIcon, StarIcon } from '@/icons';
 import { Button } from '@/UI/Button/Button';
-import { Seasons } from './components/Seasons/Seasons';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
+import { Player, Rating, Seasons } from './components';
+import { useTypedActions } from '@/hooks/useTypedActions';
 import classNames from 'classnames';
 import styles from './Movie.module.scss';
-import { Player } from '@/UI/Player/Player';
-import { useTypedActions } from '@/hooks/useTypedActions';
 
 export const Movie = () => {
 	const categories = ['Комедия', 'Фильм'];
