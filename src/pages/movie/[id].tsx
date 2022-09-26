@@ -3,7 +3,8 @@ import { Movie } from '@/screens/Movie/Movie';
 import { wrapper } from '@/store/store';
 import { getMovieById } from '@/api';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import type { NextPage, GetStaticProps } from 'next';
+import type { NextPage } from 'next';
+import { ParsedUrlQuery } from 'querystring';
 
 const MoviePage: NextPage = () => {
 	return (
@@ -14,8 +15,10 @@ const MoviePage: NextPage = () => {
 };
 
 export const getServerSideProps = wrapper.getServerSideProps(({ dispatch }) => async (ctx) => {
-	const { locale } = ctx as { locale: string };
-	const { id } = ctx.params as { id: string };
+	const {
+		params: { id },
+		locale,
+	} = ctx as { params: ParsedUrlQuery; locale: string };
 
 	await dispatch(getMovieById(id));
 

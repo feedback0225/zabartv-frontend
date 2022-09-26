@@ -18,7 +18,7 @@ export const getHomeCategories = createAsyncThunk('home/getHomeCategories', asyn
 	return data;
 });
 
-export const getMovieById = createAsyncThunk('movie/getMovieById', async (id: string) => {
+export const getMovieById = createAsyncThunk('movie/getMovieById', async (id: string | string[] | undefined) => {
 	const { data } = await axios({
 		url: `${API_URL}/items/selectdata?id=${id}&session_id=qweqwe&token=${API_KEY}`,
 		method: 'get',
