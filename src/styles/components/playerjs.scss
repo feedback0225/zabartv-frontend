@@ -26,6 +26,13 @@
         background-repeat: no-repeat;
         background-position: center;
 
+        @media (max-width: 576px) {
+            top: 23px;
+            right: 20px;
+            width: 30px;
+            height: 30px;
+        }
+
         .vjs-icon-placeholder {
             display: none;
         }
