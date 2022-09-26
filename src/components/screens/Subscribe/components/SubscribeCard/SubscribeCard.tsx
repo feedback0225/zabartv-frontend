@@ -27,7 +27,7 @@ export const SubscribeCard: FC<SubscribeCardProps> = ({ card }) => {
 
 	const convertPrice = () => (isMonthPackage ? priceInYear : priceInMonth);
 
-	const { t } = useTranslation('common');
+	const { t } = useTranslation();
 
 	return (
 		<>

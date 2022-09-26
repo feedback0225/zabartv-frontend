@@ -14,7 +14,7 @@ export const SubscribeModal = () => {
 
 	const handleClose = () => showSubscribeModal(false);
 
-	const { t } = useTranslation('common');
+	const { t } = useTranslation();
 
 	const { ModalTitle, ModalDesc, ModalButton } = Modal;
 
