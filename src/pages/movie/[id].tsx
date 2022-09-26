@@ -4,6 +4,7 @@ import { wrapper } from '@/store/store';
 import { getMovieById } from '@/api';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import type { NextPage, GetStaticPaths } from 'next';
+import { withTranslation } from 'next-i18next';
 
 const MoviePage: NextPage = () => {
 	return (
@@ -30,4 +31,4 @@ export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async ({ 
 	};
 });
 
-export default MoviePage;
+export default withTranslation()(MoviePage);
