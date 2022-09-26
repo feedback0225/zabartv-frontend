@@ -3,7 +3,7 @@ import { Movie } from '@/screens/Movie/Movie';
 import { wrapper } from '@/store/store';
 import { getMovieById } from '@/api';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import type { NextPage, GetStaticPaths } from 'next';
+import type { NextPage } from 'next';
 import { withTranslation } from 'next-i18next';
 
 const MoviePage: NextPage = () => {
@@ -14,21 +14,17 @@ const MoviePage: NextPage = () => {
 	);
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-	return {
-		paths: [],
-		fallback: 'blocking',
-	};
-};
+export const getServerSideProps = wrapper.getServerSideProps(
+	({ dispatch }) =>
+		async ({ query, locale }) => {
+			await dispatch(getMovieById(query?.id));
 
-export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async ({ params, locale }) => {
-	await dispatch(getMovieById(params?.id));
-
-	return {
-		props: {
-			...(await serverSideTranslations(locale as string)),
-		},
-	};
-});
+			return {
+				props: {
+					...(await serverSideTranslations(locale as string)),
+				},
+			};
+		}
+);
 
 export default withTranslation()(MoviePage);
