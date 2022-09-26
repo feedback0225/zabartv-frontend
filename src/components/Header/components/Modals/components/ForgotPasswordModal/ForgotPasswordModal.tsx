@@ -1,7 +1,7 @@
 import { Modal } from '@/UI/Modal/Modal';
 import { useTypedActions } from '@/hooks/useTypedActions';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
-import { useState } from 'react';
+import styles from './ForgotPasswordModal.module.scss';
 
 export const ForgotPasswordModal = () => {
 	const { isVisibleForgotPasswordModal } = useTypedSelector((state) => state.modal);
@@ -14,7 +14,7 @@ export const ForgotPasswordModal = () => {
 
 	return (
 		<Modal fullscreen open={isVisibleForgotPasswordModal} onClose={handleClose}>
-			<ModalTitle>Забыли пароль</ModalTitle>
+			<ModalTitle className={styles.title}>Забыли пароль</ModalTitle>
 			<ModalDesc>Мы вышлем вам письмо с ссылкой для измены пароля</ModalDesc>
 			<ModalInputs>
 				<ModalInput type="email" placeholder="Email" />

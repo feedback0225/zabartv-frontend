@@ -129,7 +129,7 @@
 		line-height: 42px;
 		color: inherit;
 		max-width: 651px;
-		margin: 0 auto 45px;
+		margin-bottom: 45px;
 		cursor: text;
 
 		@media (max-width: 768px) {
@@ -231,7 +231,7 @@
 }
 
 .desc {
-	margin: 0;
+	margin: 0 auto;
 	font-size: 20px;
 	line-height: 25.4px;
 	max-width: 318px;

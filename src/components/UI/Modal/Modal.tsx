@@ -22,6 +22,7 @@ interface ModalProps {
 
 interface ModalTitleProps extends TitleProps {
 	activeClassName?: boolean;
+	className?: string;
 }
 
 function Modal({
