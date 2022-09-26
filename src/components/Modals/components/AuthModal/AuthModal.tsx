@@ -10,7 +10,7 @@ export const AuthModal = () => {
 
 	const [authState, setAuthState] = useState<'login' | 'register'>('login');
 
-	const { ModalInputs, ModalInput, ModalButton, ModalTabs, ModalTitle } = Modal;
+	const { ModalInputs, ModalInput, ModalButton, ModalTabs, ModalTitle, ModalLink } = Modal;
 
 	const handleClose = () => showAuthModal(false);
 
@@ -25,7 +25,7 @@ export const AuthModal = () => {
 				<ModalInput type="email" placeholder="Электронная почта" />
 				<ModalInput type="password" placeholder="Пароль" />
 			</ModalInputs>
-			<ModalButton>Войти</ModalButton>
+			<ModalButton>Войти в аккаунт</ModalButton>
 		</>
 	);
 
@@ -55,6 +55,7 @@ export const AuthModal = () => {
 				</ModalTitle>
 			</ModalTabs>
 			{authState === 'login' ? LoginContent : RegisterContent}
+			<ModalLink as="button">Забыли пароль?</ModalLink>
 		</Modal>
 	);
 };

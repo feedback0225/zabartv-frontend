@@ -54,7 +54,7 @@
 	text-align: left;
 	z-index: 2;
 	color: #0c101f;
-	padding: 69px 80px 90px;
+	padding: 69px 80px 60px;
 	background-color: #fff;
 	background: rgba(255, 255, 255, 0.9);
 	backdrop-filter: blur(25px);
@@ -291,6 +291,10 @@
 	align-items: center;
 	margin-bottom: 25px;
 
+	@media (max-width: 576px) {
+		justify-content: center;
+	}
+
 	.title {
 		margin-bottom: 0;
 		color: #b7b9c1;
@@ -303,5 +307,15 @@
 		&:not(:last-child) {
 			margin-right: 22px;
 		}
+	}
+}
+
+.link {
+	margin-top: 28px;
+
+	@media (max-width: 576px) {
+		margin-top: 28px;
+		font-size: 20px;
+		line-height: 26px;
 	}
 }
