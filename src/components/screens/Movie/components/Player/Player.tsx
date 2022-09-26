@@ -2,13 +2,13 @@
 import { ButtonBase } from '@/components/ButtonBase/ButtonBase';
 import { CloseIcon } from '@/icons';
 import { useLockedBody } from 'usehooks-ts';
-import { VideoJS } from './components/VideoJS/VideoJS';
+import { VideoPlayer } from './components/VideoPlayer/VideoPlayer';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { useTypedActions } from '@/hooks/useTypedActions';
-import classNames from 'classnames';
-import styles from './Player.module.scss';
 import { useEffect } from 'react';
 import { useWindowSize } from '@/hooks/useWindowSize';
+import classNames from 'classnames';
+import styles from './Player.module.scss';
 
 export const Player = () => {
 	const { isVisiblePlayer } = useTypedSelector((state) => state.player);
@@ -38,7 +38,7 @@ export const Player = () => {
 			<ButtonBase onClick={handleClosePlayer} className={styles.close}>
 				<CloseIcon />
 			</ButtonBase>
-			<VideoJS />
+			<VideoPlayer />
 		</div>
 	);
 };
