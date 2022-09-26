@@ -20,7 +20,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
 
 			return {
 				props: {
-					...(await serverSideTranslations(locale as string)),
+					...(await serverSideTranslations('ce' as string)),
 				},
 			};
 		}
