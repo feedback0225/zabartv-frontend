@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { SubscribeIcon } from '@/icons';
 import { Button, ButtonProps } from '@/UI/Button/Button';
 import { useTypedActions } from '@/hooks/useTypedActions';
-import { useTranslation, withTranslation } from 'next-i18next';
+import { useTranslation } from 'next-i18next';
 
 export const SubscribeButton: FC<ButtonProps> = ({ className, ...props }) => {
 	const { showMenu } = useTypedActions((state) => state.menu);
@@ -27,5 +27,3 @@ export const SubscribeButton: FC<ButtonProps> = ({ className, ...props }) => {
 		</Button>
 	);
 };
-
-export default withTranslation()(SubscribeButton);
