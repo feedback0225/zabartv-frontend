@@ -15,12 +15,12 @@ const MoviePage: NextPage = () => {
 
 export const getServerSideProps = wrapper.getServerSideProps(
 	({ dispatch }) =>
-		async ({ params, locale }) => {
-			await dispatch(getMovieById(params?.id));
+		async ({ query, locale }) => {
+			await dispatch(getMovieById(query?.id));
 
 			return {
 				props: {
-					...(await serverSideTranslations(locale as string, ['common'])),
+					...(await serverSideTranslations(locale as string)),
 				},
 			};
 		}

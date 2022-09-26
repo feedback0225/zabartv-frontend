@@ -22,7 +22,7 @@ export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async (pa
 
 	return {
 		props: {
-			...(await serverSideTranslations(locale, ['common'])),
+			...(await serverSideTranslations(locale as string)),
 		},
 	};
 });
