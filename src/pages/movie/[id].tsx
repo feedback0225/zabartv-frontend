@@ -3,7 +3,7 @@ import { Movie } from '@/screens/Movie/Movie';
 import { wrapper } from '@/store/store';
 import { getMovieById } from '@/api';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import type { NextPage, GetServerSideProps } from 'next';
+import type { NextPage, GetStaticPaths } from 'next';
 
 const MoviePage: NextPage = () => {
 	return (
@@ -13,12 +13,21 @@ const MoviePage: NextPage = () => {
 	);
 };
 
-export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+export const getStaticPaths: GetStaticPaths = async () => {
+	return {
+		paths: [],
+		fallback: 'blocking',
+	};
+};
+
+export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async ({ params, locale }) => {
+	await dispatch(getMovieById(params?.id));
+
 	return {
 		props: {
 			...(await serverSideTranslations(locale as string)),
 		},
 	};
-};
+});
 
 export default MoviePage;
