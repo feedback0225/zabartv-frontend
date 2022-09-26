@@ -31,11 +31,14 @@
 
 		&:not(.grade) {
 			width: 513px;
+
+			@media (max-width: 576px) {
+				width: 100%;
+			}
 		}
 
 		@media (max-width: 576px) {
 			justify-content: center;
-			width: 100%;
 			height: 100%;
 			border-radius: 0;
 			padding: 50px 15px;
