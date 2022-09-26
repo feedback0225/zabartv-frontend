@@ -3,7 +3,7 @@ import { useTypedSelector } from '@/hooks/useTypedSelector';
 import videojs, { VideoJsPlayer } from 'video.js';
 import hotkeys from 'videojs-hotkeys';
 
-export const VideoPlayer = () => {
+export const VideoJS = () => {
 	const videoRef = useRef(null);
 	const playerRef = useRef<VideoJsPlayer | null>(null);
 
