@@ -1,19 +1,17 @@
 import { RuIcon, CeIcon, ArrowIcon } from '@/icons';
 import { FC, useRef, useState } from 'react';
 import { useOnClickOutside } from 'usehooks-ts';
-import { useTypedSelector } from '@/hooks/useTypedSelector';
-import { ButtonBase } from '@/components/ButtonBase/ButtonBase';
-import { useTypedActions } from '@/hooks/useTypedActions';
+import NextLink from 'next/link';
 import classNames from 'classnames';
 import styles from './Lang.module.scss';
+import { useRouter } from 'next/router';
 
 interface LangProps {
 	className?: string;
 }
 
 export const Lang: FC<LangProps> = ({ className }) => {
-	const { lang } = useTypedSelector((state) => state.lang);
-	const { setLang } = useTypedActions((state) => state.lang);
+	const { locale, asPath } = useRouter();
 	const [active, setActive] = useState<boolean>(false);
 	const langRef = useRef<HTMLDivElement>(null);
 
@@ -24,13 +22,9 @@ export const Lang: FC<LangProps> = ({ className }) => {
 	useOnClickOutside(langRef, () => setActive(false));
 
 	const items = [
-		{ icon: <RuIcon />, txt: 'Русский язык', lang: 'ru' },
-		{ icon: <CeIcon />, txt: 'Чеченский язык', lang: 'ce' },
+		{ icon: <RuIcon />, txt: 'Русский язык', locale: 'ru' },
+		{ icon: <CeIcon />, txt: 'Чеченский язык', locale: 'ce' },
 	];
-
-	const handleChangeLang = (lang: string) => {
-		setLang(lang);
-	};
 
 	return (
 		<div
@@ -41,13 +35,15 @@ export const Lang: FC<LangProps> = ({ className }) => {
 			<ul className={classNames('list-reset', styles.list)}>
 				{items.map((el) => (
 					<li
-						key={el.lang}
-						className={classNames(styles.item, lang === el.lang && styles.selected)}
+						key={el.locale}
+						className={classNames(styles.item, locale === el.locale && styles.selected)}
 					>
-						<ButtonBase onClick={() => handleChangeLang(el.lang)} className={styles.link}>
-							{el.icon}
-							<span className={styles.txt}>{el.txt}</span>
-						</ButtonBase>
+						<NextLink href={asPath} locale={el.locale}>
+							<a className={styles.link}>
+								{el.icon}
+								<span className={styles.txt}>{el.txt}</span>
+							</a>
+						</NextLink>
 					</li>
 				))}
 			</ul>

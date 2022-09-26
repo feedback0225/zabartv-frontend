@@ -2,7 +2,8 @@ import { Layout } from '@/components/Layout/Layout';
 import { Subscribe } from '@/screens/Subscribe/Subscribe';
 import { wrapper } from '@/store/store';
 import { getPackages } from '@/api';
-import type { NextPage } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import type { NextPage, GetStaticProps } from 'next';
 
 const SubscribePage: NextPage = () => {
 	return (
@@ -12,10 +13,16 @@ const SubscribePage: NextPage = () => {
 	);
 };
 
-export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async () => {
+export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async (params) => {
 	await dispatch(getPackages());
 
-	return { props: {} };
+	const { locale } = params as { locale: string };
+
+	return {
+		props: {
+			...(await serverSideTranslations(locale, ['common'])),
+		},
+	};
 });
 
 export default SubscribePage;

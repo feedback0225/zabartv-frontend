@@ -6,6 +6,7 @@ import { Counter } from '@/UI/Counter/Counter';
 import { IPackage } from '@/types/IPackage';
 import styles from './SubscribeCard.module.scss';
 import classNames from 'classnames';
+import { useTranslation } from 'next-i18next';
 
 interface SubscribeCardProps {
 	card: IPackage;
@@ -25,6 +26,8 @@ export const SubscribeCard: FC<SubscribeCardProps> = ({ card }) => {
 	const priceInMonth = normalPrice / 12 - 1;
 
 	const convertPrice = () => (isMonthPackage ? priceInYear : priceInMonth);
+
+	const { t } = useTranslation('common');
 
 	return (
 		<>
@@ -47,7 +50,7 @@ export const SubscribeCard: FC<SubscribeCardProps> = ({ card }) => {
 						<Counter className={styles.counter} initialValue={30} caption="Дней" />
 					)}
 					<Button variant="gradient" className={styles.btn} icon={<SubscribeIcon />}>
-						Оформить подписку
+						{t('subscribe_button')}
 					</Button>
 					{badge_1 && <span className={styles.badge}>{badge_1}</span>}
 				</div>

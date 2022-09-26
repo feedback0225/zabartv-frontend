@@ -1,14 +1,13 @@
+import { AnyAction, combineReducers } from 'redux';
+import { HYDRATE } from 'next-redux-wrapper';
 import { searchReducer } from './reducers/searchSlice';
 import { menuReducer } from './reducers/menuSlice';
 import { modalReducer } from './reducers/modalSlice';
 import { userReducer } from './reducers/userSlice';
-import { langReducer } from './reducers/langSlice';
 import { subscribeReducer } from './reducers/subscribeSlice';
 import { homeReducer } from './reducers/homeSlice';
 import { movieReducer } from './reducers/movieSlice';
 import { playerReducer } from './reducers/playerSlice';
-import { AnyAction, combineReducers } from 'redux';
-import { HYDRATE } from 'next-redux-wrapper';
 
 export const rootReducer = combineReducers({
 	menu: menuReducer,
@@ -17,7 +16,6 @@ export const rootReducer = combineReducers({
 	user: userReducer,
 	subscribe: subscribeReducer,
 	home: homeReducer,
-	lang: langReducer,
 	movie: movieReducer,
 	player: playerReducer
 });

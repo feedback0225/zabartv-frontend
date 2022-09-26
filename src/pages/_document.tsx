@@ -1,14 +1,16 @@
-import { Html, Head, Main, NextScript } from 'next/document';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 
-export default function Document() {
-	return (
-		<Html>
-			<Head />
-			<body>
-				<Main />
-				<div id="modal" />
-				<NextScript />
-			</body>
-		</Html>
-	);
+export default class MyDocument extends Document {
+	render() {
+		return (
+			<Html lang={this.props.__NEXT_DATA__.props.initialLanguage}>
+				<Head />
+				<body>
+					<Main />
+					<NextScript />
+					<div id="modal" />
+				</body>
+			</Html>
+		);
+	}
 }

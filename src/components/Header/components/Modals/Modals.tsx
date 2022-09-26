@@ -6,10 +6,10 @@ import { ForgotPasswordModal } from './components/ForgotPasswordModal/ForgotPass
 export const Modals = () => {
 	return (
 		<>
-			<AuthModal />
 			<SubscribeModal />
 			<RegisterModal />
 			<ForgotPasswordModal />
+			<AuthModal />
 		</>
 	);
 };
