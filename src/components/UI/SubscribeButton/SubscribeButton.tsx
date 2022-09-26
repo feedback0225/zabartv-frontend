@@ -7,12 +7,14 @@ import { useTranslation } from 'next-i18next';
 export const SubscribeButton: FC<ButtonProps> = ({ className, ...props }) => {
 	const { showMenu } = useTypedActions((state) => state.menu);
 	const { showSubscribeModal } = useTypedActions((state) => state.modal);
-	const { t } = useTranslation();
+	const { t, i18n } = useTranslation();
 
 	const handleShowModal = () => {
 		showSubscribeModal(true);
 		showMenu(false);
 	};
+
+	console.log(i18n);
 
 	return (
 		<Button
