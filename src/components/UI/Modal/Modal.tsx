@@ -13,6 +13,7 @@ import classNames from 'classnames';
 
 interface ModalProps {
 	open: boolean;
+	className?: string;
 	variant?: 'grade' | 'gradient';
 	fullscreen?: boolean;
 	gradient?: boolean;
@@ -23,7 +24,14 @@ interface ModalTitleProps extends TitleProps {
 	activeClassName?: boolean;
 }
 
-function Modal({ children, variant, open, fullscreen, onClose }: PropsWithChildren<ModalProps>) {
+function Modal({
+	children,
+	className,
+	variant,
+	open,
+	fullscreen,
+	onClose,
+}: PropsWithChildren<ModalProps>) {
 	const { ModalClose } = Modal;
 
 	useLockedBody(open);
@@ -49,7 +57,8 @@ function Modal({ children, variant, open, fullscreen, onClose }: PropsWithChildr
 							className={classNames(
 								styles.content,
 								variant === 'gradient' && styles.gradient,
-								variant === 'grade' && styles.grade
+								variant === 'grade' && styles.grade,
+								className
 							)}
 							onClick={(e) => e.stopPropagation()}
 						>

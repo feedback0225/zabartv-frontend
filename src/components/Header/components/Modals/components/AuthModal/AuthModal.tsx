@@ -6,7 +6,9 @@ import { useState } from 'react';
 export const AuthModal = () => {
 	const { isVisibleAuthModal } = useTypedSelector((state) => state.modal);
 
-	const { showAuthModal, showRegisterModal } = useTypedActions((state) => state.modal);
+	const { showAuthModal, showRegisterModal, showForgotPasswordModal } = useTypedActions(
+		(state) => state.modal
+	);
 
 	const [authState, setAuthState] = useState<'login' | 'register'>('login');
 
@@ -17,6 +19,11 @@ export const AuthModal = () => {
 	const handleShowRegisterModal = () => {
 		handleClose();
 		showRegisterModal(true);
+	};
+
+	const handleShowForgotPasswordModal = () => {
+		handleClose();
+		showForgotPasswordModal(true);
 	};
 
 	const LoginContent = (
@@ -55,7 +62,9 @@ export const AuthModal = () => {
 				</ModalTitle>
 			</ModalTabs>
 			{authState === 'login' ? LoginContent : RegisterContent}
-			<ModalLink as="button">Забыли пароль?</ModalLink>
+			<ModalLink onClick={handleShowForgotPasswordModal} as="button">
+				Забыли пароль?
+			</ModalLink>
 		</Modal>
 	);
 };

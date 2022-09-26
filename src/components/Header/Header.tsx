@@ -1,9 +1,9 @@
 import { FC } from 'react';
-import { Nav, ThemeToggle, Lang, Actions, Search, Menu, Burger } from './components/index';
+import { Nav, ThemeToggle, Lang, Actions, Search, Menu, Burger, Modals } from './components/index';
 import { SubscribeButton } from '@/UI/SubscribeButton/SubscribeButton';
-import NextLink from 'next/link';
 import { LogoIcon } from '@/icons';
 import classNames from 'classnames';
+import NextLink from 'next/link';
 import styles from './Header.module.scss';
 
 interface HeaderProps {
@@ -38,6 +38,7 @@ export const Header: FC<HeaderProps> = ({ variant }) => {
 				<ThemeToggle className={styles.mobHidden} />
 			</div>
 			<Menu />
+			<Modals />
 		</header>
 	);
 };

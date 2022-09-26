@@ -5,6 +5,7 @@ const initialState = {
 	isVisibleSubscribeModal: false,
 	isVisibleGradeModal: false,
 	isVisibleAuthModal: false,
+	isVisibleForgotPasswordModal: false
 };
 
 export const modalSlice = createSlice({
@@ -23,6 +24,9 @@ export const modalSlice = createSlice({
 		showAuthModal: (state, action) => {
 			state.isVisibleAuthModal = action.payload;
 		},
+		showForgotPasswordModal: (state, action) => {
+			state.isVisibleForgotPasswordModal = action.payload
+		}
 	},
 });
 

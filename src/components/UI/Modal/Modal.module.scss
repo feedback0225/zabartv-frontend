@@ -28,6 +28,11 @@
 	}
 
 	.content {
+
+		&:not(.grade) {
+			width: 513px;
+		}
+
 		@media (max-width: 576px) {
 			justify-content: center;
 			width: 100%;
@@ -229,8 +234,10 @@
 	margin: 0;
 	font-size: 20px;
 	line-height: 25.4px;
+	max-width: 318px;
 	margin-bottom: 30px;
 	color: rgba(11, 21, 39, 0.68);
+	text-align: center;
 }
 
 .inputs {
@@ -274,6 +281,7 @@
 .btn {
 	max-width: 347px;
 	margin: 0 auto;
+	padding: 26px 30px 23px;
 
 	@media (max-width: 576px) {
 		font-size: 16px;

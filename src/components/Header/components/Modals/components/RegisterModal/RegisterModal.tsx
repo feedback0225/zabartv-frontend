@@ -1,6 +1,7 @@
 import { Modal } from '@/UI/Modal/Modal';
 import { useTypedActions } from '@/hooks/useTypedActions';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
+import styles from './RegisterModal.module.scss';
 
 export const RegisterModal = () => {
 	const { isVisibleRegisterModal } = useTypedSelector((state) => state.modal);
@@ -12,7 +13,7 @@ export const RegisterModal = () => {
 	const { ModalTitle, ModalInputs, ModalInput, ModalButton } = Modal;
 
 	return (
-		<Modal fullscreen open={isVisibleRegisterModal} onClose={handleClose}>
+		<Modal className={styles.modal} fullscreen open={isVisibleRegisterModal} onClose={handleClose}>
 			<ModalTitle>Регистрация</ModalTitle>
 			<ModalInputs>
 				<ModalInput type="password" placeholder="Придумайте пароль" />
