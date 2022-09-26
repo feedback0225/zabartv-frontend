@@ -6,12 +6,14 @@ import { VideoPlayer } from './components/VideoPlayer/VideoPlayer';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { useTypedActions } from '@/hooks/useTypedActions';
 import { useEffect } from 'react';
+import { useWindowSize } from '@/hooks/useWindowSize';
 import classNames from 'classnames';
 import styles from './Player.module.scss';
 
 export const Player = () => {
 	const { isVisiblePlayer } = useTypedSelector((state) => state.player);
 	const { openPlayer } = useTypedActions((state) => state.player);
+	const { height } = useWindowSize();
 
 	useEffect(() => {
 		const handleEscapeKey = (event: KeyboardEvent) => event.code === 'Escape' && openPlayer(false);
@@ -29,7 +31,10 @@ export const Player = () => {
 	};
 
 	return (
-		<div className={classNames(styles.wrapper, isVisiblePlayer && styles.show)}>
+		<div
+			style={{ height: `${height}px` }}
+			className={classNames(styles.wrapper, isVisiblePlayer && styles.show)}
+		>
 			<ButtonBase onClick={handleClosePlayer} className={styles.close}>
 				<CloseIcon />
 			</ButtonBase>

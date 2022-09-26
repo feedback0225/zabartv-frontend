@@ -3,7 +3,7 @@ import { Title } from '@/UI/Title/Title';
 import { PlayIcon, StarIcon } from '@/icons';
 import { Button } from '@/UI/Button/Button';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
-import { Player, Rating, Seasons } from './components';
+import { Player, Seasons, Rating } from './components';
 import { useTypedActions } from '@/hooks/useTypedActions';
 import classNames from 'classnames';
 import styles from './Movie.module.scss';
