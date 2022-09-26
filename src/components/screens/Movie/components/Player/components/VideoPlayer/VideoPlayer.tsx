@@ -40,8 +40,6 @@ export const VideoPlayer = () => {
 					},
 				],
 			});
-
-			playerRef.current.play();
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [videoRef]);

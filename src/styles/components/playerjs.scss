@@ -9,6 +9,10 @@
         outline: none;
     }
 
+    .vjs-time-control.vjs-remaining-time {
+        display: block;
+    }
+
     .vjs-fullscreen-control {
         display: block;
         position: fixed;
