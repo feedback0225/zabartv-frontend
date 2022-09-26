@@ -13,14 +13,17 @@ const MoviePage: NextPage = () => {
 	);
 };
 
-export const getServerSideProps = wrapper.getServerSideProps(({ dispatch }) => async ({ locale }) => {
-	await dispatch(getMovieById('1'));
+export const getServerSideProps = wrapper.getStaticProps(
+	({ dispatch }) =>
+		async ({ params, locale }) => {
+			await dispatch(getMovieById(params?.id));
 
-	return {
-		props: {
-			...(await serverSideTranslations(locale as string)),
-		},
-	};
-});
+			return {
+				props: {
+					...(await serverSideTranslations(locale as string)),
+				},
+			};
+		}
+);
 
 export default MoviePage;
