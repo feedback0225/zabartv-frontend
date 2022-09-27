@@ -9,6 +9,7 @@ import { homeReducer } from './reducers/homeSlice';
 import { movieReducer } from './reducers/movieSlice';
 import { playerReducer } from './reducers/playerSlice';
 import { categoryReducer } from './reducers/categorySlice';
+import { registerReducer } from './reducers/registerSlice';
 
 export const rootReducer = combineReducers({
 	menu: menuReducer,
@@ -19,7 +20,8 @@ export const rootReducer = combineReducers({
 	home: homeReducer,
 	movie: movieReducer,
 	player: playerReducer,
-	category: categoryReducer
+	category: categoryReducer,
+	register: registerReducer
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

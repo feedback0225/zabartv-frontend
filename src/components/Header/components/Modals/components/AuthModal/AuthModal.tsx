@@ -1,49 +1,27 @@
+import { useState } from 'react';
 import { Modal } from '@/UI/Modal/Modal';
 import { useTypedActions } from '@/hooks/useTypedActions';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
-import { useState } from 'react';
+import { RegisterContent } from './components/RegisterContent/RegisterContent';
+import { LoginContent } from './components/LoginContent/LoginContent';
+import styles from './AuthModal.module.scss';
+import classNames from 'classnames';
 
 export const AuthModal = () => {
 	const { isVisibleAuthModal } = useTypedSelector((state) => state.modal);
 
-	const { showAuthModal, showRegisterModal, showForgotPasswordModal } = useTypedActions(
-		(state) => state.modal
-	);
+	const { showAuthModal, showForgotPasswordModal } = useTypedActions((state) => state.modal);
 
 	const [authState, setAuthState] = useState<'login' | 'register'>('login');
 
-	const { ModalInputs, ModalInput, ModalButton, ModalTabs, ModalTitle, ModalLink } = Modal;
+	const { ModalTabs, ModalTitle, ModalLink } = Modal;
 
 	const handleClose = () => showAuthModal(false);
-
-	const handleShowRegisterModal = () => {
-		handleClose();
-		showRegisterModal(true);
-	};
 
 	const handleShowForgotPasswordModal = () => {
 		handleClose();
 		showForgotPasswordModal(true);
 	};
-
-	const LoginContent = (
-		<>
-			<ModalInputs>
-				<ModalInput type="email" placeholder="Электронная почта" />
-				<ModalInput type="password" placeholder="Пароль" />
-			</ModalInputs>
-			<ModalButton>Войти в аккаунт</ModalButton>
-		</>
-	);
-
-	const RegisterContent = (
-		<>
-			<ModalInputs>
-				<ModalInput type="email" placeholder="Электронная почта" />
-			</ModalInputs>
-			<ModalButton onClick={handleShowRegisterModal}>Подтвердить почту</ModalButton>
-		</>
-	);
 
 	return (
 		<Modal fullscreen open={isVisibleAuthModal} onClose={handleClose}>
@@ -61,7 +39,12 @@ export const AuthModal = () => {
 					Регистрация
 				</ModalTitle>
 			</ModalTabs>
-			{authState === 'login' ? LoginContent : RegisterContent}
+			<div className={classNames(styles.content, authState === 'login' && styles.active)}>
+				<LoginContent />
+			</div>
+			<div className={classNames(styles.content, authState === 'register' && styles.active)}>
+				<RegisterContent />
+			</div>
 			<ModalLink onClick={handleShowForgotPasswordModal} as="button">
 				Забыли пароль?
 			</ModalLink>

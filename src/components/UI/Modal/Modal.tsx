@@ -105,9 +105,9 @@ module Modal {
 		return <div className={styles.inputs}>{children}</div>;
 	};
 
-	export const ModalInput = ({ ...props }: TextFieldProps) => {
+	export const ModalInput = forwardRef(({ ...props }: TextFieldProps, ref) => {
 		return <TextField className={styles.input} {...props} />;
-	};
+	});
 
 	export const ModalButton = forwardRef(
 		({ children, ...props }: PropsWithChildren<ButtonProps>, ref) => {
@@ -137,6 +137,7 @@ module Modal {
 
 	ModalButton.displayName = 'ModalButton.tsx';
 	ModalLink.displayName = 'ModalLink.tsx';
+	ModalInput.displayName = 'ModalInput.tsx';
 }
 
 export { Modal };
