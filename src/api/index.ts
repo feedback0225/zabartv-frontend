@@ -25,3 +25,11 @@ export const getMovieById = createAsyncThunk('movie/getMovieById', async (id: st
 	});
 	return data;
 });
+
+export const getCategory = createAsyncThunk('category/getMovieById', async () => {
+	const { data } = await axios({
+		url: `${API_URL}/items/selectfullcatdata?session_id=qweqwe&token=${API_KEY}`,
+		method: 'get',
+	});
+	return data;
+});

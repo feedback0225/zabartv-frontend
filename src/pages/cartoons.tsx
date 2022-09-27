@@ -1,7 +1,9 @@
 import { Layout } from '@/components/Layout/Layout';
 import { Cartoons } from '@/screens/Cartoons/Cartoons';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import type { NextPage, GetStaticProps } from 'next';
+import type { NextPage } from 'next';
+import { wrapper } from '@/store/store';
+import { getCategory } from '@/api';
 
 const CartoonsPage: NextPage = () => {
 	return (
@@ -11,7 +13,9 @@ const CartoonsPage: NextPage = () => {
 	);
 };
 
-export const getStaticProps: GetStaticProps = async (params) => {
+export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async (params) => {
+	await dispatch(getCategory());
+
 	const { locale } = params as { locale: string };
 
 	return {
@@ -19,6 +23,6 @@ export const getStaticProps: GetStaticProps = async (params) => {
 			...(await serverSideTranslations(locale as string)),
 		},
 	};
-};
+});
 
 export default CartoonsPage;

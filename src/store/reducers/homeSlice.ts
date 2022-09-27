@@ -3,7 +3,7 @@ import { getHomeCategories } from '@/api';
 import { ICategory } from '@/types/ICategory';
 
 interface IState {
-	data: ICategory[] | null;
+	data: ICategory[];
 	isLoading: boolean;
 	isError: boolean;
 }

@@ -1,3 +1,4 @@
+import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { Grid } from '@/UI/Grid/Grid';
 import { Tabs } from '@/UI/Tabs/Tabs';
 import { Title } from '@/UI/Title/Title';
@@ -5,7 +6,9 @@ import classNames from 'classnames';
 import styles from './Cartoons.module.scss';
 
 export const Cartoons = () => {
-	const data = [
+	const { data } = useTypedSelector((state) => state.category);
+
+	const mockData = [
 		{
 			id: 1,
 			content: { title: 'Фильм 1' },
@@ -28,9 +31,9 @@ export const Cartoons = () => {
 	];
 
 	const tabs = [
-		{ txt: 'Вайнахские', content: <Grid data={data} /> },
-		{ txt: 'СССР', content: <Grid data={data} /> },
-		{ txt: 'Современные', content: <Grid data={data} /> },
+		{ txt: 'Вайнахские', content: <Grid data={mockData} /> },
+		{ txt: 'СССР', content: <Grid data={mockData} /> },
+		{ txt: 'Современные', content: <Grid data={mockData} /> },
 	];
 
 	return (
