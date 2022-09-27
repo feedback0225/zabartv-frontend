@@ -11,5 +11,5 @@ export const ActionsCreators = {
 	search: searchActions,
 	menu: menuActions,
 	player: playerActions,
-	register: registerActions
+	register: registerActions,
 };

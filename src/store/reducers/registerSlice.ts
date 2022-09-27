@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import {register} from '@/api'
+import { register } from '@/api';
 
 interface IState {
 	email: string;
@@ -20,8 +20,8 @@ export const registerSlice = createSlice({
 	initialState,
 	reducers: {
 		setEmail: (state, action) => {
-            state.email = action.payload
-        }
+			state.email = action.payload;
+		},
 	},
 	extraReducers: {
 		[register.fulfilled.type]: (state, action: PayloadAction<any>) => {

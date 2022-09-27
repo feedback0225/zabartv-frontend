@@ -21,7 +21,7 @@ export const rootReducer = combineReducers({
 	movie: movieReducer,
 	player: playerReducer,
 	category: categoryReducer,
-	register: registerReducer
+	register: registerReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

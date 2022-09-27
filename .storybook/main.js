@@ -20,17 +20,15 @@ module.exports = {
 		config.resolve.alias['@/UI'] = path.resolve(__dirname, '../src/components/UI');
 		config.resolve.alias['@/icons'] = path.resolve(__dirname, '../src/components/Icons');
 
-		const fileLoaderRule = config.module.rules.find(
-            (rule) => rule.test && rule.test.test(".svg")
-        );
-        fileLoaderRule.exclude = /\.svg$/;
+		const fileLoaderRule = config.module.rules.find((rule) => rule.test && rule.test.test('.svg'));
+		fileLoaderRule.exclude = /\.svg$/;
 
 		config.module.rules.push({
 			test: /\.svg$/,
 			enforce: 'pre',
 			loader: require.resolve('@svgr/webpack'),
 			options: {
-				icon: true
+				icon: true,
 			},
 		});
 
