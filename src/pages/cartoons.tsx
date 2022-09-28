@@ -13,10 +13,8 @@ const CartoonsPage: NextPage = () => {
 	);
 };
 
-export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async (params) => {
+export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async ({ locale }) => {
 	await dispatch(getCategory());
-
-	const { locale } = params as { locale: string };
 
 	return {
 		props: {
