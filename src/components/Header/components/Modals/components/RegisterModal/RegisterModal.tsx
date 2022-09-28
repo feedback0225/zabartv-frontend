@@ -6,8 +6,8 @@ import { Modal } from '@/UI/Modal/Modal';
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { requiredFieldMessage, doNotMatchPasswordsMessage } from '@/constants/validation';
-import * as Yup from 'yup';
 import { useAppDispatch } from '@/hooks/useAppDispatch';
+import * as Yup from 'yup';
 
 export const RegisterModal = () => {
 	const { isVisibleRegisterModal } = useTypedSelector((state) => state.modal);
@@ -45,9 +45,11 @@ export const RegisterModal = () => {
 	const handleRegister = handleSubmit((data) => {
 		const { password, password_confirm } = data;
 
-		showRegisterModal(false);
+		// showRegisterModal(false);
 
-		reset();
+		// reset();
+
+		console.log(data);
 
 		dispatch(register({ email, password, password_confirm, ip: '197.28.191.251' }));
 	});

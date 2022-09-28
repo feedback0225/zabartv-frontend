@@ -47,7 +47,7 @@ export const register = createAsyncThunk(
 	'auth/register',
 	async ({ email, password, password_confirm, ip }: IRegisterResponse) => {
 		const data = await axios({
-			url: `${API_URL}/session/sign-up?session_id=${getSessionId()}&token=${API_KEY}`,
+			url: `https://appsignals.coderman.top/api/v1/session/sign-up?session_id=${getSessionId()}&token=${API_KEY}`,
 			method: 'post',
 			data: {
 				email,
