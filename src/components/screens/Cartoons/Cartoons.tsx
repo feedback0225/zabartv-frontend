@@ -1,4 +1,5 @@
 import { useTypedSelector } from '@/hooks/useTypedSelector';
+import { IMovieItem } from '@/types/IMovieItem';
 import { Grid } from '@/UI/Grid/Grid';
 import { Tabs } from '@/UI/Tabs/Tabs';
 import { Title } from '@/UI/Title/Title';
@@ -7,6 +8,17 @@ import styles from './Cartoons.module.scss';
 
 export const Cartoons = () => {
 	const { data } = useTypedSelector((state) => state.category);
+
+	const { content, child_items, films } = { ...data[0] };
+
+	const tabs =
+		child_items?.map((tab, idx) => {
+			const txt = tab.content.title;
+
+			const data = films?.items[idx] as IMovieItem[];
+
+			return { txt, content: <Grid data={data} /> };
+		}) || [];
 
 	const mockData = [
 		{
@@ -30,16 +42,10 @@ export const Cartoons = () => {
 		},
 	];
 
-	const tabs = [
-		{ txt: 'Вайнахские', content: <Grid data={mockData} /> },
-		{ txt: 'СССР', content: <Grid data={mockData} /> },
-		{ txt: 'Современные', content: <Grid data={mockData} /> },
-	];
-
 	return (
 		<section className={styles.section}>
 			<div className={classNames('container', styles.container)}>
-				<Title className={styles.title}>Мультфильмы</Title>
+				<Title className={styles.title}>{content?.title_in_nav}</Title>
 				<Tabs className={styles.tabs} tabs={tabs} />
 			</div>
 		</section>

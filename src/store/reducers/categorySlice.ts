@@ -3,7 +3,7 @@ import { getCategory } from '@/api';
 import { ICategory } from '@/types/ICategory';
 
 interface IState {
-	data: ICategory[];
+	data: [ICategory] | [];
 	isLoading: boolean;
 	isError: boolean;
 }
@@ -19,7 +19,7 @@ export const categorySlice = createSlice({
 	initialState,
 	reducers: {},
 	extraReducers: {
-		[getCategory.fulfilled.type]: (state, action: PayloadAction<ICategory[]>) => {
+		[getCategory.fulfilled.type]: (state, action: PayloadAction<[ICategory]>) => {
 			state.isLoading = false;
 			state.isError = false;
 			state.data = action.payload;

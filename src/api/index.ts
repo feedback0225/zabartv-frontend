@@ -36,7 +36,7 @@ export const getMovieById = createAsyncThunk(
 
 export const getCategory = createAsyncThunk('category/getMovieById', async () => {
 	const { data } = await axios({
-		url: `${API_URL}/items/selectfullcatdata?session_id=${getSessionId()}&token=${API_KEY}`,
+		url: `${API_URL}/items/selectfullcatdata?session_id=${getSessionId()}&id=1&token=${API_KEY}`,
 		method: 'get',
 	});
 

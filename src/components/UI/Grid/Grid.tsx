@@ -3,10 +3,10 @@ import { MovieItem } from '@/UI/MovieItem/MovieItem';
 import { Button } from '@/UI/Button/Button';
 import { ChevronArrowIcon } from '@/icons';
 import styles from './Grid.module.scss';
+import { IMovieItem } from '@/types/IMovieItem';
 
 interface GridProps {
-	//временно
-	data: any[];
+	data: IMovieItem[];
 }
 
 export const Grid: FC<GridProps> = ({ data }) => {
@@ -17,9 +17,6 @@ export const Grid: FC<GridProps> = ({ data }) => {
 					<MovieItem key={item.id} item={item} />
 				))}
 			</div>
-			<Button className={styles.btn} variant="stroke" icon={<ChevronArrowIcon />}>
-				Показать еще
-			</Button>
 		</div>
 	);
 };
