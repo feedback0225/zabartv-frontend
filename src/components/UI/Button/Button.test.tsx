@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 
 describe('Button.test.tsx', () => {
 	test('if button', () => {
-		render(<Button>Button text</Button>);
+		render(<Button data-testid="button">Button text</Button>);
 		const element = screen.getByTestId('button');
 		expect(element).toBeInTheDocument();
 		expect(element.tagName).toEqual('BUTTON');
@@ -12,7 +12,7 @@ describe('Button.test.tsx', () => {
 
 	test('if link', () => {
 		render(
-			<Button href="https://some-url.com" as="link">
+			<Button data-testid="button" href="https://some-url.com" as="link">
 				Link text
 			</Button>
 		);

@@ -15,20 +15,16 @@ export interface ButtonProps {
 }
 
 export const Button: FC<PropsWithChildren<ButtonProps>> = forwardRef(
-	(
-		{ as = 'button', disabled, children, variant, icon, size = 'medium', className, ...props },
-		ref
-	) => {
+	({ as = 'button', disabled, children, variant, icon, size = 'medium', className, ...props }, ref) => {
 		const proxy = {
 			link: 'a',
 			button: ButtonBase,
 		};
 
-		const Element = proxy[as];
+		const Component = proxy[as];
 
 		return (
-			<Element
-				data-testid="button"
+			<Component
 				disabled={disabled}
 				className={classNames(
 					styles.btn,
@@ -45,7 +41,7 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = forwardRef(
 			>
 				{icon && <span className={styles.icon}>{icon}</span>}
 				{children}
-			</Element>
+			</Component>
 		);
 	}
 );
