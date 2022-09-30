@@ -8,6 +8,9 @@ import {
 	requiredPasswordMessage,
 } from '@/constants/validation';
 import * as Yup from 'yup';
+import { login } from '@/api';
+import { useAppDispatch } from '@/hooks/useAppDispatch';
+import { useTypedSelector } from '@/hooks/useTypedSelector';
 
 export const LoginContent = () => {
 	const { ModalInputs, ModalInput, ModalButton } = Modal;
@@ -23,6 +26,7 @@ export const LoginContent = () => {
 		handleSubmit,
 		control,
 		formState: { errors },
+		reset,
 	} = useForm({
 		defaultValues: {
 			email: '',
@@ -31,7 +35,19 @@ export const LoginContent = () => {
 		resolver: yupResolver(schema),
 	});
 
-	const handleRegister = handleSubmit((data) => {});
+	const dispatch = useAppDispatch();
+
+	const { data } = useTypedSelector((state) => state.login);
+
+	const handleRegister = handleSubmit((data) => {
+		const { email, password } = data;
+
+		showAuthModal(false);
+
+		reset();
+
+		dispatch(login({ identity: email, password, rememberMe: 1, ip: '197.28.191.251' }));
+	});
 
 	return (
 		<form action="#" noValidate onSubmit={handleRegister}>

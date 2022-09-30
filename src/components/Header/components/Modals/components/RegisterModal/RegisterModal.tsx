@@ -1,12 +1,12 @@
 import { useTypedSelector } from '@/hooks/useTypedSelector';
-import styles from './RegisterModal.module.scss';
-import { register } from '@/api';
 import { useTypedActions } from '@/hooks/useTypedActions';
 import { Modal } from '@/UI/Modal/Modal';
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { requiredFieldMessage, doNotMatchPasswordsMessage } from '@/constants/validation';
 import { useAppDispatch } from '@/hooks/useAppDispatch';
+import { register } from '@/api';
+import styles from './RegisterModal.module.scss';
 import * as Yup from 'yup';
 
 export const RegisterModal = () => {
@@ -45,13 +45,11 @@ export const RegisterModal = () => {
 	const handleRegister = handleSubmit((data) => {
 		const { password, password_confirm } = data;
 
-		// showRegisterModal(false);
+		showRegisterModal(false);
 
-		// reset();
+		reset();
 
-		console.log(data);
-
-		dispatch(register({ email, password, password_confirm, ip: '197.28.191.251' }));
+		dispatch(register({ email, password, password_confirm, ip: '80.150.190.116' }));
 	});
 
 	return (

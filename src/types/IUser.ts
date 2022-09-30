@@ -8,7 +8,7 @@ export interface IRegisterResponse {
 export interface ILoginResponse {
 	identity: string;
 	password: string;
-	rememberMe: string;
+	rememberMe: number;
 	ip: string;
 }
 
