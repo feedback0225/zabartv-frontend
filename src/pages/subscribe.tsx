@@ -3,7 +3,7 @@ import { Subscribe } from '@/screens/Subscribe/Subscribe';
 import { wrapper } from '@/store/store';
 import { getPackages } from '@/api';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import type { NextPage, GetStaticProps } from 'next';
+import type { NextPage } from 'next';
 
 const SubscribePage: NextPage = () => {
 	return (

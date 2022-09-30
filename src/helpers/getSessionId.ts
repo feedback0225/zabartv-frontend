@@ -2,10 +2,10 @@ export const getSessionId = () => {
     if (typeof window === 'undefined') {
         return 'qweqwe'
     } else {
-        if(!window?.sessionStorage?.getItem('id')?.length) {
-            window.sessionStorage.setItem('id', String(Date.now()))
+        if(!window?.localStorage?.getItem('session_id')?.length) {
+            window.localStorage.setItem('session_id', String(Date.now()))
         }
     
-        return window.sessionStorage.getItem('id')
+        return window.localStorage.getItem('session_id')
     }
 }
