@@ -3,9 +3,15 @@ import { Grade } from '@/UI/Grade/Grade';
 import { useTypedActions } from '@/hooks/useTypedActions';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { useState } from 'react';
+import { gradeFilm } from '@/api';
+import { useRouter } from 'next/router';
 
 export const GradeModal = () => {
-	const [value, setValue] = useState<number>(0);
+	const [rating, setRating] = useState<number>(0);
+
+	const {
+		query: { id },
+	} = useRouter();
 
 	const { isVisibleGradeModal } = useTypedSelector((state) => state.modal);
 
@@ -14,7 +20,7 @@ export const GradeModal = () => {
 	const handleClose = () => showGradeModal(false);
 
 	const handleGrade = () => {
-		// axios.post....
+		gradeFilm({ id, rating });
 		handleClose();
 	};
 
@@ -23,8 +29,8 @@ export const GradeModal = () => {
 	return (
 		<Modal fullscreen variant="grade" open={isVisibleGradeModal} onClose={handleClose}>
 			<ModalTitle>Оцените фильм по 10-ти бальной шкале</ModalTitle>
-			<Grade value={value} setValue={setValue} />
-			<ModalButton onClick={handleGrade} disabled={value === 0}>
+			<Grade value={rating} setValue={setRating} />
+			<ModalButton onClick={handleGrade} disabled={rating === 0}>
 				Поставить оценку
 			</ModalButton>
 		</Modal>

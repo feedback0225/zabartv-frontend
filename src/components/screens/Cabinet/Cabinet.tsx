@@ -6,7 +6,11 @@ import classNames from 'classnames';
 import styles from './Cabinet.module.scss';
 
 export const Cabinet = () => {
-	const { name, email } = useTypedSelector((state) => state.user);
+	const { data } = useTypedSelector((state) => state.user);
+
+	const { email } = { ...data };
+
+	const name = 'Test name';
 
 	const info = {
 		title: '30 дней за',

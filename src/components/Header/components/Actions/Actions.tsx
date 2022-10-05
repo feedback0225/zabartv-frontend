@@ -7,10 +7,12 @@ import classNames from 'classnames';
 import styles from './Actions.module.scss';
 
 export const Actions = () => {
-	const isAuth = false;
-
 	const { showAuthModal } = useTypedActions((state) => state.modal);
 	const { setVisibleSearch } = useTypedActions((state) => state.search);
+
+	const isAuth = Boolean(
+		localStorage.getItem('zabar_userId') && localStorage.getItem('zabar_userId') !== 'undefined'
+	);
 
 	const handleOpenSearch = () => setVisibleSearch(true);
 

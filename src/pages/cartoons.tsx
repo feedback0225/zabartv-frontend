@@ -3,7 +3,7 @@ import { Cartoons } from '@/screens/Cartoons/Cartoons';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import type { NextPage } from 'next';
 import { wrapper } from '@/store/store';
-import { getCategory } from '@/api';
+import { getCategory, getIP } from '@/api';
 
 const CartoonsPage: NextPage = () => {
 	return (
@@ -15,6 +15,7 @@ const CartoonsPage: NextPage = () => {
 
 export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async ({ locale }) => {
 	await dispatch(getCategory());
+	await dispatch(getIP());
 
 	return {
 		props: {

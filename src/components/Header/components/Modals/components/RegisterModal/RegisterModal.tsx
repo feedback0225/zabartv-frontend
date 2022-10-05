@@ -3,29 +3,39 @@ import { useTypedActions } from '@/hooks/useTypedActions';
 import { Modal } from '@/UI/Modal/Modal';
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { requiredFieldMessage, doNotMatchPasswordsMessage } from '@/constants/validation';
-import { useAppDispatch } from '@/hooks/useAppDispatch';
+import {
+	requiredFieldMessage,
+	doNotMatchPasswordsMessage,
+	shortPasswordMessage,
+} from '@/constants/validation';
 import { register } from '@/api';
+import { useRouter } from 'next/router';
+import { RoutesEnum } from '@/constants/routes';
 import styles from './RegisterModal.module.scss';
 import * as Yup from 'yup';
+import { useState } from 'react';
 
 export const RegisterModal = () => {
 	const { isVisibleRegisterModal } = useTypedSelector((state) => state.modal);
 
-	const { email, data } = useTypedSelector((state) => state.register);
+	const { email, name, ip } = useTypedSelector((state) => state.auth);
 
 	const { showRegisterModal } = useTypedActions((state) => state.modal);
 
-	const { ModalTitle, ModalInputs, ModalInput, ModalButton } = Modal;
+	const { ModalTitle, ModalInputs, ModalInput, ModalButton, ModalErrorMessage } = Modal;
+	const [errorMessages, setErrorMessages] = useState<string[]>([]);
+
+	const { push } = useRouter();
 
 	const handleClose = () => showRegisterModal(false);
 
-	const dispatch = useAppDispatch();
+	const { setUser } = useTypedActions((state) => state.auth);
 
 	const schema = Yup.object().shape({
-		password: Yup.string().required(requiredFieldMessage),
+		password: Yup.string().min(6, shortPasswordMessage).required(requiredFieldMessage),
 		password_confirm: Yup.string()
 			.required(requiredFieldMessage)
+			.min(6, shortPasswordMessage)
 			.oneOf([Yup.ref('password'), null], doNotMatchPasswordsMessage),
 	});
 
@@ -33,7 +43,6 @@ export const RegisterModal = () => {
 		handleSubmit,
 		control,
 		formState: { errors },
-		reset,
 	} = useForm({
 		defaultValues: {
 			password: '',
@@ -42,14 +51,25 @@ export const RegisterModal = () => {
 		resolver: yupResolver(schema),
 	});
 
-	const handleRegister = handleSubmit((data) => {
-		const { password, password_confirm } = data;
+	const handleRegister = handleSubmit(async (form) => {
+		const { password, password_confirm } = form;
 
-		showRegisterModal(false);
+		try {
+			const data = await register({ email, password, password_confirm, ip });
 
-		reset();
+			/* Такой костыль из-за того что бекендер просто возвращает массив со строками, а не обьект */
+			if (!data.hasOwnProperty('id')) {
+				setErrorMessages(data);
+			} else {
+				setUser(data);
 
-		dispatch(register({ email, password, password_confirm, ip: '80.150.190.116' }));
+				push(RoutesEnum.Cabinet);
+
+				showRegisterModal(false);
+			}
+		} catch (error) {
+			console.error(error);
+		}
 	});
 
 	return (
@@ -91,6 +111,11 @@ export const RegisterModal = () => {
 							);
 						}}
 					/>
+					{errorMessages.length > 0
+						? errorMessages?.map((error) => (
+								<ModalErrorMessage key={error}>{error}</ModalErrorMessage>
+						  ))
+						: null}
 				</ModalInputs>
 				<ModalButton>Зарегистрироваться</ModalButton>
 			</form>

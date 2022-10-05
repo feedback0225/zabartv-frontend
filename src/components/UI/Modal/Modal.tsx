@@ -25,14 +25,7 @@ interface ModalTitleProps extends TitleProps {
 	className?: string;
 }
 
-function Modal({
-	children,
-	className,
-	variant,
-	open,
-	fullscreen,
-	onClose,
-}: PropsWithChildren<ModalProps>) {
+function Modal({ children, className, variant, open, fullscreen, onClose }: PropsWithChildren<ModalProps>) {
 	const { ModalClose } = Modal;
 
 	useLockedBody(open);
@@ -109,15 +102,17 @@ module Modal {
 		return <TextField className={styles.input} {...props} />;
 	});
 
-	export const ModalButton = forwardRef(
-		({ children, ...props }: PropsWithChildren<ButtonProps>, ref) => {
-			return (
-				<Button className={styles.btn} {...props}>
-					{children}
-				</Button>
-			);
-		}
-	);
+	export const ModalErrorMessage = ({ children }: PropsWithChildren<{}>) => {
+		return <span className={styles.errorMessage}>{children}</span>;
+	};
+
+	export const ModalButton = forwardRef(({ children, ...props }: PropsWithChildren<ButtonProps>, ref) => {
+		return (
+			<Button className={styles.btn} {...props}>
+				{children}
+			</Button>
+		);
+	});
 
 	export const ModalLink = forwardRef(({ children, ...props }: PropsWithChildren<LinkProps>, ref) => {
 		return (

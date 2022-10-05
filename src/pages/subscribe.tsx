@@ -1,7 +1,7 @@
 import { Layout } from '@/components/Layout/Layout';
 import { Subscribe } from '@/screens/Subscribe/Subscribe';
 import { wrapper } from '@/store/store';
-import { getPackages } from '@/api';
+import { getIP, getPackages } from '@/api';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import type { NextPage } from 'next';
 
@@ -13,10 +13,9 @@ const SubscribePage: NextPage = () => {
 	);
 };
 
-export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async (params) => {
+export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async ({ locale }) => {
 	await dispatch(getPackages());
-
-	const { locale } = params as { locale: string };
+	await dispatch(getIP());
 
 	return {
 		props: {
