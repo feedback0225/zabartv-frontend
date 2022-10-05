@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { Nav, ThemeToggle, Lang, Actions, Search, Menu, Burger, Modals } from './components/index';
 import { SubscribeButton } from '@/UI/SubscribeButton/SubscribeButton';
 import { LogoIcon } from '@/icons';
+import dynamic from 'next/dynamic';
 import classNames from 'classnames';
 import NextLink from 'next/link';
 import styles from './Header.module.scss';
@@ -11,6 +12,13 @@ interface HeaderProps {
 	blurHeader?: boolean;
 	variant?: 'absolute' | 'blur';
 }
+
+export const HeaderActions = dynamic(
+	() => import('./components/Actions/Actions').then((mod) => mod.Actions),
+	{
+		ssr: false,
+	}
+);
 
 export const Header: FC<HeaderProps> = ({ variant }) => {
 	return (
@@ -29,7 +37,7 @@ export const Header: FC<HeaderProps> = ({ variant }) => {
 				</NextLink>
 				<Nav className={styles.nav} />
 				<div className={styles.right}>
-					<Actions />
+					<HeaderActions />
 					<Search className={styles.search} />
 					<SubscribeButton className={styles.mobHidden} />
 					<Burger />

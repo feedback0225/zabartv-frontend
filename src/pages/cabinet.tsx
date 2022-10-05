@@ -1,7 +1,9 @@
 import { Layout } from '@/components/Layout/Layout';
 import { Cabinet } from '@/screens/Cabinet/Cabinet';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import type { NextPage, GetStaticProps } from 'next';
+import type { NextPage } from 'next';
+import { wrapper } from '@/store/store';
+import { getIP, getMe } from '@/api';
 
 const CabinetPage: NextPage = () => {
 	return (
@@ -11,14 +13,15 @@ const CabinetPage: NextPage = () => {
 	);
 };
 
-export const getStaticProps: GetStaticProps = async (params) => {
-	const { locale } = params as { locale: string };
+export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async ({ locale }) => {
+	await dispatch(getIP());
+	await dispatch(getMe());
 
 	return {
 		props: {
 			...(await serverSideTranslations(locale as string)),
 		},
 	};
-};
+});
 
 export default CabinetPage;

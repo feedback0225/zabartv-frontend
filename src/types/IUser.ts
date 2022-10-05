@@ -12,4 +12,14 @@ export interface ILoginResponse {
 	ip: string;
 }
 
-export interface IUser {}
+export interface IUser {
+	avatar_base_url: string;
+	avatar_path: string;
+	date_of_birth: Date;
+	email: string;
+	first_name: string;
+	id: number;
+	last_name: string;
+	status: number;
+	username: string;
+}

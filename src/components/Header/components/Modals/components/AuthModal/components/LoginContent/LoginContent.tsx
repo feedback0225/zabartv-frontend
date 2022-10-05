@@ -6,27 +6,31 @@ import {
 	requiredFieldMessage,
 	incorrectlyFieldMessage,
 	requiredPasswordMessage,
+	shortPasswordMessage,
 } from '@/constants/validation';
-import * as Yup from 'yup';
 import { login } from '@/api';
-import { useAppDispatch } from '@/hooks/useAppDispatch';
+import { useRouter } from 'next/router';
+import { RoutesEnum } from '@/constants/routes';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
+import { useState } from 'react';
+import * as Yup from 'yup';
 
 export const LoginContent = () => {
-	const { ModalInputs, ModalInput, ModalButton } = Modal;
+	const { ModalInputs, ModalInput, ModalButton, ModalErrorMessage } = Modal;
 
 	const { showAuthModal } = useTypedActions((state) => state.modal);
 
+	const { push } = useRouter();
+
 	const schema = Yup.object().shape({
 		email: Yup.string().email(incorrectlyFieldMessage).required(requiredFieldMessage),
-		password: Yup.string().required(requiredPasswordMessage),
+		password: Yup.string().min(6, shortPasswordMessage).required(requiredPasswordMessage),
 	});
 
 	const {
 		handleSubmit,
 		control,
 		formState: { errors },
-		reset,
 	} = useForm({
 		defaultValues: {
 			email: '',
@@ -35,22 +39,33 @@ export const LoginContent = () => {
 		resolver: yupResolver(schema),
 	});
 
-	const dispatch = useAppDispatch();
+	const [errorMessages, setErrorMessages] = useState<string[]>([]);
+	const { ip } = useTypedSelector((state) => state.auth);
+	const { setUser } = useTypedActions((state) => state.auth);
 
-	const { data } = useTypedSelector((state) => state.login);
+	const handleLogin = handleSubmit(async (form) => {
+		const { email, password } = form;
 
-	const handleRegister = handleSubmit((data) => {
-		const { email, password } = data;
+		try {
+			const data = await login({ identity: email, password, rememberMe: 1, ip });
 
-		showAuthModal(false);
+			/* Такой костыль из-за того что бекендер просто возвращает массив со строками, а не обьект */
+			if (!data.hasOwnProperty('id')) {
+				setErrorMessages(data);
+			} else {
+				setUser(data);
 
-		reset();
+				push(RoutesEnum.Cabinet);
 
-		dispatch(login({ identity: email, password, rememberMe: 1, ip: '197.28.191.251' }));
+				showAuthModal(false);
+			}
+		} catch (error) {
+			console.error(error);
+		}
 	});
 
 	return (
-		<form action="#" noValidate onSubmit={handleRegister}>
+		<form action="#" noValidate onSubmit={handleLogin}>
 			<ModalInputs>
 				<Controller
 					name="email"
@@ -86,8 +101,13 @@ export const LoginContent = () => {
 						);
 					}}
 				/>
+				{errorMessages.length > 0
+					? errorMessages?.map((error) => (
+							<ModalErrorMessage key={error}>{error}</ModalErrorMessage>
+					  ))
+					: null}
 			</ModalInputs>
-			<ModalButton>Войти в аккаунт</ModalButton>
+			<ModalButton onClick={handleLogin}>Войти в аккаунт</ModalButton>
 		</form>
 	);
 };

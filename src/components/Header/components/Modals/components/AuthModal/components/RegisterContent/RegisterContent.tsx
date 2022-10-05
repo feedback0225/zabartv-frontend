@@ -8,11 +8,12 @@ import * as Yup from 'yup';
 export const RegisterContent = () => {
 	const { ModalInputs, ModalInput, ModalButton } = Modal;
 
-	const { setEmail } = useTypedActions((state) => state.register);
+	const { setEmail, setName } = useTypedActions((state) => state.auth);
 	const { showAuthModal, showRegisterModal } = useTypedActions((state) => state.modal);
 
 	const schema = Yup.object().shape({
 		email: Yup.string().email(incorrectlyFieldMessage).required(requiredFieldMessage),
+		name: Yup.string().required(requiredFieldMessage),
 	});
 
 	const {
@@ -22,14 +23,16 @@ export const RegisterContent = () => {
 	} = useForm({
 		defaultValues: {
 			email: '',
+			name: '',
 		},
 		resolver: yupResolver(schema),
 	});
 
 	const handleRegister = handleSubmit((data) => {
-		const { email } = data;
+		const { email, name } = data;
 
 		setEmail(email);
+		setName(name);
 		showAuthModal(false);
 		showRegisterModal(true);
 	});
@@ -50,6 +53,23 @@ export const RegisterContent = () => {
 								name="email"
 								type="email"
 								placeholder="Электронная почта"
+							/>
+						);
+					}}
+				/>
+				<Controller
+					name="name"
+					control={control}
+					render={({ field: { value, onChange } }) => {
+						return (
+							<ModalInput
+								errorMessage={errors.name?.message}
+								error={errors.hasOwnProperty('name')}
+								value={value}
+								onChange={onChange}
+								name="name"
+								type="text"
+								placeholder="Ваше имя"
 							/>
 						);
 					}}

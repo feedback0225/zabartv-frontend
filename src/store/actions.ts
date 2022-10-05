@@ -3,7 +3,7 @@ import { searchActions } from './reducers/searchSlice';
 import { modalActions } from './reducers/modalSlice';
 import { userActions } from './reducers/userSlice';
 import { playerActions } from './reducers/playerSlice';
-import { registerActions } from './reducers/registerSlice';
+import { authActions } from './reducers/authSlice';
 
 export const ActionsCreators = {
 	user: userActions,
@@ -11,5 +11,5 @@ export const ActionsCreators = {
 	search: searchActions,
 	menu: menuActions,
 	player: playerActions,
-	register: registerActions,
+	auth: authActions
 };

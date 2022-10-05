@@ -2,7 +2,7 @@ import { Layout } from '@/components/Layout/Layout';
 import { Hero, Category, Music } from '@/screens/Home/index';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { wrapper } from '@/store/store';
-import { getHomeCategories } from '@/api';
+import { getHomeCategories, getIP } from '@/api';
 import type { NextPage } from 'next';
 
 const HomePage: NextPage = () => {
@@ -15,10 +15,9 @@ const HomePage: NextPage = () => {
 	);
 };
 
-export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async (params) => {
+export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async ({ locale }) => {
 	await dispatch(getHomeCategories());
-
-	const { locale } = params as { locale: string };
+	await dispatch(getIP());
 
 	return {
 		props: {
