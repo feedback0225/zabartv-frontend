@@ -1,4 +1,4 @@
-import { API_KEY, API_URL } from '@/constants/api';
+import { API_KEY, API_URL, HTTPS_API_URL } from '@/constants/api';
 import { getSessionId } from '@/helpers/getSessionId'
 import { IGradeResponse } from '@/types/IGrade';
 import { IRegisterResponse, ILoginResponse, IUpdateResponse, IUser } from '@/types/IUser';
@@ -59,7 +59,7 @@ export const getMe = createAsyncThunk('session/getMe', async () => {
 export const register = async ({ name, email, password, password_confirm, ip }: IRegisterResponse) => {
 
 	const { data } = await axios({
-		url: `https://appsignals.coderman.top/api/v1/session/sign-up?session_id=${getSessionId()}&token=${API_KEY}`,
+		url: `${HTTPS_API_URL}/session/sign-up?session_id=${getSessionId()}&token=${API_KEY}`,
 		headers: {
 			'Content-Type': 'application/x-www-form-urlencoded'
 		},
@@ -72,7 +72,7 @@ export const register = async ({ name, email, password, password_confirm, ip }: 
 
 export const login = async ({ identity, password, rememberMe, ip }: ILoginResponse) => {
 	const { data } = await axios({
-		url: `${API_URL}/session/sign-in?session_id=${getSessionId()}&token=${API_KEY}`,
+		url: `${HTTPS_API_URL}/session/sign-in?session_id=${getSessionId()}&token=${API_KEY}`,
 		headers: {
 			'Content-Type': 'application/x-www-form-urlencoded'
 		},
@@ -85,7 +85,7 @@ export const login = async ({ identity, password, rememberMe, ip }: ILoginRespon
 
 export const updateUserData = async ({password, date_of_birth, email}: IUpdateResponse) => {
 	const { data } = await axios({
-		url: `${API_URL}/session/updateuserdata?session_id=${getSessionId()}&token=${API_KEY}`,
+		url: `${HTTPS_API_URL}/session/updateuserdata?session_id=${getSessionId()}&token=${API_KEY}`,
 		headers: {
 			'Content-Type': 'application/x-www-form-urlencoded'
 		},
