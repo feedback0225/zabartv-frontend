@@ -9,7 +9,6 @@ export interface CabinetInputProps extends InputHTMLAttributes<HTMLInputElement>
 	label: string;
 	date?: boolean;
 	value: string;
-	as?: 'input' | 'mask';
 	applyChanges: (value: string) => void;
 }
 
@@ -18,7 +17,6 @@ export const CabinetInput: FC<CabinetInputProps> = ({
 	applyChanges,
 	type,
 	value,
-	as = 'input',
 	date,
 	label,
 	...props

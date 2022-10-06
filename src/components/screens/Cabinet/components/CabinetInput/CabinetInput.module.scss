@@ -48,7 +48,8 @@
 	line-height: 33px;
 
 	&::placeholder {
-		color: #52596c;
+		opacity: 1;
+		color: var(--color-light);
 	}
 }
 

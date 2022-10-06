@@ -18,7 +18,7 @@ export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async ({ 
 		payload: { id },
 	} = await dispatch(getMe());
 	await dispatch(getIP());
-	await dispatch(getHistoryPayments(id));
+	await dispatch(getHistoryPayments(1));
 
 	return {
 		props: {

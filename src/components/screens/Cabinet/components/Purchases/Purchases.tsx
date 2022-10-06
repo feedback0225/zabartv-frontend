@@ -18,6 +18,8 @@ export const Purchases = () => {
 		return { date, period, price: '12€' };
 	});
 
+	console.log(history);
+
 	return (
 		<>
 			{history.map((item, idx) => (
