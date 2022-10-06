@@ -1,7 +1,7 @@
 import { API_KEY, API_URL } from '@/constants/api';
 import { getSessionId } from '@/helpers/getSessionId'
 import { IGradeResponse } from '@/types/IGrade';
-import { IRegisterResponse, ILoginResponse } from '@/types/IUser';
+import { IRegisterResponse, ILoginResponse, IUpdateResponse, IUser } from '@/types/IUser';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -56,7 +56,7 @@ export const getMe = createAsyncThunk('session/getMe', async () => {
 	return data;
 });
 
-export const register = async ({ email, password, password_confirm, ip }: IRegisterResponse) => {
+export const register = async ({ name, email, password, password_confirm, ip }: IRegisterResponse) => {
 
 	const { data } = await axios({
 		url: `https://appsignals.coderman.top/api/v1/session/sign-up?session_id=${getSessionId()}&token=${API_KEY}`,
@@ -64,7 +64,7 @@ export const register = async ({ email, password, password_confirm, ip }: IRegis
 			'Content-Type': 'application/x-www-form-urlencoded'
 		},
 		method: 'post',
-		data: `email=${email}&password=${password}&password_confirm=${password_confirm}&ip=${ip}`,
+		data: `username=${name}&email=${email}&password=${password}&password_confirm=${password_confirm}&ip=${ip}`,
 	})
 
 	return data
@@ -72,7 +72,7 @@ export const register = async ({ email, password, password_confirm, ip }: IRegis
 
 export const login = async ({ identity, password, rememberMe, ip }: ILoginResponse) => {
 	const { data } = await axios({
-		url: `https://appsignals.coderman.top/api/v1/session/sign-in?session_id=${getSessionId()}&token=${API_KEY}`,
+		url: `${API_URL}/session/sign-in?session_id=${getSessionId()}&token=${API_KEY}`,
 		headers: {
 			'Content-Type': 'application/x-www-form-urlencoded'
 		},
@@ -83,8 +83,27 @@ export const login = async ({ identity, password, rememberMe, ip }: ILoginRespon
 	return data
 }
 
+export const updateUserData = async ({password, date_of_birth, email}: IUpdateResponse) => {
+	const { data } = await axios({
+		url: `${API_URL}/session/updateuserdata?session_id=${getSessionId()}&token=${API_KEY}`,
+		headers: {
+			'Content-Type': 'application/x-www-form-urlencoded'
+		},
+		method: 'post',
+		data: `password=${password}&date_of_birth=${date_of_birth}&email=${email}`,
+	})
+
+	return data
+} 
+
 export const getIP = createAsyncThunk('session/ip', async () => {
 	const { data } = await axios.get('https://api.ipify.org/?format=json')
 
 	return data.ip;
 });
+
+export const getHistoryPayments = createAsyncThunk('session/historyPayments', async (id: number) => {
+	const {data} = await axios.get(`${API_URL}/session/getuserorders?id=${id}&session_id=${getSessionId()}&token=${API_KEY}`)
+
+	return data
+})

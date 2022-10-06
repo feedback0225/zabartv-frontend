@@ -1,16 +1,43 @@
+import { getMe, updateUserData } from '@/api';
+import { useAppDispatch } from '@/hooks/useAppDispatch';
 import { useTypedActions } from '@/hooks/useTypedActions';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
+import { IUser } from '@/types/IUser';
 import { Checkbox } from '@/UI/Checkbox/Checkbox';
+import { FC, useState } from 'react';
 import { CabinetInput } from '../index';
 import styles from './Settings.module.scss';
 
-export const Settings = () => {
-	const { isSubscribedEmail, email, password, date } = useTypedSelector((state) => state.user);
-	const { setSubscribedEmail, setEmail, setPassword, setDate } = useTypedActions(
-		(state) => state.user
-	);
+interface SettingsProps {
+	data: IUser;
+}
 
-	const handleSubscribeEmail = () => setSubscribedEmail();
+export const Settings: FC<SettingsProps> = ({ data }) => {
+	const { email, date_of_birth } = data;
+
+	// const [password, setPassword] = useState('');
+
+	const [isSubscribedEmail, setIsSubscribedEmail] = useState<boolean>(false);
+
+	const handleSubscribeEmail = () => setIsSubscribedEmail(!isSubscribedEmail);
+
+	const dispatch = useAppDispatch();
+
+	const applyEmail = async (newEmail: string) => {
+		await updateUserData({ email: newEmail, date_of_birth, password: '' });
+
+		dispatch(getMe());
+	};
+
+	/* const applyDate = async (newDate: string) => {
+		await updateUserData({ email, date_of_birth: newDate, password });
+	};
+
+	const applyPassword = async (newPassword: string) => {
+		setPassword(newPassword);
+
+		await updateUserData({ email, date_of_birth, password: newPassword });
+	}; */
 
 	return (
 		<div className={styles.settings}>
@@ -19,15 +46,15 @@ export const Settings = () => {
 					label="Электронная почта"
 					type="email"
 					value={email}
-					applyChanges={setEmail}
+					applyChanges={applyEmail}
 				/>
+				{/* <CabinetInput label="Пароль" type="password" value={password} applyChanges={applyPassword} />
 				<CabinetInput
-					label="Пароль"
-					type="password"
-					value={password}
-					applyChanges={setPassword}
-				/>
-				<CabinetInput label="Дата рождения" type="text" value={date} applyChanges={setDate} />
+					label="Дата рождения"
+					type="text"
+					value={date_of_birth}
+					applyChanges={applyDate}
+				/> */}
 			</div>
 			<Checkbox
 				checked={isSubscribedEmail}

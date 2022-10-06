@@ -1,9 +1,10 @@
-import { IUser } from '@/types/IUser';
+import { IHistoryPayment, IUser } from '@/types/IUser';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { getMe } from '@/api';
+import { getHistoryPayments, getMe } from '@/api';
 
 interface IState {
-	data: IUser | {};
+	data: IUser;
+	history: IHistoryPayment[] | []
 	isLoading: boolean;
 	isError: boolean;
 	name: string;
@@ -14,7 +15,16 @@ interface IState {
 }
 
 const initialState: IState = {
-	data: {},
+	data: {
+		avatar_base_url: '',
+		avatar_path: '',
+		date_of_birth: '',
+		email: '',
+		first_name: '',
+		last_name: '',
+		username: ''
+	},
+	history: [],
 	isLoading: true,
 	isError: false,
 	name: 'Александр Самойлов',
@@ -51,6 +61,19 @@ export const userSlice = createSlice({
 			state.isLoading = true;
 		},
 		[getMe.rejected.type]: (state) => {
+			state.isLoading = false;
+			state.isError = true;
+		},
+
+		[getHistoryPayments.fulfilled.type]: (state, action: PayloadAction<IHistoryPayment[]>) => {
+			state.isLoading = false;
+			state.isError = false;
+			state.history = action.payload;
+		},
+		[getHistoryPayments.pending.type]: (state) => {
+			state.isLoading = true;
+		},
+		[getHistoryPayments.rejected.type]: (state) => {
 			state.isLoading = false;
 			state.isError = true;
 		},

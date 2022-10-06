@@ -3,7 +3,7 @@ import { Cabinet } from '@/screens/Cabinet/Cabinet';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import type { NextPage } from 'next';
 import { wrapper } from '@/store/store';
-import { getIP, getMe } from '@/api';
+import { getHistoryPayments, getIP, getMe } from '@/api';
 
 const CabinetPage: NextPage = () => {
 	return (
@@ -14,8 +14,11 @@ const CabinetPage: NextPage = () => {
 };
 
 export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async ({ locale }) => {
+	const {
+		payload: { id },
+	} = await dispatch(getMe());
 	await dispatch(getIP());
-	await dispatch(getMe());
+	await dispatch(getHistoryPayments(id));
 
 	return {
 		props: {

@@ -8,9 +8,7 @@ import styles from './Cabinet.module.scss';
 export const Cabinet = () => {
 	const { data } = useTypedSelector((state) => state.user);
 
-	const { email } = { ...data };
-
-	const name = 'Test name';
+	const { email, username } = { ...data };
 
 	const info = {
 		title: '30 дней за',
@@ -19,7 +17,7 @@ export const Cabinet = () => {
 	};
 
 	const tabs = [
-		{ txt: 'Настройки', content: <Settings /> },
+		{ txt: 'Настройки', content: <Settings data={data} /> },
 		{ txt: 'Избранное', content: <Favourites /> },
 		{ txt: 'История покупок', content: <Purchases /> },
 		{ txt: 'История просмотров', content: <Views /> },
@@ -30,9 +28,9 @@ export const Cabinet = () => {
 			<div className={classNames('container', styles.container)}>
 				<div className={styles.top}>
 					<div className={styles.left}>
-						<Avatar name={name} />
+						<Avatar name={username} />
 						<div className={styles.text}>
-							<h1 className={styles.name}>{name}</h1>
+							<h1 className={styles.name}>{username}</h1>
 							<span className={styles.mail}>
 								<MailIcon />
 								{email}

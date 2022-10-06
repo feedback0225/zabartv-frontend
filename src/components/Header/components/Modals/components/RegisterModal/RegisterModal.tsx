@@ -55,7 +55,7 @@ export const RegisterModal = () => {
 		const { password, password_confirm } = form;
 
 		try {
-			const data = await register({ email, password, password_confirm, ip });
+			const data = await register({ name, email, password, password_confirm, ip });
 
 			/* Такой костыль из-за того что бекендер просто возвращает массив со строками, а не обьект */
 			if (!data.hasOwnProperty('id')) {
