@@ -37,7 +37,7 @@ export interface IUser {
 }
 
 export interface IUpdateResponse {
-	date_of_birth: string;
-	email: string;
-	password: string;
+	date_of_birth?: string;
+	email?: string;
+	password?: string;
 }

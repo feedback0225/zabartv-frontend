@@ -1,7 +1,5 @@
 import { getMe, updateUserData } from '@/api';
 import { useAppDispatch } from '@/hooks/useAppDispatch';
-import { useTypedActions } from '@/hooks/useTypedActions';
-import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { IUser } from '@/types/IUser';
 import { Checkbox } from '@/UI/Checkbox/Checkbox';
 import { FC, useState } from 'react';
@@ -23,8 +21,8 @@ export const Settings: FC<SettingsProps> = ({ data }) => {
 
 	const dispatch = useAppDispatch();
 
-	const applyEmail = async (newEmail: string) => {
-		await updateUserData({ email: newEmail, date_of_birth, password: '' });
+	const applyEmail = async (email: string) => {
+		await updateUserData({ email });
 
 		dispatch(getMe());
 	};
