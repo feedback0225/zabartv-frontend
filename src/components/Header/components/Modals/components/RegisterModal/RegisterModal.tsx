@@ -29,7 +29,6 @@ export const RegisterModal = () => {
 		password: Yup.string().min(6, shortPasswordMessage).required(requiredFieldMessage),
 		password_confirm: Yup.string()
 			.required(requiredFieldMessage)
-			.min(6, shortPasswordMessage)
 			.oneOf([Yup.ref('password'), null], doNotMatchPasswordsMessage),
 	});
 
