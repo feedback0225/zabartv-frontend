@@ -4,8 +4,8 @@ exports[`Checkbox.test.tsx tests 1`] = `
 <input
   class="input"
   data-testid="cabinet-input"
-  placeholder="aassmoilov@gmail.com"
+  placeholder=""
   type="text"
-  value="aassmoilov@gmail.com"
+  value=""
 />
 `;

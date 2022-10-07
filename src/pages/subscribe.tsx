@@ -1,7 +1,8 @@
 import { Layout } from '@/components/Layout/Layout';
 import { Subscribe } from '@/screens/Subscribe/Subscribe';
 import { wrapper } from '@/store/store';
-import { getIP, getPackages } from '@/api';
+import { getIP } from '@/reducers/auth/thunks';
+import { getPackages } from '@/reducers/packages/thunks';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import type { NextPage } from 'next';
 

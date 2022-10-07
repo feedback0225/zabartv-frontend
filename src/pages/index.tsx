@@ -2,7 +2,8 @@ import { Layout } from '@/components/Layout/Layout';
 import { Hero, Category, Music } from '@/screens/Home/index';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { wrapper } from '@/store/store';
-import { getHomeCategories, getIP } from '@/api';
+import { getIP } from '@/reducers/auth/thunks';
+import { getHomeCategories } from '@/reducers/home/thunks';
 import type { NextPage } from 'next';
 
 const HomePage: NextPage = () => {

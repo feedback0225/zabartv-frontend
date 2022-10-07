@@ -1,6 +1,6 @@
-import { getMe, updateUserData } from '@/api';
 import { useAppDispatch } from '@/hooks/useAppDispatch';
 import { IUser } from '@/types/IUser';
+import { updateUser, getMe } from '@/reducers/user/thunks';
 import { Checkbox } from '@/UI/Checkbox/Checkbox';
 import { FC, useState } from 'react';
 import { CabinetInput } from '../index';
@@ -22,7 +22,7 @@ export const Settings: FC<SettingsProps> = ({ data }) => {
 	const dispatch = useAppDispatch();
 
 	const applyEmail = async (email: string) => {
-		await updateUserData({ email });
+		await dispatch(updateUser({ email }));
 
 		dispatch(getMe());
 	};

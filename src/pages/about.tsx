@@ -1,9 +1,9 @@
 import { Layout } from '@/components/Layout/Layout';
 import { About } from '@/screens/About/About';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import type { NextPage, GetStaticProps } from 'next';
+import type { NextPage } from 'next';
 import { wrapper } from '@/store/store';
-import { getIP } from '@/api';
+import { getIP } from '@/reducers/auth/thunks';
 
 const AboutPage: NextPage = () => {
 	return (

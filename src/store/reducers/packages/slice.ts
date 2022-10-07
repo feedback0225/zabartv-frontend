@@ -1,9 +1,9 @@
+import { IPackage } from '@/types/IPackage';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { getCategory } from '@/api';
-import { ICategory } from '@/types/ICategory';
+import { getPackages } from './thunks';
 
 interface IState {
-	data: [ICategory] | [];
+	data: IPackage[];
 	isLoading: boolean;
 	isError: boolean;
 }
@@ -14,24 +14,24 @@ const initialState: IState = {
 	isError: false,
 };
 
-export const categorySlice = createSlice({
-	name: 'category',
+export const packagesSlice = createSlice({
+	name: 'packages',
 	initialState,
 	reducers: {},
 	extraReducers: {
-		[getCategory.fulfilled.type]: (state, action: PayloadAction<[ICategory]>) => {
+		[getPackages.fulfilled.type]: (state, action: PayloadAction<IPackage[]>) => {
 			state.isLoading = false;
 			state.isError = false;
 			state.data = action.payload;
 		},
-		[getCategory.pending.type]: (state) => {
+		[getPackages.pending.type]: (state) => {
 			state.isLoading = true;
 		},
-		[getCategory.rejected.type]: (state) => {
+		[getPackages.rejected.type]: (state) => {
 			state.isLoading = false;
 			state.isError = true;
 		},
 	},
 });
 
-export const categoryReducer = categorySlice.reducer;
+export const packagesReducer = packagesSlice.reducer;

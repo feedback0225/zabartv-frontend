@@ -1,9 +1,9 @@
-import { menuActions } from './reducers/menuSlice';
-import { searchActions } from './reducers/searchSlice';
-import { modalActions } from './reducers/modalSlice';
-import { userActions } from './reducers/userSlice';
-import { playerActions } from './reducers/playerSlice';
-import { authActions } from './reducers/authSlice';
+import { menuActions } from './reducers/menu/slice';
+import { searchActions } from './reducers/search/slice';
+import { modalActions } from './reducers/modal/slice';
+import { userActions } from './reducers/user/slice';
+import { playerActions } from './reducers/player/slice';
+import { authActions } from './reducers/auth/slice';
 
 export const ActionsCreators = {
 	user: userActions,

@@ -11,25 +11,19 @@ import {
 import { register } from '@/api';
 import { useRouter } from 'next/router';
 import { RoutesEnum } from '@/constants/routes';
+import { useState } from 'react';
 import styles from './RegisterModal.module.scss';
 import * as Yup from 'yup';
-import { useState } from 'react';
 
 export const RegisterModal = () => {
-	const { isVisibleRegisterModal } = useTypedSelector((state) => state.modal);
-
-	const { email, name, ip } = useTypedSelector((state) => state.auth);
-
-	const { showRegisterModal } = useTypedActions((state) => state.modal);
-
-	const { ModalTitle, ModalInputs, ModalInput, ModalButton, ModalErrorMessage } = Modal;
 	const [errorMessages, setErrorMessages] = useState<string[]>([]);
-
+	const { isVisibleRegisterModal } = useTypedSelector((state) => state.modal);
+	const { email, name, ip } = useTypedSelector((state) => state.auth);
+	const { showRegisterModal } = useTypedActions((state) => state.modal);
+	const { ModalTitle, ModalInputs, ModalInput, ModalButton, ModalErrorMessage } = Modal;
 	const { push } = useRouter();
-
-	const handleClose = () => showRegisterModal(false);
-
 	const { setUser } = useTypedActions((state) => state.auth);
+	const handleClose = () => showRegisterModal(false);
 
 	const schema = Yup.object().shape({
 		password: Yup.string().min(6, shortPasswordMessage).required(requiredFieldMessage),

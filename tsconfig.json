@@ -23,6 +23,7 @@
 			"@/helpers/*": ["src/helpers/*"],
 			"@/styles/*": ["src/styles/*"],
 			"@/constants/*": ["src/constants/*"],
+			"@/reducers/*": ["src/store/reducers/*"],
 			"@/api": ["src/api/index"],
 			"@/store/*": ["src/store/*"],
 			"@/types/*": ["src/types/*"],

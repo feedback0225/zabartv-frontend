@@ -1,8 +1,9 @@
 import { Layout } from '@/components/Layout/Layout';
 import { Movie } from '@/screens/Movie/Movie';
 import { wrapper } from '@/store/store';
-import { getIP, getMovieById } from '@/api';
+import { getIP } from '@/reducers/auth/thunks';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { getMovieById } from '@/reducers/movie/thunks';
 import type { NextPage } from 'next';
 
 const MoviePage: NextPage = () => {

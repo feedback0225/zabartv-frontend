@@ -1,9 +1,10 @@
 import { Layout } from '@/components/Layout/Layout';
 import { Cabinet } from '@/screens/Cabinet/Cabinet';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import type { NextPage } from 'next';
 import { wrapper } from '@/store/store';
-import { getHistoryPayments, getIP, getMe } from '@/api';
+import { getHistoryPayments, getMe } from '@/reducers/user/thunks';
+import { getIP } from '@/reducers/auth/thunks';
+import type { NextPage } from 'next';
 
 const CabinetPage: NextPage = () => {
 	return (
@@ -18,7 +19,7 @@ export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async ({ 
 		payload: { id },
 	} = await dispatch(getMe());
 	await dispatch(getIP());
-	await dispatch(getHistoryPayments(1));
+	await dispatch(getHistoryPayments(id as number));
 
 	return {
 		props: {

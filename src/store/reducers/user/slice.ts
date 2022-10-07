@@ -1,17 +1,12 @@
 import { IHistoryPayment, IUser } from '@/types/IUser';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { getHistoryPayments, getMe } from '@/api';
+import { getHistoryPayments, getMe, updateUser } from './thunks';
 
 interface IState {
 	data: IUser;
 	history: IHistoryPayment[] | [];
 	isLoading: boolean;
 	isError: boolean;
-	name: string;
-	email: string;
-	password: string;
-	date: string;
-	isSubscribedEmail: boolean;
 }
 
 const initialState: IState = {
@@ -27,30 +22,12 @@ const initialState: IState = {
 	history: [],
 	isLoading: true,
 	isError: false,
-	name: 'Александр Самойлов',
-	email: 'aassmoilov@gmail.com',
-	password: '123123123',
-	date: '11.11.1111',
-	isSubscribedEmail: false,
 };
 
 export const userSlice = createSlice({
 	name: 'user',
 	initialState,
-	reducers: {
-		setSubscribedEmail: (state) => {
-			state.isSubscribedEmail = !state.isSubscribedEmail;
-		},
-		setEmail: (state, action) => {
-			state.email = action.payload;
-		},
-		setPassword: (state, action) => {
-			state.password = action.payload;
-		},
-		setDate: (state, action) => {
-			state.date = action.payload;
-		},
-	},
+	reducers: {},
 	extraReducers: {
 		[getMe.fulfilled.type]: (state, action: PayloadAction<IUser>) => {
 			state.isLoading = false;
@@ -64,7 +41,6 @@ export const userSlice = createSlice({
 			state.isLoading = false;
 			state.isError = true;
 		},
-
 		[getHistoryPayments.fulfilled.type]: (state, action: PayloadAction<IHistoryPayment[]>) => {
 			state.isLoading = false;
 			state.isError = false;
@@ -77,6 +53,17 @@ export const userSlice = createSlice({
 			state.isLoading = false;
 			state.isError = true;
 		},
+		[updateUser.fulfilled.type]: (state) => {
+			state.isLoading = false;
+			state.isError = false;
+		},
+		[updateUser.pending.type]: (state) => {
+			state.isLoading = true;
+		},
+		[updateUser.rejected.type]: (state) => {
+			state.isLoading = false;
+			state.isError = true;
+		}
 	},
 });
 

@@ -1,22 +1,22 @@
 import { AnyAction, combineReducers } from 'redux';
 import { HYDRATE } from 'next-redux-wrapper';
-import { searchReducer } from './reducers/searchSlice';
-import { menuReducer } from './reducers/menuSlice';
-import { modalReducer } from './reducers/modalSlice';
-import { userReducer } from './reducers/userSlice';
-import { subscribeReducer } from './reducers/subscribeSlice';
-import { homeReducer } from './reducers/homeSlice';
-import { movieReducer } from './reducers/movieSlice';
-import { playerReducer } from './reducers/playerSlice';
-import { categoryReducer } from './reducers/categorySlice';
-import { authReducer } from './reducers/authSlice';
+import { searchReducer } from './reducers/search/slice';
+import { menuReducer } from './reducers/menu/slice';
+import { modalReducer } from './reducers/modal/slice';
+import { userReducer } from './reducers/user/slice';
+import { packagesReducer } from './reducers/packages/slice';
+import { homeReducer } from './reducers/home/slice';
+import { movieReducer } from './reducers/movie/slice';
+import { playerReducer } from './reducers/player/slice';
+import { categoryReducer } from './reducers/category/slice';
+import { authReducer } from './reducers/auth/slice';
 
 export const rootReducer = combineReducers({
 	menu: menuReducer,
 	search: searchReducer,
 	modal: modalReducer,
 	user: userReducer,
-	subscribe: subscribeReducer,
+	subscribe: packagesReducer,
 	home: homeReducer,
 	movie: movieReducer,
 	player: playerReducer,

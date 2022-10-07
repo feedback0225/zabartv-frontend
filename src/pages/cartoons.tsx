@@ -3,7 +3,8 @@ import { Cartoons } from '@/screens/Cartoons/Cartoons';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import type { NextPage } from 'next';
 import { wrapper } from '@/store/store';
-import { getCategory, getIP } from '@/api';
+import { getIP } from '@/reducers/auth/thunks';
+import { getCategory } from '@/reducers/category/thunks';
 
 const CartoonsPage: NextPage = () => {
 	return (

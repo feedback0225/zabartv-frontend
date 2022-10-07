@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { getMovieById } from '@/api';
-import { IMovie } from '@/types/IMovie';
+import { ICategory } from '@/types/ICategory';
+import { getCategory } from './thunks';
 
 interface IState {
-	data: [IMovie] | [];
+	data: [ICategory] | [];
 	isLoading: boolean;
 	isError: boolean;
 }
@@ -14,24 +14,24 @@ const initialState: IState = {
 	isError: false,
 };
 
-export const movieSlice = createSlice({
-	name: 'movie',
+export const categorySlice = createSlice({
+	name: 'category',
 	initialState,
 	reducers: {},
 	extraReducers: {
-		[getMovieById.fulfilled.type]: (state, action: PayloadAction<[IMovie]>) => {
+		[getCategory.fulfilled.type]: (state, action: PayloadAction<[ICategory]>) => {
 			state.isLoading = false;
 			state.isError = false;
 			state.data = action.payload;
 		},
-		[getMovieById.pending.type]: (state) => {
+		[getCategory.pending.type]: (state) => {
 			state.isLoading = true;
 		},
-		[getMovieById.rejected.type]: (state) => {
+		[getCategory.rejected.type]: (state) => {
 			state.isLoading = false;
 			state.isError = true;
 		},
 	},
 });
 
-export const movieReducer = movieSlice.reducer;
+export const categoryReducer = categorySlice.reducer;

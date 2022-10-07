@@ -9,5 +9,5 @@ export const getSessionId = () => {
 	//     return window.localStorage.getItem('zabar_session_id')
 	// }
 
-	return 'qweqweqweqwe';
+	return 'qweqweqwe';
 };

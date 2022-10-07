@@ -1,9 +1,9 @@
-import { IPackage } from '@/types/IPackage';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { getPackages } from '@/api';
+import { getHomeCategories } from './thunks';
+import { ICategory } from '@/types/ICategory';
 
 interface IState {
-	data: IPackage[];
+	data: ICategory[];
 	isLoading: boolean;
 	isError: boolean;
 }
@@ -14,24 +14,24 @@ const initialState: IState = {
 	isError: false,
 };
 
-export const subscribeSlice = createSlice({
-	name: 'subscribe',
+export const homeSlice = createSlice({
+	name: 'home',
 	initialState,
 	reducers: {},
 	extraReducers: {
-		[getPackages.fulfilled.type]: (state, action: PayloadAction<IPackage[]>) => {
+		[getHomeCategories.fulfilled.type]: (state, action: PayloadAction<ICategory[]>) => {
 			state.isLoading = false;
 			state.isError = false;
 			state.data = action.payload;
 		},
-		[getPackages.pending.type]: (state) => {
+		[getHomeCategories.pending.type]: (state) => {
 			state.isLoading = true;
 		},
-		[getPackages.rejected.type]: (state) => {
+		[getHomeCategories.rejected.type]: (state) => {
 			state.isLoading = false;
 			state.isError = true;
 		},
 	},
 });
 
-export const subscribeReducer = subscribeSlice.reducer;
+export const homeReducer = homeSlice.reducer;

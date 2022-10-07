@@ -12,18 +12,10 @@ export interface CabinetInputProps extends InputHTMLAttributes<HTMLInputElement>
 	applyChanges: (value: string) => void;
 }
 
-export const CabinetInput: FC<CabinetInputProps> = ({
-	className,
-	applyChanges,
-	type,
-	value,
-	date,
-	label,
-	...props
-}) => {
+export const CabinetInput: FC<CabinetInputProps> = ({ applyChanges, type, value, label, ...props }) => {
 	const inputRef = useRef<HTMLInputElement>(null);
 	const [isEdited, setIsEdited] = useState<boolean>(false);
-	const [inputValue, setInputValue] = useState<string>(value);
+	const [inputValue, setInputValue] = useState<string>('');
 
 	const closeField = () => {
 		inputRef.current?.blur();
@@ -35,7 +27,7 @@ export const CabinetInput: FC<CabinetInputProps> = ({
 			setIsEdited(true);
 			inputRef.current?.focus();
 		} else {
-			setInputValue(value);
+			setInputValue('');
 			closeField();
 		}
 	};
@@ -47,6 +39,7 @@ export const CabinetInput: FC<CabinetInputProps> = ({
 	const handleApplyChanges = () => {
 		applyChanges(inputValue);
 		closeField();
+		setInputValue('');
 	};
 
 	return (
@@ -57,7 +50,7 @@ export const CabinetInput: FC<CabinetInputProps> = ({
 				ref={inputRef}
 				className={classNames(styles.input, !isEdited && styles.value)}
 				type={isEdited ? 'text' : type}
-				placeholder={value}
+				placeholder={!isEdited ? value : ''}
 				value={inputValue}
 				onChange={handleChange}
 				{...props}

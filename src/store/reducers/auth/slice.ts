@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { getIP } from '@/api';
+import { getIP } from '@/reducers/auth/thunks';
 import type { IUser } from '@/types/IUser';
 
 interface AuthState {
@@ -21,7 +21,7 @@ const authSlice = createSlice({
 	initialState,
 	reducers: {
 		setUser: (state, action) => {
-			localStorage.setItem('zabar_userId', String(action.payload.id)),
+			localStorage.setItem('zabar_user_id', String(action.payload.id)),
 				(state.user = action.payload);
 		},
 		setEmail: (state, action) => {
