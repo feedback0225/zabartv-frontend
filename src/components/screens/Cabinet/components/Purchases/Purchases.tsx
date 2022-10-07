@@ -1,8 +1,8 @@
-import { convertTimestampToDate } from '@/helpers/convertTimestampToDate';
+import { convertTimestampToDate } from '@/utils/convertTimestampToDate';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { Title } from '@/UI/Title/Title';
-import classNames from 'classnames';
 import { Fragment } from 'react';
+import classNames from 'classnames';
 import styles from './Purchases.module.scss';
 
 export const Purchases = () => {
@@ -17,8 +17,6 @@ export const Purchases = () => {
 
 		return { date, period, price: '12€' };
 	});
-
-	console.log(history);
 
 	return (
 		<>

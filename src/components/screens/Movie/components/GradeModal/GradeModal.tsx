@@ -1,10 +1,11 @@
 import { Modal } from '@/UI/Modal/Modal';
 import { Grade } from '@/UI/Grade/Grade';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 import { useTypedActions } from '@/hooks/useTypedActions';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
-import { useState } from 'react';
-import { gradeFilm } from '@/api';
-import { useRouter } from 'next/router';
+import { IGradeResponse } from '@/types/IGrade';
+import axios from '@/utils/axios';
 
 export const GradeModal = () => {
 	const [rating, setRating] = useState<number>(0);
@@ -18,6 +19,20 @@ export const GradeModal = () => {
 	const { showGradeModal } = useTypedActions((state) => state.modal);
 
 	const handleClose = () => showGradeModal(false);
+
+	const gradeFilm = async ({ id, rating }: IGradeResponse) => {
+		try {
+			await axios.get('/items/rating', {
+				params: {
+					film_id: id,
+					type: 'add',
+					rating,
+				},
+			});
+		} catch (error) {
+			console.error(error);
+		}
+	};
 
 	const handleGrade = () => {
 		gradeFilm({ id, rating });

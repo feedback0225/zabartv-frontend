@@ -8,11 +8,12 @@ import {
 	requiredPasswordMessage,
 	shortPasswordMessage,
 } from '@/constants/validation';
-import { login } from '@/api';
 import { useRouter } from 'next/router';
+import { ILoginResponse } from '@/types/IUser';
 import { RoutesEnum } from '@/constants/routes';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { useState } from 'react';
+import axios from '@/utils/axios';
 import * as Yup from 'yup';
 
 export const LoginContent = () => {
@@ -42,6 +43,23 @@ export const LoginContent = () => {
 	const [errorMessages, setErrorMessages] = useState<string[]>([]);
 	const { ip } = useTypedSelector((state) => state.auth);
 	const { setUser } = useTypedActions((state) => state.auth);
+
+	const login = async ({ identity, password, rememberMe, ip }: ILoginResponse) => {
+		try {
+			const { data } = await axios({
+				url: `/session/sign-in`,
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded',
+				},
+				method: 'post',
+				data: `identity=${identity}&password=${password}&rememberMe=${rememberMe}&ip=${ip}`,
+			});
+
+			return data;
+		} catch (error) {
+			console.error(error);
+		}
+	};
 
 	const handleLogin = handleSubmit(async (form) => {
 		const { email, password } = form;

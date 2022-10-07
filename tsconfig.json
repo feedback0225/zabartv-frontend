@@ -20,11 +20,10 @@
 			"@/icons": ["src/components/Icons"],
 			"@/screens/*": ["src/components/screens/*"],
 			"@/components/*": ["src/components/*"],
-			"@/helpers/*": ["src/helpers/*"],
+			"@/utils/*": ["src/utils/*"],
 			"@/styles/*": ["src/styles/*"],
 			"@/constants/*": ["src/constants/*"],
 			"@/reducers/*": ["src/store/reducers/*"],
-			"@/api": ["src/api/index"],
 			"@/store/*": ["src/store/*"],
 			"@/types/*": ["src/types/*"],
 			"@/hooks/*": ["src/hooks/*"]

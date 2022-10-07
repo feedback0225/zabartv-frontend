@@ -8,11 +8,12 @@ import {
 	doNotMatchPasswordsMessage,
 	shortPasswordMessage,
 } from '@/constants/validation';
-import { register } from '@/api';
+import { IRegisterResponse } from '@/types/IUser';
 import { useRouter } from 'next/router';
 import { RoutesEnum } from '@/constants/routes';
 import { useState } from 'react';
 import styles from './RegisterModal.module.scss';
+import axios from '@/utils/axios';
 import * as Yup from 'yup';
 
 export const RegisterModal = () => {
@@ -43,6 +44,23 @@ export const RegisterModal = () => {
 		},
 		resolver: yupResolver(schema),
 	});
+
+	const register = async ({ name, email, password, password_confirm, ip }: IRegisterResponse) => {
+		try {
+			const { data } = await axios({
+				url: `/session/sign-up`,
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded',
+				},
+				method: 'post',
+				data: `username=${name}&email=${email}&password=${password}&password_confirm=${password_confirm}&ip=${ip}`,
+			});
+
+			return data;
+		} catch (error) {
+			console.error(error);
+		}
+	};
 
 	const handleRegister = handleSubmit(async (form) => {
 		const { password, password_confirm } = form;
