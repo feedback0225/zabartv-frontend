@@ -4,7 +4,7 @@ import { getHistoryPayments, getMe } from '@/api';
 
 interface IState {
 	data: IUser;
-	history: IHistoryPayment[] | []
+	history: IHistoryPayment[] | [];
 	isLoading: boolean;
 	isError: boolean;
 	name: string;
@@ -22,7 +22,7 @@ const initialState: IState = {
 		email: '',
 		first_name: '',
 		last_name: '',
-		username: ''
+		username: '',
 	},
 	history: [],
 	isLoading: true,

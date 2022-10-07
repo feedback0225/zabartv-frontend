@@ -14,14 +14,14 @@ export interface ILoginResponse {
 }
 
 export interface IHistoryPayment {
-	order_id: number,
-    package_id: number,
-    start_date: string,
-    subscribe_period: 15,
-    finish_date: string,
-    payment_status: number,
-    subscribe_status: number,
-    payment_method: number
+	order_id: number;
+	package_id: number;
+	start_date: string;
+	subscribe_period: 15;
+	finish_date: string;
+	payment_status: number;
+	subscribe_status: number;
+	payment_method: number;
 }
 
 export interface IUser {
@@ -37,7 +37,7 @@ export interface IUser {
 }
 
 export interface IUpdateResponse {
-	date_of_birth: string,
-	email: string,
-	password: string,
+	date_of_birth: string;
+	email: string;
+	password: string;
 }

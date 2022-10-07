@@ -7,4 +7,4 @@ export const convertTimestampToDate = (
 	format: string = 'DD/MM/YYYY'
 ) => {
 	return dayjs(string).format(format);
-}
+};

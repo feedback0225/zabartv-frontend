@@ -21,7 +21,7 @@ export const rootReducer = combineReducers({
 	movie: movieReducer,
 	player: playerReducer,
 	category: categoryReducer,
-	auth: authReducer
+	auth: authReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

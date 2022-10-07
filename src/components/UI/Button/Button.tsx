@@ -15,7 +15,10 @@ export interface ButtonProps {
 }
 
 export const Button: FC<PropsWithChildren<ButtonProps>> = forwardRef(
-	({ as = 'button', disabled, children, variant, icon, size = 'medium', className, ...props }, ref) => {
+	(
+		{ as = 'button', disabled, children, variant, icon, size = 'medium', className, ...props },
+		ref
+	) => {
 		const proxy = {
 			link: 'a',
 			button: ButtonBase,

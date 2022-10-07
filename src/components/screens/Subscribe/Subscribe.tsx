@@ -12,8 +12,8 @@ export const Subscribe = () => {
 			<div className={classNames('container', styles.container)}>
 				<Title className={styles.title}>Подиска ZabarTV</Title>
 				<p className={styles.desc}>
-					Покажем уникальные сериалы и фильмы. Подберем кино по интересам и настроению. Для вас и
-					вашей семьи.
+					Покажем уникальные сериалы и фильмы. Подберем кино по интересам и настроению. Для вас
+					и вашей семьи.
 				</p>
 				<div className={styles.cards}>
 					{data?.map((card) => (
