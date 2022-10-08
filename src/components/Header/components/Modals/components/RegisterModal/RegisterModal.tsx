@@ -48,7 +48,7 @@ export const RegisterModal = () => {
 	const register = async ({ name, email, password, password_confirm, ip }: IRegisterResponse) => {
 		try {
 			const { data } = await axios({
-				url: `/session/sign-up`,
+				url: '/session/sign-up',
 				headers: {
 					'Content-Type': 'application/x-www-form-urlencoded',
 				},

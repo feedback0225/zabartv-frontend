@@ -1,3 +1,7 @@
+.section {
+	position: relative;
+}
+
 .container {
 	padding-top: 35px;
 	padding-bottom: 72px;
@@ -57,6 +61,7 @@
 .text {
 	display: flex;
 	flex-direction: column;
+	align-items: flex-start;
 	margin-left: 39px;
 
 	@media (max-width: 1200px) {
@@ -77,6 +82,7 @@
 	color: #fff;
 	color: var(--color-white);
 	transition: color 0.3s;
+	margin-bottom: 3px;
 
 	@media (max-width: 1200px) {
 		font-size: 40px;
@@ -100,7 +106,12 @@
 	color: var(--color-lightt);
 	font-size: 20px;
 	line-height: 36px;
+	margin-bottom: 2px;
 	white-space: nowrap;
+
+	&:not(:last-child) {
+		margin-bottom: 5px;
+	}
 
 	@media (max-width: 576px) {
 		justify-content: center;
@@ -133,4 +144,21 @@
 			}
 		}
 	}
+}
+
+.loader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--color-dark);
+	transition: background-color 0.3s;
+}
+
+.logout {
+	margin-top: 2px;
 }

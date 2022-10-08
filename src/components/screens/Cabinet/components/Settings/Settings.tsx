@@ -13,7 +13,7 @@ interface SettingsProps {
 export const Settings: FC<SettingsProps> = ({ data }) => {
 	const { email, date_of_birth } = data;
 
-	// const [password, setPassword] = useState('');
+	const [password, setPassword] = useState('');
 
 	const [isSubscribedEmail, setIsSubscribedEmail] = useState<boolean>(false);
 
@@ -22,20 +22,25 @@ export const Settings: FC<SettingsProps> = ({ data }) => {
 	const dispatch = useAppDispatch();
 
 	const applyEmail = async (email: string) => {
-		await dispatch(updateUser({ email }));
+		await dispatch(updateUser({ email, date_of_birth, password }));
 
 		dispatch(getMe());
 	};
 
-	/* const applyDate = async (newDate: string) => {
-		await updateUserData({ email, date_of_birth: newDate, password });
+	const applyDate = async (date_of_birth: string) => {
+		await dispatch(updateUser({ email, date_of_birth, password }));
+
+		dispatch(getMe());
 	};
 
-	const applyPassword = async (newPassword: string) => {
-		setPassword(newPassword);
+	const applyPassword = async (password: string) => {
 
-		await updateUserData({ email, date_of_birth, password: newPassword });
-	}; */
+		setPassword(password)
+
+		await dispatch(updateUser({ email, date_of_birth, password }));
+
+		dispatch(getMe());
+	};
 
 	return (
 		<div className={styles.settings}>
@@ -46,13 +51,14 @@ export const Settings: FC<SettingsProps> = ({ data }) => {
 					value={email}
 					applyChanges={applyEmail}
 				/>
-				{/* <CabinetInput label="Пароль" type="password" value={password} applyChanges={applyPassword} />
+				<CabinetInput label="Пароль" type="password" value={password} placeholder='Введите пароль' applyChanges={applyPassword} />
 				<CabinetInput
 					label="Дата рождения"
 					type="text"
+					placeholder={date_of_birth !== null ? date_of_birth : 'Введите дату рождения'}
 					value={date_of_birth}
 					applyChanges={applyDate}
-				/> */}
+				/>
 			</div>
 			<Checkbox
 				checked={isSubscribedEmail}

@@ -7,7 +7,7 @@ export const getMe = createAsyncThunk('user/getMe', async () => {
 	const { data: { id } } = await axios.get('/session/getid');
 
 	/* Генерация хэша. Много вопросов, мало ответов */
-	const hash = `0${getSessionId()}-posddiosdfuyu-ln-${id}-zspdaasid`
+	const hash = `0${getSessionId()}-${Math.random()}-ln-${id}-${Math.random()}`
 
 	const { data } = await axios.get('/session/getuserdata', {
 		params: {
