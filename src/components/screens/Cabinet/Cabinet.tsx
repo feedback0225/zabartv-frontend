@@ -7,11 +7,12 @@ import { getHistoryPayments, getMe } from '@/reducers/user/thunks';
 import { useAppDispatch } from '@/hooks/useAppDispatch';
 import { Spinner, SpinnerSizes } from '@/UI/Spinner/Spinner';
 import { Link } from '@/UI/Link/Link';
-import classNames from 'classnames';
-import styles from './Cabinet.module.scss';
 import { useTypedActions } from '@/hooks/useTypedActions';
 import { useRouter } from 'next/router';
 import { RoutesEnum } from '@/constants/routes';
+import axios from '@/utils/axios';
+import classNames from 'classnames';
+import styles from './Cabinet.module.scss';
 
 export const Cabinet = () => {
 	const {push} = useRouter()
@@ -42,7 +43,8 @@ export const Cabinet = () => {
 		await dispatch(getHistoryPayments(id as number));
 	};
 
-	const logoutUser = () => {
+	const logoutUser = async () => {
+		await axios.get('/session/logout')
 		logout()
 		push(RoutesEnum.Home)
 	}
