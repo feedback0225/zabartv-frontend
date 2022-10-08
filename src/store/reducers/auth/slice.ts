@@ -21,8 +21,8 @@ const authSlice = createSlice({
 	initialState,
 	reducers: {
 		setUser: (state, action) => {
-			localStorage.setItem('zabar_user_id', String(action.payload.id)),
-				(state.user = action.payload);
+			localStorage.setItem('zabar_user_id', String(action.payload.id));
+			state.user = action.payload;
 		},
 		setEmail: (state, action) => {
 			state.email = action.payload;
@@ -30,10 +30,10 @@ const authSlice = createSlice({
 		setName: (state, action) => {
 			state.name = action.payload;
 		},
-		logout: state => {
+		logout: (state) => {
 			localStorage.removeItem('zabar_user_id');
 			state.user = {};
-		}
+		},
 	},
 	extraReducers: {
 		[getIP.fulfilled.type]: (state, action: PayloadAction<string>) => {

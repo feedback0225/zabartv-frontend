@@ -63,7 +63,7 @@ export const userSlice = createSlice({
 		[updateUser.rejected.type]: (state) => {
 			state.isLoading = false;
 			state.isError = true;
-		}
+		},
 	},
 });
 

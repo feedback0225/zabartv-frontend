@@ -34,8 +34,7 @@ export const Settings: FC<SettingsProps> = ({ data }) => {
 	};
 
 	const applyPassword = async (password: string) => {
-
-		setPassword(password)
+		setPassword(password);
 
 		await dispatch(updateUser({ email, date_of_birth, password }));
 
@@ -51,7 +50,13 @@ export const Settings: FC<SettingsProps> = ({ data }) => {
 					value={email}
 					applyChanges={applyEmail}
 				/>
-				<CabinetInput label="Пароль" type="password" value={password} placeholder='Введите пароль' applyChanges={applyPassword} />
+				<CabinetInput
+					label="Пароль"
+					type="password"
+					value={password}
+					placeholder="Введите пароль"
+					applyChanges={applyPassword}
+				/>
 				<CabinetInput
 					label="Дата рождения"
 					type="text"

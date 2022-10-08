@@ -14,7 +14,6 @@ const CabinetPage: NextPage = () => {
 };
 
 export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async ({ locale }) => {
-
 	await dispatch(getIP());
 
 	return {

@@ -15,9 +15,9 @@ import classNames from 'classnames';
 import styles from './Cabinet.module.scss';
 
 export const Cabinet = () => {
-	const {push} = useRouter()
+	const { push } = useRouter();
 	const { data, isLoading } = useTypedSelector((state) => state.user);
-	const {logout} = useTypedActions(state => state.auth)
+	const { logout } = useTypedActions((state) => state.auth);
 
 	/* временно */
 	const USER_INFO = {
@@ -44,10 +44,10 @@ export const Cabinet = () => {
 	};
 
 	const logoutUser = async () => {
-		await axios.get('/session/logout')
-		logout()
-		push(RoutesEnum.Home)
-	}
+		await axios.get('/session/logout');
+		logout();
+		push(RoutesEnum.Home);
+	};
 
 	useEffect(() => {
 		fetchData();
