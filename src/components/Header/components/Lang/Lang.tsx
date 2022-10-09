@@ -1,10 +1,10 @@
 import { RuIcon, CeIcon, ArrowIcon } from '@/icons';
 import { FC, useRef, useState } from 'react';
 import { useOnClickOutside } from 'usehooks-ts';
+import { useRouter } from 'next/router';
 import NextLink from 'next/link';
 import classNames from 'classnames';
 import styles from './Lang.module.scss';
-import { useRouter } from 'next/router';
 
 interface LangProps {
 	className?: string;

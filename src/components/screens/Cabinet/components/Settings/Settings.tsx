@@ -48,6 +48,7 @@ export const Settings: FC<SettingsProps> = ({ data }) => {
 					label="Электронная почта"
 					type="email"
 					value={email}
+					placeholder={email}
 					applyChanges={applyEmail}
 				/>
 				<CabinetInput
