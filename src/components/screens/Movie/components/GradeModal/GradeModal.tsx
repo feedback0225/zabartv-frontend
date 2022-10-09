@@ -1,10 +1,11 @@
 import { Modal } from '@/UI/Modal/Modal';
 import { Grade } from '@/UI/Grade/Grade';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useTypedActions } from '@/hooks/useTypedActions';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { IGradeResponse } from '@/types/IGrade';
+import { ICheckRating } from '@/types/ICheckRating';
 import axios from '@/utils/axios';
 
 export const GradeModal = () => {
@@ -22,7 +23,7 @@ export const GradeModal = () => {
 
 	const gradeFilm = async ({ id, rating }: IGradeResponse) => {
 		try {
-			await axios.get('/items/rating', {
+			await axios.get<ICheckRating>('/items/rating', {
 				params: {
 					film_id: id,
 					type: 'add',
@@ -40,6 +41,26 @@ export const GradeModal = () => {
 	};
 
 	const { ModalTitle, ModalButton } = Modal;
+
+	const getRating = async () => {
+		try {
+			const {data: {film_rating}} = await axios.get<ICheckRating>('/items/rating', {
+				params: {
+					film_id: id,
+					type: 'check',
+				}
+			})
+
+			setRating(film_rating ? film_rating : 0)
+			
+		} catch (error) {
+			console.error(error)
+		}
+	}
+
+	useEffect(() => {
+		getRating()
+	}, [])
 
 	return (
 		<Modal fullscreen variant="grade" open={isVisibleGradeModal} onClose={handleClose}>

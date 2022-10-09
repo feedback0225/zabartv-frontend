@@ -58,7 +58,6 @@ export const Cabinet = () => {
 
 			isAuth ? fetchData() : push(RoutesEnum.Home)
 		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (
