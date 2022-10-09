@@ -50,7 +50,14 @@ export const Cabinet = () => {
 	};
 
 	useEffect(() => {
-		fetchData();
+		if(typeof window !== 'undefined') {
+
+			const isAuth = Boolean(
+				localStorage.getItem('zabar_user_id') && localStorage.getItem('zabar_user_id') !== 'undefined'
+			);
+
+			isAuth ? fetchData() : push(RoutesEnum.Home)
+		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
