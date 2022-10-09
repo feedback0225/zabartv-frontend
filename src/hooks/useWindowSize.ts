@@ -9,7 +9,6 @@ export const useWindowSize = () => {
 	useEffect(() => {
 		if (typeof window !== 'undefined') {
 			const handleResize = () => {
-				// Set window width/height to state
 				setWindowSize({
 					width: window.innerWidth,
 					height: window.innerHeight,

@@ -5,8 +5,10 @@ import { RoutesEnum } from '@/constants/routes';
 import NextLink from 'next/link';
 import classNames from 'classnames';
 import styles from './Actions.module.scss';
+import { useRouter } from 'next/router';
 
 export const Actions = () => {
+	const { pathname } = useRouter()
 	const { showAuthModal } = useTypedActions((state) => state.modal);
 	const { setVisibleSearch } = useTypedActions((state) => state.search);
 
@@ -18,15 +20,23 @@ export const Actions = () => {
 
 	const handleShowModal = () => showAuthModal(true);
 
+	const isCabinetPage = pathname === '/cabinet'
+
 	return (
 		<ul className={classNames('list-reset', styles.list)}>
 			<li className={styles.item}>
 				{isAuth ? (
-					<NextLink href={RoutesEnum.Cabinet}>
-						<a className={styles.btn}>
+					isCabinetPage ? (
+						<ButtonBase className={styles.btn}>
 							<ProfileIcon />
-						</a>
-					</NextLink>
+						</ButtonBase>
+					) : (
+						<NextLink href={RoutesEnum.Cabinet}>
+							<a className={styles.btn}>
+								<ProfileIcon />
+							</a>
+						</NextLink>
+					)
 				) : (
 					<ButtonBase onClick={handleShowModal} className={styles.btn}>
 						<ProfileIcon />
