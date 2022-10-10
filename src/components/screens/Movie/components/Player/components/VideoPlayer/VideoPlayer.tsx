@@ -46,6 +46,7 @@ export const VideoPlayer = () => {
 
 	useEffect(() => {
 		if (!isVisiblePlayer) playerRef.current?.pause();
+		if (isVisiblePlayer) playerRef.current?.play();
 	}, [isVisiblePlayer]);
 
 	return (
