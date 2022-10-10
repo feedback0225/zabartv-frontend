@@ -17,7 +17,9 @@ export interface IHistoryPayment {
 	order_id: number;
 	package_id: number;
 	start_date: string;
-	subscribe_period: 15;
+	package_period: number;
+	package_price: string;
+	subscribe_period: number;
 	finish_date: string;
 	payment_status: number;
 	subscribe_status: number;

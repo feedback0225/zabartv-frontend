@@ -28,9 +28,9 @@ export const Cabinet = () => {
 
 	const USER_TABS = [
 		{ txt: 'Настройки', content: <Settings data={data} /> },
-		{ txt: 'Избранное', content: <Favourites /> },
+		// { txt: 'Избранное', content: <Favourites /> },
 		{ txt: 'История покупок', content: <Purchases /> },
-		{ txt: 'История просмотров', content: <Views /> },
+		// { txt: 'История просмотров', content: <Views /> },
 	];
 
 	const dispatch = useAppDispatch();
@@ -70,14 +70,14 @@ export const Cabinet = () => {
 							<h1 className={styles.name}>{data.username}</h1>
 							<span className={styles.mail}>
 								<MailIcon />
-								{data.email}
+								<span className={styles.mailText}>{data.email}</span>
 							</span>
 							<Link onClick={logoutUser} className={styles.logout} as={'button'}>
 								Выйти
 							</Link>
 						</div>
 					</div>
-					<SubscribeInfo info={USER_INFO} />
+					{/* <SubscribeInfo info={USER_INFO} /> */}
 				</div>
 				<Tabs className={styles.tabs} tabs={USER_TABS} />
 			</div>
