@@ -43,7 +43,7 @@ export const Purchases = () => {
 							})}
 						</div>
 					) : (
-						<Title level="h3" size="small" style={{ color: '#fff' }}>
+						<Title className={styles.errorMessage} level="h3" size="small">
 							{/* @ts-ignore */}
 							{item}
 						</Title>
