@@ -2,18 +2,21 @@ import { ChangeEvent, FC, InputHTMLAttributes, useRef, useState } from 'react';
 import { ButtonBase } from '@/components/ButtonBase/ButtonBase';
 import { EditIcon, CloseIcon } from '@/icons';
 import { Link } from '@/UI/Link/Link';
+import { IMaskInput } from 'react-imask';
 import classNames from 'classnames';
 import styles from './CabinetInput.module.scss';
 
 export interface CabinetInputProps extends InputHTMLAttributes<HTMLInputElement> {
 	label: string;
+	mask?: string;
 	date?: boolean;
 	value: string;
 	applyChanges: (value: string) => void;
 }
 
-export const CabinetInput: FC<CabinetInputProps> = ({ applyChanges, placeholder, type, value, label, ...props }) => {
+export const CabinetInput: FC<CabinetInputProps> = ({ applyChanges, placeholder, mask, type, value, label, ...props }) => {
 	const inputRef = useRef<HTMLInputElement>(null);
+	const ref = useRef(null)
 	const [isEdited, setIsEdited] = useState<boolean>(false);
 	const [inputValue, setInputValue] = useState<string>('');
 
@@ -45,16 +48,30 @@ export const CabinetInput: FC<CabinetInputProps> = ({ applyChanges, placeholder,
 	return (
 		<div data-testid="cabinet-input-item" className={styles.item}>
 			<span className={styles.label}>{label}</span>
-			<input
-				data-testid="cabinet-input"
-				ref={inputRef}
-				className={classNames(styles.input, !isEdited && styles.value)}
-				type={isEdited ? 'text' : type}
-				placeholder={!isEdited ? placeholder : ''}
-				value={inputValue}
-				onChange={handleChange}
-				{...props}
-			/>
+			{mask ? (
+				<IMaskInput
+					mask={mask}
+					unmask={true}
+					ref={ref}
+					inputRef={inputRef}
+					className={classNames(styles.input, !isEdited && styles.value)}
+					/* @ts-ignore */
+					placeholder={!isEdited ? placeholder : ''}
+					onAccept={(_, mask) => setInputValue(mask.value)}
+					{...props}
+				/>
+			) : (
+				<input
+					data-testid="cabinet-input"
+					ref={inputRef}
+					className={classNames(styles.input, !isEdited && styles.value)}
+					type={isEdited ? 'text' : type}
+					placeholder={!isEdited ? placeholder : ''}
+					value={inputValue}
+					onChange={handleChange}
+					{...props}
+				/>
+			)}
 			{isEdited && (
 				<Link
 					disabled={inputValue.length === 0}

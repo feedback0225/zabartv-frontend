@@ -11,34 +11,33 @@ interface SettingsProps {
 }
 
 export const Settings: FC<SettingsProps> = ({ data }) => {
+
+	const dispatch = useAppDispatch();
+
 	const { email, date_of_birth } = data;
 
-	const [password, setPassword] = useState('');
+	const [password] = useState('');
 
 	const [isSubscribedEmail, setIsSubscribedEmail] = useState<boolean>(false);
 
 	const handleSubscribeEmail = () => setIsSubscribedEmail(!isSubscribedEmail);
 
-	const dispatch = useAppDispatch();
-
 	const applyEmail = async (email: string) => {
 		await dispatch(updateUser({ email, date_of_birth, password }));
 
-		dispatch(getMe());
+		await dispatch(getMe());
 	};
 
 	const applyDate = async (date_of_birth: string) => {
 		await dispatch(updateUser({ email, date_of_birth, password }));
 
-		dispatch(getMe());
+		await dispatch(getMe());
 	};
 
 	const applyPassword = async (password: string) => {
-		setPassword(password);
-
 		await dispatch(updateUser({ email, date_of_birth, password }));
 
-		dispatch(getMe());
+		await dispatch(getMe());
 	};
 
 	return (
@@ -59,6 +58,7 @@ export const Settings: FC<SettingsProps> = ({ data }) => {
 					applyChanges={applyPassword}
 				/>
 				<CabinetInput
+					mask='00.00.0000'
 					label="Дата рождения"
 					type="text"
 					placeholder={date_of_birth !== null ? date_of_birth : 'Введите дату рождения'}
