@@ -21,7 +21,6 @@ export const MovieItem: FC<MovieItemProps> = ({ item, favourite }) => {
 						<Image
 							priority
 							quality={100}
-							unoptimized
 							layout="fill"
 							className={styles.image}
 							src={image}

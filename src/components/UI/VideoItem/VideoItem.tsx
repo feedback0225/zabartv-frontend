@@ -13,7 +13,7 @@ export const VideoItem: FC<VideoItemProps> = ({ item }) => {
 	return (
 		<a className={styles.item}>
 			<div className={styles.top}>
-				<Image priority quality={100} unoptimized layout="fill" src={poster} alt={title} />
+				<Image priority quality={100} layout="fill" src={poster} alt={title} />
 				<span className={styles.play}>
 					<PlayIcon />
 				</span>
