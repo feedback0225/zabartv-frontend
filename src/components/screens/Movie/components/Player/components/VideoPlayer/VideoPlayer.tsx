@@ -33,12 +33,12 @@ export const VideoPlayer = () => {
 					playToggle: true,
 				},
 
-				sources: [
+				/* sources: [
 					{
 						src: 'https://appsignals.coderman.top/stream/index?path=/1/MH4D2psEpK5nt42q5pml-4pxvwe5wjaZ.mp4',
 						type: 'video/mp4',
 					},
-				],
+				], */
 			});
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
