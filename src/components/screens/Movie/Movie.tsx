@@ -2,8 +2,9 @@ import { Chip } from '@/UI/Chip/Chip';
 import { Title } from '@/UI/Title/Title';
 import { PlayIcon, StarIcon } from '@/icons';
 import { Button } from '@/UI/Button/Button';
+import { Player } from '@/components/Player/Player'
 import { useTypedSelector } from '@/hooks/useTypedSelector';
-import { Player, Seasons, Rating, GradeModal } from './components';
+import { Seasons, Rating, GradeModal } from './components';
 import { useTypedActions } from '@/hooks/useTypedActions';
 import classNames from 'classnames';
 import styles from './Movie.module.scss';
@@ -74,7 +75,7 @@ export const Movie = () => {
 						</div>
 					</div>
 				</div>
-				{parts && <Seasons parts={parts} />}
+				{parts?.length ? <Seasons parts={parts} /> : null}
 			</section>
 			<Player />
 			<GradeModal />
