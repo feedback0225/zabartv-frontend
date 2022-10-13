@@ -5,6 +5,7 @@ import { wrapper } from '@/store/store';
 import { getIP } from '@/reducers/auth/thunks';
 import { getHomeCategories } from '@/reducers/home/thunks';
 import type { NextPage } from 'next';
+import { Player } from '@/components/Player/Player';
 
 const HomePage: NextPage = () => {
 	return (
@@ -12,6 +13,7 @@ const HomePage: NextPage = () => {
 			<Hero />
 			<Category />
 			<Music />
+			<Player />
 		</Layout>
 	);
 };

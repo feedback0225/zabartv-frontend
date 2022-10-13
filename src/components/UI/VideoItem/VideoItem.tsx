@@ -1,5 +1,6 @@
 import { PlayIcon } from '@/icons';
 import { FC } from 'react';
+import { useTypedActions } from '@/hooks/useTypedActions';
 import Image from 'next/image';
 import styles from './VideoItem.module.scss';
 
@@ -10,8 +11,14 @@ interface VideoItemProps {
 export const VideoItem: FC<VideoItemProps> = ({ item }) => {
 	const { poster, id, title, desc } = item;
 
+	const {openPlayer} = useTypedActions(state => state.player)
+
+	const handleOpenPlayer = () => {
+		openPlayer(true)
+	}
+
 	return (
-		<a className={styles.item}>
+		<div onClick={handleOpenPlayer} className={styles.item}>
 			<div className={styles.top}>
 				<Image priority quality={100} layout="fill" src={poster} alt={title} />
 				<span className={styles.play}>
@@ -20,6 +27,6 @@ export const VideoItem: FC<VideoItemProps> = ({ item }) => {
 			</div>
 			<h3 className={styles.title}>{title}</h3>
 			<span className={styles.desc}>{desc}</span>
-		</a>
+		</div>
 	);
 };
