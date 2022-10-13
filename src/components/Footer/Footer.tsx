@@ -73,7 +73,7 @@ export const Footer: FC<FooterProps> = ({ sticky }) => {
 					<Social />
 					<p className={styles.desc}>
 						Дизайн и разработка -&nbsp;
-						<a href="https://rusodot.ru/" className={styles.descLink}>
+						<a target={'_blank'} href="https://rusodot.ru/" className={styles.descLink}>
 							RUSO
 						</a>
 					</p>
