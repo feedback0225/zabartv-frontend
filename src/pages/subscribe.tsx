@@ -5,6 +5,7 @@ import { getIP } from '@/reducers/auth/thunks';
 import { getPackages } from '@/reducers/packages/thunks';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import type { NextPage } from 'next';
+import axios from '@/utils/axios';
 
 const SubscribePage: NextPage = () => {
 	return (
@@ -15,8 +16,15 @@ const SubscribePage: NextPage = () => {
 };
 
 export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async ({ locale }) => {
-	await dispatch(getPackages());
 	await dispatch(getIP());
+
+	if (locale === 'che') {
+		await axios.get(`/languages/index?lang=uk-UA`);
+		await dispatch(getPackages());
+	} else if (locale === 'ru') {
+		await axios.get(`/languages/index?lang=ru-RU`);
+		await dispatch(getPackages());
+	}
 
 	return {
 		props: {

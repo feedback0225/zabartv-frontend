@@ -1,6 +1,6 @@
 export const getSessionId = () => {
 	if (typeof window === 'undefined') {
-		return 'qweqweqweqweqwe';
+		return 'qweqwe';
 	} else {
 		if (!window?.localStorage?.getItem('zabar_session_id')?.length) {
 			window.localStorage.setItem('zabar_session_id', String(Date.now()));

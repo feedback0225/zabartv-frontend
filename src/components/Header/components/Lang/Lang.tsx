@@ -23,7 +23,7 @@ export const Lang: FC<LangProps> = ({ className }) => {
 
 	const items = [
 		{ icon: <RuIcon />, txt: 'Русский язык', locale: 'ru' },
-		{ icon: <CeIcon />, txt: 'Чеченский язык', locale: 'ce' },
+		{ icon: <CeIcon />, txt: 'Чеченский язык', locale: 'che' },
 	];
 
 	return (
