@@ -17,14 +17,14 @@ const SubscribePage: NextPage = () => {
 
 export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async ({ locale }) => {
 	await dispatch(getIP());
-	await dispatch(getPackages());
 
-	/* if (locale === 'che') {
+	if (locale === 'che') {
 		await axios.get(`/languages/index?lang=uk-UA`);
+		await dispatch(getPackages());
 	} else if (locale === 'ru') {
 		await axios.get(`/languages/index?lang=ru-RU`);
 		await dispatch(getPackages());
-	} */
+	}
 
 	return {
 		props: {
