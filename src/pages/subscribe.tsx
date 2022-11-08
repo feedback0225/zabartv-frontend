@@ -30,6 +30,7 @@ export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async ({ 
 		props: {
 			...(await serverSideTranslations(locale as string)),
 		},
+		revalidate: 1,
 	};
 });
 

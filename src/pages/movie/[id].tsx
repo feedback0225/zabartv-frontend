@@ -34,6 +34,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
 				props: {
 					...(await serverSideTranslations(locale as string)),
 				},
+				revalidate: 1,
 			};
 		}
 );
