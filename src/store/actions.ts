@@ -5,7 +5,7 @@ import { userActions } from './reducers/user/slice';
 import { playerActions } from './reducers/player/slice';
 import { authActions } from './reducers/auth/slice';
 
-export const ActionsCreators = {
+export const ActionCreators = {
 	user: userActions,
 	modal: modalActions,
 	search: searchActions,
