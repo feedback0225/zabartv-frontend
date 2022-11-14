@@ -11,17 +11,11 @@ export const Tv = () => {
 			img_base_url: '/movie.jpg',
 			options: [
 				{
-					filter_id: 1,
-					option_value: '2013',
-				},
-				{
 					filter_id: 2,
 					option_value: '3+',
 				},
 			],
 			img_path: '',
-			hours: 1,
-			minutes: 32,
 		},
 	];
 
