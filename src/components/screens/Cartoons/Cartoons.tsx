@@ -2,6 +2,7 @@ import { Category } from '@/components/Category/Category';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { IMovieItem } from '@/types/IMovieItem';
 import { Grid } from '@/UI/Grid/Grid';
+import { MovieItem } from '@/UI/MovieItem/MovieItem';
 
 export const Cartoons = () => {
 	const { data } = useTypedSelector((state) => state.category);
@@ -14,7 +15,10 @@ export const Cartoons = () => {
 
 			const data = films?.items[idx] as IMovieItem[];
 
-			return { txt, content: <Grid data={data} /> };
+			return {
+				txt,
+				content: <Grid items={data} renderItem={(item) => <MovieItem item={item} />} />,
+			};
 		}) || [];
 
 	return (

@@ -1,22 +1,22 @@
-import { FC } from 'react';
-import { MovieItem } from '@/UI/MovieItem/MovieItem';
-import { Button } from '@/UI/Button/Button';
-import { ChevronArrowIcon } from '@/icons';
+import { Fragment, ReactNode, useCallback } from 'react';
 import styles from './Grid.module.scss';
-import { IMovieItem } from '@/types/IMovieItem';
 
-interface GridProps {
-	data: IMovieItem[];
+interface GridProps<T> {
+	items: Array<T>;
+	renderItem: (item: any) => ReactNode;
+	className?: string;
 }
 
-export const Grid: FC<GridProps> = ({ data }) => {
+export function Grid<T>({ items, renderItem, className }: GridProps<T>) {
+	const renderItems = useCallback(
+		(_items: typeof items) =>
+			_items?.map((item, idx) => <Fragment key={idx}>{renderItem(item)}</Fragment>),
+		[className, renderItem]
+	);
+
 	return (
 		<div className={styles.container}>
-			<div className={styles.grid}>
-				{data.map((item) => (
-					<MovieItem key={item.id} item={item} />
-				))}
-			</div>
+			<div className={styles.grid}>{renderItems(items)}</div>
 		</div>
 	);
-};
+}

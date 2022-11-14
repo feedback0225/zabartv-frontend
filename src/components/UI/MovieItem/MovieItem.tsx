@@ -7,9 +7,10 @@ import styles from './MovieItem.module.scss';
 
 interface MovieItemProps {
 	item: IMovieItem;
+	href?: string;
 }
 
-export const MovieItem: FC<MovieItemProps> = ({ item }) => {
+export const MovieItem: FC<MovieItemProps> = ({ item, href }) => {
 	const {
 		content: { title },
 		options,
@@ -28,7 +29,7 @@ export const MovieItem: FC<MovieItemProps> = ({ item }) => {
 	const status = 'Подписка';
 
 	return (
-		<NextLink href={`/movie/${id}`}>
+		<NextLink href={href || `/movie/${id}`}>
 			<a className={styles.item}>
 				<div className={styles.top}>
 					<Image priority quality={100} layout="fill" src={url} alt={title} />
