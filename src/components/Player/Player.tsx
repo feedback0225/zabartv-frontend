@@ -45,7 +45,7 @@ export const Player = () => {
 			<ButtonBase onClick={handleClosePlayer} className={styles.close}>
 				<CloseIcon />
 			</ButtonBase>
-			<VideoPlayer />
+			{isVisiblePlayer ? <VideoPlayer /> : null}
 		</div>
 	);
 };
