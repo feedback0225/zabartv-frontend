@@ -2,13 +2,20 @@
 import { ButtonBase } from '@/components/ButtonBase/ButtonBase';
 import { CloseIcon } from '@/icons';
 import { useLockedBody } from 'usehooks-ts';
-import { VideoPlayer } from './components/VideoPlayer/VideoPlayer';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { useTypedActions } from '@/hooks/useTypedActions';
 import { useEffect } from 'react';
 import { useWindowSize } from '@/hooks/useWindowSize';
 import classNames from 'classnames';
 import styles from './Player.module.scss';
+import dynamic from 'next/dynamic';
+
+export const VideoPlayer = dynamic(
+	() => import('./components/VideoPlayer/VideoPlayer').then((mod) => mod.VideoPlayer),
+	{
+		ssr: false,
+	}
+);
 
 export const Player = () => {
 	const { isVisiblePlayer } = useTypedSelector((state) => state.player);

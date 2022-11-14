@@ -9,14 +9,15 @@ import classNames from 'classnames';
 import styles from './Movie.module.scss';
 
 export const Movie = () => {
-
 	const { data } = useTypedSelector((state) => state.movie);
 	const { openPlayer } = useTypedActions((state) => state.player);
 
-	const { content, hours, minutes, parts, options, rating, img_base_url, img_path, catalogs } = { ...data[0] };
+	const { content, hours, minutes, parts, options, rating, img_base_url, img_path, catalogs } = {
+		...data[0],
+	};
 
-	const categories = catalogs?.map(cat => {
-		return cat.content.title_in_nav
+	const categories = catalogs?.map((cat) => {
+		return cat.content.title_in_nav;
 	});
 
 	const image = `${img_base_url}/${img_path}`;

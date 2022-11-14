@@ -1,10 +1,8 @@
-import { Avatar } from './Avatar/Avatar';
-import { SubscribeInfo } from './SubscribeInfo/SubscribeInfo';
-import { Settings } from './Settings/Settings';
-import { Favourites } from './Favourites/Favourites';
-import { CabinetInput } from './CabinetInput/CabinetInput';
-import { Purchases } from './Purchases/Purchases';
-import { MovieItem } from './MovieItem/MovieItem';
-import { Views } from './Views/Views';
-
-export { Avatar, SubscribeInfo, Settings, Favourites, CabinetInput, Purchases, MovieItem, Views };
+export { Avatar } from './Avatar/Avatar';
+export { SubscribeInfo } from './SubscribeInfo/SubscribeInfo';
+export { Settings } from './Settings/Settings';
+export { Favourites } from './Favourites/Favourites';
+export { CabinetInput } from './CabinetInput/CabinetInput';
+export { Purchases } from './Purchases/Purchases';
+export { MovieItem } from './MovieItem/MovieItem';
+export { Views } from './Views/Views';

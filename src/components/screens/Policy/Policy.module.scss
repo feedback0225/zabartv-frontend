@@ -15,6 +15,7 @@
 
 	@media (max-width: 576px) {
 		padding-top: 0;
+		padding-bottom: 70px;
 	}
 }
 
@@ -59,6 +60,11 @@
 		line-height: 32px;
 		color: var(--color-light);
 		transition: color 0.3s;
+
+		@media (max-width: 576px) {
+			font-size: 16px;
+			line-height: 22px;
+		}
 	}
 }
 

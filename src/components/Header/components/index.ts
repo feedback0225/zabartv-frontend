@@ -1,10 +1,8 @@
-import { Nav } from './Nav/Nav';
-import { Lang } from './Lang/Lang';
-import { Menu } from './Menu/Menu';
-import { Modals } from './Modals/Modals';
-import { Burger } from './Burger/Burger';
-import { Search } from './Search/Search';
-import { Actions } from './Actions/Actions';
-import { ThemeToggle } from './ThemeToggle/ThemeToggle';
-
-export { Actions, ThemeToggle, Nav, Lang, Menu, Burger, Search, Modals };
+export { Nav } from './Nav/Nav';
+export { Lang } from './Lang/Lang';
+export { Menu } from './Menu/Menu';
+export { Modals } from './Modals/Modals';
+export { Burger } from './Burger/Burger';
+export { Search } from './Search/Search';
+export { Actions } from './Actions/Actions';
+export { ThemeToggle } from './ThemeToggle/ThemeToggle';
