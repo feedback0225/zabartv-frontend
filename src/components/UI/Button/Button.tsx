@@ -11,10 +11,14 @@ export interface ButtonProps {
 	as?: 'link' | 'button';
 	variant?: 'white' | 'dark' | 'gradient' | 'stroke';
 	className?: string;
+	disabled?: boolean;
 }
 
 export const Button: FC<PropsWithChildren<ButtonProps>> = forwardRef(
-	({ as = 'button', children, variant, icon, size = 'medium', className, ...props }, ref) => {
+	(
+		{ as = 'button', children, variant, icon, disabled, size = 'medium', className, ...props },
+		ref
+	) => {
 		const proxy = {
 			link: 'a',
 			button: ButtonBase,
@@ -24,6 +28,7 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = forwardRef(
 
 		return (
 			<Component
+				disabled={disabled}
 				className={classNames(
 					styles.btn,
 					size === 'large' && styles.large,
