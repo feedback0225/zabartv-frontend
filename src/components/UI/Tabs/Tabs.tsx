@@ -3,7 +3,7 @@ import { Tab, TabList, TabPanel, Tabs as ReactTabs } from 'react-tabs';
 import classNames from 'classnames';
 import styles from './Tabs.module.scss';
 
-type TabItem = {
+export type TabItem = {
 	txt: string;
 	condition?: unknown;
 	content: ReactNode;

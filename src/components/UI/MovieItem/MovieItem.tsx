@@ -32,7 +32,7 @@ export const MovieItem: FC<MovieItemProps> = ({ item }) => {
 			<a className={styles.item}>
 				<div className={styles.top}>
 					<Image priority quality={100} layout="fill" src={url} alt={title} />
-					<span className={styles.rating}>{Number(rating).toFixed(1)}</span>
+					{rating && <span className={styles.rating}>{Number(rating).toFixed(1)}</span>}
 					<div className={styles.content}>
 						<div className={styles.chips}>
 							<Chip className={styles.chip}>{genre}</Chip>
