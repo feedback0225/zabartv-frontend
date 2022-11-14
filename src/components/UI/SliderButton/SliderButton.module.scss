@@ -23,14 +23,15 @@
 		background: rgba(255, 255, 255, 0.3);
 		backdrop-filter: blur(50px);
 		color: #fff;
-		pointer-events: none;
 	}
 
-	&:hover,
-	&:active {
-		background-color: #fff;
-		color: #0b1527;
-		background: rgba(#fff, 0.8);
+	&:not([disabled]) {
+		&:hover,
+		&:active {
+			background-color: #fff;
+			color: #0b1527;
+			background: rgba(#fff, 0.8);
+		}
 	}
 
 	svg {

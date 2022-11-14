@@ -40,11 +40,11 @@ export const MovieItem: FC<MovieItemProps> = ({ item, href }) => {
 							<Chip className={styles.chip}>{type}</Chip>
 						</div>
 						<div className={styles.info}>
-							{hours && (
+							{hours ? (
 								<span className={styles.infoItem}>
 									{hours} час {minutes} минуты
 								</span>
-							)}
+							) : null}
 							{options?.map((el) => (
 								<span key={el.filter_id} className={styles.infoItem}>
 									{el.option_value}
