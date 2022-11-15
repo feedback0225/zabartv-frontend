@@ -18,7 +18,6 @@ export const CabinetInput: FC<CabinetInputProps> = ({
 	applyChanges,
 	placeholder,
 	mask,
-	type,
 	value,
 	label,
 	...props
@@ -55,12 +54,14 @@ export const CabinetInput: FC<CabinetInputProps> = ({
 	return (
 		<div data-testid="cabinet-input-item" className={styles.item}>
 			<span className={styles.label}>{label}</span>
-			{!isEdited && <span className={styles.placeholder}>{placeholder}</span>}
+			{!isEdited && (
+				<span onClick={() => setIsEdited(true)} className={styles.placeholder}>
+					{placeholder}
+				</span>
+			)}
 			{mask ? (
 				<IMaskInput
 					data-testid="cabinet-input-mask"
-					/* @ts-ignore */
-					type="text"
 					mask={mask}
 					unmask={true}
 					inputRef={inputRef}
@@ -73,7 +74,6 @@ export const CabinetInput: FC<CabinetInputProps> = ({
 					data-testid="cabinet-input"
 					ref={inputRef}
 					className={classNames(styles.input, !isEdited && styles.value)}
-					type={!isEdited ? 'text' : type}
 					value={inputValue}
 					onChange={handleChange}
 					{...props}

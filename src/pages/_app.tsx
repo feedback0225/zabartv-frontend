@@ -26,7 +26,7 @@ function MyApp({ Component, ...rest }: AppProps) {
 				</Head>
 				<NextProgress
 					color="var(--color-primary)"
-					height={3}
+					height={4}
 					delay={300}
 					options={{ showSpinner: false }}
 				/>
