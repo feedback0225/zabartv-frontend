@@ -4,8 +4,9 @@ import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { requiredFieldMessage, incorrectlyFieldMessage } from '@/constants/validation';
 import * as Yup from 'yup';
+import { useEffect } from 'react';
 
-export const RegisterContent = () => {
+export const RegisterContent = ({ authState }: { authState: string }) => {
 	const { ModalInputs, ModalInput, ModalButton } = Modal;
 
 	const { setEmail, setName } = useTypedActions((state) => state.auth);
@@ -20,6 +21,7 @@ export const RegisterContent = () => {
 		handleSubmit,
 		control,
 		formState: { errors },
+		clearErrors,
 	} = useForm({
 		defaultValues: {
 			email: '',
@@ -36,6 +38,8 @@ export const RegisterContent = () => {
 		showAuthModal(false);
 		showRegisterModal(true);
 	});
+
+	useEffect(clearErrors, [authState]);
 
 	return (
 		<form action="#" noValidate onSubmit={handleRegister}>

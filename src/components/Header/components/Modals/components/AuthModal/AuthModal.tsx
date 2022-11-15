@@ -40,10 +40,10 @@ export const AuthModal = () => {
 				</ModalTitle>
 			</ModalTabs>
 			<div className={classNames(styles.content, authState === 'login' && styles.active)}>
-				<LoginContent />
+				<LoginContent authState={authState} />
 			</div>
 			<div className={classNames(styles.content, authState === 'register' && styles.active)}>
-				<RegisterContent />
+				<RegisterContent authState={authState} />
 			</div>
 			<ModalLink onClick={handleShowForgotPasswordModal} as="button">
 				Забыли пароль?

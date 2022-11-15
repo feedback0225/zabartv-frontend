@@ -12,11 +12,11 @@ import { useRouter } from 'next/router';
 import { ILoginResponse } from '@/types/IUser';
 import { RoutesEnum } from '@/constants/routes';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from '@/utils/axios';
 import * as Yup from 'yup';
 
-export const LoginContent = () => {
+export const LoginContent = ({ authState }: { authState: string }) => {
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const { ModalInputs, ModalInput, ModalButton, ModalErrorMessage } = Modal;
 
@@ -33,6 +33,7 @@ export const LoginContent = () => {
 		handleSubmit,
 		control,
 		formState: { errors },
+		clearErrors,
 	} = useForm({
 		defaultValues: {
 			email: '',
@@ -40,6 +41,8 @@ export const LoginContent = () => {
 		},
 		resolver: yupResolver(schema),
 	});
+
+	useEffect(clearErrors, [authState]);
 
 	const [errorMessages, setErrorMessages] = useState<string[]>([]);
 	const { ip } = useTypedSelector((state) => state.auth);
