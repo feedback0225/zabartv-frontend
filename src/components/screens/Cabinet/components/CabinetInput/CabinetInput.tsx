@@ -14,7 +14,15 @@ export interface CabinetInputProps extends InputHTMLAttributes<HTMLInputElement>
 	applyChanges: (value: string) => void;
 }
 
-export const CabinetInput: FC<CabinetInputProps> = ({ applyChanges, placeholder, mask, type, value, label, ...props }) => {
+export const CabinetInput: FC<CabinetInputProps> = ({
+	applyChanges,
+	placeholder,
+	mask,
+	type,
+	value,
+	label,
+	...props
+}) => {
 	const inputRef = useRef<HTMLInputElement>(null);
 	const [isEdited, setIsEdited] = useState<boolean>(false);
 	const [inputValue, setInputValue] = useState<string>('');
@@ -50,7 +58,9 @@ export const CabinetInput: FC<CabinetInputProps> = ({ applyChanges, placeholder,
 			{!isEdited && <span className={styles.placeholder}>{placeholder}</span>}
 			{mask ? (
 				<IMaskInput
-					data-testid='cabinet-input-mask'
+					data-testid="cabinet-input-mask"
+					/* @ts-ignore */
+					type="text"
 					mask={mask}
 					unmask={true}
 					inputRef={inputRef}
@@ -63,7 +73,7 @@ export const CabinetInput: FC<CabinetInputProps> = ({ applyChanges, placeholder,
 					data-testid="cabinet-input"
 					ref={inputRef}
 					className={classNames(styles.input, !isEdited && styles.value)}
-					type={isEdited ? 'text' : type}
+					type={!isEdited ? 'text' : type}
 					value={inputValue}
 					onChange={handleChange}
 					{...props}

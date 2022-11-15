@@ -17,6 +17,7 @@ import axios from '@/utils/axios';
 import * as Yup from 'yup';
 
 export const RegisterModal = () => {
+	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const [errorMessages, setErrorMessages] = useState<string[]>([]);
 	const { isVisibleRegisterModal } = useTypedSelector((state) => state.modal);
 	const { email, name, ip } = useTypedSelector((state) => state.auth);
@@ -66,7 +67,10 @@ export const RegisterModal = () => {
 		const { password, password_confirm } = form;
 
 		try {
-			const data = await register({ name, email, password, password_confirm, ip });
+			setIsLoading(true);
+			const data = await register({ name, email, password, password_confirm, ip }).finally(() =>
+				setIsLoading(false)
+			);
 
 			/* Такой костыль из-за того что бекендер просто возвращает массив со строками, а не обьект */
 			if (!data.hasOwnProperty('id')) {
@@ -128,7 +132,7 @@ export const RegisterModal = () => {
 						  ))
 						: null}
 				</ModalInputs>
-				<ModalButton>Зарегистрироваться</ModalButton>
+				<ModalButton spinner={isLoading}>Зарегистрироваться</ModalButton>
 			</form>
 		</Modal>
 	);

@@ -17,6 +17,7 @@ import axios from '@/utils/axios';
 import * as Yup from 'yup';
 
 export const LoginContent = () => {
+	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const { ModalInputs, ModalInput, ModalButton, ModalErrorMessage } = Modal;
 
 	const { showAuthModal } = useTypedActions((state) => state.modal);
@@ -46,6 +47,8 @@ export const LoginContent = () => {
 
 	const login = async ({ identity, password, rememberMe, ip }: ILoginResponse) => {
 		try {
+			setIsLoading(true);
+
 			const { data } = await axios({
 				url: `/session/sign-in`,
 				headers: {
@@ -53,7 +56,7 @@ export const LoginContent = () => {
 				},
 				method: 'post',
 				data: `identity=${identity}&password=${password}&rememberMe=${rememberMe}&ip=${ip}`,
-			});
+			}).finally(() => setIsLoading(false));
 
 			return data;
 		} catch (error) {
@@ -125,7 +128,9 @@ export const LoginContent = () => {
 					  ))
 					: null}
 			</ModalInputs>
-			<ModalButton onClick={handleLogin}>Войти в аккаунт</ModalButton>
+			<ModalButton spinner={isLoading} onClick={handleLogin}>
+				Войти в аккаунт
+			</ModalButton>
 		</form>
 	);
 };

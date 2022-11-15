@@ -2,6 +2,7 @@ import { FC, forwardRef, PropsWithChildren, ReactNode } from 'react';
 import { ButtonBase } from '@/components/ButtonBase/ButtonBase';
 import classNames from 'classnames';
 import styles from './Button.module.scss';
+import { Spinner, SpinnerSizes } from '../Spinner/Spinner';
 
 export interface ButtonProps {
 	href?: string;
@@ -11,12 +12,23 @@ export interface ButtonProps {
 	as?: 'link' | 'button';
 	variant?: 'white' | 'dark' | 'gradient' | 'stroke';
 	className?: string;
+	spinner?: boolean;
 	disabled?: boolean;
 }
 
 export const Button: FC<PropsWithChildren<ButtonProps>> = forwardRef(
 	(
-		{ as = 'button', children, variant, icon, disabled, size = 'medium', className, ...props },
+		{
+			as = 'button',
+			children,
+			spinner,
+			variant,
+			icon,
+			disabled,
+			size = 'medium',
+			className,
+			...props
+		},
 		ref
 	) => {
 		const proxy = {
@@ -43,6 +55,11 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = forwardRef(
 				{...props}
 			>
 				{icon && <span className={styles.icon}>{icon}</span>}
+				{spinner && (
+					<div className={styles.spinner}>
+						<Spinner size={SpinnerSizes.small} />
+					</div>
+				)}
 				{children}
 			</Component>
 		);

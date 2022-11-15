@@ -48,6 +48,11 @@
 	font-size: 20px;
 	line-height: 33px;
 
+	&[type='password'] {
+		font-family: Verdana;
+		letter-spacing: 0.5px;
+	}
+
 	&::placeholder {
 		opacity: 1;
 		color: var(--color-light);

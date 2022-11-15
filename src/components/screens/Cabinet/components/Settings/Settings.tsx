@@ -11,7 +11,6 @@ interface SettingsProps {
 }
 
 export const Settings: FC<SettingsProps> = ({ data }) => {
-
 	const dispatch = useAppDispatch();
 
 	const { email, date_of_birth } = data;
@@ -58,7 +57,7 @@ export const Settings: FC<SettingsProps> = ({ data }) => {
 					applyChanges={applyPassword}
 				/>
 				<CabinetInput
-					mask='00.00.0000'
+					mask="00.00.0000"
 					label="Дата рождения"
 					type="text"
 					placeholder={date_of_birth !== null ? date_of_birth : 'Введите дату рождения'}
