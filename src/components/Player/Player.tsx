@@ -42,10 +42,12 @@ export const Player = () => {
 			style={{ height: `${height}px` }}
 			className={classNames(styles.wrapper, isVisiblePlayer && styles.show)}
 		>
-			<ButtonBase onClick={handleClosePlayer} className={styles.close}>
-				<CloseIcon />
-			</ButtonBase>
-			{isVisiblePlayer ? <VideoPlayer /> : null}
+			<div className={styles.container}>
+				<ButtonBase onClick={handleClosePlayer} className={styles.close}>
+					<CloseIcon />
+				</ButtonBase>
+				{isVisiblePlayer ? <VideoPlayer /> : null}
+			</div>
 		</div>
 	);
 };

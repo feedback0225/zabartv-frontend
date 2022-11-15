@@ -1,8 +1,7 @@
-import { useEffect, useLayoutEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 import videojs, { VideoJsPlayer } from 'video.js';
 import hotkeys from 'videojs-hotkeys';
-import styles from './VideoPlayer.module.scss';
 
 export const VideoPlayer = () => {
 	const videoRef = useRef(null);
@@ -46,23 +45,13 @@ export const VideoPlayer = () => {
 	}, [videoRef]);
 
 	useEffect(() => {
-		isVisiblePlayer ? playerRef.current?.play() : playerRef.current?.pause();
+		if (!isVisiblePlayer) playerRef.current?.pause();
+		if (isVisiblePlayer) playerRef.current?.play();
 	}, [isVisiblePlayer]);
 
-	// useEffect(() => {
-	// 	const iframe = document.getElementsByTagName('iframe')[0];
-
-	// 	iframe.onload = function (e) {
-	// 		var iframeDoc2 = iframe.contentWindow.document;
-	// 		console.log(iframeDoc2);
-	// 	};
-
-	// 	/* const video = iframe?.contentWindow;
-
-	// 	console.log(video?.document?.body); */
-
-	// 	// console.log(iframe);
-	// }, []);
-
-	return <iframe src="https://player.facecast.io/chgtrk/" className={styles.iframe} />;
+	return (
+		<div data-vjs-player>
+			<video ref={videoRef} className="video-js vjs-big-play-centered" />
+		</div>
+	);
 };
