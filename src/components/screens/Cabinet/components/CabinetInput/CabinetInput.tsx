@@ -55,7 +55,7 @@ export const CabinetInput: FC<CabinetInputProps> = ({
 		<div data-testid="cabinet-input-item" className={styles.item}>
 			<span className={styles.label}>{label}</span>
 			{!isEdited && (
-				<span onClick={() => setIsEdited(true)} className={styles.placeholder}>
+				<span onClick={handleEditInput} className={styles.placeholder}>
 					{placeholder}
 				</span>
 			)}
