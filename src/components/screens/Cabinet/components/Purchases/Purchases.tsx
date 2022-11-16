@@ -14,16 +14,16 @@ export const Purchases = () => {
 		const periodStartPath = convertTimestampToDate(el.start_date, 'DD.MM');
 		const periodFinishPath = convertTimestampToDate(el.finish_date, 'DD.MM');
 		const period = `с ${periodStartPath}. по ${periodFinishPath}`;
-		const price = `${Number(el.package_price)}€`
+		const price = `${Number(el.package_price)}€`;
 
-		return { date, period, price};
+		return { date, period, price };
 	});
 
 	return (
 		<>
 			{history.map((item, idx) => (
 				<Fragment key={idx}>
-					{item.hasOwnProperty('order_id') ? (
+					{item?.hasOwnProperty('order_id') ? (
 						<div className={styles.table}>
 							<div className={styles.top}>
 								<span className={styles.nameCol}>Когда куплен</span>

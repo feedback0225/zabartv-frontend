@@ -50,8 +50,8 @@ export const RegisterContent = ({ authState }: { authState: string }) => {
 					render={({ field: { value, onChange } }) => {
 						return (
 							<ModalInput
-								errorMessage={errors.email?.message}
-								error={errors.hasOwnProperty('email')}
+								errorMessage={errors?.email?.message}
+								error={errors?.hasOwnProperty('email')}
 								value={value}
 								onChange={onChange}
 								name="email"
@@ -68,7 +68,7 @@ export const RegisterContent = ({ authState }: { authState: string }) => {
 						return (
 							<ModalInput
 								errorMessage={errors.name?.message}
-								error={errors.hasOwnProperty('name')}
+								error={errors?.hasOwnProperty('name')}
 								value={value}
 								onChange={onChange}
 								name="name"

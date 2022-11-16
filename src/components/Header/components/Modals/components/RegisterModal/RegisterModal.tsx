@@ -11,7 +11,7 @@ import {
 import { IRegisterResponse } from '@/types/IUser';
 import { useRouter } from 'next/router';
 import { RoutesEnum } from '@/constants/routes';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './RegisterModal.module.scss';
 import axios from '@/utils/axios';
 import * as Yup from 'yup';
@@ -38,6 +38,8 @@ export const RegisterModal = () => {
 		handleSubmit,
 		control,
 		formState: { errors },
+		clearErrors,
+		reset,
 	} = useForm({
 		defaultValues: {
 			password: '',
@@ -45,6 +47,12 @@ export const RegisterModal = () => {
 		},
 		resolver: yupResolver(schema),
 	});
+
+	useEffect(() => {
+		setErrorMessages([]);
+		clearErrors();
+		reset();
+	}, [isVisibleRegisterModal]);
 
 	const register = async ({ name, email, password, password_confirm, ip }: IRegisterResponse) => {
 		try {
@@ -73,7 +81,7 @@ export const RegisterModal = () => {
 			);
 
 			/* Такой костыль из-за того что бекендер просто возвращает массив со строками, а не обьект */
-			if (!data.hasOwnProperty('id')) {
+			if (!data?.hasOwnProperty('id')) {
 				setErrorMessages(data);
 			} else {
 				setUser(data);
@@ -103,8 +111,8 @@ export const RegisterModal = () => {
 									placeholder="Придумайте пароль"
 									value={value}
 									onChange={onChange}
-									errorMessage={errors.password?.message}
-									error={errors.hasOwnProperty('password')}
+									errorMessage={errors?.password?.message}
+									error={errors?.hasOwnProperty('password')}
 								/>
 							);
 						}}
@@ -121,7 +129,7 @@ export const RegisterModal = () => {
 									value={value}
 									onChange={onChange}
 									errorMessage={errors.password_confirm?.message}
-									error={errors.hasOwnProperty('password_confirm')}
+									error={errors?.hasOwnProperty('password_confirm')}
 								/>
 							);
 						}}

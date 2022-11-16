@@ -74,7 +74,7 @@ export const LoginContent = ({ authState }: { authState: string }) => {
 			const data = await login({ identity: email, password, rememberMe: 1, ip });
 
 			/* Такой костыль из-за того что бекендер просто возвращает массив со строками, а не обьект */
-			if (!data.hasOwnProperty('id')) {
+			if (!data?.hasOwnProperty('id')) {
 				setErrorMessages(data);
 			} else {
 				setUser(data);
@@ -97,8 +97,8 @@ export const LoginContent = ({ authState }: { authState: string }) => {
 					render={({ field: { value, onChange } }) => {
 						return (
 							<ModalInput
-								errorMessage={errors.email?.message}
-								error={errors.hasOwnProperty('email')}
+								errorMessage={errors?.email?.message}
+								error={errors?.hasOwnProperty('email')}
 								value={value}
 								onChange={onChange}
 								name="email"
@@ -120,7 +120,7 @@ export const LoginContent = ({ authState }: { authState: string }) => {
 								name="password"
 								onChange={onChange}
 								errorMessage={errors.password?.message}
-								error={errors.hasOwnProperty('password')}
+								error={errors?.hasOwnProperty('password')}
 							/>
 						);
 					}}
