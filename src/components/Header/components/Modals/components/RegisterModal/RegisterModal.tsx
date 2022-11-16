@@ -134,7 +134,7 @@ export const RegisterModal = () => {
 							);
 						}}
 					/>
-					{errorMessages.length > 0
+					{errorMessages?.length > 0
 						? errorMessages?.map((error) => (
 								<ModalErrorMessage key={error}>{error}</ModalErrorMessage>
 						  ))
