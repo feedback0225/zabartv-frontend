@@ -10,6 +10,7 @@ import axios from '@/utils/axios';
 import { useState } from 'react';
 
 export const ForgotPasswordModal = () => {
+	const [success, setSuccess] = useState<string>('');
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const [errorMessages, setErrorMessages] = useState<string[]>([]);
 	const { isVisibleForgotPasswordModal } = useTypedSelector((state) => state.modal);
@@ -60,7 +61,7 @@ export const ForgotPasswordModal = () => {
 			setErrorMessages(data);
 		} else {
 			if (data.status === 'success') {
-				console.log(data);
+				setSuccess('Письмо отправлено вам на почту!');
 			}
 		}
 	});
@@ -97,6 +98,7 @@ export const ForgotPasswordModal = () => {
 				<ModalButton spinner={isLoading} onClick={handleSubmitForm}>
 					Получить письмо
 				</ModalButton>
+				{success ? <span className={styles.success}>{success}</span> : null}
 			</form>
 		</Modal>
 	);
