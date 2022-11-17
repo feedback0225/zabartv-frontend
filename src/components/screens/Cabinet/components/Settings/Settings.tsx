@@ -66,7 +66,11 @@ export const Settings: FC<SettingsProps> = ({ data }) => {
 					mask="00.00.0000"
 					label="Дата рождения"
 					type="text"
-					placeholder={date_of_birth !== null ? date_of_birth : 'Введите дату рождения'}
+					placeholder={
+						date_of_birth !== null && date_of_birth !== 'null'
+							? date_of_birth
+							: 'Введите дату рождения'
+					}
 					value={date_of_birth}
 					applyChanges={applyDate}
 				/>
