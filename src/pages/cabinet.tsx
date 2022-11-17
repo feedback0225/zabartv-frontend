@@ -17,12 +17,6 @@ const CabinetPage: NextPage = () => {
 export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async ({ locale }) => {
 	await dispatch(getIP());
 
-	if (locale === 'che') {
-		await axios.get(`/languages/index?lang=che_CHE`);
-	} else if (locale === 'ru') {
-		await axios.get(`/languages/index?lang=ru-RU`);
-	}
-
 	return {
 		props: {
 			...(await serverSideTranslations(locale as string)),

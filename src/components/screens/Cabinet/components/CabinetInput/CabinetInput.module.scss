@@ -64,16 +64,19 @@
 	position: absolute;
 	left: 0;
 	opacity: 0;
+	white-space: nowrap;
 }
 
 .placeholder {
 	color: var(--color-light);
 	font-size: 20px;
 	line-height: 33px;
+	white-space: nowrap;
 }
 
 .apply {
 	margin-top: 5px;
+	white-space: nowrap;
 }
 
 .btn {

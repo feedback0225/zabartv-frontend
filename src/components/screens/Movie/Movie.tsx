@@ -7,12 +7,15 @@ import { Seasons, Rating, GradeModal } from './components';
 import { useTypedActions } from '@/hooks/useTypedActions';
 import classNames from 'classnames';
 import styles from './Movie.module.scss';
+import { useEffect, useState } from 'react';
+import axios from '@/utils/axios';
 
 export const Movie = () => {
+	const [isFavorite, setIsFavorite] = useState<boolean>(false);
 	const { data } = useTypedSelector((state) => state.movie);
 	const { openPlayer } = useTypedActions((state) => state.player);
 
-	const { content, hours, minutes, parts, options, rating, img_base_url, img_path, catalogs } = {
+	const { id, content, hours, minutes, parts, options, rating, img_base_url, img_path, catalogs } = {
 		...data[0],
 	};
 
@@ -29,6 +32,36 @@ export const Movie = () => {
 	const watchTrailer = () => {
 		openPlayer(true);
 	};
+
+	const addMovieToFavorites = async () => {
+		setIsFavorite((prev) => !prev);
+
+		try {
+			await axios.get('/items/updatewishlist', {
+				params: {
+					film_id: id,
+				},
+			});
+		} catch (e: unknown) {
+			console.error(e);
+		}
+	};
+
+	const addMovieToViewed = async () => {
+		try {
+			await axios.get('/items/updateviewed', {
+				params: {
+					film_id: id,
+				},
+			});
+		} catch (e: unknown) {
+			console.error(e);
+		}
+	};
+
+	useEffect(() => {
+		addMovieToViewed();
+	}, []);
 
 	return (
 		<>
@@ -68,7 +101,8 @@ export const Movie = () => {
 								Трейлер
 							</Button>
 							<Button
-								className={styles.star}
+								className={classNames(styles.star, isFavorite && styles.starActive)}
+								onClick={addMovieToFavorites}
 								variant="dark"
 								aria-label="Добавить в избранное"
 							>

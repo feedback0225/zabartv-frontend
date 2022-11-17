@@ -1,9 +1,16 @@
+import { IMovie } from '@/types/IMovie';
 import { IHistoryPayment, IUser } from '@/types/IUser';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { getHistoryPayments, getMe, updateUser } from './thunks';
+import { getFavorites, getHistoryPayments, getMe, getViewed, updateUser } from './thunks';
+
+interface UserMovies {
+	items: [IMovie[]];
+}
 
 interface IState {
 	data: IUser;
+	viewed: UserMovies | null;
+	favorites: UserMovies | null;
 	history: IHistoryPayment[] | [];
 	isLoading: boolean;
 	isError: boolean;
@@ -20,6 +27,8 @@ const initialState: IState = {
 		username: '',
 	},
 	history: [],
+	viewed: null,
+	favorites: null,
 	isLoading: true,
 	isError: false,
 };
@@ -61,6 +70,32 @@ export const userSlice = createSlice({
 			state.isLoading = true;
 		},
 		[updateUser.rejected.type]: (state) => {
+			state.isLoading = false;
+			state.isError = true;
+		},
+
+		[getViewed.fulfilled.type]: (state, action: PayloadAction<UserMovies>) => {
+			state.isLoading = false;
+			state.isError = false;
+			state.viewed = action.payload;
+		},
+		[getViewed.pending.type]: (state) => {
+			state.isLoading = true;
+		},
+		[getViewed.rejected.type]: (state) => {
+			state.isLoading = false;
+			state.isError = true;
+		},
+
+		[getFavorites.fulfilled.type]: (state, action: PayloadAction<UserMovies>) => {
+			state.isLoading = false;
+			state.isError = false;
+			state.favorites = action.payload;
+		},
+		[getFavorites.pending.type]: (state) => {
+			state.isLoading = true;
+		},
+		[getFavorites.rejected.type]: (state) => {
 			state.isLoading = false;
 			state.isError = true;
 		},

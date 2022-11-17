@@ -1,21 +1,20 @@
+import { IMovie } from '@/types/IMovie';
+import { FC } from 'react';
 import { Grid } from '../Grid/Grid';
 import { MovieItem } from '../index';
 
-export const Views = () => {
-	const data = [
-		{
-			image: '/movie.jpg',
-			id: 1,
-			type: 'Сериал',
-			title: 'RRR',
-		},
-	];
+interface ViewsProps {
+	viewed: [IMovie[]];
+}
 
+export const Views: FC<ViewsProps> = ({ viewed }) => {
 	return (
 		<Grid>
-			{data.map((item) => (
-				<MovieItem key={item.id} item={item} />
-			))}
+			{viewed.map((el) => {
+				const item = el[0];
+
+				return <MovieItem key={item.id} item={item} />;
+			})}
 		</Grid>
 	);
 };

@@ -44,23 +44,22 @@ export const GradeModal = () => {
 
 	const getRating = async () => {
 		try {
-			const {data: {film_rating}} = await axios.get<ICheckRating>('/items/rating', {
+			const { data } = await axios.get<ICheckRating>('/items/rating', {
 				params: {
 					film_id: id,
 					type: 'check',
-				}
-			})
+				},
+			});
 
-			setRating(film_rating ? film_rating : 0)
-			
+			setRating(data?.film_rating ? data?.film_rating : 0);
 		} catch (error) {
-			console.error(error)
+			console.error(error);
 		}
-	}
+	};
 
 	useEffect(() => {
-		getRating()
-	}, [])
+		getRating();
+	}, []);
 
 	return (
 		<Modal fullscreen variant="grade" open={isVisibleGradeModal} onClose={handleClose}>

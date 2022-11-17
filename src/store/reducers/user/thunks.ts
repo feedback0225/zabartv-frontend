@@ -30,6 +30,18 @@ export const getHistoryPayments = createAsyncThunk('user/historyPayments', async
 	return data;
 });
 
+export const getViewed = createAsyncThunk('user/viewed', async () => {
+	const { data } = await axios.get('/items/viewed');
+
+	return data;
+});
+
+export const getFavorites = createAsyncThunk('user/favorites', async () => {
+	const { data } = await axios.get('/items/wishlist');
+
+	return data;
+});
+
 export const updateUser = createAsyncThunk(
 	'auth/update',
 	async ({ password, date_of_birth, email }: IUpdateResponse) => {

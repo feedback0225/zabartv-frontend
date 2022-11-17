@@ -2,8 +2,8 @@ import { Avatar, SubscribeInfo, Settings, Favourites, Purchases, Views } from '.
 import { MailIcon } from '@/icons';
 import { Tabs } from '@/UI/Tabs/Tabs';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
-import { useEffect } from 'react';
-import { getHistoryPayments, getMe } from '@/reducers/user/thunks';
+import { useEffect, useState } from 'react';
+import { getFavorites, getHistoryPayments, getMe, getViewed } from '@/reducers/user/thunks';
 import { useAppDispatch } from '@/hooks/useAppDispatch';
 import { Spinner, SpinnerSizes } from '@/UI/Spinner/Spinner';
 import { Link } from '@/UI/Link/Link';
@@ -15,8 +15,8 @@ import classNames from 'classnames';
 import styles from './Cabinet.module.scss';
 
 export const Cabinet = () => {
-	const { push } = useRouter();
-	const { data, isLoading } = useTypedSelector((state) => state.user);
+	const { push, locale } = useRouter();
+	const { data, isLoading, viewed, favorites } = useTypedSelector((state) => state.user);
 	const { logout } = useTypedActions((state) => state.auth);
 
 	/* временно */
@@ -28,9 +28,9 @@ export const Cabinet = () => {
 
 	const USER_TABS = [
 		{ txt: 'Настройки', content: <Settings data={data} /> },
-		// { txt: 'Избранное', content: <Favourites /> },
+		{ txt: 'Избранное', content: <Favourites favorites={favorites?.items!} /> },
 		{ txt: 'История покупок', content: <Purchases /> },
-		// { txt: 'История просмотров', content: <Views /> },
+		{ txt: 'История просмотров', content: <Views viewed={viewed?.items!} /> },
 	];
 
 	const dispatch = useAppDispatch();
@@ -41,6 +41,10 @@ export const Cabinet = () => {
 		} = await dispatch(getMe());
 
 		await dispatch(getHistoryPayments(id as number));
+
+		await dispatch(getViewed());
+
+		await dispatch(getFavorites());
 	};
 
 	const logoutUser = async () => {
@@ -49,7 +53,17 @@ export const Cabinet = () => {
 		push(RoutesEnum.Home);
 	};
 
+	const getLang = async () => {
+		if (locale === 'che') {
+			await axios.get(`/languages/index?lang=che_CHE`);
+		} else if (locale === 'ru') {
+			await axios.get(`/languages/index?lang=ru-RU`);
+		}
+	};
+
 	useEffect(() => {
+		getLang();
+
 		if (typeof window !== 'undefined') {
 			const isAuth = Boolean(
 				localStorage.getItem('zabar_user_id') &&
