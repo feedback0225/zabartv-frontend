@@ -74,6 +74,8 @@ export const Cabinet = () => {
 		}
 	}, []);
 
+	console.log(data);
+
 	return (
 		<section className={styles.section}>
 			<div className={classNames('container', styles.container)}>

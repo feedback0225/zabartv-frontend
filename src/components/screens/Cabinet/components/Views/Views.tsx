@@ -1,4 +1,5 @@
 import { IMovie } from '@/types/IMovie';
+import { Title } from '@/UI/Title/Title';
 import { FC } from 'react';
 import { Grid } from '../Grid/Grid';
 import { MovieItem } from '../index';
@@ -8,7 +9,9 @@ interface ViewsProps {
 }
 
 export const Views: FC<ViewsProps> = ({ viewed }) => {
-	return (
+	const isNotEpty = viewed.length > 0;
+
+	const ViewsList = (
 		<Grid>
 			{viewed.map((el) => {
 				const item = el[0];
@@ -17,4 +20,12 @@ export const Views: FC<ViewsProps> = ({ viewed }) => {
 			})}
 		</Grid>
 	);
+
+	const EmptyTitle = (
+		<Title level="h3" size="small">
+			Список просмотренного пуст
+		</Title>
+	);
+
+	return isNotEpty ? ViewsList : EmptyTitle;
 };

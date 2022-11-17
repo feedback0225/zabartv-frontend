@@ -36,9 +36,11 @@ export interface IUser {
 	last_name: string;
 	status?: number;
 	username: string;
+	subscribe_on_news: 0 | 1;
 }
 
 export interface IUpdateResponse {
+	subscribe_on_news: 0 | 1;
 	date_of_birth?: string;
 	email?: string;
 	password?: string;

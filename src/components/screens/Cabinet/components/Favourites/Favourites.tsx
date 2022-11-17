@@ -9,19 +9,23 @@ interface FavouritesProps {
 }
 
 export const Favourites: FC<FavouritesProps> = ({ favorites }) => {
-	return (
-		<Grid>
-			{favorites.length > 0 ? (
-				favorites.map((el) => {
-					const item = el[0];
+	const isNotEpty = favorites.length > 0;
 
-					return <MovieItem favourite key={item.id} item={item} />;
-				})
-			) : (
-				<Title level="h3" size="small">
-					Пусто
-				</Title>
-			)}
+	const FavoritesList = (
+		<Grid>
+			{favorites.map((el) => {
+				const item = el[0];
+
+				return <MovieItem favourite key={item.id} item={item} />;
+			})}
 		</Grid>
 	);
+
+	const EmptyTitle = (
+		<Title level="h3" size="small">
+			Список избранного пуст
+		</Title>
+	);
+
+	return isNotEpty ? FavoritesList : EmptyTitle;
 };

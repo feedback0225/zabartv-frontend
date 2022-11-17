@@ -44,14 +44,14 @@ export const getFavorites = createAsyncThunk('user/favorites', async () => {
 
 export const updateUser = createAsyncThunk(
 	'auth/update',
-	async ({ password, date_of_birth, email }: IUpdateResponse) => {
+	async ({ password, date_of_birth, subscribe_on_news, email }: IUpdateResponse) => {
 		const { data } = await axios({
 			url: '/session/updateuserdata',
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded',
 			},
 			method: 'post',
-			data: `password=${password}&date_of_birth=${date_of_birth}&email=${email}`,
+			data: `password=${password}&date_of_birth=${date_of_birth}&email=${email}&subscribe_on_news=${subscribe_on_news}`,
 		});
 
 		return data;

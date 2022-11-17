@@ -18,6 +18,7 @@ interface IState {
 
 const initialState: IState = {
 	data: {
+		subscribe_on_news: 0,
 		avatar_base_url: '',
 		avatar_path: '',
 		date_of_birth: '',
