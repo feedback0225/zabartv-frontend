@@ -5,9 +5,11 @@ import { ButtonBase } from '@/components/ButtonBase/ButtonBase';
 import { useOnClickOutside } from 'usehooks-ts';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { CloseIcon, SearchIcon } from '@/icons';
+import { useDebounce } from '@/hooks/useDebounce';
 import { TextField } from '@/UI/TextField/TextField';
 import styles from './Search.module.scss';
 import classNames from 'classnames';
+import { SearchList } from './components/SearchList/SearchList';
 
 interface SearchProps {
 	className?: string;
@@ -17,6 +19,7 @@ export const Search: FC<SearchProps> = ({ className }) => {
 	const { isSearchVisible } = useTypedSelector((state) => state.search);
 	const { setSearch, setVisibleSearch } = useTypedActions((state) => state.search);
 	const [value, setValue] = useState<string>('');
+	const { debouncedValue, setDebouncedValue } = useDebounce(value.trim(), 300);
 	const formRef = useRef<HTMLFormElement>(null);
 	const inputRef = useRef<HTMLInputElement>(null);
 	const router = useRouter();
@@ -50,6 +53,8 @@ export const Search: FC<SearchProps> = ({ className }) => {
 		setVisibleSearch(false);
 	};
 
+	const isActive = debouncedValue && isSearchVisible;
+
 	return (
 		<form
 			onSubmit={submitForm}
@@ -72,6 +77,7 @@ export const Search: FC<SearchProps> = ({ className }) => {
 			<span className={styles.icon}>
 				<SearchIcon />
 			</span>
+			{isActive && <SearchList value={debouncedValue} />}
 		</form>
 	);
 };
