@@ -13,6 +13,7 @@ import { RoutesEnum } from '@/constants/routes';
 import axios from '@/utils/axios';
 import classNames from 'classnames';
 import styles from './Cabinet.module.scss';
+import { useLockedBody } from 'usehooks-ts';
 
 export const Cabinet = () => {
 	const { push, locale } = useRouter();
