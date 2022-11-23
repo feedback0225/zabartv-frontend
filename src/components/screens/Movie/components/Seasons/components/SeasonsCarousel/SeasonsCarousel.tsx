@@ -84,7 +84,7 @@ export const SeasonsCarousel = () => {
 			breakpoints={breakpoints}
 			spaceBetween={24}
 		>
-			{data.map((item) => (
+			{data?.map((item) => (
 				<SwiperSlide className={styles.item} key={item.id}>
 					<VideoItem item={item} />
 				</SwiperSlide>

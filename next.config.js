@@ -1,12 +1,13 @@
-const { i18n } = require('./next-i18next.config');
-
 const nextConfig = {
 	experimental: {
 		images: {
 			unoptimized: true,
 		},
 	},
-	i18n,
+	i18n: {
+		defaultLocale: 'ru',
+		locales: ['ru', 'che'],
+	},
 	trailingSlash: true,
 	env: {
 		API_KEY: process.env.API_KEY,
