@@ -16,6 +16,7 @@ interface ISubCategory extends IDataInfo {
 		title: string;
 		title_in_nav: string;
 	};
+	films: [IMovieItem[]];
 	customer_group: number;
 }
 

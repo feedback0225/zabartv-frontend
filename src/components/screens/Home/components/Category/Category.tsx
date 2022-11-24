@@ -14,14 +14,15 @@ export const Category = () => {
 				const {
 					id,
 					child_items,
-					films,
 					content: { title_in_nav },
 				} = category;
 
 				const tabs = child_items?.map((tab, idx) => {
-					const txt = tab.content.title;
+					const { content, films } = tab;
 
-					const data = films.items[idx];
+					const txt = content.title;
+
+					const data = films[0];
 
 					return { txt, content: <CategoryCarousel data={data} /> };
 				});
