@@ -18,13 +18,12 @@ export const Category = () => {
 				} = category;
 
 				const tabs = child_items?.map((tab, idx) => {
-					const { content, films } = tab;
+					const {
+						content: { title },
+						films,
+					} = tab;
 
-					const txt = content.title;
-
-					const data = films[0];
-
-					return { txt, content: <CategoryCarousel data={data} /> };
+					return { txt: title, content: <CategoryCarousel data={films} /> };
 				});
 
 				return (

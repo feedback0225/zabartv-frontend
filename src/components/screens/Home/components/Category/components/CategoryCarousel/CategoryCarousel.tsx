@@ -6,7 +6,7 @@ import styles from './CategoryCarousel.module.scss';
 import { IMovieItem } from '@/types/IMovieItem';
 
 interface CategoryCarouselProps {
-	data: IMovieItem[];
+	data: [IMovieItem[]];
 }
 
 export const CategoryCarousel: FC<CategoryCarouselProps> = ({ data }) => {
@@ -22,11 +22,15 @@ export const CategoryCarousel: FC<CategoryCarouselProps> = ({ data }) => {
 	return (
 		<div className={styles.container}>
 			<Carousel className={styles.slider} breakpoints={breakpoints} spaceBetween={24}>
-				{data?.map((item) => (
-					<SwiperSlide className={styles.item} key={item.id}>
-						<MovieItem item={item} />
-					</SwiperSlide>
-				))}
+				{data?.map((el) => {
+					const item = el[0];
+
+					return (
+						<SwiperSlide className={styles.item} key={item.id}>
+							<MovieItem item={item} />
+						</SwiperSlide>
+					);
+				})}
 			</Carousel>
 		</div>
 	);
