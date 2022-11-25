@@ -127,7 +127,7 @@ export const LoginContent = ({ authState }: { authState: string }) => {
 				/>
 				{errorMessages.length > 0
 					? errorMessages?.map((error) => (
-							<ModalErrorMessage key={error}>{error}</ModalErrorMessage>
+							<ModalErrorMessage key={error}>Пользователя не найдено</ModalErrorMessage>
 					  ))
 					: null}
 			</ModalInputs>

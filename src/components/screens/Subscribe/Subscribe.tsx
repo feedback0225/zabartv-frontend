@@ -7,8 +7,6 @@ import classNames from 'classnames';
 export const Subscribe = () => {
 	const { data } = useTypedSelector((state) => state.subscribe);
 
-	console.log(data);
-
 	return (
 		<section className={styles.section}>
 			<div className={classNames('container', styles.container)}>

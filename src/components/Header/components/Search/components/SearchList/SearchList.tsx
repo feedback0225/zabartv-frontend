@@ -16,8 +16,6 @@ export const SearchList: FC<SearchListProps> = ({ value }) => {
 	const [data, setData] = useState<SearchData | null>(null);
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 
-	console.log(data);
-
 	const search = async () => {
 		try {
 			setIsLoading(true);
