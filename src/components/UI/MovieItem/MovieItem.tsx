@@ -4,6 +4,7 @@ import { IMovieItem } from '@/types/IMovieItem';
 import NextLink from 'next/link';
 import Image from 'next/image';
 import styles from './MovieItem.module.scss';
+import { getType } from '@/utils/getType';
 
 interface MovieItemProps {
 	item: IMovieItem;
@@ -20,12 +21,13 @@ export const MovieItem: FC<MovieItemProps> = ({ item, href }) => {
 		rating,
 		hours,
 		minutes,
+		type,
 	} = item;
 
 	const url = `${img_base_url}/${img_path}`;
 
 	const genre = 'Комедия';
-	const type = 'Фильм';
+	const chip = getType(type);
 	const status = 'Подписка';
 
 	return (
@@ -37,7 +39,7 @@ export const MovieItem: FC<MovieItemProps> = ({ item, href }) => {
 					<div className={styles.content}>
 						<div className={styles.chips}>
 							<Chip className={styles.chip}>{genre}</Chip>
-							<Chip className={styles.chip}>{type}</Chip>
+							<Chip className={styles.chip}>{chip}</Chip>
 						</div>
 						<div className={styles.info}>
 							{hours ? (

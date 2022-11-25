@@ -66,8 +66,6 @@ export const Recovery = () => {
 	const handleRecovery = handleSubmit(async (form) => {
 		const { password } = form;
 
-		console.log(token);
-
 		try {
 			setIsLoading(true);
 

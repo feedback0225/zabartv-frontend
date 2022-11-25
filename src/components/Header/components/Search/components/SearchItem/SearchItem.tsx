@@ -4,6 +4,7 @@ import NextLink from 'next/link';
 import Image from 'next/image';
 import styles from './SearchItem.module.scss';
 import { Chip } from '@/UI/Chip/Chip';
+import { getType } from '@/utils/getType';
 
 interface SearchItemProps {
 	item: [IMovie];
@@ -21,7 +22,7 @@ export const SearchItem: FC<SearchItemProps> = ({ item }) => {
 
 	const url = `${img_base_url}/${img_path}`;
 
-	const category = type === 1 ? 'Фильм' : 'Сериал';
+	const category = getType(type);
 
 	return (
 		<NextLink href={`/movie/${id}`}>

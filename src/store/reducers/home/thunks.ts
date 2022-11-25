@@ -6,3 +6,13 @@ export const getHomeCategories = createAsyncThunk('home/getHomeCategories', asyn
 
 	return data;
 });
+
+export const getHeroMovies = createAsyncThunk('home/getHeroMovies', async () => {
+	const { data } = await axios.get('/pages/incat', {
+		params: {
+			cat_id: 1,
+		},
+	});
+
+	return data;
+});

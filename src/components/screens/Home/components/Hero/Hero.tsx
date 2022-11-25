@@ -4,16 +4,16 @@ import NextLink from 'next/link';
 import styles from './Hero.module.scss';
 import Image from 'next/image';
 import classNames from 'classnames';
+import { useTypedSelector } from '@/hooks/useTypedSelector';
 
 export const Hero = () => {
-	const items = [
-		{ id: 1, source: '/main-bg.jpg', alt: 'Подпись к картинке1' },
-		{ id: 1, source: '/main-bg2.jpg', alt: 'Подпись к картинке2' },
-		{ id: 1, source: '/main-bg.jpg', alt: 'Подпись к картинке3' },
-		{ id: 1, source: '/main-bg2.jpg', alt: 'Подпись к картинке4' },
-		{ id: 1, source: '/main-bg.jpg', alt: 'Подпись к картинке5' },
-		{ id: 1, source: '/main-bg2.jpg', alt: 'Подпись к картинке6' },
-	];
+	const { hero } = useTypedSelector((state) => state.home);
+
+	const data = { ...hero[0] };
+
+	const { child_items } = { ...data[0] };
+
+	const { slides } = { ...child_items?.blocks[0] };
 
 	const breakpoints = {
 		769: {
@@ -29,7 +29,6 @@ export const Hero = () => {
 					nextBtnClass={styles.next}
 					className={styles.slider}
 					spaceBetween={15}
-					loop={true}
 					breakpoints={breakpoints}
 					centeredSlides={true}
 					autoplay={{
@@ -37,33 +36,27 @@ export const Hero = () => {
 						disableOnInteraction: false,
 					}}
 				>
-					{items.map((el) => (
-						<SwiperSlide key={el.alt} className={styles.slide}>
-							{el.id ? (
-								<NextLink href={`/movie/${el.id}`}>
+					{slides?.map((slide) => {
+						const { id, img_base_url, img_path, content } = slide;
+
+						const url = `${img_base_url}/${img_path}`;
+
+						return (
+							<SwiperSlide key={id} className={styles.slide}>
+								<NextLink href={`/movie/${id}`}>
 									<a className={styles.item}>
 										<Image
 											priority
 											quality={100}
-											src={el.source}
-											alt={el.alt}
+											src={url}
+											alt={content.title}
 											layout="fill"
 										/>
 									</a>
 								</NextLink>
-							) : (
-								<div className={styles.item}>
-									<Image
-										priority
-										quality={100}
-										src={el.source}
-										alt={el.alt}
-										layout="fill"
-									/>
-								</div>
-							)}
-						</SwiperSlide>
-					))}
+							</SwiperSlide>
+						);
+					})}
 				</Carousel>
 			</div>
 		</section>
