@@ -82,7 +82,7 @@ export const Cabinet = () => {
 					<div className={styles.left}>
 						<Avatar name={data.username} />
 						<div className={styles.text}>
-							<h1 className={styles.name}>{data.username}</h1>
+							<h1 className={styles.name}>{data.first_name}</h1>
 							<span className={styles.mail}>
 								<MailIcon />
 								<span className={styles.mailText}>{data.email}</span>

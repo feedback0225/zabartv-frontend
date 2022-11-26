@@ -24,40 +24,43 @@ export const Hero = () => {
 	return (
 		<section className={styles.hero}>
 			<div className={classNames('container', styles.container)}>
-				<Carousel
-					prevBtnClass={styles.prev}
-					nextBtnClass={styles.next}
-					className={styles.slider}
-					spaceBetween={15}
-					breakpoints={breakpoints}
-					centeredSlides={true}
-					autoplay={{
-						delay: 4000,
-						disableOnInteraction: false,
-					}}
-				>
-					{slides?.map((slide) => {
-						const { id, img_base_url, img_path, content } = slide;
+				{slides && (
+					<Carousel
+						prevBtnClass={styles.prev}
+						nextBtnClass={styles.next}
+						className={styles.slider}
+						loop={true}
+						spaceBetween={15}
+						breakpoints={breakpoints}
+						centeredSlides={true}
+						autoplay={{
+							delay: 4000,
+							disableOnInteraction: false,
+						}}
+					>
+						{slides?.map((slide) => {
+							const { id, img_base_url, img_path, content } = slide;
 
-						const url = `${img_base_url}/${img_path}`;
+							const url = `${img_base_url}/${img_path}`;
 
-						return (
-							<SwiperSlide key={id} className={styles.slide}>
-								<NextLink href={`/movie/${id}`}>
-									<a className={styles.item}>
-										<Image
-											priority
-											quality={100}
-											src={url}
-											alt={content.title}
-											layout="fill"
-										/>
-									</a>
-								</NextLink>
-							</SwiperSlide>
-						);
-					})}
-				</Carousel>
+							return (
+								<SwiperSlide key={id} className={styles.slide}>
+									<NextLink href={`/movie/${id}`}>
+										<a className={styles.item}>
+											<Image
+												priority
+												quality={100}
+												src={url}
+												alt={content.title}
+												layout="fill"
+											/>
+										</a>
+									</NextLink>
+								</SwiperSlide>
+							);
+						})}
+					</Carousel>
+				)}
 			</div>
 		</section>
 	);
