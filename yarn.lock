@@ -10423,11 +10423,6 @@ react-transition-group@^4.4.5:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react-video-renderer@^2.5.1:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/react-video-renderer/-/react-video-renderer-2.5.1.tgz#af12947ca1af60252c9b4701b35b5dbba7363b25"
-  integrity sha512-Vey+5fgEg9AbWM+p5lofWu8XihhxVJAKeNyXLgUlDDBkgupmtSgx+oZM7v9avd/8pHmLH6PintG8Ygi0I0+JuA==
-
 react@18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react/-/react-18.2.0.tgz#555bd98592883255fa00de14f1151a917b5d77d5"

@@ -45,7 +45,7 @@ export const Hero = () => {
 
 							return (
 								<SwiperSlide key={id} className={styles.slide}>
-									<NextLink href={`/movie/${id}`}>
+									<NextLink href={content.link}>
 										<a className={styles.item}>
 											<Image
 												priority
