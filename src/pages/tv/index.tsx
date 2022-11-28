@@ -20,10 +20,10 @@ export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async ({ 
 
 	if (locale === 'che') {
 		await axios.get(`/languages/index?lang=che_CHE`);
-		await dispatch(getCategory(1));
+		await dispatch(getCategory('tv'));
 	} else if (locale === 'ru') {
 		await axios.get(`/languages/index?lang=ru-RU`);
-		await dispatch(getCategory(1));
+		await dispatch(getCategory('tv'));
 	}
 
 	return {

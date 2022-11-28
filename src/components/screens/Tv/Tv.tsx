@@ -1,39 +1,38 @@
 import { Category } from '@/components/Category/Category';
+import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { IMovieItem } from '@/types/IMovieItem';
 import { Grid } from '@/UI/Grid/Grid';
 import { MovieItem } from '@/UI/MovieItem/MovieItem';
 
 export const Tv = () => {
-	const mockData = [
-		{
-			id: 1,
-			content: { title: 'Канал 1' },
-			img_base_url: '/movie.jpg',
-			options: [
-				{
-					filter_id: 2,
-					option_value: '3+',
-				},
-			],
-			img_path: '',
-		},
-	];
+	const { data } = useTypedSelector((state) => state.category);
 
-	const tabs = [
-		{
-			txt: 'Новости',
-			content: (
-				<Grid
-					items={mockData}
-					renderItem={(item) => <MovieItem href={`/tv/${item.id}`} item={item} />}
-				/>
-			),
-		},
-	];
+	const { content, child_items } = { ...data[0] };
+
+	const tabs =
+		child_items?.map((tab, idx) => {
+			const txt = tab.content.title;
+
+			const data = tab?.films?.items;
+
+			return {
+				txt,
+				content: (
+					<Grid
+						items={data}
+						renderItem={(el) => {
+							const item = el[0];
+
+							return <MovieItem href={`/tv/${item.id}`} item={item} />;
+						}}
+					/>
+				),
+			};
+		}) || [];
 
 	return (
 		<Category>
-			<Category.Title>Тв</Category.Title>
+			<Category.Title>{content?.title_in_nav}</Category.Title>
 			<Category.Tabs tabs={tabs} />
 		</Category>
 	);

@@ -16,7 +16,9 @@ interface ISubCategory extends IDataInfo {
 		title: string;
 		title_in_nav: string;
 	};
-	films: [IMovieItem[]];
+	films: {
+		items: [IMovieItem[]];
+	};
 	customer_group: number;
 }
 
@@ -28,15 +30,6 @@ export interface ICategory extends IDataInfo {
 		title_in_nav: string;
 	};
 	customer_group: number;
-	films: {
-		items: IMovieItem[][];
-		_links: {
-			self: {
-				href: string;
-			};
-		};
-		_meta: IPageInfo;
-	};
 	full_link: string;
 	icon: string;
 	id: number;

@@ -11,7 +11,7 @@ export function Grid<T>({ items, renderItem, className }: GridProps<T>) {
 	const renderItems = useCallback(
 		(_items: typeof items) =>
 			_items?.map((item, idx) => <Fragment key={idx}>{renderItem(item)}</Fragment>),
-		[className, renderItem]
+		[renderItem]
 	);
 
 	return (
