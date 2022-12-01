@@ -1,33 +1,27 @@
+import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { Title } from '@/UI/Title/Title';
 import classNames from 'classnames';
+import Head from 'next/head';
 import styles from './About.module.scss';
 
 export const About = () => {
+	const { data } = useTypedSelector((state) => state.page);
+
+	const { content, child_items } = { ...data[0] };
+
+	const { content: block } = { ...child_items?.blocks[0] };
+
 	return (
 		<section className={styles.section}>
+			<Head>
+				<title>{content?.title_in_nav}</title>
+			</Head>
 			<div className={classNames('container', styles.container)}>
-				<Title className={styles.title}>О компании</Title>
-				<div className={styles.desc}>
-					<p>
-						Канал многопланово продолжает доминантсептаккорд, не случайно эта композиция
-						вошла в диск В.Кикабидзе &quot;Ларису Ивановну хочу&quot;. Трехчастная фактурная
-						форма, на первый взгляд, представляет собой цикл. Показательный пример – струна
-						дает open-air. Кризис жанра дает соноропериод. Эффект &quot;вау-вау&quot;, по
-						определению, трансформирует мономерный мнимотакт. Показательный пример –
-						алеаторика заканчивает автономный флэнжер.
-					</p>
-					<p>
-						Дисторшн варьирует композиционный хамбакер. Плотностная компонентная форма
-						продолжает позиционный гармонический интервал, благодаря широким мелодическим
-						скачкам. Аллегро продолжает лайн-ап, не случайно эта композиция вошла в диск
-						В.Кикабидзе &quot;Ларису Ивановну хочу&quot;.
-					</p>
-					<p>
-						Форшлаг mezzo forte образует структурный райдер. Асинхронное ритмическое поле
-						регрессийно продолжает рефрен. Легато выстраивает композиционный контрапункт
-						контрастных фактур.
-					</p>
-				</div>
+				<Title className={styles.title}>{block?.title}</Title>
+				<div
+					className={styles.desc}
+					dangerouslySetInnerHTML={{ __html: block?.mini_description! }}
+				/>
 			</div>
 		</section>
 	);

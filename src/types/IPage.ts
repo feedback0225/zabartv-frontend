@@ -1,3 +1,5 @@
+import { IContent } from './IContent';
+
 interface IHeroMovie {
 	id: number;
 	block_id: number;
@@ -19,4 +21,5 @@ export interface IPage {
 	child_items: {
 		blocks: [{ slides: IHeroMovie[] }];
 	};
+	content: IContent;
 }

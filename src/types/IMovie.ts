@@ -2,17 +2,7 @@ import { IUserData } from './IUserData';
 import { ICatalog } from './ICatalog';
 import { IOption } from './IOption';
 import { IPart } from './IPart';
-
-interface IContent {
-	mini_description: string;
-	seo_description: string;
-	seo_keywords: string;
-	seo_title: string;
-	slogan: string;
-	text: string;
-	theme: string;
-	title: string;
-}
+import { IContent } from './IContent';
 
 export interface IMovie {
 	badge: null;

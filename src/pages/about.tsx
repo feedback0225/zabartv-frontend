@@ -6,13 +6,11 @@ import { wrapper } from '@/store/store';
 import { getIP } from '@/reducers/auth/thunks';
 import axios from '@/utils/axios';
 import Head from 'next/head';
+import { getPage } from '@/reducers/page/thunks';
 
 const AboutPage: NextPage = () => {
 	return (
 		<Layout headerVariant="absolute">
-			<Head>
-				<title>О нас</title>
-			</Head>
 			<About />
 		</Layout>
 	);
@@ -23,8 +21,10 @@ export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async ({ 
 
 	if (locale === 'che') {
 		await axios.get(`/languages/index?lang=che_CHE`);
+		await dispatch(getPage('about'));
 	} else if (locale === 'ru') {
 		await axios.get(`/languages/index?lang=ru-RU`);
+		await dispatch(getPage('about'));
 	}
 
 	return {

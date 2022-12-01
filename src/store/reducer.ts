@@ -10,6 +10,7 @@ import { movieReducer } from './reducers/movie/slice';
 import { playerReducer } from './reducers/player/slice';
 import { categoryReducer } from './reducers/category/slice';
 import { authReducer } from './reducers/auth/slice';
+import { pageReducer } from './reducers/page/slice';
 
 export const rootReducer = combineReducers({
 	menu: menuReducer,
@@ -22,6 +23,7 @@ export const rootReducer = combineReducers({
 	player: playerReducer,
 	category: categoryReducer,
 	auth: authReducer,
+	page: pageReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
