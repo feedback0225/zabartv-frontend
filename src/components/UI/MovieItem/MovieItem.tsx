@@ -43,7 +43,7 @@ export const MovieItem: FC<MovieItemProps> = ({ item, href }) => {
 							<Chip className={styles.chip}>{chip}</Chip>
 						</div>
 						<div className={styles.info}>
-							{hours ? (
+							{hours && type !== 6 ? (
 								<span className={styles.infoItem}>
 									{hours} час {minutes} минуты
 								</span>
