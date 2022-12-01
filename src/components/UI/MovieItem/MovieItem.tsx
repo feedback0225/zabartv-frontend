@@ -19,6 +19,7 @@ export const MovieItem: FC<MovieItemProps> = ({ item, href }) => {
 		img_base_url,
 		img_path,
 		rating,
+		slug,
 		hours,
 		minutes,
 		type,
@@ -31,7 +32,7 @@ export const MovieItem: FC<MovieItemProps> = ({ item, href }) => {
 	const status = 'Подписка';
 
 	return (
-		<NextLink href={href || `/movie/${id}`}>
+		<NextLink href={href || `/movie/${slug}`}>
 			<a className={styles.item}>
 				<div className={styles.top}>
 					<Image priority quality={100} layout="fill" src={url} alt={title} />

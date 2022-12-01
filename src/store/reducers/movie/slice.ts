@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IMovie } from '@/types/IMovie';
-import { getMovieById } from './thunks';
+import { getMovieBySlug } from './thunks';
 
 interface IState {
 	data: [IMovie] | [];
@@ -19,15 +19,15 @@ export const movieSlice = createSlice({
 	initialState,
 	reducers: {},
 	extraReducers: {
-		[getMovieById.fulfilled.type]: (state, action: PayloadAction<[IMovie]>) => {
+		[getMovieBySlug.fulfilled.type]: (state, action: PayloadAction<[IMovie]>) => {
 			state.isLoading = false;
 			state.isError = false;
 			state.data = action.payload;
 		},
-		[getMovieById.pending.type]: (state) => {
+		[getMovieBySlug.pending.type]: (state) => {
 			state.isLoading = true;
 		},
-		[getMovieById.rejected.type]: (state) => {
+		[getMovieBySlug.rejected.type]: (state) => {
 			state.isLoading = false;
 			state.isError = true;
 		},

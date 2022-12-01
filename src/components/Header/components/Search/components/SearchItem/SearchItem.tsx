@@ -13,6 +13,7 @@ interface SearchItemProps {
 export const SearchItem: FC<SearchItemProps> = ({ item }) => {
 	const {
 		id,
+		slug,
 		img_base_url,
 		img_path,
 		type,
@@ -25,7 +26,7 @@ export const SearchItem: FC<SearchItemProps> = ({ item }) => {
 	const category = getType(type);
 
 	return (
-		<NextLink href={`/movie/${id}`}>
+		<NextLink href={`/movie/${slug}`}>
 			<a className={styles.item}>
 				<div className={styles.left}>
 					<div className={styles.imageWrapper}>

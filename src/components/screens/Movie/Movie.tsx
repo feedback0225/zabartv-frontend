@@ -5,9 +5,9 @@ import { Button } from '@/UI/Button/Button';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { Seasons, Rating, GradeModal } from './components';
 import { useTypedActions } from '@/hooks/useTypedActions';
+import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import styles from './Movie.module.scss';
-import { useEffect, useState } from 'react';
 import axios from '@/utils/axios';
 
 export const Movie = () => {
@@ -15,9 +15,23 @@ export const Movie = () => {
 	const { data } = useTypedSelector((state) => state.movie);
 	const { openPlayer } = useTypedActions((state) => state.player);
 
-	const { id, content, hours, minutes, parts, options, rating, img_base_url, img_path, catalogs } = {
+	const {
+		id,
+		content,
+		hours,
+		type,
+		minutes,
+		parts,
+		options,
+		rating,
+		img_base_url,
+		img_path,
+		catalogs,
+	} = {
 		...data[0],
 	};
+
+	console.log(data);
 
 	const categories = catalogs?.map((cat) => {
 		return cat.content.title_in_nav;
@@ -77,7 +91,7 @@ export const Movie = () => {
 							))}
 						</div>
 						<div className={styles.info}>
-							{hours ? (
+							{hours && type !== 6 ? (
 								<span className={styles.infoItem}>
 									{hours} час {minutes} минуты
 								</span>

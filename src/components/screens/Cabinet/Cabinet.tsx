@@ -80,7 +80,7 @@ export const Cabinet = () => {
 			<div className={classNames('container', styles.container)}>
 				<div className={styles.top}>
 					<div className={styles.left}>
-						<Avatar name={data.username} />
+						<Avatar name={data.first_name} />
 						<div className={styles.text}>
 							<h1 className={styles.name}>{data.first_name}</h1>
 							<span className={styles.mail}>

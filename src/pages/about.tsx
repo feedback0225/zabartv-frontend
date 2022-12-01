@@ -5,10 +5,14 @@ import type { NextPage } from 'next';
 import { wrapper } from '@/store/store';
 import { getIP } from '@/reducers/auth/thunks';
 import axios from '@/utils/axios';
+import Head from 'next/head';
 
 const AboutPage: NextPage = () => {
 	return (
 		<Layout headerVariant="absolute">
+			<Head>
+				<title>О нас</title>
+			</Head>
 			<About />
 		</Layout>
 	);

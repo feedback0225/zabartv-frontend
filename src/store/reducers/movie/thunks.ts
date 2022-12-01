@@ -1,10 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from '@/utils/axios';
 
-export const getMovieById = createAsyncThunk('movie/getMovieById', async (id: string) => {
-	const { data } = await axios.get('/items/selectdata', {
+export const getMovieBySlug = createAsyncThunk('movie/getMovieBySlug', async (slug: string) => {
+	const { data } = await axios.get('/items/selectdataforslug', {
 		params: {
-			id,
+			slug,
 		},
 	});
 
