@@ -8,6 +8,7 @@ import styles from './MovieItem.module.scss';
 import { IMovie } from '@/types/IMovie';
 import { useAppDispatch } from '@/hooks/useAppDispatch';
 import { getFavorites } from '@/reducers/user/thunks';
+import { getType } from '@/utils/getType';
 
 interface MovieItemProps {
 	item: IMovie;
@@ -20,8 +21,6 @@ export const MovieItem: FC<MovieItemProps> = ({ item, favourite }) => {
 	const url = `${preview_base_url}/${preview_path}`;
 
 	const { title } = content;
-
-	const category = type === 1 ? 'Фильм' : 'Сериал';
 
 	const dispatch = useAppDispatch();
 
@@ -60,7 +59,7 @@ export const MovieItem: FC<MovieItemProps> = ({ item, favourite }) => {
 					</ButtonBase>
 				)}
 			</div>
-			<span className={styles.status}>{category}</span>
+			<span className={styles.status}>{getType(type)}</span>
 			<NextLink href={`/movie/${slug}`}>
 				<a className={styles.title}>{title}</a>
 			</NextLink>
