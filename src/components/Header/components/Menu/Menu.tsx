@@ -1,3 +1,4 @@
+import { CSSProperties } from 'react';
 import { ButtonBase } from '@/components/ButtonBase/ButtonBase';
 import { CloseIcon } from '@/icons';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
@@ -32,7 +33,7 @@ export const Menu = () => {
 
 	return (
 		<div
-			style={{ height: `${height}px` }}
+			style={{ '--vh': `${height}px` } as CSSProperties}
 			className={classNames(styles.menu, isOpened && styles.opened)}
 		>
 			<div className={styles.container}>
