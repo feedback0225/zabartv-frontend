@@ -1,17 +1,16 @@
 import { Chip } from '@/UI/Chip/Chip';
 import { Title } from '@/UI/Title/Title';
-import { PlayIcon, StarIcon } from '@/icons';
+import { PlayIcon } from '@/icons';
 import { Button } from '@/UI/Button/Button';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
-import { Seasons, Rating, GradeModal } from './components';
+import { Seasons, Rating, GradeModal, FavoriteButton } from './components';
 import { useTypedActions } from '@/hooks/useTypedActions';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import classNames from 'classnames';
 import styles from './Movie.module.scss';
 import axios from '@/utils/axios';
 
 export const Movie = () => {
-	const [isFavorite, setIsFavorite] = useState<boolean>(false);
 	const { data } = useTypedSelector((state) => state.movie);
 	const { openPlayer } = useTypedActions((state) => state.player);
 
@@ -31,8 +30,6 @@ export const Movie = () => {
 		...data[0],
 	};
 
-	console.log(data);
-
 	const categories = catalogs?.map((cat) => {
 		return cat.content.title_in_nav;
 	});
@@ -45,20 +42,6 @@ export const Movie = () => {
 
 	const watchTrailer = () => {
 		openPlayer(true);
-	};
-
-	const addMovieToFavorites = async () => {
-		setIsFavorite((prev) => !prev);
-
-		try {
-			await axios.get('/items/updatewishlist', {
-				params: {
-					film_id: id,
-				},
-			});
-		} catch (e: unknown) {
-			console.error(e);
-		}
 	};
 
 	const addMovieToViewed = async () => {
@@ -75,6 +58,7 @@ export const Movie = () => {
 
 	useEffect(() => {
 		addMovieToViewed();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (
@@ -114,14 +98,7 @@ export const Movie = () => {
 							<Button onClick={watchTrailer} className={styles.btn} variant="dark">
 								Трейлер
 							</Button>
-							<Button
-								className={classNames(styles.star, isFavorite && styles.starActive)}
-								onClick={addMovieToFavorites}
-								variant="dark"
-								aria-label="Добавить в избранное"
-							>
-								<StarIcon />
-							</Button>
+							<FavoriteButton />
 						</div>
 					</div>
 				</div>
