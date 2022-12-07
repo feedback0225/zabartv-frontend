@@ -4,7 +4,8 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import type { NextPage } from 'next';
 import { wrapper } from '@/store/store';
 import { getIP } from '@/reducers/auth/thunks';
-import axios from '@/utils/axios';
+import { getFooterMenu, getNavMenu } from '@/reducers/menu/thunks';
+import { baseApi } from '@/api';
 
 const PolicyPage: NextPage = () => {
 	return (
@@ -15,7 +16,10 @@ const PolicyPage: NextPage = () => {
 };
 
 export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async ({ locale }) => {
+	await baseApi.setLang(locale as string);
 	await dispatch(getIP());
+	await dispatch(getNavMenu());
+	await dispatch(getFooterMenu());
 
 	return {
 		props: {

@@ -3,32 +3,29 @@ import { FC } from 'react';
 import NextLink from 'next/link';
 import classNames from 'classnames';
 import styles from './Nav.module.scss';
+import { useTypedSelector } from '@/hooks/useTypedSelector';
 
 interface NavProps {
 	className?: string;
 }
 
 export const Nav: FC<NavProps> = ({ className }) => {
-	const items = [
-		{ href: RoutesEnum.Humor, text: 'Юмор' },
-		{ href: RoutesEnum.Music, text: 'Музыка' },
-		{ href: RoutesEnum.Cartoons, text: 'Мультфильмы' },
-		{ href: RoutesEnum.Tv, text: 'Тв' },
-		{ href: RoutesEnum.Films, text: 'Фильмы' },
-		{ href: RoutesEnum.Series, text: 'Сериалы' },
-		{ href: RoutesEnum.New, text: 'New' },
-	];
+	const { navMenu } = useTypedSelector((state) => state.menu);
 
 	return (
 		<nav className={classNames(styles.nav, className)}>
 			<ul className={classNames('list-reset', styles.list)}>
-				{items.map((el) => (
-					<li key={el.text} className={styles.item}>
-						<NextLink href={el.href}>
-							<a className={styles.link}>{el.text}</a>
-						</NextLink>
-					</li>
-				))}
+				{navMenu.map((item) => {
+					const { content, id, slug } = item;
+
+					return (
+						<li key={id} className={styles.item}>
+							<NextLink href={`/${slug}`}>
+								<a className={styles.link}>{content.title_in_nav}</a>
+							</NextLink>
+						</li>
+					);
+				})}
 			</ul>
 		</nav>
 	);

@@ -1,12 +1,13 @@
+import type { NextPage } from 'next';
 import { Layout } from '@/components/Layout/Layout';
+import { baseApi } from '@/api';
 import { Hero, Category, Music } from '@/screens/Home/index';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { wrapper } from '@/store/store';
 import { getIP } from '@/reducers/auth/thunks';
 import { getHeroMovies, getHomeCategories } from '@/reducers/home/thunks';
-import type { NextPage } from 'next';
 import { Player } from '@/components/Player/Player';
-import axios from '@/utils/axios';
+import { getFooterMenu, getNavMenu } from '@/reducers/menu/thunks';
 
 const HomePage: NextPage = () => {
 	return (
@@ -20,17 +21,12 @@ const HomePage: NextPage = () => {
 };
 
 export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async ({ locale }) => {
+	await baseApi.setLang(locale as string);
 	await dispatch(getIP());
-
-	if (locale === 'che') {
-		await axios.get(`/languages/index?lang=che_CHE`);
-		await dispatch(getHomeCategories());
-		await dispatch(getHeroMovies());
-	} else if (locale === 'ru') {
-		await axios.get(`/languages/index?lang=ru-RU`);
-		await dispatch(getHomeCategories());
-		await dispatch(getHeroMovies());
-	}
+	await dispatch(getHomeCategories());
+	await dispatch(getHeroMovies());
+	await dispatch(getNavMenu());
+	await dispatch(getFooterMenu());
 
 	return {
 		props: {

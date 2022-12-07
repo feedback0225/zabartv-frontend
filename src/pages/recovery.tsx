@@ -4,6 +4,8 @@ import type { NextPage } from 'next';
 import { wrapper } from '@/store/store';
 import { getIP } from '@/reducers/auth/thunks';
 import { Recovery } from '@/screens/Recovery/Recovery';
+import { getFooterMenu, getNavMenu } from '@/reducers/menu/thunks';
+import { baseApi } from '@/api';
 
 const RecoveryPage: NextPage = () => {
 	return (
@@ -14,7 +16,10 @@ const RecoveryPage: NextPage = () => {
 };
 
 export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async ({ locale }) => {
+	await baseApi.setLang(locale as string);
 	await dispatch(getIP());
+	await dispatch(getNavMenu());
+	await dispatch(getFooterMenu());
 
 	return {
 		props: {

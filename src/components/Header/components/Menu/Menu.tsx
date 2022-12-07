@@ -13,23 +13,13 @@ import classNames from 'classnames';
 import styles from './Menu.module.scss';
 
 export const Menu = () => {
-	const { isOpened } = useTypedSelector((state) => state.menu);
+	const { isOpened, navMenu } = useTypedSelector((state) => state.menu);
 	const { showMenu } = useTypedActions((state) => state.menu);
 	const { height } = useWindowSize();
 
 	const handleClose = () => showMenu(false);
 
 	useLockedBody(isOpened);
-
-	const items = [
-		{ href: RoutesEnum.Humor, text: 'Юмор' },
-		{ href: RoutesEnum.Music, text: 'Музыка' },
-		{ href: RoutesEnum.Cartoons, text: 'Мультфильмы' },
-		{ href: RoutesEnum.Tv, text: 'Тв' },
-		{ href: RoutesEnum.Films, text: 'Фильмы' },
-		{ href: RoutesEnum.Series, text: 'Сериалы' },
-		{ href: RoutesEnum.New, text: 'New' },
-	];
 
 	return (
 		<div
@@ -46,13 +36,17 @@ export const Menu = () => {
 				</div>
 				<nav className={styles.nav}>
 					<ul className={classNames('list-reset', styles.list)}>
-						{items.map((el) => (
-							<li key={el.text} className={styles.item}>
-								<NextLink href={el.href}>
-									<a className={styles.link}>{el.text}</a>
-								</NextLink>
-							</li>
-						))}
+						{navMenu.map((item) => {
+							const { content, id, slug } = item;
+
+							return (
+								<li key={id} className={styles.item}>
+									<NextLink href={`/${slug}`}>
+										<a className={styles.link}>{content.title_in_nav}</a>
+									</NextLink>
+								</li>
+							);
+						})}
 					</ul>
 				</nav>
 				<SubscribeButton className={styles.btn} />

@@ -6,6 +6,8 @@ import { getIP } from '@/reducers/auth/thunks';
 import { getCategory } from '@/reducers/category/thunks';
 import type { NextPage } from 'next';
 import axios from '@/utils/axios';
+import { getFooterMenu, getNavMenu } from '@/reducers/menu/thunks';
+import { baseApi } from '@/api';
 
 const CartoonsPage: NextPage = () => {
 	return (
@@ -16,15 +18,11 @@ const CartoonsPage: NextPage = () => {
 };
 
 export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async ({ locale }) => {
+	await baseApi.setLang(locale as string);
 	await dispatch(getIP());
-
-	if (locale === 'che') {
-		await axios.get(`/languages/index?lang=che_CHE`);
-		await dispatch(getCategory('tv'));
-	} else if (locale === 'ru') {
-		await axios.get(`/languages/index?lang=ru-RU`);
-		await dispatch(getCategory('tv'));
-	}
+	await dispatch(getNavMenu());
+	await dispatch(getFooterMenu());
+	await dispatch(getCategory('tv'));
 
 	return {
 		props: {

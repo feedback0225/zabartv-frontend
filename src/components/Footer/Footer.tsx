@@ -5,6 +5,7 @@ import NextLink from 'next/link';
 import { FC } from 'react';
 import classNames from 'classnames';
 import styles from './Footer.module.scss';
+import { useTypedSelector } from '@/hooks/useTypedSelector';
 
 interface FooterProps {
 	sticky?: boolean;

@@ -4,7 +4,6 @@ import { wrapper } from '@/store/store';
 import { getIP } from '@/reducers/auth/thunks';
 import { Cabinet } from '@/screens/Cabinet/Cabinet';
 import type { NextPage } from 'next';
-import axios from '@/utils/axios';
 
 const CabinetPage: NextPage = () => {
 	return (

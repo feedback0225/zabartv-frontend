@@ -6,7 +6,8 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { getMovieBySlug } from '@/reducers/movie/thunks';
 import { Player } from '@/components/Player/Player';
 import type { NextPage } from 'next';
-import axios from '@/utils/axios';
+import { getFooterMenu, getNavMenu } from '@/reducers/menu/thunks';
+import { baseApi } from '@/api';
 
 const MoviePage: NextPage = () => {
 	return (
@@ -20,15 +21,11 @@ const MoviePage: NextPage = () => {
 export const getServerSideProps = wrapper.getServerSideProps(
 	({ dispatch }) =>
 		async ({ query: { slug }, locale }) => {
+			await baseApi.setLang(locale as string);
 			await dispatch(getIP());
-
-			if (locale === 'che') {
-				await axios.get(`/languages/index?lang=che_CHE`);
-				await dispatch(getMovieBySlug(slug as string));
-			} else if (locale === 'ru') {
-				await axios.get(`/languages/index?lang=ru-RU`);
-				await dispatch(getMovieBySlug(slug as string));
-			}
+			await dispatch(getMovieBySlug(slug as string));
+			await dispatch(getNavMenu());
+			await dispatch(getFooterMenu());
 
 			return {
 				props: {
