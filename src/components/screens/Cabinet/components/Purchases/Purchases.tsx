@@ -44,8 +44,7 @@ export const Purchases = () => {
 						</div>
 					) : (
 						<Title className={styles.errorMessage} level="h3" size="small">
-							{/* @ts-ignore */}
-							{item}
+							Нет покупок
 						</Title>
 					)}
 				</Fragment>
