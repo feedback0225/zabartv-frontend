@@ -15,6 +15,9 @@ export const About = () => {
 		<section className={styles.section}>
 			<Head>
 				<title>{content?.title_in_nav}</title>
+				<meta name="description" content={content?.seo_description} />
+				<meta name="keywords" content={content?.seo_keywords} />
+				<meta property="og:description" content={content?.seo_description} />
 			</Head>
 			<div className={classNames('container', styles.container)}>
 				<Title className={styles.title}>{block?.title}</Title>
