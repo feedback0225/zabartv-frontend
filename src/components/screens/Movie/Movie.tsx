@@ -9,6 +9,7 @@ import { useEffect } from 'react';
 import classNames from 'classnames';
 import styles from './Movie.module.scss';
 import axios from '@/utils/axios';
+import Head from 'next/head';
 
 export const Movie = () => {
 	const { data } = useTypedSelector((state) => state.movie);
@@ -64,6 +65,12 @@ export const Movie = () => {
 	return (
 		<>
 			<section className={styles.section}>
+				<Head>
+					<title>{content?.title}</title>
+					<meta name="description" content={content?.seo_description} />
+					<meta name="keywords" content={content?.seo_keywords} />
+					<meta property="og:description" content={content?.seo_description} />
+				</Head>
 				<div style={{ backgroundImage: `url(${image})` }} className={styles.top}>
 					<div className={classNames('container', styles.content)}>
 						<Title className={styles.title}>{content?.title}</Title>
