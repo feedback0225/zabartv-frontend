@@ -37,15 +37,34 @@ export const SearchList: FC<SearchListProps> = ({ value }) => {
 
 	useEffect(() => {
 		search();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [value]);
 
 	const List = (
 		<div className={styles.list}>
-			{data?.items.map((item, idx) => (
-				<SearchItem key={idx} item={item} />
-			))}
+			{data?.items.length! > 0 ? (
+				data?.items.map((item, idx) => <SearchItem key={idx} item={item} />)
+			) : (
+				<span className={styles.message}>не найдено</span>
+			)}
 		</div>
 	);
 
-	return data?.items?.length! > 0 ? List : null;
+	return (
+		<>
+			{!isLoading ? (
+				<div className={styles.list}>
+					{data?.items.length! > 0 ? (
+						data?.items.map((item, idx) => <SearchItem key={idx} item={item} />)
+					) : (
+						<span className={styles.message}>не найдено</span>
+					)}
+				</div>
+			) : (
+				<div className={styles.list}>
+					<span className={styles.message}>Загрузка...</span>
+				</div>
+			)}
+		</>
+	);
 };
