@@ -10,12 +10,11 @@ import { Link } from '@/UI/Link/Link';
 import { useTypedActions } from '@/hooks/useTypedActions';
 import { useRouter } from 'next/router';
 import { RoutesEnum } from '@/constants/routes';
+import { getFooterMenu, getNavMenu } from '@/reducers/menu/thunks';
+import { baseApi } from '@/api';
 import axios from '@/utils/axios';
 import classNames from 'classnames';
 import styles from './Cabinet.module.scss';
-import { useLockedBody } from 'usehooks-ts';
-import { getFooterMenu, getNavMenu } from '@/reducers/menu/thunks';
-import { baseApi } from '@/api';
 
 export const Cabinet = () => {
 	const { push, locale } = useRouter();
@@ -39,6 +38,12 @@ export const Cabinet = () => {
 	const dispatch = useAppDispatch();
 
 	const fetchData = async () => {
+		await baseApi.setLang(locale as string);
+
+		await dispatch(getNavMenu());
+
+		await dispatch(getFooterMenu());
+
 		const {
 			payload: { id },
 		} = await dispatch(getMe());
@@ -56,15 +61,7 @@ export const Cabinet = () => {
 		push(RoutesEnum.Home);
 	};
 
-	const getData = async () => {
-		await baseApi.setLang(locale as string);
-		await dispatch(getNavMenu());
-		await dispatch(getFooterMenu());
-	};
-
 	useEffect(() => {
-		getData();
-
 		if (typeof window !== 'undefined') {
 			const isAuth = Boolean(
 				localStorage.getItem('zabar_user_id') &&
@@ -73,6 +70,7 @@ export const Cabinet = () => {
 
 			isAuth ? fetchData() : push(RoutesEnum.Home);
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (

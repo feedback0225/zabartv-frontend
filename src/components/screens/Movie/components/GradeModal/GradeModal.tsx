@@ -11,9 +11,9 @@ import axios from '@/utils/axios';
 export const GradeModal = () => {
 	const [rating, setRating] = useState<number>(0);
 
-	const {
-		query: { id },
-	} = useRouter();
+	const { data } = useTypedSelector((state) => state.movie);
+
+	const { id } = { ...data[0] };
 
 	const { isVisibleGradeModal } = useTypedSelector((state) => state.modal);
 
@@ -59,6 +59,7 @@ export const GradeModal = () => {
 
 	useEffect(() => {
 		getRating();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (

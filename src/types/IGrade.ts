@@ -1,4 +1,4 @@
 export interface IGradeResponse {
-	id: string | string[] | undefined;
+	id: number | undefined;
 	rating: number;
 }
