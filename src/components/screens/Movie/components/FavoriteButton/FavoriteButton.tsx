@@ -1,3 +1,4 @@
+import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { StarIcon } from '@/icons';
 import { Button } from '@/UI/Button/Button';
 import axios from '@/utils/axios';
@@ -7,9 +8,8 @@ import React, { useEffect, useState } from 'react';
 import styles from './FavoriteButton.module.scss';
 
 export const FavoriteButton = () => {
-	const {
-		query: { id },
-	} = useRouter();
+	const { data } = useTypedSelector((state) => state.movie);
+	const { id } = { ...data[0] };
 	const [isFavorite, setIsFavorite] = useState<boolean>(false);
 
 	const addMovieToFavorites = async () => {

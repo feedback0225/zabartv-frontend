@@ -6,7 +6,6 @@ interface AvatarProps {
 }
 
 export const Avatar: FC<AvatarProps> = ({ name }) => {
-	/* Временно */
 	const letter = name ? name[0] : null;
 
 	return (

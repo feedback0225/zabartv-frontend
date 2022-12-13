@@ -39,6 +39,7 @@ export const Movie = () => {
 
 	const watchMovie = () => {
 		openPlayer(true);
+		addMovieToViewed();
 	};
 
 	const watchTrailer = () => {
@@ -56,11 +57,6 @@ export const Movie = () => {
 			console.error(e);
 		}
 	};
-
-	useEffect(() => {
-		addMovieToViewed();
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
 
 	return (
 		<>
