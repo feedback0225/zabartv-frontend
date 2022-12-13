@@ -18,10 +18,18 @@ const SubscribePage: NextPage = () => {
 
 export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async ({ locale }) => {
 	await baseApi.setLang(locale as string);
-	await dispatch(getIP());
-	await dispatch(getNavMenu());
-	await dispatch(getFooterMenu());
-	await dispatch(getPackages());
+
+	if (locale) {
+		await dispatch(getIP());
+		await dispatch(getNavMenu());
+		await dispatch(getFooterMenu());
+		await dispatch(getPackages());
+	} else {
+		await dispatch(getIP());
+		await dispatch(getNavMenu());
+		await dispatch(getFooterMenu());
+		await dispatch(getPackages());
+	}
 
 	return {
 		props: {

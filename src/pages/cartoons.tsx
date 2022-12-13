@@ -18,10 +18,18 @@ const CartoonsPage: NextPage = () => {
 
 export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async ({ locale }) => {
 	await baseApi.setLang(locale as string);
-	await dispatch(getIP());
-	await dispatch(getNavMenu());
-	await dispatch(getFooterMenu());
-	await dispatch(getCategory('cartoons'));
+
+	if (locale) {
+		await dispatch(getIP());
+		await dispatch(getNavMenu());
+		await dispatch(getFooterMenu());
+		await dispatch(getCategory('cartoons'));
+	} else {
+		await dispatch(getIP());
+		await dispatch(getNavMenu());
+		await dispatch(getFooterMenu());
+		await dispatch(getCategory('cartoons'));
+	}
 
 	return {
 		props: {

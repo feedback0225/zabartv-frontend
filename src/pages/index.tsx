@@ -14,7 +14,7 @@ const HomePage: NextPage = () => {
 		<Layout>
 			<Hero />
 			<Category />
-			<Music />
+			{/* <Music /> */}
 			<Player />
 		</Layout>
 	);
@@ -22,11 +22,20 @@ const HomePage: NextPage = () => {
 
 export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async ({ locale }) => {
 	await baseApi.setLang(locale as string);
-	await dispatch(getIP());
-	await dispatch(getHomeCategories());
-	await dispatch(getHeroMovies());
-	await dispatch(getNavMenu());
-	await dispatch(getFooterMenu());
+
+	if (locale) {
+		await dispatch(getIP());
+		await dispatch(getHomeCategories());
+		await dispatch(getHeroMovies());
+		await dispatch(getNavMenu());
+		await dispatch(getFooterMenu());
+	} else {
+		await dispatch(getIP());
+		await dispatch(getHomeCategories());
+		await dispatch(getHeroMovies());
+		await dispatch(getNavMenu());
+		await dispatch(getFooterMenu());
+	}
 
 	return {
 		props: {

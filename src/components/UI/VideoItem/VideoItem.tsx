@@ -9,13 +9,14 @@ interface VideoItemProps {
 }
 
 export const VideoItem: FC<VideoItemProps> = ({ item }) => {
-	const { poster, id, title, desc } = item;
+	const { poster, id, title, desc, url } = item;
 
-	const {openPlayer} = useTypedActions(state => state.player)
+	const { openPlayer, setUrl } = useTypedActions((state) => state.player);
 
 	const handleOpenPlayer = () => {
-		openPlayer(true)
-	}
+		openPlayer(true);
+		setUrl(url);
+	};
 
 	return (
 		<div onClick={handleOpenPlayer} className={styles.item}>

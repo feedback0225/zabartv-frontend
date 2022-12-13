@@ -22,10 +22,18 @@ export const getServerSideProps = wrapper.getServerSideProps(
 	({ dispatch }) =>
 		async ({ query: { slug }, locale }) => {
 			await baseApi.setLang(locale as string);
-			await dispatch(getNavMenu());
-			await dispatch(getFooterMenu());
-			await dispatch(getIP());
-			await dispatch(getMovieBySlug(slug as string));
+
+			if (locale) {
+				await dispatch(getNavMenu());
+				await dispatch(getFooterMenu());
+				await dispatch(getIP());
+				await dispatch(getMovieBySlug(slug as string));
+			} else {
+				await dispatch(getNavMenu());
+				await dispatch(getFooterMenu());
+				await dispatch(getIP());
+				await dispatch(getMovieBySlug(slug as string));
+			}
 
 			return {
 				props: {

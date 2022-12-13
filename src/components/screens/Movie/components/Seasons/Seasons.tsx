@@ -25,6 +25,7 @@ export const Seasons: FC<SeasonsProps> = ({ parts }) => {
 					poster: url,
 					id,
 					title: `Серия ${id}`,
+					url: item.stream_film_link,
 					desc: mini_description,
 				};
 			});

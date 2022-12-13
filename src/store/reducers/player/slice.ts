@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
 	isVisiblePlayer: false,
+	url: '',
 };
 
 export const playerSlice = createSlice({
@@ -10,6 +11,9 @@ export const playerSlice = createSlice({
 	reducers: {
 		openPlayer: (state, action) => {
 			state.isVisiblePlayer = action.payload;
+		},
+		setUrl: (state, action) => {
+			state.url = action.payload;
 		},
 	},
 });

@@ -220,6 +220,10 @@
 	height: 75px;
 	margin-right: 10px;
 
+	&[disabled] {
+		pointer-events: none;
+	}
+
 	@media (max-width: 576px) {
 		padding: 11.5px 10px 10.5px;
 		height: auto;

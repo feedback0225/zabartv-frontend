@@ -8,8 +8,6 @@ export const Cartoons = () => {
 
 	const { content, child_items } = { ...data[0] };
 
-	console.log(data);
-
 	const tabs =
 		child_items?.map((tab, idx) => {
 			const txt = tab.content.title;

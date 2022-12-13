@@ -18,10 +18,18 @@ const AboutPage: NextPage = () => {
 
 export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async ({ locale }) => {
 	await baseApi.setLang(locale as string);
-	await dispatch(getIP());
-	await dispatch(getNavMenu());
-	await dispatch(getFooterMenu());
-	await dispatch(getPage('about'));
+
+	if (locale) {
+		await dispatch(getIP());
+		await dispatch(getNavMenu());
+		await dispatch(getFooterMenu());
+		await dispatch(getPage('about'));
+	} else {
+		await dispatch(getIP());
+		await dispatch(getNavMenu());
+		await dispatch(getFooterMenu());
+		await dispatch(getPage('about'));
+	}
 
 	return {
 		props: {

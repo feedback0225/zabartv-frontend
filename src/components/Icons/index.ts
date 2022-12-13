@@ -19,6 +19,9 @@ import NotFoundIcon from './svg/404.svg';
 import FavouriteIcon from './svg/favourite.svg';
 import StarIcon from './svg/star.svg';
 import ChevronArrowIcon from './svg/chevron-arrow.svg';
+import FullScreenIcon from './svg/fullscreen.svg';
+import ExitFullScreenIcon from './svg/exitfullscreen.svg';
+import PauseIcon from './svg/pause.svg';
 
 export {
 	LogoIcon,
@@ -42,4 +45,7 @@ export {
 	FavouriteIcon,
 	StarIcon,
 	ChevronArrowIcon,
+	FullScreenIcon,
+	ExitFullScreenIcon,
+	PauseIcon,
 };

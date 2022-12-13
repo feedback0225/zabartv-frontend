@@ -13,7 +13,7 @@ import Head from 'next/head';
 
 export const Movie = () => {
 	const { data } = useTypedSelector((state) => state.movie);
-	const { openPlayer } = useTypedActions((state) => state.player);
+	const { openPlayer, setUrl } = useTypedActions((state) => state.player);
 
 	const {
 		id,
@@ -27,6 +27,8 @@ export const Movie = () => {
 		img_base_url,
 		img_path,
 		catalogs,
+		stream_film_link,
+		stream_trailer_link,
 	} = {
 		...data[0],
 	};
@@ -40,10 +42,12 @@ export const Movie = () => {
 	const watchMovie = () => {
 		openPlayer(true);
 		addMovieToViewed();
+		setUrl(stream_film_link);
 	};
 
 	const watchTrailer = () => {
 		openPlayer(true);
+		setUrl(stream_trailer_link);
 	};
 
 	const addMovieToViewed = async () => {
@@ -95,10 +99,20 @@ export const Movie = () => {
 						></div>
 						<Rating className={styles.rating} rating={Number(rating).toFixed(1)} />
 						<div className={styles.btns}>
-							<Button onClick={watchMovie} className={styles.btn} icon={<PlayIcon />}>
+							<Button
+								disabled={!stream_film_link}
+								onClick={watchMovie}
+								className={styles.btn}
+								icon={<PlayIcon />}
+							>
 								Смотреть
 							</Button>
-							<Button onClick={watchTrailer} className={styles.btn} variant="dark">
+							<Button
+								disabled={!stream_trailer_link}
+								onClick={watchTrailer}
+								className={styles.btn}
+								variant="dark"
+							>
 								Трейлер
 							</Button>
 							<FavoriteButton />

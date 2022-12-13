@@ -7,6 +7,7 @@ import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { IGradeResponse } from '@/types/IGrade';
 import { ICheckRating } from '@/types/ICheckRating';
 import axios from '@/utils/axios';
+import { baseApi } from '@/api';
 
 export const GradeModal = () => {
 	const [rating, setRating] = useState<number>(0);
@@ -44,12 +45,7 @@ export const GradeModal = () => {
 
 	const getRating = async () => {
 		try {
-			const { data } = await axios.get<ICheckRating>('/items/rating', {
-				params: {
-					film_id: id,
-					type: 'check',
-				},
-			});
+			const data = await baseApi.getRating(id);
 
 			setRating(data?.film_rating ? data?.film_rating : 0);
 		} catch (error) {
@@ -60,7 +56,7 @@ export const GradeModal = () => {
 	useEffect(() => {
 		getRating();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [rating]);
 
 	return (
 		<Modal fullscreen variant="grade" open={isVisibleGradeModal} onClose={handleClose}>

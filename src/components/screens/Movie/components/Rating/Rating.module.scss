@@ -51,7 +51,7 @@
 	}
 }
 
-.caption {
+.title {
 	font-size: 20px;
 	line-height: 29px;
 	color: #fff;
@@ -65,7 +65,23 @@
 }
 
 [data-theme='light'] {
-	.caption {
+	.title {
 		color: #404040;
+	}
+}
+
+.bottom {
+	display: flex;
+	align-items: center;
+}
+
+.caption {
+	display: flex;
+	align-items: center;
+	margin-right: 10px;
+	color: var(--color-light);
+
+	span {
+		color: #91f2dd;
 	}
 }

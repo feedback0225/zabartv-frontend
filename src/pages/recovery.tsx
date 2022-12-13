@@ -17,9 +17,16 @@ const RecoveryPage: NextPage = () => {
 
 export const getStaticProps = wrapper.getStaticProps(({ dispatch }) => async ({ locale }) => {
 	await baseApi.setLang(locale as string);
-	await dispatch(getIP());
-	await dispatch(getNavMenu());
-	await dispatch(getFooterMenu());
+
+	if (locale) {
+		await dispatch(getIP());
+		await dispatch(getNavMenu());
+		await dispatch(getFooterMenu());
+	} else {
+		await dispatch(getIP());
+		await dispatch(getNavMenu());
+		await dispatch(getFooterMenu());
+	}
 
 	return {
 		props: {
