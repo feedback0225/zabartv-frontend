@@ -1,4 +1,6 @@
-interface IPartData {
+export interface IPartData {
+	description: string;
+	mini_description: string;
 	film_base_url: string;
 	film_path: string;
 	number: number;

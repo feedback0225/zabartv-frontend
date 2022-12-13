@@ -14,9 +14,22 @@ export const Seasons: FC<SeasonsProps> = ({ parts }) => {
 		parts?.map((part) => {
 			const txt = `${part.season_number} сезон`;
 
-			// Временно
+			const items = part?.season_data.map((item, idx) => {
+				const { mini_description, preview_base_url, preview_path } = item;
 
-			return { txt, content: <SeasonsCarousel /> };
+				const url = `${preview_base_url}/${preview_path}`;
+
+				const id = idx + 1;
+
+				return {
+					poster: url,
+					id,
+					title: `Серия ${id}`,
+					desc: mini_description,
+				};
+			});
+
+			return { txt, content: <SeasonsCarousel items={items} /> };
 		}) || [];
 
 	return (
