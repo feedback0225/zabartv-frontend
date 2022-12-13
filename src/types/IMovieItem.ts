@@ -13,6 +13,8 @@ export interface IMovieItem {
 	id?: number;
 	img_base_url?: string;
 	img_path?: string;
+	preview_base_url: string;
+	preview_path: string;
 	link?: null;
 	main_catalog?: null;
 	minutes?: number;

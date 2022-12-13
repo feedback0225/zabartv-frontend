@@ -15,9 +15,8 @@ export const MovieItem: FC<MovieItemProps> = ({ item, href }) => {
 	const {
 		content: { title },
 		options,
-		id,
-		img_base_url,
-		img_path,
+		preview_base_url,
+		preview_path,
 		rating,
 		slug,
 		hours,
@@ -25,7 +24,9 @@ export const MovieItem: FC<MovieItemProps> = ({ item, href }) => {
 		type,
 	} = item;
 
-	const url = `${img_base_url}/${img_path}`;
+	const url = `${preview_base_url}/${preview_path}`;
+
+	console.log(item);
 
 	const genre = 'Комедия';
 	const chip = getType(type);
