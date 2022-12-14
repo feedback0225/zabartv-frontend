@@ -133,7 +133,7 @@ export class Video extends Component<VideoProps, VideoComponentState> {
 			this.navigate(currentTime);
 		}
 
-		isVisiblePlayer ? this.play() : this.pause();
+		// isVisiblePlayer ? this.play() : this.pause();
 
 		const handleEscapeKey = (event: KeyboardEvent) => event.keyCode === 32 && this.togglePlay();
 
@@ -185,7 +185,6 @@ export class Video extends Component<VideoProps, VideoComponentState> {
 		});
 
 		if (!this.hasCanPlayTriggered) {
-			// protect against browser firing this event multiple times
 			this.hasCanPlayTriggered = true;
 			onCanPlay && onCanPlay(event);
 		}
