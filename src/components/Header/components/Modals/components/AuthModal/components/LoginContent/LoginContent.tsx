@@ -125,11 +125,11 @@ export const LoginContent = ({ authState }: { authState: string }) => {
 						);
 					}}
 				/>
-				{errorMessages.length > 0
+				{/* {errorMessages && errorMessages?.length > 0
 					? errorMessages?.map((error) => (
 							<ModalErrorMessage key={error}>Пользователя не найдено</ModalErrorMessage>
 					  ))
-					: null}
+					: null} */}
 			</ModalInputs>
 			<ModalButton spinner={isLoading} onClick={handleLogin}>
 				Войти в аккаунт

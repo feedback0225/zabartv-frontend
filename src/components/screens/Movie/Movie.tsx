@@ -1,19 +1,31 @@
+import Head from 'next/head';
+// hooks
+import { useTypedActions } from '@/hooks/useTypedActions';
+import { useTypedSelector } from '@/hooks/useTypedSelector';
+//
+import classNames from 'classnames';
+// components
+import { Seasons, Rating, GradeModal, FavoriteButton } from './components';
+// components/UI
 import { Chip } from '@/UI/Chip/Chip';
 import { Title } from '@/UI/Title/Title';
-import { PlayIcon } from '@/icons';
 import { Button } from '@/UI/Button/Button';
-import { useTypedSelector } from '@/hooks/useTypedSelector';
-import { Seasons, Rating, GradeModal, FavoriteButton } from './components';
-import { useTypedActions } from '@/hooks/useTypedActions';
-import { useEffect } from 'react';
-import classNames from 'classnames';
-import styles from './Movie.module.scss';
+// components/icons
+import { PlayIcon } from '@/icons';
+// types
+import { ICatalog, IOption } from '@/types/index';
+// utils
 import axios from '@/utils/axios';
-import Head from 'next/head';
+//
+import styles from './Movie.module.scss';
+
+
 
 export const Movie = () => {
 	const { data } = useTypedSelector((state) => state.movie);
 	const { openPlayer, setUrl } = useTypedActions((state) => state.player);
+
+	console.log(data[0])
 
 	const {
 		id,
@@ -29,11 +41,11 @@ export const Movie = () => {
 		catalogs,
 		stream_film_link,
 		stream_trailer_link,
-	} = {
+	}: any = {
 		...data[0],
 	};
 
-	const categories = catalogs?.map((cat) => {
+	const categories = catalogs?.map((cat: ICatalog) => {
 		return cat.content.title_in_nav;
 	});
 
@@ -87,9 +99,9 @@ export const Movie = () => {
 									{hours} час {minutes} минуты
 								</span>
 							) : null}
-							{options?.map((el) => (
-								<span key={el.filter_id} className={styles.infoItem}>
-									{el.option_value}
+							{options?.map((option: IOption) => (
+								<span key={option.filter_id} className={styles.infoItem}>
+									{option.option_value}
 								</span>
 							))}
 						</div>
@@ -107,14 +119,16 @@ export const Movie = () => {
 							>
 								Смотреть
 							</Button>
-							<Button
-								disabled={!stream_trailer_link}
-								onClick={watchTrailer}
-								className={styles.btn}
-								variant="dark"
-							>
-								Трейлер
-							</Button>
+							{stream_trailer_link && (
+								<Button
+									// disabled={!stream_trailer_link}
+									onClick={watchTrailer}
+									className={styles.btn}
+									variant="dark"
+								>
+									Трейлер
+								</Button>
+							)}
 							<FavoriteButton />
 						</div>
 					</div>
