@@ -15,6 +15,7 @@ import { PlayIcon } from '@/icons';
 // types
 import { ICatalog, IOption } from '@/types/index';
 // utils
+import getShowTimeMovie from '@/utils/getShowTimeMovie';
 import axios from '@/utils/axios';
 //
 import styles from './Movie.module.scss';
@@ -85,18 +86,28 @@ export const Movie = () => {
 					<div className={classNames('container', styles.content)}>
 						<Title className={styles.title}>{content?.title}</Title>
 						<div className={styles.chips}>
-							{categories?.map((chip) => (
+							{categories?.map((chip: any) => (
 								<Chip key={chip} className={styles.chip}>
 									{chip}
 								</Chip>
 							))}
 						</div>
 						<div className={styles.info}>
-							{hours && type !== 6 ? (
+
+							{/* displayed if there is a clock and the type is not equal to 6 */}
+							{hours !== 0 && type !== 6 && (
 								<span className={styles.infoItem}>
-									{hours} час {minutes} минуты
+									{getShowTimeMovie(hours, minutes)}
 								</span>
-							) : null}
+							)}
+
+							{/* shown if there are only minutes and the type is not equal to 6 */}
+							{hours === 0 && minutes && type !== 6 && (
+								<span className={styles.infoItem}>
+									{getShowTimeMovie(hours, minutes)}
+								</span>
+							)}
+
 							{options?.map((option: IOption) => (
 								<span key={option.filter_id} className={styles.infoItem}>
 									{option.option_value}

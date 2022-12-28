@@ -8,6 +8,7 @@ import { Chip } from '@/UI/Chip/Chip';
 import { IMovieItem, IOption } from '@/types/index';
 // utils
 import { getType } from '@/utils/getType';
+import getShowTimeMovie from '@/utils/getShowTimeMovie';
 //
 import styles from './MovieItem.module.scss';
 
@@ -38,21 +39,6 @@ export const MovieItem: FC<MovieItemProps> = ({ item, href }) => {
 
 
 
-	const getTimeFormat = () => {
-		const out_hours = new Intl.NumberFormat('ru-RU', {
-			style: 'unit',
-			unit: 'hour',
-			unitDisplay: 'long'
-		}).format(Number(hours))
-
-		const out_minutes = new Intl.NumberFormat('ru-RU', {
-			style: 'unit',
-			unit: 'minute',
-			unitDisplay: 'long'
-		}).format(Number(minutes))
-
-		return hours !== 0 ? `${out_hours} ${out_minutes}` : `${out_minutes}`
-	}
 
 
 	return (
@@ -71,16 +57,17 @@ export const MovieItem: FC<MovieItemProps> = ({ item, href }) => {
 							{/* displayed if there is a clock and the type is not equal to 6 */}
 							{hours !== 0 && type !== 6 && (
 								<span className={styles.infoItem}>
-									{getTimeFormat()}
+									{getShowTimeMovie(hours, minutes)}
 								</span>
 							)}
 
 							{/* shown if there are only minutes and the type is not equal to 6 */}
 							{hours === 0 && minutes && type !== 6 && (
 								<span className={styles.infoItem}>
-									{getTimeFormat()}
+									{getShowTimeMovie(hours, minutes)}
 								</span>
 							)}
+							
 							{options?.map((el: IOption) => (
 								<span key={el.filter_id} className={styles.infoItem}>
 									{el.option_value}
