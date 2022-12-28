@@ -11,6 +11,8 @@ export const About = () => {
 
 	const { content: block } = { ...child_items?.blocks[0] };
 
+	console.log(block)
+
 	return (
 		<section className={styles.section}>
 			<Head>
@@ -23,7 +25,7 @@ export const About = () => {
 				<Title className={styles.title}>{block?.title}</Title>
 				<div
 					className={styles.desc}
-					dangerouslySetInnerHTML={{ __html: block?.mini_description! }}
+					dangerouslySetInnerHTML={{ __html: block?.text! }}
 				/>
 			</div>
 		</section>
