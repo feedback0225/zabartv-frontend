@@ -36,6 +36,25 @@ export const MovieItem: FC<MovieItemProps> = ({ item, href }) => {
 	const status = 'Подписка';
 
 
+
+
+	const getTimeFormat = () => {
+		const out_hours = new Intl.NumberFormat('ru-RU', {
+			style: 'unit',
+			unit: 'hour',
+			unitDisplay: 'long'
+		}).format(Number(hours))
+
+		const out_minutes = new Intl.NumberFormat('ru-RU', {
+			style: 'unit',
+			unit: 'minute',
+			unitDisplay: 'long'
+		}).format(Number(minutes))
+
+		return hours !== 0 ? `${out_hours} ${out_minutes}` : `${out_minutes}`
+	}
+
+
 	return (
 		<NextLink href={href || `/movie/${slug}`}>
 			<a className={styles.item}>
@@ -52,14 +71,14 @@ export const MovieItem: FC<MovieItemProps> = ({ item, href }) => {
 							{/* displayed if there is a clock and the type is not equal to 6 */}
 							{hours !== 0 && type !== 6 && (
 								<span className={styles.infoItem}>
-									{hours} час {minutes} минуты
+									{getTimeFormat()}
 								</span>
 							)}
 
 							{/* shown if there are only minutes and the type is not equal to 6 */}
 							{hours === 0 && minutes && type !== 6 && (
 								<span className={styles.infoItem}>
-									{minutes} минуты
+									{getTimeFormat()}
 								</span>
 							)}
 							{options?.map((el: IOption) => (
