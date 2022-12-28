@@ -25,8 +25,6 @@ export const Movie = () => {
 	const { data } = useTypedSelector((state) => state.movie);
 	const { openPlayer, setUrl } = useTypedActions((state) => state.player);
 
-	console.log(data[0])
-
 	const {
 		id,
 		content,

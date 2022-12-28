@@ -1,10 +1,15 @@
 import { FC } from 'react';
-import { Chip } from '@/UI/Chip/Chip';
-import { IMovieItem } from '@/types/IMovieItem';
+//
 import NextLink from 'next/link';
 import Image from 'next/image';
-import styles from './MovieItem.module.scss';
+// components/UI
+import { Chip } from '@/UI/Chip/Chip';
+// types
+import { IMovieItem, IOption } from '@/types/index';
+// utils
 import { getType } from '@/utils/getType';
+//
+import styles from './MovieItem.module.scss';
 
 interface MovieItemProps {
 	item: IMovieItem;
@@ -22,13 +27,14 @@ export const MovieItem: FC<MovieItemProps> = ({ item, href }) => {
 		hours,
 		minutes,
 		type,
-	} = item;
+	}: IMovieItem = item;
 
 	const url = `${preview_base_url}/${preview_path}`;
 
 	const genre = 'Комедия';
 	const chip = getType(type);
 	const status = 'Подписка';
+
 
 	return (
 		<NextLink href={href || `/movie/${slug}`}>
@@ -42,12 +48,21 @@ export const MovieItem: FC<MovieItemProps> = ({ item, href }) => {
 							<Chip className={styles.chip}>{chip}</Chip>
 						</div>
 						<div className={styles.info}>
-							{hours && type !== 6 ? (
+
+							{/* displayed if there is a clock and the type is not equal to 6 */}
+							{hours !== 0 && type !== 6 && (
 								<span className={styles.infoItem}>
 									{hours} час {minutes} минуты
 								</span>
-							) : null}
-							{options?.map((el) => (
+							)}
+
+							{/* shown if there are only minutes and the type is not equal to 6 */}
+							{hours === 0 && minutes && type !== 6 && (
+								<span className={styles.infoItem}>
+									{minutes} минуты
+								</span>
+							)}
+							{options?.map((el: IOption) => (
 								<span key={el.filter_id} className={styles.infoItem}>
 									{el.option_value}
 								</span>

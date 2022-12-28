@@ -1,9 +1,16 @@
 import { FC } from 'react';
-import { Carousel } from '@/components/Carousel/Carousel';
-import { MovieItem } from '@/UI/MovieItem/MovieItem';
+//
 import { SwiperSlide } from 'swiper/react';
+// components
+import { Carousel } from '@/components/Carousel/Carousel';
+// components/UI
+import { MovieItem } from '@/UI/MovieItem/MovieItem';
+// types
+import { IMovieItem } from '@/types/index'
+//
 import styles from './CategoryCarousel.module.scss';
-import { IMovieItem } from '@/types/IMovieItem';
+
+
 
 interface CategoryCarouselProps {
 	data: {
@@ -24,8 +31,8 @@ export const CategoryCarousel: FC<CategoryCarouselProps> = ({ data }) => {
 	return (
 		<div className={styles.container}>
 			<Carousel className={styles.slider} breakpoints={breakpoints} spaceBetween={24}>
-				{data?.items?.map((el) => {
-					const item = el[0];
+				{data?.items?.map((el: IMovieItem[]) => {
+					const item: IMovieItem = el[0];
 
 					return (
 						<SwiperSlide className={styles.item} key={item.id}>

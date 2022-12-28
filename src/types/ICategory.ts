@@ -3,7 +3,7 @@ import { IMovieItem } from './IMovieItem';
 import { IDataInfo } from './IDataInfo';
 import { IUserData } from './IUserData';
 
-interface ISubCategory extends IDataInfo {
+export interface ISubCategory extends IDataInfo {
 	badge: string;
 	class: string;
 	content: {
