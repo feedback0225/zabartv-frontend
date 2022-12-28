@@ -1,24 +1,34 @@
 import { FC } from 'react';
-import { Title } from '@/UI/Title/Title';
+//
+import { useTranslation } from 'next-i18next';
+import classNames from 'classnames';
+// hooks
+import { useTypedActions } from '@/hooks/useTypedActions';
+// components/icons
 import { SubscribeIcon } from '@/icons';
+// components/UI
+import { Title } from '@/UI/Title/Title';
 import { Button } from '@/UI/Button/Button';
 import { Counter } from '@/UI/Counter/Counter';
-import { IPackage } from '@/types/IPackage';
-import { useTranslation } from 'next-i18next';
+// types
+import { IPackage } from '@/types/index';
+//
 import styles from './SubscribeCard.module.scss';
-import classNames from 'classnames';
 
 interface SubscribeCardProps {
 	card: IPackage;
 }
 
 export const SubscribeCard: FC<SubscribeCardProps> = ({ card }) => {
+	const { showSubscriptionModal } = useTypedActions((state: any) => state.modal)
+
 	const {
 		content: { title, badge_1 },
 		price,
 		period,
 		visible,
 	} = card;
+	showSubscriptionModal(true)
 
 	const normalPrice = Number(price);
 	const isMonthPackage = period <= 30;
@@ -49,7 +59,7 @@ export const SubscribeCard: FC<SubscribeCardProps> = ({ card }) => {
 					{isMonthPackage && (
 						<Counter className={styles.counter} initialValue={30} caption="Дней" />
 					)}
-					<Button variant="gradient" className={styles.btn} icon={<SubscribeIcon />}>
+					<Button onClick={() => showSubscriptionModal(true)} variant="gradient" className={styles.btn} icon={<SubscribeIcon />}>
 						{t('subscribe_button')}
 					</Button>
 					{badge_1 && <span className={styles.badge}>{badge_1}</span>}
