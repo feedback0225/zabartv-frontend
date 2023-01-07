@@ -28,6 +28,7 @@ const authSlice = createSlice({
 		},
 		logout: () => {
 			localStorage.removeItem('zabar_user_id');
+			localStorage.removeItem("zabar_session_id")
 		},
 	},
 	extraReducers: {
