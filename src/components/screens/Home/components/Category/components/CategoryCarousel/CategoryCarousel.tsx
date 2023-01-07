@@ -35,7 +35,7 @@ export const CategoryCarousel: FC<CategoryCarouselProps> = ({ data }) => {
 					const item: IMovieItem = el[0];
 
 					return (
-						<SwiperSlide className={styles.item} key={item.id}>
+						<SwiperSlide className={styles.item} key={item?.id}>
 							<MovieItem item={item} />
 						</SwiperSlide>
 					);
