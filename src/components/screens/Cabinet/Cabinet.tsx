@@ -56,7 +56,7 @@ export const Cabinet = () => {
 	};
 
 	const logoutUser = async () => {
-		await axios.get('/session/logout');
+		// await axios.get('/session/logout');
 		
 		logout();
 		push(RoutesEnum.Home);
