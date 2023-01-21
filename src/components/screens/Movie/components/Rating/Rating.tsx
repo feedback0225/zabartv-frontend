@@ -5,6 +5,8 @@ import classNames from 'classnames';
 import styles from './Rating.module.scss';
 import { baseApi } from '@/api';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
+import { useAppDispatch } from '@/hooks/useAppDispatch';
+import { clearUserRaiting } from '@/reducers/movie/slice';
 
 interface RatingProps {
 	rating: string;
@@ -14,8 +16,9 @@ interface RatingProps {
 export const Rating: FC<RatingProps> = ({ className, rating }) => {
 	const [userRating, setUserRating] = useState<number | null>(null);
 	const { showGradeModal } = useTypedActions((state) => state.modal);
-	const { data } = useTypedSelector((state) => state.movie);
+	const { data, newUserRating } = useTypedSelector((state) => state.movie);
 	const { id } = { ...data[0] };
+	const dispatch = useAppDispatch();
 
 	const handleShowModal = () => showGradeModal(true);
 
@@ -30,8 +33,14 @@ export const Rating: FC<RatingProps> = ({ className, rating }) => {
 	};
 
 	useEffect(() => {
+		if (newUserRating) {
+			setUserRating(newUserRating);
+			dispatch(clearUserRaiting());
+		}
+	}, [newUserRating]);
+
+	useEffect(() => {
 		getRating();
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (

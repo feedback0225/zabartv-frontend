@@ -8,6 +8,8 @@ import { IGradeResponse } from '@/types/IGrade';
 import { ICheckRating } from '@/types/ICheckRating';
 import axios from '@/utils/axios';
 import { baseApi } from '@/api';
+import { gradeFilm } from '@/reducers/movie/thunks';
+import { useAppDispatch } from '@/hooks/useAppDispatch';
 
 export const GradeModal = () => {
 	const [rating, setRating] = useState<number>(0);
@@ -19,25 +21,25 @@ export const GradeModal = () => {
 	const { isVisibleGradeModal } = useTypedSelector((state) => state.modal);
 
 	const { showGradeModal } = useTypedActions((state) => state.modal);
-
+	const dispatch = useAppDispatch();
 	const handleClose = () => showGradeModal(false);
 
-	const gradeFilm = async ({ id, rating }: IGradeResponse) => {
-		try {
-			await axios.get<ICheckRating>('/items/rating', {
-				params: {
-					film_id: id,
-					type: 'add',
-					rating,
-				},
-			});
-		} catch (error) {
-			console.error(error);
-		}
-	};
+	// const gradeFilm = async ({ id, rating }: IGradeResponse) => {
+	// 	try {
+	// 		await axios.get<ICheckRating>('/items/rating', {
+	// 			params: {
+	// 				film_id: id,
+	// 				type: 'add',
+	// 				rating,
+	// 			},
+	// 		});
+	// 	} catch (error) {
+	// 		console.error(error);
+	// 	}
+	// };
 
 	const handleGrade = () => {
-		gradeFilm({ id, rating });
+		dispatch(gradeFilm({ id, rating }));
 		handleClose();
 	};
 
@@ -55,8 +57,7 @@ export const GradeModal = () => {
 
 	useEffect(() => {
 		getRating();
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [rating]);
+	}, []);
 
 	return (
 		<Modal fullscreen variant="grade" open={isVisibleGradeModal} onClose={handleClose}>
