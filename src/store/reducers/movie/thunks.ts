@@ -12,17 +12,3 @@ export const getMovieBySlug = createAsyncThunk('movie/getMovieBySlug', async (sl
 
 	return data;
 });
-
-export const gradeFilm = createAsyncThunk(
-	'movie/getUserRating',
-	async ({ id, rating }: IGradeResponse, thunkAPI) => {
-		await axios.get<ICheckRating>('/items/rating', {
-			params: {
-				film_id: id,
-				type: 'add',
-				rating,
-			},
-		});
-		return rating;
-	}
-);

@@ -1,6 +1,6 @@
 import { Modal } from '@/UI/Modal/Modal';
 import { Grade } from '@/UI/Grade/Grade';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, FC } from 'react';
 import { useRouter } from 'next/router';
 import { useTypedActions } from '@/hooks/useTypedActions';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
@@ -8,12 +8,15 @@ import { IGradeResponse } from '@/types/IGrade';
 import { ICheckRating } from '@/types/ICheckRating';
 import axios from '@/utils/axios';
 import { baseApi } from '@/api';
-import { gradeFilm } from '@/reducers/movie/thunks';
+
 import { useAppDispatch } from '@/hooks/useAppDispatch';
 
-export const GradeModal = () => {
-	const [rating, setRating] = useState<number>(0);
+type Props = {
+	rating: number;
+	setRating: (n: number) => void;
+};
 
+export const GradeModal: FC<Props> = ({ rating, setRating }: Props) => {
 	const { data } = useTypedSelector((state) => state.movie);
 
 	const { id } = { ...data[0] };
@@ -21,43 +24,30 @@ export const GradeModal = () => {
 	const { isVisibleGradeModal } = useTypedSelector((state) => state.modal);
 
 	const { showGradeModal } = useTypedActions((state) => state.modal);
-	const dispatch = useAppDispatch();
+
 	const handleClose = () => showGradeModal(false);
 
-	// const gradeFilm = async ({ id, rating }: IGradeResponse) => {
-	// 	try {
-	// 		await axios.get<ICheckRating>('/items/rating', {
-	// 			params: {
-	// 				film_id: id,
-	// 				type: 'add',
-	// 				rating,
-	// 			},
-	// 		});
-	// 	} catch (error) {
-	// 		console.error(error);
-	// 	}
-	// };
-
-	const handleGrade = () => {
-		dispatch(gradeFilm({ id, rating }));
-		handleClose();
-	};
-
-	const { ModalTitle, ModalButton } = Modal;
-
-	const getRating = async () => {
+	const gradeFilm = async ({ id, rating }: IGradeResponse) => {
 		try {
-			const data = await baseApi.getRating(id);
-
-			setRating(data?.film_rating ? data?.film_rating : 0);
+			await axios.get<ICheckRating>('/items/rating', {
+				params: {
+					film_id: id,
+					type: 'add',
+					rating,
+				},
+			});
+			setRating(rating);
 		} catch (error) {
 			console.error(error);
 		}
 	};
 
-	useEffect(() => {
-		getRating();
-	}, []);
+	const handleGrade = () => {
+		gradeFilm({ id, rating });
+		handleClose();
+	};
+
+	const { ModalTitle, ModalButton } = Modal;
 
 	return (
 		<Modal fullscreen variant="grade" open={isVisibleGradeModal} onClose={handleClose}>

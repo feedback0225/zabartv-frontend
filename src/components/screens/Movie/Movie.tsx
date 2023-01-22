@@ -20,8 +20,6 @@ import axios from '@/utils/axios';
 //
 import styles from './Movie.module.scss';
 
-
-
 export const Movie = () => {
 	const { data } = useTypedSelector((state) => state.movie);
 	const { openPlayer, setUrl } = useTypedActions((state) => state.player);
@@ -93,7 +91,6 @@ export const Movie = () => {
 							))}
 						</div>
 						<div className={styles.info}>
-
 							{/* displayed if there is a clock and the type is not equal to 6 */}
 							{hours !== 0 && type !== 6 && (
 								<span className={styles.infoItem}>
@@ -144,7 +141,7 @@ export const Movie = () => {
 				</div>
 				{parts?.length ? <Seasons parts={parts} /> : null}
 			</section>
-			<GradeModal />
+			{/* <GradeModal /> */}
 		</>
 	);
 };
