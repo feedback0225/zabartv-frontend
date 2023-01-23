@@ -1,8 +1,15 @@
-import { useTypedSelector } from '@/hooks/useTypedSelector';
-import { Title } from '@/UI/Title/Title';
-import { SubscribeCard } from './components/SubscribeCard/SubscribeCard';
-import styles from './Subscribe.module.scss';
 import classNames from 'classnames';
+// hooks
+import { useTypedSelector } from '@/hooks/useTypedSelector';
+// components
+import { SubscribeCard } from './components/SubscribeCard/SubscribeCard';
+import Modals from './components/Modals';
+// components/UI
+import { Title } from '@/UI/Title/Title';
+//
+import styles from './Subscribe.module.scss';
+
+
 
 export const Subscribe = () => {
 	const { data } = useTypedSelector((state) => state.subscribe);
@@ -21,6 +28,7 @@ export const Subscribe = () => {
 					))}
 				</div>
 			</div>
+			<Modals />
 		</section>
 	);
 };

@@ -58,6 +58,7 @@ export const LoginContent = ({ authState }: { authState: string }) => {
 					'Content-Type': 'application/x-www-form-urlencoded',
 				},
 				method: 'post',
+				// 37.59.115.136:3128 for test
 				data: `identity=${identity}&password=${password}&rememberMe=${rememberMe}&ip=${ip}`,
 			}).finally(() => setIsLoading(false));
 
@@ -78,6 +79,10 @@ export const LoginContent = ({ authState }: { authState: string }) => {
 				setErrorMessages(data);
 			} else {
 				setUser(data);
+				if (typeof window !== 'undefined') {
+					console.log(data)
+					window.localStorage.setItem('zabar_session_id', data?.session_id);
+				}
 
 				push(RoutesEnum.Cabinet);
 
@@ -125,11 +130,11 @@ export const LoginContent = ({ authState }: { authState: string }) => {
 						);
 					}}
 				/>
-				{errorMessages.length > 0
+				{/* {errorMessages && errorMessages?.length > 0
 					? errorMessages?.map((error) => (
 							<ModalErrorMessage key={error}>Пользователя не найдено</ModalErrorMessage>
 					  ))
-					: null}
+					: null} */}
 			</ModalInputs>
 			<ModalButton spinner={isLoading} onClick={handleLogin}>
 				Войти в аккаунт

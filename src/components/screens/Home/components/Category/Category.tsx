@@ -1,8 +1,14 @@
+import classNames from 'classnames';
+// hooks
+import { useTypedSelector } from '@/hooks/useTypedSelector';
+// components 
+import { CategoryCarousel } from './components/CategoryCarousel/CategoryCarousel';
+// components/UI
 import { Tabs } from '@/UI/Tabs/Tabs';
 import { Title } from '@/UI/Title/Title';
-import { CategoryCarousel } from './components/CategoryCarousel/CategoryCarousel';
-import { useTypedSelector } from '@/hooks/useTypedSelector';
-import classNames from 'classnames';
+// types
+import { ICategory, ISubCategory } from '@/types/index';
+//
 import styles from './Category.module.scss';
 
 export const Category = () => {
@@ -10,20 +16,23 @@ export const Category = () => {
 
 	return (
 		<>
-			{data?.map((category) => {
+			{data?.map((category: ICategory) => {
 				const {
 					id,
 					child_items,
 					content: { title_in_nav },
 				} = category;
 
-				const tabs = child_items?.map((tab, idx) => {
+				const tabs = child_items?.map((tab: ISubCategory, idx) => {
 					const {
 						content: { title },
 						films,
 					} = tab;
 
-					return { txt: title, content: <CategoryCarousel data={films} /> };
+					return { 
+						txt: title,
+						content: <CategoryCarousel data={films} /> 
+					};
 				});
 
 				return (

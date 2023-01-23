@@ -1,15 +1,24 @@
+import Head from 'next/head';
+// hooks
+import { useTypedActions } from '@/hooks/useTypedActions';
+import { useTypedSelector } from '@/hooks/useTypedSelector';
+//
+import classNames from 'classnames';
+// components
+import { Seasons, Rating, GradeModal, FavoriteButton } from './components';
+// components/UI
 import { Chip } from '@/UI/Chip/Chip';
 import { Title } from '@/UI/Title/Title';
-import { PlayIcon } from '@/icons';
 import { Button } from '@/UI/Button/Button';
-import { useTypedSelector } from '@/hooks/useTypedSelector';
-import { Seasons, Rating, GradeModal, FavoriteButton } from './components';
-import { useTypedActions } from '@/hooks/useTypedActions';
-import { useEffect } from 'react';
-import classNames from 'classnames';
-import styles from './Movie.module.scss';
+// components/icons
+import { PlayIcon } from '@/icons';
+// types
+import { ICatalog, IOption } from '@/types/index';
+// utils
+import getShowTimeMovie from '@/utils/getShowTimeMovie';
 import axios from '@/utils/axios';
-import Head from 'next/head';
+//
+import styles from './Movie.module.scss';
 
 export const Movie = () => {
 	const { data } = useTypedSelector((state) => state.movie);
@@ -29,11 +38,11 @@ export const Movie = () => {
 		catalogs,
 		stream_film_link,
 		stream_trailer_link,
-	} = {
+	}: any = {
 		...data[0],
 	};
 
-	const categories = catalogs?.map((cat) => {
+	const categories = catalogs?.map((cat: ICatalog) => {
 		return cat.content.title_in_nav;
 	});
 
@@ -75,21 +84,30 @@ export const Movie = () => {
 					<div className={classNames('container', styles.content)}>
 						<Title className={styles.title}>{content?.title}</Title>
 						<div className={styles.chips}>
-							{categories?.map((chip) => (
+							{categories?.map((chip: any) => (
 								<Chip key={chip} className={styles.chip}>
 									{chip}
 								</Chip>
 							))}
 						</div>
 						<div className={styles.info}>
-							{hours && type !== 6 ? (
+							{/* displayed if there is a clock and the type is not equal to 6 */}
+							{hours !== 0 && type !== 6 && (
 								<span className={styles.infoItem}>
-									{hours} час {minutes} минуты
+									{getShowTimeMovie(hours, minutes)}
 								</span>
-							) : null}
-							{options?.map((el) => (
-								<span key={el.filter_id} className={styles.infoItem}>
-									{el.option_value}
+							)}
+
+							{/* shown if there are only minutes and the type is not equal to 6 */}
+							{hours === 0 && minutes && type !== 6 && (
+								<span className={styles.infoItem}>
+									{getShowTimeMovie(hours, minutes)}
+								</span>
+							)}
+
+							{options?.map((option: IOption) => (
+								<span key={option.filter_id} className={styles.infoItem}>
+									{option.option_value}
 								</span>
 							))}
 						</div>
@@ -107,21 +125,23 @@ export const Movie = () => {
 							>
 								Смотреть
 							</Button>
-							<Button
-								disabled={!stream_trailer_link}
-								onClick={watchTrailer}
-								className={styles.btn}
-								variant="dark"
-							>
-								Трейлер
-							</Button>
+							{stream_trailer_link && (
+								<Button
+									// disabled={!stream_trailer_link}
+									onClick={watchTrailer}
+									className={styles.btn}
+									variant="dark"
+								>
+									Трейлер
+								</Button>
+							)}
 							<FavoriteButton />
 						</div>
 					</div>
 				</div>
 				{parts?.length ? <Seasons parts={parts} /> : null}
 			</section>
-			<GradeModal />
+			{/* <GradeModal /> */}
 		</>
 	);
 };

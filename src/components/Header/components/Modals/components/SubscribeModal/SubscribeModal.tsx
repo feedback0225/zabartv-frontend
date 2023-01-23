@@ -4,7 +4,6 @@ import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { RoutesEnum } from '@/constants/routes';
 import { SubscribeIcon } from '@/icons';
 import NextLink from 'next/link';
-import { useTransition } from 'react';
 import { useTranslation } from 'next-i18next';
 
 export const SubscribeModal = () => {

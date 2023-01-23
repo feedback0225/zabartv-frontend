@@ -5,9 +5,15 @@ import axios from 'axios';
 const axiosInstance = axios.create({
 	baseURL: API_URL,
 	params: {
-		session_id: getSessionId(),
 		token: API_KEY,
-	},
+	}
 });
+
+axiosInstance.interceptors.request.use((config: any) => {
+    config.params = {...config.params, ...{
+		session_id: getSessionId(),
+	}};
+    return config;
+})
 
 export default axiosInstance;

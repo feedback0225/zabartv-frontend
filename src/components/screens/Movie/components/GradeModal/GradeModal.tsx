@@ -1,6 +1,6 @@
 import { Modal } from '@/UI/Modal/Modal';
 import { Grade } from '@/UI/Grade/Grade';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, FC } from 'react';
 import { useRouter } from 'next/router';
 import { useTypedActions } from '@/hooks/useTypedActions';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
@@ -9,9 +9,14 @@ import { ICheckRating } from '@/types/ICheckRating';
 import axios from '@/utils/axios';
 import { baseApi } from '@/api';
 
-export const GradeModal = () => {
-	const [rating, setRating] = useState<number>(0);
+import { useAppDispatch } from '@/hooks/useAppDispatch';
 
+type Props = {
+	rating: number;
+	setRating: (n: number) => void;
+};
+
+export const GradeModal: FC<Props> = ({ rating, setRating }: Props) => {
 	const { data } = useTypedSelector((state) => state.movie);
 
 	const { id } = { ...data[0] };
@@ -31,6 +36,7 @@ export const GradeModal = () => {
 					rating,
 				},
 			});
+			setRating(rating);
 		} catch (error) {
 			console.error(error);
 		}
@@ -42,21 +48,6 @@ export const GradeModal = () => {
 	};
 
 	const { ModalTitle, ModalButton } = Modal;
-
-	const getRating = async () => {
-		try {
-			const data = await baseApi.getRating(id);
-
-			setRating(data?.film_rating ? data?.film_rating : 0);
-		} catch (error) {
-			console.error(error);
-		}
-	};
-
-	useEffect(() => {
-		getRating();
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [rating]);
 
 	return (
 		<Modal fullscreen variant="grade" open={isVisibleGradeModal} onClose={handleClose}>

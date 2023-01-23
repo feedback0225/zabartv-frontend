@@ -22,6 +22,8 @@ import ChevronArrowIcon from './svg/chevron-arrow.svg';
 import FullScreenIcon from './svg/fullscreen.svg';
 import ExitFullScreenIcon from './svg/exitfullscreen.svg';
 import PauseIcon from './svg/pause.svg';
+import CardIcon from './svg/card.svg';
+import BitcoinIcon from './svg/bitcoin.svg'
 
 export {
 	LogoIcon,
@@ -48,4 +50,6 @@ export {
 	FullScreenIcon,
 	ExitFullScreenIcon,
 	PauseIcon,
+	CardIcon,
+	BitcoinIcon
 };
