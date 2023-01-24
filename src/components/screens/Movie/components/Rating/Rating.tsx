@@ -32,8 +32,8 @@ export const Rating: FC<RatingProps> = ({ className, rating }) => {
 	};
 
 	useEffect(() => {
-		getRating();
-	}, []);
+		if (id) getRating();
+	}, [id]);
 
 	return (
 		<>

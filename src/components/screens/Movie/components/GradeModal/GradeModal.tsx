@@ -55,3 +55,5 @@ export const GradeModal: FC<Props> = ({ rating, setRating }: Props) => {
 		</Modal>
 	);
 };
+
+'https://adm.zabartv.com/api/v1/items/rating?token=dev-token&type=check&session_id=1674473165723';
