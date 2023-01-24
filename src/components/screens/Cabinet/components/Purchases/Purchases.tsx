@@ -24,7 +24,7 @@ export const Purchases = () => {
 
 	return (
 		<>
-			{history.map((item, idx) => (
+			{history.map((item: any, idx: any) => (
 				<Fragment key={idx}>
 					{item?.hasOwnProperty('order_id') ? (
 						<div className={styles.table}>
@@ -33,7 +33,7 @@ export const Purchases = () => {
 								<span className={styles.nameCol}>Период активности</span>
 								<span className={styles.nameCol}>Цена</span>
 							</div>
-							{data.map((item) => {
+							{data.map((item: any) => {
 								const { date, period, price } = item;
 
 								return (
