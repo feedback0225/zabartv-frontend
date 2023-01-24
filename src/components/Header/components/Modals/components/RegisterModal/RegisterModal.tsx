@@ -134,7 +134,7 @@ export const RegisterModal = () => {
 							);
 						}}
 					/>
-					{errorMessages?.length > 0
+					{errorMessages && errorMessages?.length > 0
 						? errorMessages?.map((error) => (
 								<ModalErrorMessage key={error}>
 									Не удалось зарегистрироваться

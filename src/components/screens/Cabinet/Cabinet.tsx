@@ -12,7 +12,6 @@ import { useRouter } from 'next/router';
 import { RoutesEnum } from '@/constants/routes';
 import { getFooterMenu, getNavMenu } from '@/reducers/menu/thunks';
 import { baseApi } from '@/api';
-import axios from '@/utils/axios';
 import classNames from 'classnames';
 import styles from './Cabinet.module.scss';
 

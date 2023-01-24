@@ -1,13 +1,32 @@
 {
-    "menu": {
-        "humor": "Юмор",
-        "music": "Музыка",
-        "cartoons": "Мультфильмы",
-        "tv": "Тв",
-        "films": "Фильмы",
-        "series": "Сериалы",
-        "new": "New"
-    },
-    "subscribe_button": "Оформить подписку",
-    "support_title": "Поддержка в Телеграм"
+	"menu": {
+		"humor": "Юмор",
+		"music": "Музыка",
+		"cartoons": "Мультфильмы",
+		"tv": "Тв",
+		"films": "Фильмы",
+		"series": "Сериалы",
+		"new": "New"
+	},
+	"subscribe_button": "Оформить подписку",
+	"support_title": "Поддержка в Телеграм",
+	"About": "О компании",
+	"Jobs": "Вакансии",
+	"Beta Program": "Программа бета-тестирования",
+	"Information for partners": "Информация для партнёров",
+	"Advertising placement": "Размещение рекламы",
+	"Terms of use": "Пользовательское соглашение",
+	"Privacy Policy": "Политика конфиденциальности",
+	"Compliance": "Комплаенс",
+	"Humor": "Юмор",
+	"Music": "Музыка",
+	"Cartoons": "Мульфильмы",
+	"Tv": "ТВ",
+	"Films": "Фильмы",
+	"Series": "Сериалы",
+	"New": "New",
+	"Subscribe": "Выбор подписки",
+	"No purchases": "Нет покупок",
+	"Favorites list is empty": "Список избранного пуст",
+	"Watchlist is empty": "Список просмотренного пуст"
 }

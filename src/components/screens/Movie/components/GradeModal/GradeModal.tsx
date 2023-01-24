@@ -1,15 +1,11 @@
 import { Modal } from '@/UI/Modal/Modal';
 import { Grade } from '@/UI/Grade/Grade';
-import { useEffect, useState, FC } from 'react';
-import { useRouter } from 'next/router';
+import {  FC } from 'react';
 import { useTypedActions } from '@/hooks/useTypedActions';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { IGradeResponse } from '@/types/IGrade';
 import { ICheckRating } from '@/types/ICheckRating';
 import axios from '@/utils/axios';
-import { baseApi } from '@/api';
-
-import { useAppDispatch } from '@/hooks/useAppDispatch';
 
 type Props = {
 	rating: number;

@@ -1,5 +1,6 @@
 import { IMovie } from '@/types/IMovie';
 import { Title } from '@/UI/Title/Title';
+import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
 import { Grid } from '../Grid/Grid';
 import { MovieItem } from '../index';
@@ -10,6 +11,7 @@ interface FavouritesProps {
 
 export const Favourites: FC<FavouritesProps> = ({ favorites }) => {
 	const isNotEpty = favorites.length > 0;
+	const { t } = useTranslation();
 
 	const FavoritesList = (
 		<Grid>
@@ -23,7 +25,7 @@ export const Favourites: FC<FavouritesProps> = ({ favorites }) => {
 
 	const EmptyTitle = (
 		<Title level="h3" size="small">
-			Список избранного пуст
+			{t('Favorites list is empty')}
 		</Title>
 	);
 

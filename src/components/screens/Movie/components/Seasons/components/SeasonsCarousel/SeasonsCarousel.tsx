@@ -25,7 +25,6 @@ export const SeasonsCarousel: FC<SeasonsCarouselProps> = ({ items }) => {
 			slidesPerView: 4,
 		},
 	};
-
 	return (
 		<Carousel
 			className={styles.slider}

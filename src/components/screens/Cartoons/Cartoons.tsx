@@ -4,12 +4,12 @@ import { Grid } from '@/UI/Grid/Grid';
 import { MovieItem } from '@/UI/MovieItem/MovieItem';
 
 export const Cartoons = () => {
-	const { data } = useTypedSelector((state) => state.category);
+	const { data } = useTypedSelector((state: any) => state.category);
 
-	const { content, child_items } = { ...data[0] };
+	const { content, child_items }: any = { ...data[0] };
 
 	const tabs =
-		child_items?.map((tab, idx) => {
+		child_items?.map((tab: any, idx: any) => {
 			const txt = tab.content.title;
 
 			const data = tab?.films?.items;

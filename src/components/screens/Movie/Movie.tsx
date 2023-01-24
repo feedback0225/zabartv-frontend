@@ -49,9 +49,14 @@ export const Movie = () => {
 	const image = `${img_base_url}/${img_path}`;
 
 	const watchMovie = () => {
+		if (parts && parts.length > 0) {
+			const { stream_film_link } = parts[0]?.season_data[0];
+			setUrl(stream_film_link);
+		} else {
+			addMovieToViewed();
+			setUrl(stream_film_link);
+		}
 		openPlayer(true);
-		addMovieToViewed();
-		setUrl(stream_film_link);
 	};
 
 	const watchTrailer = () => {
@@ -118,7 +123,7 @@ export const Movie = () => {
 						<Rating className={styles.rating} rating={Number(rating).toFixed(1)} />
 						<div className={styles.btns}>
 							<Button
-								disabled={!stream_film_link}
+								// disabled={!stream_film_link}
 								onClick={watchMovie}
 								className={styles.btn}
 								icon={<PlayIcon />}

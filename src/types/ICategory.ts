@@ -1,4 +1,3 @@
-import { IPageInfo } from './IPageInfo';
 import { IMovieItem } from './IMovieItem';
 import { IDataInfo } from './IDataInfo';
 import { IUserData } from './IUserData';

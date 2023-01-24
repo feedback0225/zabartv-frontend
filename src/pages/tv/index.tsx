@@ -5,7 +5,6 @@ import { wrapper } from '@/store/store';
 import { getIP } from '@/reducers/auth/thunks';
 import { getCategory } from '@/reducers/category/thunks';
 import type { NextPage } from 'next';
-import axios from '@/utils/axios';
 import { getFooterMenu, getNavMenu } from '@/reducers/menu/thunks';
 import { baseApi } from '@/api';
 

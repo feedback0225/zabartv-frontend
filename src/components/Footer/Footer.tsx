@@ -5,7 +5,7 @@ import NextLink from 'next/link';
 import { FC } from 'react';
 import classNames from 'classnames';
 import styles from './Footer.module.scss';
-import { useTypedSelector } from '@/hooks/useTypedSelector';
+import { useTranslation } from 'next-i18next';
 
 interface FooterProps {
 	sticky?: boolean;
@@ -16,30 +16,31 @@ export const Footer: FC<FooterProps> = ({ sticky }) => {
 		{
 			title: 'О нас',
 			items: [
-				{ href: RoutesEnum.About, txt: 'О компании' },
-				{ href: '/', txt: 'Вакансии' },
-				{ href: '/', txt: 'Программа бета-тестирования' },
-				{ href: '/', txt: 'Информация для партнёров' },
-				{ href: '/', txt: 'Размещение рекламы' },
-				{ href: RoutesEnum.Policy, txt: 'Пользовательское соглашение' },
-				{ href: RoutesEnum.Policy, txt: 'Политика конфиденциальности' },
-				{ href: '/', txt: 'Комплаенс' },
+				{ href: RoutesEnum.About, txt: 'About' },
+				{ href: '/', txt: 'Jobs' },
+				{ href: '/', txt: 'Beta Program' },
+				{ href: '/', txt: 'Information for partners' },
+				{ href: '/', txt: 'Advertising placement' },
+				{ href: RoutesEnum.Policy, txt: 'Terms of use' },
+				{ href: RoutesEnum.Policy, txt: 'Privacy Policy' },
+				{ href: '/', txt: 'Humor' },
 			],
 		},
 		{
 			title: 'Разделы',
 			items: [
 				{ href: RoutesEnum.Humor, txt: 'Юмор' },
-				{ href: RoutesEnum.Music, txt: 'Музыка' },
-				{ href: RoutesEnum.Cartoons, txt: 'Мульфильмы' },
-				{ href: RoutesEnum.Tv, txt: 'ТВ' },
-				{ href: RoutesEnum.Films, txt: 'Фильмы' },
-				{ href: RoutesEnum.Series, txt: 'Сериалы' },
+				{ href: RoutesEnum.Music, txt: 'Music' },
+				{ href: RoutesEnum.Cartoons, txt: 'Cartoons' },
+				{ href: RoutesEnum.Tv, txt: 'Tv' },
+				{ href: RoutesEnum.Films, txt: 'Films' },
+				{ href: RoutesEnum.Series, txt: 'Series' },
 				{ href: RoutesEnum.New, txt: 'New' },
-				{ href: RoutesEnum.Subscribe, txt: 'Выбор подписки' },
+				{ href: RoutesEnum.Subscribe, txt: 'Subscribe' },
 			],
 		},
 	];
+	const { t } = useTranslation();
 
 	return (
 		<footer className={classNames(styles.footer, sticky && styles.sticky)}>
@@ -56,7 +57,8 @@ export const Footer: FC<FooterProps> = ({ sticky }) => {
 										{items.map((el) => (
 											<li key={el.txt} className={styles.item}>
 												<NextLink href={el.href}>
-													<a className={styles.link}>{el.txt}</a>
+													{/* <a className={styles.link}>{el.txt}</a> */}
+													<a className={styles.link}>{t(el.txt)}</a>
 												</NextLink>
 											</li>
 										))}

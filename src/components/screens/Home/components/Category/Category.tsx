@@ -13,7 +13,6 @@ import styles from './Category.module.scss';
 
 export const Category = () => {
 	const { data } = useTypedSelector((state) => state.home);
-
 	return (
 		<>
 			{data?.map((category: ICategory) => {
