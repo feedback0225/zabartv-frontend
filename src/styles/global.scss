@@ -37,7 +37,9 @@ a {
 	margin: 0;
 	padding: 0;
 }
-
+.lock {
+	overflow: hidden;
+}
 .visually-hidden {
 	position: absolute;
 	overflow: hidden;
@@ -83,25 +85,16 @@ a {
 #nprogress .bar {
 	box-shadow: 0px 4px 4px rgba(252, 161, 26, 0.25);
 }
-.plyr__controls .plyr__controls__item:first-child {
-	margin-left: 0;
-	margin-right: auto;
-	display: none;
-}
-.plyr--video .plyr__controls {
-	// max-width: 1400px;
-	// margin: 0 auto;
-	// background: none !important;
-	position: fixed !important;
-}
+// .plyr__controls .plyr__controls__item:first-child {
+// 	margin-left: 0;
+// 	margin-right: auto;
+// 	display: none;
+// }
 
 .plyr__progress__buffer {
 	background: rgba(255, 255, 255, 0.2) !important;
 }
-.plyr__controls {
-	.plyr__control:nth-child(7) {
-	}
-}
+
 input[type='range']::-webkit-slider-thumb {
 	-webkit-appearance: none;
 	height: 15px;
