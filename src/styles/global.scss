@@ -131,3 +131,6 @@ input[type='range'] {
 .plyr__control:hover {
 	background-color: #fca11a !important;
 }
+.plyr__control[aria-expanded=true] {
+	background-color: #fca11a !important;
+}
