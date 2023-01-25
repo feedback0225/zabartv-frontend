@@ -124,3 +124,10 @@ input[type='range']::-webkit-slider-thumb:active {
 input[type='range'] {
 	color: #fca11a !important;
 }
+.plyr__control--overlaid {
+	background-color: #fca11a !important;
+	color: black !important;
+}
+.plyr__control:hover {
+	background-color: #fca11a !important;
+}

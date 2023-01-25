@@ -1,27 +1,19 @@
 import { ButtonBase } from '@/components/ButtonBase/ButtonBase';
-import { CloseIcon, FullScreenIcon, ExitFullScreenIcon, PauseIcon, PlayIcon } from '@/icons';
-import { useRef, ChangeEvent, useEffect } from 'react';
-import { useLockedBody } from 'usehooks-ts';
+import { CloseIcon } from '@/icons';
+import { useEffect } from 'react';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { useTypedActions } from '@/hooks/useTypedActions';
-import { useFullscreen } from 'rooks';
-import { useWindowSize } from '@/hooks/useWindowSize';
-import { Video } from './components/Video/Video';
 import classNames from 'classnames';
 import styles from './Player.module.scss';
-import Plyr, { APITypes } from 'plyr-react';
+import Plyr from 'plyr-react';
 import 'plyr-react/plyr.css';
 
 export const Player = () => {
 	const { isVisiblePlayer, url } = useTypedSelector((state) => state.player);
 	const { openPlayer } = useTypedActions((state) => state.player);
-	// const { height } = useWindowSize();
-	// const { isFullscreenEnabled, toggleFullscreen } = useFullscreen();
-	// const playerRef = useRef<HTMLDivElement>(null);
-	// useLockedBody(isVisiblePlayer);
+
 	const handleClosePlayer = () => {
 		openPlayer(false);
-		// actions.pause();
 	};
 
 	useEffect(() => {
@@ -53,6 +45,7 @@ export const Player = () => {
 						<CloseIcon />
 					</ButtonBase>
 					<Plyr
+						autoPlay
 						source={{
 							type: 'video',
 							sources: [
