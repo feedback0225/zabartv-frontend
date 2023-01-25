@@ -42,6 +42,7 @@ export const Movie = () => {
 		...data[0],
 	};
 
+
 	const categories = catalogs?.map((cat: ICatalog) => {
 		return cat.content.title_in_nav;
 	});

@@ -9,6 +9,8 @@ import { useWindowSize } from '@/hooks/useWindowSize';
 import { Video } from './components/Video/Video';
 import classNames from 'classnames';
 import styles from './Player.module.scss';
+import Plyr, { APITypes } from 'plyr-react';
+import 'plyr-react/plyr.css';
 
 export const Player = () => {
 	const { isVisiblePlayer, url } = useTypedSelector((state) => state.player);
@@ -16,99 +18,51 @@ export const Player = () => {
 	const { height } = useWindowSize();
 	const { isFullscreenEnabled, toggleFullscreen } = useFullscreen();
 	const playerRef = useRef<HTMLDivElement>(null);
-
 	useLockedBody(isVisiblePlayer);
 
 	return (
 		<>
 			{isVisiblePlayer && (
-				<Video className={styles.video} isVisiblePlayer={isVisiblePlayer} src={url}>
-					{(video, videoState, actions) => {
-						const { status, duration, currentTime, volume, isLoading } = videoState;
-
-						const isPlaying = status === 'playing';
-
-						const handleClosePlayer = () => {
-							openPlayer(false);
-							actions.pause();
-						};
-
-						const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-							const { value } = e.target as unknown as { value: number };
-
-							actions.navigate(value);
-						};
-
-						function secondsToTime(e: number) {
-							const h = Math.floor(e / 3600)
-									.toString()
-									.padStart(2, '0'),
-								m = Math.floor((e % 3600) / 60)
-									.toString()
-									.padStart(2, '0'),
-								s = Math.floor(e % 60)
-									.toString()
-									.padStart(2, '0');
-
-							return h + ':' + m + ':' + s;
-						}
-
-						const getBackgroundSize = () => {
-							return { backgroundSize: `${(currentTime * 100) / duration}% 100%` };
-						};
-
-						return (
-							<div
-								ref={playerRef}
-								style={{ height: `${height}px` }}
-								className={classNames(
-									styles.wrapper,
-									isFullscreenEnabled && styles.playerFullScreen,
-									isVisiblePlayer && styles.show
-								)}
-							>
-								<ButtonBase
-									aria-label="Закрыть"
-									title="Закрыть"
-									onClick={handleClosePlayer}
-									className={styles.close}
-								>
-									<CloseIcon />
-								</ButtonBase>
-								{video}
-								<ButtonBase
-									aria-label="Полноэкранный режим"
-									title="Полноэкранный режим"
-									onClick={toggleFullscreen}
-									className={styles.fullscreen}
-								>
-									{isFullscreenEnabled ? <ExitFullScreenIcon /> : <FullScreenIcon />}
-								</ButtonBase>
-								<div className={styles.controlBar}>
-									<div className={styles.range}>
-										<input
-											className={styles.input}
-											type="range"
-											max={duration}
-											style={getBackgroundSize()}
-											value={currentTime}
-											onChange={onChange}
-										/>
-										<span className={styles.time}>{secondsToTime(duration)}</span>
-									</div>
-									<ButtonBase
-										aria-label={isPlaying ? 'Пауза' : 'Смотреть'}
-										title={isPlaying ? 'Пауза' : 'Смотреть'}
-										onClick={actions.togglePlay}
-										className={styles.play}
-									>
-										{isPlaying ? <PauseIcon /> : <PlayIcon />}
-									</ButtonBase>
-								</div>
-							</div>
-						);
-					}}
-				</Video>
+				<div
+					// ref={playerRef}
+					style={{ height: `${height}px` }}
+					className={classNames(
+						styles.wrapper,
+						// isFullscreenEnabled && styles.playerFullScreen,
+						isVisiblePlayer && styles.show
+					)}
+				>
+					<Plyr
+						source={{
+							type: 'video',
+							sources: [
+								{
+									src: url,
+								},
+							],
+						}}
+						options={{
+							controls: [
+								// 'play-large', // The large play button in the center
+								// 'restart', // Restart playback
+								'rewind', // Rewind by the seek time (default 10 seconds)
+								'play', // Play/pause playback
+								'fast-forward', // Fast forward by the seek time (default 10 seconds)
+								'progress', // The progress bar and scrubber for playback and buffering
+								// 'current-time', // The current time of playback
+								'duration', // The full duration of the media
+								'mute', // Toggle mute
+								'volume', // Volume control
+								// 'captions', // Toggle captions
+								'settings', // Settings menu
+								// 'pip', // Picture-in-picture (currently Safari only)
+								// 'airplay', // Airplay (currently Safari only)
+								// 'download', // Show a download button with a link to either the current source or a custom URL you specify in your options
+								'fullscreen', // Toggle fullscreen
+							],
+						}}
+					/>
+				</div>
 			)}
 		</>
 	);

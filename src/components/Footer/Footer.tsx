@@ -14,7 +14,7 @@ interface FooterProps {
 export const Footer: FC<FooterProps> = ({ sticky }) => {
 	const menu = [
 		{
-			title: 'О нас',
+			title: 'About us',
 			items: [
 				{ href: RoutesEnum.About, txt: 'About' },
 				{ href: '/', txt: 'Jobs' },
@@ -27,7 +27,7 @@ export const Footer: FC<FooterProps> = ({ sticky }) => {
 			],
 		},
 		{
-			title: 'Разделы',
+			title: 'Sections',
 			items: [
 				{ href: RoutesEnum.Humor, txt: 'Юмор' },
 				{ href: RoutesEnum.Music, txt: 'Music' },
@@ -52,12 +52,11 @@ export const Footer: FC<FooterProps> = ({ sticky }) => {
 
 							return (
 								<div key={title} className={styles.col}>
-									<h2 className={styles.title}>{title}</h2>
+									<h2 className={styles.title}>{t(title)}</h2>
 									<ul className={classNames('list-reset', styles.list)}>
 										{items.map((el) => (
 											<li key={el.txt} className={styles.item}>
 												<NextLink href={el.href}>
-													{/* <a className={styles.link}>{el.txt}</a> */}
 													<a className={styles.link}>{t(el.txt)}</a>
 												</NextLink>
 											</li>

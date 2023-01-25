@@ -11,6 +11,11 @@ import { CardIcon, BitcoinIcon } from '@/icons';
 import styles from './SubscriptionModal.module.scss';
 import classNames from 'classnames';
 import axios from '@/utils/axios';
+import { getPackages } from '@/reducers/packages/thunks';
+import { useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
+import Image from 'next/image';
+import MasterCard from '../../../../../../Icons/svg/Mastercard.svg';
 
 const SubscriptionModal = () => {
 	const [paymentMethod, setPaymentMethod] = useState<string>('card');
@@ -20,10 +25,14 @@ const SubscriptionModal = () => {
 	const { showSubscriptionModal } = useTypedActions((state: any) => state.modal);
 
 	const handleClose = () => showSubscriptionModal(false);
-
+	const { push } = useRouter();
 	const { ModalTitle, ModalDesc, ModalButton } = Modal;
-
 	const buySubscription = async () => {
+		let b = await getPackages();
+		console.log(b);
+		setTimeout(() => {
+			console.log(b);
+		}, 2000);
 		try {
 			const { data } = await axios({
 				url: '/session/create-request',
@@ -31,11 +40,13 @@ const SubscriptionModal = () => {
 					'Content-Type': 'application/x-www-form-urlencoded',
 				},
 				method: 'post',
-				data: `user_id=${localStorage.getItem('zabar_user_id')}&package_id=0&payment_method=${
-					paymentMethod === 'card' ? 0 : 1
+				// УБРАТЬ 2 : 2 ПРИ РАБОТОСПОСОБНОСТИ КАРТЫ
+				data: `user_id=${localStorage.getItem('zabar_user_id')}&package_id=3&payment_method=${
+					paymentMethod === 'card' ? 2 : 2
 				}&payment_order_id=${paymentMethod}`,
 			});
-			console.log(data)
+			console.log(data);
+			push(data.payment_url);
 
 			return data;
 		} catch (error) {
@@ -74,6 +85,7 @@ const SubscriptionModal = () => {
 						<span className={styles.icon}>
 							<CardIcon />
 						</span>
+
 						<span className={styles.text}>Картой через эквайринг банка</span>
 					</div>
 					<span className={styles.right}>12,99€</span>

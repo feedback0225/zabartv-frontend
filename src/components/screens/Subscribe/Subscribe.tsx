@@ -17,7 +17,7 @@ export const Subscribe = () => {
 	return (
 		<section className={styles.section}>
 			<div className={classNames('container', styles.container)}>
-				<Title className={styles.title}>Подиска ZabarTV</Title>
+				<Title className={styles.title}>Подписка ZabarTV</Title>
 				<p className={styles.desc}>
 					Покажем уникальные сериалы и фильмы. Подберем кино по интересам и настроению. Для вас
 					и вашей семьи.

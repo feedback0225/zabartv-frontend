@@ -25,7 +25,7 @@ export const Views: FC<ViewsProps> = ({ viewed }) => {
 
 	const EmptyTitle = (
 		<Title level="h3" size="small">
-			${t('Watchlist is empty')}
+			{t('Watchlist is empty')}
 		</Title>
 	);
 
