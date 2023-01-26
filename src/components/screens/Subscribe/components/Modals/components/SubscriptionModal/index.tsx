@@ -12,10 +12,9 @@ import styles from './SubscriptionModal.module.scss';
 import classNames from 'classnames';
 import axios from '@/utils/axios';
 import { getPackages } from '@/reducers/packages/thunks';
-import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import MasterCard from '../../../../../../Icons/svg/Mastercard.svg';
+import MasterCardVisa from '../../../../../../Icons/VisaMS.png';
 
 const SubscriptionModal = () => {
 	const [paymentMethod, setPaymentMethod] = useState<string>('card');
@@ -102,6 +101,10 @@ const SubscriptionModal = () => {
 						<span className={styles.icon}>
 							<BitcoinIcon />
 						</span>
+						<span className={styles.img}>
+							<Image src={MasterCardVisa} width={31} height={36} />
+						</span>
+
 						<span className={styles.text}>Криптовалютой и картой</span>
 					</div>
 					<span className={styles.right}>12,99€</span>

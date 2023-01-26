@@ -10,7 +10,7 @@ interface FavouritesProps {
 }
 
 export const Favourites: FC<FavouritesProps> = ({ favorites }) => {
-	const isNotEpty = favorites.length > 0;
+	const isNotEpty = favorites && favorites.length > 0;
 	const { t } = useTranslation();
 
 	const FavoritesList = (

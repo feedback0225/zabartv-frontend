@@ -19,6 +19,7 @@ import getShowTimeMovie from '@/utils/getShowTimeMovie';
 import axios from '@/utils/axios';
 //
 import styles from './Movie.module.scss';
+import { useRouter } from 'next/router';
 
 export const Movie = () => {
 	const { data } = useTypedSelector((state) => state.movie);
@@ -36,13 +37,13 @@ export const Movie = () => {
 		img_base_url,
 		img_path,
 		catalogs,
+		stat_url,
 		stream_film_link,
 		stream_trailer_link,
 	}: any = {
 		...data[0],
 	};
-
-
+	const { push } =useRouter()
 	const categories = catalogs?.map((cat: ICatalog) => {
 		return cat.content.title_in_nav;
 	});
@@ -55,7 +56,11 @@ export const Movie = () => {
 			setUrl(stream_film_link);
 		} else {
 			addMovieToViewed();
-			setUrl(stream_film_link);
+			if (stat_url) {
+				push(stat_url)
+			} else {
+				setUrl(stream_film_link);
+			}
 		}
 		openPlayer(true);
 	};

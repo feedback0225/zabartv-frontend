@@ -10,7 +10,7 @@ interface ViewsProps {
 }
 
 export const Views: FC<ViewsProps> = ({ viewed }) => {
-	const isNotEpty = viewed?.length > 0;
+	const isNotEpty = viewed && viewed?.length > 0;
 	const { t } = useTranslation();
 
 	const ViewsList = (

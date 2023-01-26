@@ -1,9 +1,9 @@
-import { FC, Fragment, ReactNode, useState } from 'react';
+import { FC, Fragment, ReactNode, useEffect, useState } from 'react';
 import { Tab, TabList, TabPanel, Tabs as ReactTabs } from 'react-tabs';
 
 import classNames from 'classnames';
 
-import styles from './Tabs.module.scss';;
+import styles from './Tabs.module.scss';
 
 export type TabItem = {
 	txt: string;
@@ -24,10 +24,17 @@ const getStoreLocal = (name: string) => {
 	return null;
 };
 
-
 export const Tabs: FC<TabsProps> = ({ className, tabs }) => {
 	// ${tabs[0].txt - unique identificator
 	const [activeTab, setActiveTab] = useState(getStoreLocal(`lastCategory-${tabs[0]?.txt}`));
+	{
+	}
+	useEffect(() => {
+		setTimeout(() => {
+			setActiveTab(getStoreLocal(`lastCategory-${tabs[0]?.txt}`));
+		}, 1000);
+	}, []);
+
 
 	const handleChangeCategory = (id: any) => {
 		setActiveTab(id);
@@ -47,13 +54,7 @@ export const Tabs: FC<TabsProps> = ({ className, tabs }) => {
 						const { txt, condition = true } = el;
 						return (
 							<Fragment key={txt}>
-								{condition ? (
-									<Tab
-										className={styles.tab}
-									>
-										{txt}
-									</Tab>
-								) : null}
+								{condition ? <Tab className={styles.tab}>{txt}</Tab> : null}
 							</Fragment>
 						);
 					})}

@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 // hooks
 import { useTypedSelector } from '@/hooks/useTypedSelector';
-// components 
+// components
 import { CategoryCarousel } from './components/CategoryCarousel/CategoryCarousel';
 // components/UI
 import { Tabs } from '@/UI/Tabs/Tabs';
@@ -22,18 +22,18 @@ export const Category = () => {
 					content: { title_in_nav },
 				} = category;
 
-				const tabs = child_items?.map((tab: ISubCategory, idx) => {
+				const tabs = child_items?.map((tab: ISubCategory) => {
 					const {
 						content: { title },
 						films,
 					} = tab;
 
-					return { 
+					return {
 						txt: title,
-						content: <CategoryCarousel data={films} /> 
+						content: <CategoryCarousel data={films} />,
 					};
 				});
-
+				console.log(tabs)
 				return (
 					<section key={id} className={styles.section}>
 						<div className={classNames('container', styles.container)}>
