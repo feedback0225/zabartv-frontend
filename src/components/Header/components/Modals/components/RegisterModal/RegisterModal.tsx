@@ -94,7 +94,6 @@ export const RegisterModal = () => {
 			console.error(error);
 		}
 	});
-	console.log(errorMessages);
 	return (
 		<Modal className={styles.modal} fullscreen open={isVisibleRegisterModal} onClose={handleClose}>
 			<ModalTitle>Регистрация</ModalTitle>

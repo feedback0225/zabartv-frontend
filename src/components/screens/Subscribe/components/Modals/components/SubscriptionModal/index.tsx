@@ -11,7 +11,6 @@ import { CardIcon, BitcoinIcon } from '@/icons';
 import styles from './SubscriptionModal.module.scss';
 import classNames from 'classnames';
 import axios from '@/utils/axios';
-import { getPackages } from '@/reducers/packages/thunks';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import MasterCardVisa from '../../../../../../Icons/VisaMS.png';
@@ -27,11 +26,6 @@ const SubscriptionModal = () => {
 	const { push } = useRouter();
 	const { ModalTitle, ModalDesc, ModalButton } = Modal;
 	const buySubscription = async () => {
-		let b = await getPackages();
-		console.log(b);
-		setTimeout(() => {
-			console.log(b);
-		}, 2000);
 		try {
 			const { data } = await axios({
 				url: '/session/create-request',
@@ -44,7 +38,6 @@ const SubscriptionModal = () => {
 					paymentMethod === 'card' ? 2 : 2
 				}&payment_order_id=${paymentMethod}`,
 			});
-			console.log(data);
 			push(data.payment_url);
 
 			return data;

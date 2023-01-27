@@ -33,7 +33,6 @@ export const Category = () => {
 						content: <CategoryCarousel data={films} />,
 					};
 				});
-				console.log(tabs)
 				return (
 					<section key={id} className={styles.section}>
 						<div className={classNames('container', styles.container)}>

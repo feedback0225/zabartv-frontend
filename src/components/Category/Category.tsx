@@ -5,9 +5,12 @@ import { PropsWithChildren } from 'react';
 import styles from './Category.module.scss';
 
 export const Category = ({ children }: PropsWithChildren) => {
+
 	return (
 		<section className={styles.section}>
-			<div className={classNames('container', styles.container)}>{children}</div>
+			<div className={classNames('container', styles.container)}>
+				{children} 
+			</div>
 		</section>
 	);
 };

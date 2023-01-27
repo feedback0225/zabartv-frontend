@@ -11,11 +11,13 @@ export const Cartoons = () => {
 	const tabs =
 		child_items?.map((tab: any, idx: any) => {
 			const txt = tab.content.title;
+			const id = tab.id
 
 			const data = tab?.films?.items;
 
 			return {
 				txt,
+				id,
 				content: (
 					<Grid
 						items={data}

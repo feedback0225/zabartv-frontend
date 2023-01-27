@@ -7,7 +7,7 @@ interface GridProps<T> {
 	className?: string;
 }
 
-export function Grid<T>({ items, renderItem, className }: GridProps<T>) {
+export function Grid<T>({ items, renderItem }: GridProps<T>) {
 	const renderItems = useCallback(
 		(_items: typeof items) =>
 			_items?.map((item, idx) => <Fragment key={idx}>{renderItem(item)}</Fragment>),

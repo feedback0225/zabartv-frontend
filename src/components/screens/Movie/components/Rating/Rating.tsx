@@ -18,7 +18,6 @@ export const Rating: FC<RatingProps> = ({ className, rating }) => {
 	const { showGradeModal } = useTypedActions((state) => state.modal);
 	const { data } = useTypedSelector((state) => state.movie);
 	const { id } = { ...data[0] };
-	console.log(rating);
 
 	const handleShowModal = () => showGradeModal(true);
 
@@ -27,7 +26,6 @@ export const Rating: FC<RatingProps> = ({ className, rating }) => {
 			const data = await baseApi.getRating(id);
 
 			setUserRating(data?.film_rating ? data?.film_rating : 0);
-			console.log(data);
 		} catch (error) {
 			console.error(error);
 		}

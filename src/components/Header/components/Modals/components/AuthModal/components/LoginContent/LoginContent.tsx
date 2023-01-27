@@ -80,7 +80,6 @@ export const LoginContent = ({ authState }: { authState: string }) => {
 			} else {
 				setUser(data);
 				if (typeof window !== 'undefined') {
-					console.log(data)
 					window.localStorage.setItem('zabar_session_id', data?.session_id);
 				}
 
