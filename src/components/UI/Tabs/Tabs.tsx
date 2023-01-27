@@ -10,7 +10,7 @@ import { MovieItem } from '@/UI/MovieItem/MovieItem';
 
 export type TabItem = {
 	txt: string;
-	id: string;
+	id?: string;
 	condition?: unknown;
 	content: ReactNode;
 };
@@ -108,13 +108,13 @@ export const Tabs: FC<TabsProps> = ({ className, tabs }) => {
 						{condition ? (
 							<TabPanel>
 								{content}
-								<button onClick={() => handleShowMore(id)}>Показать еще</button>
+								{/* <button onClick={() => handleShowMore(id)}>Показать еще</button> */}
 							</TabPanel>
 						) : null}
 					</Fragment>
 				);
 			})}
-			{newFilms.map((el: TabItem) => {
+			{/* {newFilms.map((el: TabItem) => {
 				const { txt, content, id, condition = true } = el;
 				return (
 					<Fragment key={txt}>
@@ -124,7 +124,7 @@ export const Tabs: FC<TabsProps> = ({ className, tabs }) => {
 						</TabPanel>
 					</Fragment>
 				);
-			})}
+			})} */}
 		</ReactTabs>
 	);
 };
