@@ -1,5 +1,6 @@
 import { IMovie } from '@/types/IMovie';
 import { Title } from '@/UI/Title/Title';
+import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
 import { Grid } from '../Grid/Grid';
 import { MovieItem } from '../index';
@@ -9,7 +10,8 @@ interface ViewsProps {
 }
 
 export const Views: FC<ViewsProps> = ({ viewed }) => {
-	const isNotEpty = viewed?.length > 0;
+	const isNotEpty = viewed && viewed?.length > 0;
+	const { t } = useTranslation();
 
 	const ViewsList = (
 		<Grid>
@@ -23,7 +25,7 @@ export const Views: FC<ViewsProps> = ({ viewed }) => {
 
 	const EmptyTitle = (
 		<Title level="h3" size="small">
-			Список просмотренного пуст
+			{t('Watchlist is empty')}
 		</Title>
 	);
 

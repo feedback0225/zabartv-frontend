@@ -94,7 +94,6 @@ export const RegisterModal = () => {
 			console.error(error);
 		}
 	});
-
 	return (
 		<Modal className={styles.modal} fullscreen open={isVisibleRegisterModal} onClose={handleClose}>
 			<ModalTitle>Регистрация</ModalTitle>
@@ -134,13 +133,9 @@ export const RegisterModal = () => {
 							);
 						}}
 					/>
-					{errorMessages?.length > 0
-						? errorMessages?.map((error) => (
-								<ModalErrorMessage key={error}>
-									Не удалось зарегистрироваться
-								</ModalErrorMessage>
-						  ))
-						: null}
+					{errorMessages ? (
+						<ModalErrorMessage>Не удалось зарегистрироваться</ModalErrorMessage>
+					) : null}
 				</ModalInputs>
 				<ModalButton spinner={isLoading}>Зарегистрироваться</ModalButton>
 			</form>

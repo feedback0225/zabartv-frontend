@@ -9,7 +9,7 @@ interface VideoItemProps {
 }
 
 export const VideoItem: FC<VideoItemProps> = ({ item }) => {
-	const { poster, id, title, desc, url } = item;
+	const { poster, title, desc, url } = item;
 
 	const { openPlayer, setUrl } = useTypedActions((state) => state.player);
 

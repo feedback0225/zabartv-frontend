@@ -16,7 +16,7 @@ interface MovieItemProps {
 }
 
 export const MovieItem: FC<MovieItemProps> = ({ item, favourite }) => {
-	const { preview_base_url, preview_path, film_path, id, slug, type, content } = item;
+	const { preview_base_url, preview_path, id, slug, type, content } = item;
 
 	const url = `${preview_base_url}/${preview_path}`;
 

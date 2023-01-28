@@ -1,8 +1,8 @@
-import { Avatar, SubscribeInfo, Settings, Favourites, Purchases, Views } from './components/index';
+import { Avatar, Settings, Favourites, Purchases, Views } from './components/index';
 import { MailIcon } from '@/icons';
 import { Tabs } from '@/UI/Tabs/Tabs';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { getFavorites, getHistoryPayments, getMe, getViewed } from '@/reducers/user/thunks';
 import { useAppDispatch } from '@/hooks/useAppDispatch';
 import { Spinner, SpinnerSizes } from '@/UI/Spinner/Spinner';
@@ -12,7 +12,6 @@ import { useRouter } from 'next/router';
 import { RoutesEnum } from '@/constants/routes';
 import { getFooterMenu, getNavMenu } from '@/reducers/menu/thunks';
 import { baseApi } from '@/api';
-import axios from '@/utils/axios';
 import classNames from 'classnames';
 import styles from './Cabinet.module.scss';
 
@@ -57,10 +56,9 @@ export const Cabinet = () => {
 
 	const logoutUser = async () => {
 		// await axios.get('/session/logout');
-		
+
 		logout();
 		push(RoutesEnum.Home);
-
 	};
 
 	useEffect(() => {

@@ -11,8 +11,6 @@ export const About = () => {
 
 	const { content: block } = { ...child_items?.blocks[0] };
 
-	console.log(block)
-
 	return (
 		<section className={styles.section}>
 			<Head>

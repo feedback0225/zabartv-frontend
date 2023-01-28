@@ -4,11 +4,12 @@ import { Title } from '@/UI/Title/Title';
 import { Fragment } from 'react';
 import classNames from 'classnames';
 import styles from './Purchases.module.scss';
+import { useTranslation } from 'next-i18next';
 
 export const Purchases = () => {
-	const { history } = useTypedSelector((state) => state.user);
+	const { history } = useTypedSelector((state: any) => state.user);
 
-	const data = history?.map((el) => {
+	const data = history?.map((el: any) => {
 		const date = convertTimestampToDate(el.start_date, 'DD.MM.YY');
 
 		const periodStartPath = convertTimestampToDate(el.start_date, 'DD.MM');
@@ -19,9 +20,11 @@ export const Purchases = () => {
 		return { date, period, price };
 	});
 
+	const { t } = useTranslation();
+
 	return (
 		<>
-			{history.map((item, idx) => (
+			{history.map((item: any, idx: any) => (
 				<Fragment key={idx}>
 					{item?.hasOwnProperty('order_id') ? (
 						<div className={styles.table}>
@@ -30,7 +33,7 @@ export const Purchases = () => {
 								<span className={styles.nameCol}>Период активности</span>
 								<span className={styles.nameCol}>Цена</span>
 							</div>
-							{data.map((item) => {
+							{data.map((item: any) => {
 								const { date, period, price } = item;
 
 								return (
@@ -44,7 +47,7 @@ export const Purchases = () => {
 						</div>
 					) : (
 						<Title className={styles.errorMessage} level="h3" size="small">
-							Нет покупок
+							{t('Нет покупок')}
 						</Title>
 					)}
 				</Fragment>

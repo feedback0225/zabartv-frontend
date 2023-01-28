@@ -8,6 +8,7 @@ import { Player } from '@/components/Player/Player';
 import type { NextPage } from 'next';
 import { baseApi } from '@/api';
 import { getFooterMenu, getNavMenu } from '@/reducers/menu/thunks';
+import dynamic from 'next/dynamic';
 
 const MoviePage: NextPage = () => {
 	return (

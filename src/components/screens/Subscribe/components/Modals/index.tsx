@@ -1,12 +1,12 @@
 // components
-import SubscriptionModal from './components/SubscriptionModal'
+import SubscriptionModal from './components/SubscriptionModal';
 
 const Modals = () => {
-    return (
-        <>
-            <SubscriptionModal />
-        </>
-    )
-}
+	return (
+		<>
+			<SubscriptionModal />
+		</>
+	);
+};
 
-export default Modals
+export default Modals;
