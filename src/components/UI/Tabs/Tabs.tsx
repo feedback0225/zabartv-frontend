@@ -7,6 +7,8 @@ import styles from './Tabs.module.scss';
 import axios from '@/utils/axios';
 import { Grid } from '@/UI/Grid/Grid';
 import { MovieItem } from '@/UI/MovieItem/MovieItem';
+import Image from 'next/image';
+import { ArrowIcon } from '@/icons';
 
 export type TabItem = {
 	txt: string;
@@ -18,6 +20,7 @@ export type TabItem = {
 interface TabsProps {
 	tabs: TabItem[];
 	className?: string;
+	setNewFilms?: any;
 }
 
 const getStoreLocal = (name: string) => {
@@ -28,11 +31,12 @@ const getStoreLocal = (name: string) => {
 	return null;
 };
 
-export const Tabs: FC<TabsProps> = ({ className, tabs }) => {
+export const Tabs: FC<TabsProps> = ({ className, tabs, setNewFilms }) => {
 	// ${tabs[0].txt - unique identificator
 	const [activeTab, setActiveTab] = useState(getStoreLocal(`lastCategory-${tabs[0]?.txt}`));
-	const [activePage, setActivePage] = useState(0);
-	const [newFilms, setNewFilms] = useState<any>([]);
+	const [totalPages, setTotalPages] = useState<any>({});
+	const [currentPage, setCurrentPage] = useState<any>({});
+	const [paginationLink, setPaginationLink] = useState<any>({});
 
 	useEffect(() => {
 		setTimeout(() => {
@@ -40,45 +44,38 @@ export const Tabs: FC<TabsProps> = ({ className, tabs }) => {
 		}, 1000);
 	}, []);
 
-	const handleChangeCategory = (id: any) => {
+	const handleChangeCategory = async (id: any) => {
 		setActiveTab(id);
 		localStorage.setItem(`lastCategory-${tabs[0].txt}`, String(id));
 	};
 
-	const handleShowMore = async (id: string) => {
+	const handleShowMore = async (id: any) => {
+		const pagLink = paginationLink[id] ? paginationLink[id] : null;
 		try {
 			let { data } = await axios({
-				url: `/items/selectforids?id=${id}-${activePage + 1}`,
+				url: pagLink ? pagLink : `/items/selectforcat?id=${id}`,
 				headers: {
 					'Content-Type': 'application/x-www-form-urlencoded',
 				},
 				method: 'get',
 			});
-
-			data = data.items.map((tab: any, i: number) => {
-				const data = tab.items;
-				const txt = i;
-
-				return {
-					txt,
-					content: (
-						<Grid
-							items={data}
-							renderItem={(el) => {
-								const item = el[0];
-
-								return <MovieItem item={item} />;
-							}}
-						/>
-					),
-				};
+			const link = data?._links?.next?.href
+				.split('/')
+				.slice(5, data._links.next.href.length)
+				.join('/');
+			let { data: newData } = await axios({
+				url: link,
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded',
+				},
+				method: 'get',
 			});
-
-			setActivePage(activePage + 1);
-			setNewFilms(data);
-			return data;
+			totalPages === 2 && setTotalPages({ [id]: data._meta.pageCount });
+			setCurrentPage({ [id]: currentPage + 1 });
+			setNewFilms({ [id]: newData.items });
+			setPaginationLink({ [id]: link });
 		} catch (e) {
-			console.error(e);
+			console.log(e);
 		}
 	};
 
@@ -86,6 +83,7 @@ export const Tabs: FC<TabsProps> = ({ className, tabs }) => {
 		<ReactTabs
 			selectedTabClassName={styles.selected}
 			selectedIndex={activeTab ? +activeTab : 0}
+			// @ts-ignore
 			onSelect={(id) => handleChangeCategory(id)}
 			className={classNames(styles.tabs, className)}
 		>
@@ -103,28 +101,41 @@ export const Tabs: FC<TabsProps> = ({ className, tabs }) => {
 			</div>
 			{tabs.map((el: TabItem) => {
 				const { txt, content, id, condition = true } = el;
+				const currPage = id && currentPage[id] ? currentPage[id] : 1;
 				return (
 					<Fragment key={txt}>
 						{condition ? (
 							<TabPanel>
 								{content}
-								{/* <button onClick={() => handleShowMore(id)}>Показать еще</button> */}
+								{/* @ts-ignore */}
+								{content?.props?.items && content?.props?.items.length > 11 &&
+									(id && totalPages[id]
+										? totalPages[id] > currPage
+										: 2 > currPage) && (
+										<button
+											className={styles.btn}
+											onClick={() => handleShowMore(id)}
+										>
+											<svg
+												width="10"
+												height="13"
+												viewBox="0 0 10 13"
+												fill="none"
+												xmlns="http://www.w3.org/2000/svg"
+											>
+												<path
+													d="M5.65 1C5.65 0.641015 5.35899 0.35 5 0.35C4.64101 0.35 4.35 0.641015 4.35 1L5.65 1ZM4.54038 12.4596C4.79422 12.7135 5.20578 12.7135 5.45962 12.4596L9.59619 8.32304C9.85004 8.0692 9.85004 7.65765 9.59619 7.40381C9.34235 7.14997 8.9308 7.14997 8.67696 7.40381L5 11.0808L1.32305 7.40381C1.0692 7.14997 0.657647 7.14997 0.403806 7.40381C0.149966 7.65765 0.149966 8.0692 0.403807 8.32304L4.54038 12.4596ZM4.35 1L4.35 12L5.65 12L5.65 1L4.35 1Z"
+													fill="white"
+												/>
+											</svg>
+											Показать еще
+										</button>
+									)}
 							</TabPanel>
 						) : null}
 					</Fragment>
 				);
 			})}
-			{/* {newFilms.map((el: TabItem) => {
-				const { txt, content, id, condition = true } = el;
-				return (
-					<Fragment key={txt}>
-						<TabPanel>
-							{content}
-							<button onClick={() => handleShowMore(id)}>Показать еще</button>
-						</TabPanel>
-					</Fragment>
-				);
-			})} */}
 		</ReactTabs>
 	);
 };

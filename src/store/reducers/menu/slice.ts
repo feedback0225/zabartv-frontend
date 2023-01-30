@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { getFooterMenu, getNavMenu } from './thunks';
 
 interface IMenuItem {
+	[x: string]: void;
 	id: number;
 	link_type: number;
 	link_type_name: string;

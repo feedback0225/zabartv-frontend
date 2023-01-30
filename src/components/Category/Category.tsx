@@ -5,12 +5,9 @@ import { PropsWithChildren } from 'react';
 import styles from './Category.module.scss';
 
 export const Category = ({ children }: PropsWithChildren) => {
-
 	return (
 		<section className={styles.section}>
-			<div className={classNames('container', styles.container)}>
-				{children} 
-			</div>
+			<div className={classNames('container', styles.container)}>{children}</div>
 		</section>
 	);
 };
@@ -19,8 +16,8 @@ const Title = ({ children }: PropsWithChildren) => {
 	return <UITitle className={styles.title}>{children}</UITitle>;
 };
 
-const Tabs = ({ tabs }: { tabs: TabItem[] }) => {
-	return <UITabs className={styles.tabs} tabs={tabs} />;
+const Tabs = ({ tabs, setNewFilms }: { tabs: TabItem[]; setNewFilms?: any }) => {
+	return <UITabs className={styles.tabs} tabs={tabs} setNewFilms={setNewFilms} />;
 };
 
 Category.Title = Title;

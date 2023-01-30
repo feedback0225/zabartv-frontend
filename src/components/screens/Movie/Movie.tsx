@@ -23,6 +23,7 @@ import { useRouter } from 'next/router';
 
 export const Movie = () => {
 	const { data } = useTypedSelector((state) => state.movie);
+	console.log(data);
 	const { openPlayer, setUrl } = useTypedActions((state) => state.player);
 
 	const {
@@ -43,10 +44,10 @@ export const Movie = () => {
 	}: any = {
 		...data[0],
 	};
-	const { push } =useRouter()
 	const categories = catalogs?.map((cat: ICatalog) => {
 		return cat.content.title_in_nav;
 	});
+	console.log(parts)
 
 	const image = `${img_base_url}/${img_path}`;
 
@@ -57,7 +58,7 @@ export const Movie = () => {
 		} else {
 			addMovieToViewed();
 			if (stat_url) {
-				push(stat_url)
+				setUrl(stat_url);
 			} else {
 				setUrl(stream_film_link);
 			}
@@ -81,6 +82,7 @@ export const Movie = () => {
 			console.error(e);
 		}
 	};
+	console.log(stat_url);
 
 	return (
 		<>

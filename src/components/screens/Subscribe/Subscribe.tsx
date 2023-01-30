@@ -9,8 +9,6 @@ import { Title } from '@/UI/Title/Title';
 //
 import styles from './Subscribe.module.scss';
 
-
-
 export const Subscribe = () => {
 	const { data } = useTypedSelector((state) => state.subscribe);
 

@@ -1,9 +1,9 @@
-import { Tabs } from '@/UI/Tabs/Tabs';
 import { SeasonsCarousel } from './components/SeasonsCarousel/SeasonsCarousel';
 import { FC } from 'react';
 import { IPart } from '@/types/IPart';
 import classNames from 'classnames';
 import styles from './Seasons.module.scss';
+import { TabsDefault } from '@/UI/Tabs/TabsDefault';
 
 interface SeasonsProps {
 	parts: IPart[] | undefined;
@@ -32,11 +32,10 @@ export const Seasons: FC<SeasonsProps> = ({ parts }) => {
 
 			return { txt, content: <SeasonsCarousel items={items} /> };
 		}) || [];
-
 	return (
 		<div className={styles.seasons}>
 			<div className={classNames('container', styles.container)}>
-				<Tabs tabs={tabs} />
+				<TabsDefault tabs={tabs} />
 			</div>
 		</div>
 	);
